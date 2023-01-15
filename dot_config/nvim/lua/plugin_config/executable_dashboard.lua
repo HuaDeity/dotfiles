@@ -29,7 +29,7 @@ db.custom_footer = {'HuaDeity'}
 db.custom_center = {
     {icon = '  ',
     desc = 'Recently latest session                 ',
-    action = 'SessionManager load_last_session',
+    action = 'SessionLoad',
     shortcut = 'SPC s l'},
     {icon = '  ',
     desc = 'Recently opened file                    ',
@@ -60,4 +60,6 @@ db.custom_center = {
     action = 'qa',
     shortcut = ':qa    '},
 }
--- db.session_directory = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
+db.session_directory = vim.fn.expand(vim.fn.stdpath("data") .. "/sessions/")
+db.session_auto_save_on_exit = ture
+

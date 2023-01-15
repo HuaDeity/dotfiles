@@ -22,11 +22,8 @@ require('catppuccin').setup{
 			  information = "underline",
 		  },
 	  },
-    nvimtree = {
-      enabled = true,
-      show_root = true, -- makes the root folder not transparent
-	    transparent_panel = false, -- make the panel transparent
-    },
+    neogit = true,
+    nvimtree = true,
     lsp_trouble = true,
     cmp = true,
     gitsigns = true,
@@ -38,8 +35,18 @@ require('catppuccin').setup{
     },
     dashboard = true,
     bufferline = true,
-    ts_rainbow = true,
     hop = true,
+    illuminate = true,
+    fidget = true,
+    mason = true,
+    markdown = true,
+    dap = {
+      enable = true,
+      enable_ui = true,
+    },
+    treesitter_context = true,
+    noice = true,
+    notify = true,
   }
 }
 

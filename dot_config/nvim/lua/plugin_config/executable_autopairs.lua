@@ -1,5 +1,6 @@
 require('nvim-autopairs').setup{
   check_ts = true,
+  fast_wrap = {},
 }
 
 -- If you want insert `(` after select function or method item

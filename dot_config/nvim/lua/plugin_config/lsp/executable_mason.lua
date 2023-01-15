@@ -24,26 +24,28 @@ require('neodev').setup()
 require('mason').setup()
 
 require('mason-lspconfig').setup({
-    ensure_installed = vim.tbl_keys(servers),
+  ensure_installed = vim.tbl_keys(servers),
+  automatic_installation = true
 })
 
-require('mason-tool-installer').setup{
+require('mason-null-ls').setup({
+  --[[ ensure_installed = nil, ]]
+  automatic_installation = true,
+  --[[ automatic_setup = false, ]]
+})
+
+require('mason-nvim-dap').setup({
   ensure_installed = {
-    'black',
-    'flake8',
-    'prettier',
-    'stylua',
+    'python',
   },
-  auto_update = true,
-  run_on_start = true,
-}
+  automatic_installation = true,
+  automatic_setup = true,
+})
+
+require 'mason-nvim-dap'.setup_handlers()
 
 for _, lsp in ipairs(servers) do
   local on_attach , capabilities = require 'plugin_config.lsp.settings.common'
-  opts = {
-    on_attach = on_attach,
-    capabilities = capabilities,
-  }
   require('mason-lspconfig').setup_handlers {
     function(server_name)
       require('lspconfig')[server_name].setup {

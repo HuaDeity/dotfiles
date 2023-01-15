@@ -12,9 +12,12 @@ require('packer').startup({function(use)
   -- Package manager
   use 'wbthomason/packer.nvim'
 
+  -- Basic lua function
+  use 'nvim-lua/plenary.nvim'
+
   -- Git related plugins
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
-  use { 'TimUntersberger/neogit', requires = {'nvim-lua/plenary.nvim'} }
+  use 'lewis6991/gitsigns.nvim'
+  use 'TimUntersberger/neogit'
 
   -- Comment
   -- "gc" to comment visual regions/lines
@@ -31,7 +34,7 @@ require('packer').startup({function(use)
     'nvim-treesitter/nvim-treesitter-textobjects', 
     after = 'nvim-treesitter',
   }
-  use 'p00f/nvim-ts-rainbow'
+  use 'nvim-treesitter/nvim-treesitter-context'
 
   use { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
@@ -39,28 +42,61 @@ require('packer').startup({function(use)
       -- Automatically install LSPs to stdpath for neovim 
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
+      'jay-babu/mason-null-ls.nvim',
+      'jay-babu/mason-nvim-dap.nvim',
 
       -- Useful status updates for LSP
       'j-hui/fidget.nvim', 
       
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim', 
+
+      -- Automatically highlighting the word under the cursor
+      'RRethy/vim-illuminate',
+
+      -- For formatters and linters
+      'jose-elias-alvarez/null-ls.nvim',
     }
   }
-  use 'WhoIsSethDaniel/mason-tool-installer.nvim'
-  -- For formatters and linters
-  use 'jose-elias-alvarez/null-ls.nvim'
-  use {'zbirenbaum/copilot.lua', event = {"VimEnter"}}
 
+  -- Github Copilot
+  use {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "VimEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("copilot").setup{
+          suggestion = { enabled = false },
+          panel = { enabled = false },
+      }
+      end, 100)
+    end,
+  }
+  use {
+    "zbirenbaum/copilot-cmp",
+    after = { "copilot.lua" },
+    config = function()
+      require("copilot_cmp").setup()
+    end
+  }
+  
   use { --  Autocompletion
     'hrsh7th/nvim-cmp',
-    requires = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip',  'saadparwaiz1/cmp_luasnip' },
+    requires = {
+      -- Sources
+      'hrsh7th/cmp-nvim-lsp',
+      'hrsh7th/cmp-nvim-lua',
+      -- Snip Sources
+      'L3MON4D3/LuaSnip',
+      'saadparwaiz1/cmp_luasnip',
+      -- Other Sources
+      'hrsh7th/cmp-buffer',
+      'hrsh7th/cmp-path',
+      -- Formating
+      'onsails/lspkind.nvim'
+    },
   }
-  use {'zbirenbaum/copilot-cmp', module = "copilot_cmp"}
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-nvim-lua'
-  use 'onsails/lspkind.nvim'
 
   -- Snippet
   -- Snippet Engine and Snippet Expansion
@@ -68,12 +104,14 @@ require('packer').startup({function(use)
 
   -- Colerschemes
   -- Theme inspired by Atom
-  use {'catppuccin/nvim', as = 'catppuccin'}
-  use 'f-person/auto-dark-mode.nvim'
+  use {'catppuccin/nvim', as = 'catppuccin', requires= {'f-person/auto-dark-mode.nvim'}}
 
   -- Statusline
   -- Fancier statusline
-  use {'nvim-lualine/lualine.nvim', requires = {'kyazdani42/nvim-web-devicons', opt = true}}
+  use 'nvim-lualine/lualine.nvim'
+
+  -- Web-devicons
+  use 'nvim-tree/nvim-web-devicons'
 
   -- Indent
   -- Add indentation guides even on blank lines
@@ -91,10 +129,24 @@ require('packer').startup({function(use)
   use 'glepnir/dashboard-nvim'
 
   -- Nvim-tree
-  use {'kyazdani42/nvim-tree.lua', requires = {'kyazdani42/nvim-web-devicons'}}
+  use 'nvim-tree/nvim-tree.lua'
 
   -- Bufferline
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', 
+        tag = "v3.*", 
+        after = 'catppuccin',
+        config = function()
+          require("bufferline").setup {
+            highlights = require("catppuccin.groups.integrations.bufferline").get(),
+            options = {
+              close_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+              right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+              offsets = { { filetype = "NvimTree", text = "File Tree", padding = 1} },
+              separator_style = "thin", -- | "thick" | "slant" | { 'any', 'any' },
+            },
+          }
+        end
+  }
 
   -- Autopairs
   use 'windwp/nvim-autopairs'
@@ -108,22 +160,40 @@ require('packer').startup({function(use)
   -- Impatient
   use 'lewis6991/impatient.nvim'
   
-  -- Debug
-  use 'mfussenegger/nvim-dap'
-  use 'rcarriga/nvim-dap-ui'
+  use { -- Debug
+    'mfussenegger/nvim-dap',
+    requires = {
+      'rcarriga/nvim-dap-ui',
+    }
+  }
   
   -- Whichkey
   use 'folke/which-key.nvim'
 
-  -- Easymotion
+  -- Motion
   use 'phaazon/hop.nvim'
 
   -- Trouble
   use 'folke/trouble.nvim'
-
-  -- Session
-  use 'shatur/neovim-session-manager'
   
+  -- Noise
+  use({
+    "folke/noice.nvim",
+    config = function()
+      require("noice").setup({
+          -- add any options here
+      })
+    end,
+    requires = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      "MunifTanjim/nui.nvim",
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+      }
+  })
+
   -- Detect tabstop and shiftwidth Automatically
   use { 'nmac427/guess-indent.nvim', config = function() require('guess-indent').setup {} end,}
 

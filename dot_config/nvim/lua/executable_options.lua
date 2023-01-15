@@ -37,7 +37,7 @@ vim.o.laststatus = 3
 vim.o.wrap = false
 
 -- The font used in graphical neovim applications
-vim.o.guifont = "Iosevka Nerd Font Mono:h15"
+vim.o.guifont = "MonoLisa Nerd Font Mono:h13"
 
 -- Make line numbers default
 vim.o.number = true
@@ -73,3 +73,7 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 
 vim.o.sessionoptions="blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal"
+
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"

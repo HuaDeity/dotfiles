@@ -1,9 +1,3 @@
--- Set colorscheme
---[[ require('onedarkpro').setup{ ]]
---[[   dark_theme = "onedark", ]]
---[[   light_theme = "onelight", ]]
---[[ } ]]
---[[ require('onedarkpro').load() ]]
 
 require 'plugin_config.catppuccin'
 
@@ -21,3 +15,4 @@ require('auto-dark-mode').setup{
 
 require('auto-dark-mode').init()
 
+vim.cmd.colorscheme "catppuccin"
