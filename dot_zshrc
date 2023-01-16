@@ -56,6 +56,9 @@ export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 # tmux-256color on macOS
 export TERMINFO_DIRS="$HOME/.local/share/terminfo:$TERMINFO_DIRS"
 
+# SSH_Auth
+export SSH_AUTH_SOCK=~/.1password/agent.sock
+
 # Proxy for terminal
 export https_proxy=http://127.0.0.1:6152
 export http_proxy=http://127.0.0.1:6152
