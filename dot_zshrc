@@ -171,6 +171,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 # zsh syntax highlighting theme
 source $zsh_syntax_highlighting_theme
 
+# 1Password for Github
+# source ~/.config/op/plugins.sh
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration

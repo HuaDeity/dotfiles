@@ -1,6 +1,7 @@
 [user]
 	name = HuaDeity
 	email = tidy.year0352@fastmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFADIHCnmIMoyQq5zv05TuLeFeanIrSb3V+6W9iG1ylO
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -10,3 +11,9 @@
 	proxy = socks5://127.0.0.1:6153
 [https]
 	proxy = socks5://127.0.0.1:6153
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+	gpgsign = true
