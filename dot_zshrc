@@ -30,16 +30,14 @@ else
 	--color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
 fi
 # zsh syntax highlighting
-export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/catppuccin_$flavour-zsh-syntax-highlighting.zsh"
+export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/themes/catppuccin_$flavour-zsh-syntax-highlighting.zsh"
 export BAT_THEME="Catppuccin-$flavour"
 # tmux
 eval "sed -i '' '/flavour/c\'$'\n'\"set -g @catppuccin_flavour '$flavour'\"$'\n' $HOME/.tmux.conf"
 # btop
 eval "sed -i '' '/color_theme/c\'$'\n'\"color_theme = \\\"catppuccin_$flavour\\\"\"$'\n' $XDG_CONFIG_HOME/btop/btop.conf" 
-# mu
-# eval "sed -i '' '/skin/c\'$'\n'\"skin = \\\"catppuccin_$flavour\\\"\"$'\n' $XDG_CONFIG_HOME/btop/btop.conf" 
 # lazygit
-eval "cat $XDG_CONFIG_HOME/lazygit/config > $XDG_CONFIG_HOME/lazygit/config.yml;cat $XDG_CONFIG_HOME/lazygit/$flavour.yml >> $XDG_CONFIG_HOME/lazygit/config.yml"
+eval "cat $XDG_CONFIG_HOME/lazygit/config > $XDG_CONFIG_HOME/lazygit/config.yml;cat $XDG_CONFIG_HOME/lazygit/themes/$flavour.yml >> $XDG_CONFIG_HOME/lazygit/config.yml"
 
 # Set defalt bin path
 export PATH="$HOME/.local/share/bin:$PATH"

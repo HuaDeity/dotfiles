@@ -34,4 +34,41 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-
+[".config/bat/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/bat/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    include = ["*/*.tmTheme"]
+[".config/btop/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/btop/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+    include = ["*/*.theme"]
+[".config/lazygit/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/lazygit/archive/master.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.yml"]
+[".config/spicetify/CustomApps/Marketplace"]
+    type = "archive"
+    url = "https://github.com/spicetify/spicetify-marketplace/releases/latest/download/spicetify-marketplace.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".config/spicetify/Themes/marketplace/color.ini"]
+    type = "file"
+    url = "https://github.com/spicetify/spicetify-marketplace/blob/main/resources/color.ini"
+    refreshPeriod = "168h"
+[".config/zsh-syntax-highlighting/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/zsh-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.zsh"]
