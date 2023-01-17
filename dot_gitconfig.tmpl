@@ -1,7 +1,7 @@
 [user]
-	name = HuaDeity
-	email = tidy.year0352@fastmail.com
-	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFADIHCnmIMoyQq5zv05TuLeFeanIrSb3V+6W9iG1ylO
+	name = {{ onepasswordRead "op://Personal/Github/username" }}
+	email = {{ onepasswordRead "op://Personal/Github/email" }}
+	signingkey =  {{ onepasswordRead "op://Personal/Github SSH/public key" }}
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
