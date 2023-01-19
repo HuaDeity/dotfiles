@@ -1,4 +1,0 @@
-{{- if ne .chezmoi.hostname "ViMacBook" }}
-.config/spicetify
-{{- end }}
-
