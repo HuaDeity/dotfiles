@@ -1,7 +1,7 @@
 [user]
 	name = {{ onepasswordRead "op://Personal/Github/username" }}
 	email = {{ onepasswordRead "op://Personal/Github/email" }}
-	signingkey =  {{ onepasswordRead "op://Personal/Github SSH/public key" }}
+	signingkey = {{ onepasswordRead "op://Personal/Github SSH/public key" }}
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -13,7 +13,22 @@
 	proxy = socks5://127.0.0.1:6153
 [gpg]
 	format = ssh
+	program = /usr/local/bin/gpg
 [gpg "ssh"]
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 [commit]
 	gpgsign = true
+[diff]
+	tool = Kaleidoscope
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[difftool]
+	prompt = false
+	trustExitCode = true
+[merge]
+	tool = Kaleidoscope
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+[mergetool]
+	prompt = false

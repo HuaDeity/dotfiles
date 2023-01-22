@@ -9,6 +9,7 @@ tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
 tap "homebrew/core"
 tap "homebrew/services"
+tap "mistertea/et"
 tap "nrlquaker/createzap"
 tap "sidneys/homebrew"
 brew "xz"
@@ -31,7 +32,6 @@ brew "jq"
 brew "lazygit"
 brew "m-cli"
 brew "mas"
-brew "mosh"
 brew "neovim"
 brew "ninja"
 brew "node"
@@ -49,7 +49,7 @@ brew "wget"
 brew "wimlib"
 brew "zlib"
 brew "zsh"
-brew "d12frosted/emacs-plus/emacs-plus@28", args: ["with-elrumo1-icon", "with-native-comp", "with-no-titlebar-and-round-corners", "with-xwidgets"]
+brew "mistertea/et/et"
 brew "sidneys/homebrew/chntpw"
 cask "1password"
 cask "1password-cli"
@@ -60,16 +60,15 @@ cask "airbuddy"
 cask "alfred"
 cask "apparency"
 cask "bartender"
-cask "bbedit"
 cask "betterzip"
 cask "bilibili"
 cask "calibre"
 cask "canva"
 cask "cardhop"
 cask "cheatsheet"
+cask "cleanshot"
 cask "clion"
 cask "cloudflare-warp"
-cask "cmake"
 cask "dash"
 cask "dataspell"
 cask "deepl"
@@ -85,7 +84,6 @@ cask "font-lxgw-wenkai"
 cask "font-symbols-only-nerd-font"
 cask "gpg-suite"
 cask "hazeover"
-cask "iina"
 cask "input-source-pro"
 cask "istat-menus"
 cask "iterm2"
@@ -151,6 +149,7 @@ mas "Final Cut Pro", id: 424389933
 mas "GarageBand", id: 682658836
 mas "GoodNotes", id: 1444383602
 mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
 mas "Keynote", id: 409183694
 mas "Logic Pro", id: 634148309
 mas "LookUp", id: 872564448
@@ -176,16 +175,19 @@ mas "PopClip", id: 445189367
 mas "Reeder", id: 1529448980
 mas "Save to Reader", id: 1640236961
 mas "ServerCat", id: 1501532023
+mas "Shareful", id: 1522267256
 mas "Shazam", id: 897118787
+mas "Shell Fish", id: 1336634154
 mas "Shortery", id: 1594183810
-mas "Spring", id: 1508706541
 mas "Streaks", id: 963034692
 mas "Tampermonkey", id: 1482490089
 mas "TestFlight", id: 899247664
 mas "Timery", id: 1425368544
 mas "Toggl Track", id: 1291898086
+mas "Twitter", id: 1482454543
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Vectornator", id: 1219074514
+mas "Vimari", id: 1480933944
 mas "WaterMinder", id: 1415257369
 mas "Xcode", id: 497799835
 mas "xSearch", id: 1579902068
