@@ -1,4 +1,3 @@
-tap "d12frosted/emacs-plus"
 tap "homebrew/aliases"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
