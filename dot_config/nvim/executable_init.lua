@@ -1,9 +1,8 @@
-if not require 'plugins' then
-  return
-end
-
 if vim.g.vscode then
 else 
+  if not require 'plugins' then
+    return
+  end
   require 'options'
   require 'globals'
   require 'keymaps'

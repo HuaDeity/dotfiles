@@ -34,10 +34,6 @@ export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/t
 export BAT_THEME="Catppuccin-$flavour"
 # tmux
 eval "sed -i '' '/flavour/c\'$'\n'\"set -g @catppuccin_flavour '$flavour'\"$'\n' $HOME/.tmux.conf"
-# btop
-eval "sed -i '' '/color_theme/c\'$'\n'\"color_theme = \\\"catppuccin_$flavour\\\"\"$'\n' $XDG_CONFIG_HOME/btop/btop.conf" 
-# lazygit
-eval "cat $XDG_CONFIG_HOME/lazygit/config > $XDG_CONFIG_HOME/lazygit/config.yml;cat $XDG_CONFIG_HOME/lazygit/themes/$flavour.yml >> $XDG_CONFIG_HOME/lazygit/config.yml"
 
 # Set defalt bin path
 export PATH="$HOME/.local/share/bin:$PATH"
@@ -58,13 +54,6 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 export https_proxy=http://127.0.0.1:6152
 export http_proxy=http://127.0.0.1:6152
 export all_proxy=socks5://127.0.0.1:6153
-
-# tmux-nvr
-if [ -n "$TMUX" ]; then
-    eval "$(tmux show-environment -s NVIM_LISTEN_ADDRESS 2> /dev/null)"
-else
-    export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
-fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -133,35 +122,29 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-          zsh-syntax-highlighting
-					zsh-autosuggestions
-					history-substring-search
-					command-not-found
-					z
-					sudo
-					vi-mode
-					git
-					gh
-        	macos
-					1password
-					brew
-					vscode
-					fzf
-					docker
-					docker-compose
-					pyenv
-					pip
-          web-search
-					dash
-					wakatime
-					tmux
-				)
-
-# ohmyz tmux plugin settings
-
-# ZSH_TMUX_UNICODE=true
-ZSH_TMUX_AUTOSTART=true
-ZSH_TMUX_DEFAULT_SESSION_NAME=main
+		zsh-syntax-highlighting
+		zsh-autosuggestions
+		history-substring-search
+		command-not-found
+		z
+		sudo
+		vi-mode
+		git
+		gh
+      	macos
+		1password
+		brew
+		vscode
+		fzf
+		docker
+		docker-compose
+		pyenv
+		pip
+        web-search
+		dash
+		wakatime
+		tmux
+		)
 
 # zsh highlighting highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
@@ -185,7 +168,7 @@ export LANG=en_US.UTF-8
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  export EDITOR='code'
 fi
 
 # Compilation flags
@@ -196,16 +179,12 @@ export ARCHFLAGS="-arch arm64"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
 # alias exa to ls
 alias ls='exa -a --icons'
 # Yoink.app alias
 alias yoink="open -a Yoink"
 # Tower.app alias
-alias gtower='gittower git rev-parse --show-toplevel'
+alias gtower='gittower $(git rev-parse --show-toplevel)'
 # Proxy alias
 alias proxy='export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153'
 alias unproxy='unset https_pxoxy;unset http_proxy;unset all_proxy'
