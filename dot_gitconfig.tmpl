@@ -1,7 +1,7 @@
 [user]
-	name = {{ onepasswordRead "op://Personal/Github/username" }}
-	email = {{ onepasswordRead "op://Personal/Github/email" }}
-	signingkey = {{ onepasswordRead "op://Personal/Github SSH/public key" }}
+	name = {{ onepasswordRead "op://Development/Github/username" }}
+	email = {{ onepasswordRead "op://Development/Github/email" }}
+	signingkey = {{ onepasswordRead "op://Personal/SSH/public key" }}
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
