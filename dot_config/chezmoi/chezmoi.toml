@@ -1,0 +1,12 @@
+[git]
+autoCommit = true
+[edit]
+command = "code"
+args = ["--wait"]
+[diff]
+command = "ksdiff"
+args = ["--diff", "{{ .Destination }}", "{{ .Target }}"]
+exclude = ["externals"]
+[merge]
+command = "ksdiff"
+args = ["--merge", "{{ .Destination }}", "{{ .Source }}", "{{ .Target }}"]
