@@ -1,3 +1,7 @@
+#!/bin/bash
+
+brew bundle --no-lock --file=/dev/stdin <<EOF
+tap "1password/tap"
 tap "homebrew/aliases"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
@@ -10,7 +14,6 @@ tap "homebrew/core"
 tap "homebrew/services"
 tap "mistertea/et"
 tap "nrlquaker/createzap"
-brew "xz"
 brew "bat"
 brew "chezmoi"
 brew "duti"
@@ -25,14 +28,11 @@ brew "mas"
 brew "neovim"
 brew "ninja"
 brew "node"
-brew "openssl@3"
-brew "readline"
-brew "sqlite"
+brew "pdftk-java"
 brew "php", restart_service: true
 brew "pyenv"
 brew "python@3.10"
 brew "ripgrep"
-brew "sevenzip"
 brew "thefuck"
 brew "tldr"
 brew "tmux"
@@ -48,6 +48,7 @@ cask "airbuddy"
 cask "alfred"
 cask "apparency"
 cask "bartender"
+cask "bbedit"
 cask "betterzip"
 cask "bilibili"
 cask "calibre"
@@ -57,28 +58,30 @@ cask "cheatsheet"
 cask "cleanshot"
 cask "cloudflare-warp"
 cask "dash"
-cask "dataspell"
 cask "deepl"
 cask "discord"
 cask "docker"
 cask "douyin"
 cask "downie"
 cask "dropbox"
+cask "element"
 cask "fantastical"
+cask "firefox"
 cask "fliqlo"
 cask "font-ia-writer-quattro"
 cask "font-lxgw-wenkai"
 cask "font-symbols-only-nerd-font"
 cask "gpg-suite"
+cask "grammarly-desktop"
 cask "hazeover"
 cask "input-source-pro"
 cask "istat-menus"
 cask "iterm2"
 cask "kaleidoscope"
+cask "keyboardcleantool"
 cask "league-of-legends"
 cask "logi-options-plus"
 cask "lyricsx"
-cask "macmediakeyforwarder"
 cask "mactex"
 cask "macupdater"
 cask "mail-assistant"
@@ -88,7 +91,7 @@ cask "microsoft-auto-update"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
 cask "microsoft-word"
-cask "miniforge"
+cask "miniconda"
 cask "neteasemusic"
 cask "obsidian"
 cask "opgg"
@@ -105,12 +108,10 @@ cask "rocket"
 cask "sketch"
 cask "skim"
 cask "spotify"
-cask "squirrel"
 cask "steam"
 cask "surge"
 cask "suspicious-package"
 cask "syntax-highlight"
-cask "teamviewer"
 cask "telegram"
 cask "tencent-meeting"
 cask "tor-browser"
@@ -147,7 +148,6 @@ mas "MD Clock", id: 1536358464
 mas "Mela", id: 1568924476
 mas "Motion", id: 434290957
 mas "MusicBox", id: 1614730313
-mas "MusicHarbor", id: 1440405750
 mas "MusicSmart", id: 1512195368
 mas "NepTunes", id: 1006739057
 mas "Night Sky", id: 475772902
@@ -164,13 +164,12 @@ mas "Save to Reader", id: 1640236961
 mas "ServerCat", id: 1501532023
 mas "Shareful", id: 1522267256
 mas "Shazam", id: 897118787
-mas "Shell Fish", id: 1336634154
 mas "Shortery", id: 1594183810
 mas "Streaks", id: 963034692
+mas "Super Agent", id: 1568262835
 mas "Tampermonkey", id: 1482490089
 mas "TestFlight", id: 899247664
 mas "Timery", id: 1425368544
-mas "Toggl Track", id: 1291898086
 mas "Twitter", id: 1482454543
 mas "Unsplash Wallpapers", id: 1284863847
 mas "Vectornator", id: 1219074514
@@ -180,3 +179,4 @@ mas "Xcode", id: 497799835
 mas "xSearch", id: 1579902068
 mas "Yoink", id: 457622435
 mas "爱奇艺", id: 1012296988
+EOF
