@@ -50,6 +50,9 @@ export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 # SSH_Auth
 export SSH_AUTH_SOCK=~/.1password/agent.sock
 
+# HOMEBREW Temporiry
+export HOMEBREW_NO_INSTALL_FROM_API=1
+
 # Proxy for terminal
 export https_proxy=http://127.0.0.1:6152
 export http_proxy=http://127.0.0.1:6152
