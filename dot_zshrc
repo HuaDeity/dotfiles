@@ -130,6 +130,7 @@ plugins=(
 		sudo
 		vi-mode
 		git
+		gitignore
 		gh
       	macos
 		1password
@@ -211,6 +212,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
-# gitignore.io
-function gi() { curl -sLw n https://www.toptal.com/developers/gitignore/api/$@ ;}
