@@ -53,6 +53,9 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 # HOMEBREW Temporiry
 export HOMEBREW_NO_INSTALL_FROM_API=1
 
+# tmux-256color
+export TERMINFO_DIRS="$HOME/.local/share/terminfo:$TERMINFO_DIRS"
+
 # Proxy for terminal
 export https_proxy=http://127.0.0.1:6152
 export http_proxy=http://127.0.0.1:6152
@@ -62,7 +65,14 @@ export all_proxy=socks5://127.0.0.1:6153
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
+##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
+
+##### WHAT YOU WANT TO DISABLE FOR WARP - ABOVE
+fi
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -192,9 +202,6 @@ alias gtower='gittower $(git rev-parse --show-toplevel)'
 # Proxy alias
 alias proxy='export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153'
 alias unproxy='unset https_pxoxy;unset http_proxy;unset all_proxy'
-
-# Set iterm2 shell integration 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
