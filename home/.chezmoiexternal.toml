@@ -61,3 +61,7 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.yml"]
+[".local/share/bin"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
+    refreshPeriod = "168h"
