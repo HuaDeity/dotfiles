@@ -12,11 +12,12 @@ fi
 export PATH="/snap/bin:$PATH"
 {{- end }}
 
+export flavour=mocha
+
 {{- if eq .chezmoi.os "darwin" }}
+
 # Set defalt config path
 export XDG_CONFIG_HOME="$HOME/.config"
-
-export flavour=mocha
 
 # Auto Dark for CLI on macOS
 if $(defaults read -g AppleInterfaceStyle &>/dev/null); then
