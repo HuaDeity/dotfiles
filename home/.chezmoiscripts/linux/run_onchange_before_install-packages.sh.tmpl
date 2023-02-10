@@ -8,6 +8,7 @@
      "fzf"
      "git"
      "git-lfs"
+     "nodejs"
      "python3"
      "python3-neovim"
      "ripgrep"
@@ -34,6 +35,8 @@
 
 set -eufo pipefail
 
+curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
 {{ $sudo }}apt-get update
 {{ $sudo }}apt-get install -y {{ $packages | join " " }}
 
@@ -42,5 +45,7 @@ set -eufo pipefail
 {{ $sudo }}snap install --classic {{ . }}
 {{   end }}
 {{ end }}
+
+npm install -g neovim
 
 {{ end -}}
