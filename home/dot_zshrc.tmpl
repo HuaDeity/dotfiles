@@ -14,11 +14,10 @@ export PATH="/snap/bin:$PATH"
 
 export flavour=mocha
 
-{{- if eq .chezmoi.os "darwin" }}
-
 # Set defalt config path
 export XDG_CONFIG_HOME="$HOME/.config"
 
+{{- if eq .chezmoi.os "darwin" }}
 # Auto Dark for CLI on macOS
 if $(defaults read -g AppleInterfaceStyle &>/dev/null); then
 	# flavour Dark
@@ -30,6 +29,9 @@ fi
 
 # Set defalt bin path
 export PATH="$HOME/.local/share/bin:$PATH"
+
+# gnu-sed
+export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # Path to pkgconfig installation.
 export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
@@ -65,7 +67,7 @@ fi
 export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/themes/catppuccin_$flavour-zsh-syntax-highlighting.zsh"
 export BAT_THEME="Catppuccin-$flavour"
 # tmux
-eval "sed -i '' '/flavour/c\'$'\n'\"set -g @catppuccin_flavour '$flavour'\"$'\n' $HOME/.tmux.conf"
+eval "sed -i '/flavour/c\'\"set -g @catppuccin_flavour '$flavour'\" $HOME/.tmux.conf"
 # lazygit
 eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOME/.config/lazygit/themes/$flavour.yml >> $HOME/.config/lazygit/config.yml"
 
