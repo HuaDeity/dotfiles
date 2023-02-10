@@ -8,6 +8,10 @@ fi
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+{{- if eq .chezmoi.os "linux" }}
+export PATH="/snap/bin:$PATH"
+{{- end }}
+
 {{- if eq .chezmoi.os "darwin" }}
 # Set defalt config path
 export XDG_CONFIG_HOME="$HOME/.config"
