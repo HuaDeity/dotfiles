@@ -176,6 +176,12 @@ plugins=(
     	web-search
 		gh
 {{- end }}
+{{ if eq .osid "linux-debian" -}}
+		debian
+{{- end }}
+{{ if eq .osid "linux-ubuntu" -}}
+		ubuntu
+{{- end }}
 		)
 
 # zsh highlighting highlighters

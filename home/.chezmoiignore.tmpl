@@ -3,14 +3,14 @@
 
 .config/nvim.bak
 
-{{ if ne .chezmoi.os "darwin" }}
+{{- if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
 .condarc
-,gitconfig
+.gitconfig
 .wakatime.cfg
 .ssh
-{{ end }}
+{{- end }}
 
-{{ if ne .chezmoi.os "linux" }}
+{{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
-{{ end }}
+{{- end }}
