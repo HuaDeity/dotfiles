@@ -2,7 +2,12 @@
 -- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
 -- Add any additional options here
 
+{{- if eq .chezmoi.os "darwin" }}
 vim.g.python3_host_prog = "/opt/homebrew/bin/python3"
+{{- end }}
+{{- if eq .chezmoi.os "linux" }}
+vim.g.python3_host_prog = "/usr/bin/python3"
+{{- end }}
 vim.g.loaded_ruby_provider = 0
 vim.g.loaded_perl_provider = 0
 
