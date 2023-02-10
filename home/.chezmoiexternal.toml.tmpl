@@ -22,18 +22,6 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
-    type = "archive"
-    url = "https://github.com/conda-incubator/conda-zsh-completion/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/plugins/wakatime"]
-    type = "archive"
-    url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
 [".oh-my-zsh/custom/themes/powerlevel10k"]
     type = "archive"
     url = "https://github.com/romkatv/powerlevel10k/archive/master.tar.gz"
@@ -47,13 +35,6 @@
     stripComponents = 1
     refreshPeriod = "168h"
     include = ["*/*.tmTheme"]
-[".config/lazygit/themes"]
-    type = "archive"
-    url = "https://github.com/catppuccin/lazygit/archive/master.tar.gz"
-    exact = true
-    stripComponents = 2
-    refreshPeriod = "168h"
-    include = ["*/*/*.yml"] 
 [".config/zsh-syntax-highlighting/themes"]
     type = "archive"
     url = "https://github.com/catppuccin/zsh-syntax-highlighting/archive/master.tar.gz"
@@ -61,6 +42,31 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.zsh"]
+[".config/lazygit/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/lazygit/archive/master.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.yml"]
+
+{{- if eq .chezmoi.os "darwin" }}
+[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
+    type = "archive"
+    url = "https://github.com/conda-incubator/conda-zsh-completion/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".oh-my-zsh/custom/plugins/wakatime"]
+    type = "archive"
+    url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".local/share/bin/rime-install"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
+    refreshPeriod = "168h"
 [".warp/themes"]
     type = "archive"
     url = "https://github.com/catppuccin/warp/archive/master.tar.gz"
@@ -68,7 +74,4 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.yml"]
-[".local/share/bin/rime-install"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
-    refreshPeriod = "168h"
+{{- end }}

@@ -40,6 +40,10 @@
 {{-   end -}}
 {{- end -}}
 
+{{- if eq $hostname "ViMacBook" -}}
+{{- $personal = true -}}
+{{- end -}}
+
 [data]
     docker = {{ $docker }}
     ephemeral = {{ $ephemeral }}
@@ -49,6 +53,7 @@
     osid = {{ $osID | quote }}
 [git]
     autoCommit = true
+{{- if eq .chezmoi.os "darwin" }}
 [edit]
     command = "code"
     args = ["--wait"]
@@ -59,3 +64,4 @@
 [merge]
     command = "ksdiff"
     args = ["--merge", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+{{- end }}

@@ -1,0 +1,45 @@
+{{ if eq .osid "linux-debian" "linux-ubuntu" -}}
+
+{{ $packages := list
+     "bat"
+     "exa"
+     "fd-find"
+     "fzf"
+     "git"
+     "git-lfs"
+     "python3"
+     "python3-neovim"
+     "ripgrep"
+     "snapd"
+     "thefuck"
+     "tmux"
+     "zsh" -}}
+{{ $classicSnaps := list -}}
+
+{{ if not .headless -}}
+{{   $classicSnaps = mustAppend $classicSnaps "code" -}}
+{{ end -}}
+
+{{   $classicSnaps = mustAppend $classicSnaps "certbot" -}}
+{{   $classicSnaps = mustAppend $classicSnaps "chezmoi" -}}
+{{   $classicSnaps = mustAppend $classicSnaps "--edge nvim" -}}
+
+{{ $sudo := "sudo " -}}
+{{ if eq .chezmoi.username "root" -}}
+{{   $sudo = "" -}}
+{{ end -}}
+
+#!/bin/bash
+
+set -eufo pipefail
+
+{{ $sudo }}apt-get update
+{{ $sudo }}apt-get install -y {{ $packages | join " " }}
+
+{{ if lookPath "snap" }}
+{{   range $classicSnaps }}
+{{ $sudo }}snap install --classic {{ . }}
+{{   end }}
+{{ end }}
+
+{{ end -}}
