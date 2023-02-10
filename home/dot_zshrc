@@ -34,6 +34,8 @@ export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/t
 export BAT_THEME="Catppuccin-$flavour"
 # tmux
 eval "sed -i '' '/flavour/c\'$'\n'\"set -g @catppuccin_flavour '$flavour'\"$'\n' $HOME/.tmux.conf"
+# lazygit
+eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOME/.config/lazygit/themes/$flavour.yml >> $HOME/.config/lazygit/config.yml"
 
 # Set defalt bin path
 export PATH="$HOME/.local/share/bin:$PATH"
@@ -145,7 +147,7 @@ plugins=(
 		git
 		gitignore
 		gh
-      	macos
+    macos
 		1password
 		brew
 		vscode
@@ -154,7 +156,7 @@ plugins=(
 		docker-compose
 		pyenv
 		pip
-        web-search
+    web-search
 		dash
 		wakatime
 		tmux
