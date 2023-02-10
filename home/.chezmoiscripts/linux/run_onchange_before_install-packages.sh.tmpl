@@ -8,7 +8,6 @@
      "fzf"
      "git"
      "git-lfs"
-     "neovim"
      "nodejs"
      "python3"
      "python3-neovim"
@@ -17,8 +16,6 @@
      "thefuck"
      "tmux"
      "zsh" -}}
-{{ $ppa := list
-     "ppa:neovim-ppa/unstable" -}}
 {{ $classicSnaps := list -}}
 
 {{ if not .headless -}}
@@ -38,11 +35,9 @@
 set -eufo pipefail
 
 curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim.appimage
+chmod u+x nvim.appimage
 
-{{ $sudo }}apt-get install -y software-properties-common
-{{ range $ppa }}
-{{ $sudo }}add-apt-repository {{ . }}
-{{ end }}
 {{ $sudo }}apt-get update
 {{ $sudo }}apt-get install -y {{ $packages | join " " }}
 
