@@ -17,7 +17,7 @@ return {
       return {
         sources = {
           nls.builtins.code_actions.gitsigns,
-          nls.builtins.formatting.prettierd.with({
+          nls.builtins.formatting.prettier.with({
             extra_filetypes = { "toml" },
             extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
           }),
