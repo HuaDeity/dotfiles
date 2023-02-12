@@ -49,22 +49,6 @@ return {
       servers = {
         -- pyright will be automatically installed with mason and loaded with lspconfig
         pyright = {},
-        sumneko_lua = {
-          -- mason = false, -- set to false if you don't want this server to be installed with mason
-          settings = {
-            Lua = {
-              workspace = {
-                checkThirdParty = false,
-              },
-              completion = {
-                callSnippet = "Replace",
-              },
-              telemetry = {
-                enable = false,
-              },
-            },
-          },
-        },
       },
       setup = {
         clangd = function(_, opts)
