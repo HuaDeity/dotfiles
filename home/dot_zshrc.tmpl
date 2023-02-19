@@ -12,21 +12,10 @@ fi
 export PATH="/snap/bin:$PATH"
 {{- end }}
 
-export flavour=mocha
-
 # Set defalt config path
 export XDG_CONFIG_HOME="$HOME/.config"
 
 {{- if eq .chezmoi.os "darwin" }}
-# Auto Dark for CLI on macOS
-if $(defaults read -g AppleInterfaceStyle &>/dev/null); then
-	# flavour Dark
-	export flavour=mocha
-else
-	# flavour Light
-	export flavour=latte
-fi
-
 # Set defalt bin path
 export PATH="$HOME/.local/share/bin:$PATH"
 
@@ -47,26 +36,6 @@ export https_proxy=http://127.0.0.1:6152
 export http_proxy=http://127.0.0.1:6152
 export all_proxy=socks5://127.0.0.1:6153
 {{- end }}
-
-if [ "$flavour" = "mocha" ]; then
-	export FZF_DEFAULT_OPTS=" \
-	--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
-	--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
-	--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
-else
-	export FZF_DEFAULT_OPTS=" \
-	--color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
-	--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
-	--color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
-fi
-
-# zsh syntax highlighting
-export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/themes/catppuccin_$flavour-zsh-syntax-highlighting.zsh"
-export BAT_THEME="Catppuccin-$flavour"
-# tmux
-eval "sed -i '/flavour/c\'\"set -g @catppuccin_flavour '$flavour'\" $HOME/.tmux.conf"
-# lazygit
-eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOME/.config/lazygit/themes/$flavour.yml >> $HOME/.config/lazygit/config.yml"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -188,11 +157,42 @@ plugins=(
 {{- end }}
 		)
 
+{{- if eq .chezmoi.os "darwin" }}
+# Auto Dark for CLI on macOS
+if $(defaults read -g AppleInterfaceStyle &>/dev/null); then
+	# flavour Dark
+	export flavour=mocha
+else
+	# flavour Light
+	export flavour=latte
+fi
+if [ "$flavour" = "mocha" ]; then
+	export FZF_DEFAULT_OPTS=" \
+	--color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8 \
+	--color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc \
+	--color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8"
+else
+	export FZF_DEFAULT_OPTS=" \
+	--color=bg+:#ccd0da,bg:#eff1f5,spinner:#dc8a78,hl:#d20f39 \
+	--color=fg:#4c4f69,header:#d20f39,info:#8839ef,pointer:#dc8a78 \
+	--color=marker:#dc8a78,fg+:#4c4f69,prompt:#8839ef,hl+:#d20f39"
+fi
+
+# zsh syntax highlighting
+export zsh_syntax_highlighting_theme="$XDG_CONFIG_HOME/zsh-syntax-highlighting/themes/catppuccin_$flavour-zsh-syntax-highlighting.zsh"
+export BAT_THEME="Catppuccin-$flavour"
+# tmux
+eval "sed -i '/flavour/c\'\"set -g @catppuccin_flavour '$flavour'\" $HOME/.tmux.conf"
+# lazygit
+eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOME/.config/lazygit/themes/$flavour.yml >> $HOME/.config/lazygit/config.yml"
+
 # zsh highlighting highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 
 # zsh syntax highlighting theme
 source $zsh_syntax_highlighting_theme
+
+{{- end }}
 
 # 1Password for Github
 # source ~/.config/op/plugins.sh
