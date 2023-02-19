@@ -223,8 +223,16 @@ export ARCHFLAGS="-arch arm64"
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
+{{- if lookPath "exa" }}
 # alias exa to ls
 alias ls='exa -a --icons'
+{{- end }}
+
+{{- if lookPath "bat" }}
+alias cat=bat
+{{- else if lookPath "batcat" }}
+alias cat=batcat
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 # Yoink.app alias
