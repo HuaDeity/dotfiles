@@ -14,3 +14,7 @@
 {{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 {{- end }}
+
+{{- if ne .chezmoi.osRelease.versionCodename "jammy" }}
+.chezmoiscripts/linux/**
+{{- end }}

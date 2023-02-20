@@ -29,6 +29,15 @@
     stripComponents = 1
     refreshPeriod = "168h"
 
+{{- if lookPath "conda" }}
+[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
+    type = "archive"
+    url = "https://github.com/conda-incubator/conda-zsh-completion/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+{{- end }}
+
 {{- if not .headless }}
 [".config/bat/themes"]
     type = "archive"
@@ -54,12 +63,6 @@
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
-[".oh-my-zsh/custom/plugins/conda-zsh-completion"]
-    type = "archive"
-    url = "https://github.com/conda-incubator/conda-zsh-completion/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
 [".local/share/bin/rime-install"]
     type = "file"
     url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
