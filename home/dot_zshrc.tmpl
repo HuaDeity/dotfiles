@@ -52,9 +52,7 @@ export SSH_AUTH_SOCK=~/.1password/agent.sock
 if [[ $TERM_PROGRAM != "WarpTerminal" ]]; then
 ##### WHAT YOU WANT TO DISABLE FOR WARP - BELOW
 
-{{- if eq .chezmoi.os "darwin" }}
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-{{- end }}
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
