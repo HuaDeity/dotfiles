@@ -28,6 +28,8 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
+
+{{- if not .headless }}
 [".config/bat/themes"]
     type = "archive"
     url = "https://github.com/catppuccin/bat/archive/master.tar.gz"
@@ -49,17 +51,12 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.yml"]
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 [".oh-my-zsh/custom/plugins/conda-zsh-completion"]
     type = "archive"
     url = "https://github.com/conda-incubator/conda-zsh-completion/archive/master.tar.gz"
-    exact = true
-    stripComponents = 1
-    refreshPeriod = "168h"
-[".oh-my-zsh/custom/plugins/wakatime"]
-    type = "archive"
-    url = "https://github.com/sobolevn/wakatime-zsh-plugin/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
