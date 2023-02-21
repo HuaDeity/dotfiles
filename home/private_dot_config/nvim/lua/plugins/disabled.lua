@@ -5,6 +5,4 @@ return {
   { "echasnovski/mini.comment", enabled = false },
   { "echasnovski/mini.surround", enabled = false },
   { "echasnovski/mini.pairs", enabled = false },
-  { "tpope/vim-repeat", enabled = false },
-  { "dstein64/vim-startuptime", enabled = false },
 }
