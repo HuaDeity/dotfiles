@@ -1,0 +1,10 @@
+Host 10.68.89.35
+  HostName 10.68.89.35
+  User yizun-bs23
+
+Host mastodon.yizun.me
+  HostName mastodon.yizun.me
+  User root
+
+Host *
+  IdentityAgent ~/.1password/agent.sock
