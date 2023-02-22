@@ -191,7 +191,7 @@ eval "sed -i '/flavour/c\'\"set -g @catppuccin_flavour '$flavour'\" $HOME/.tmux.
 # lazygit
 eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOME/.config/lazygit/themes/$flavour.yml >> $HOME/.config/lazygit/config.yml"
 # starship
-eval "sed -i '/palette =/c\'\"palette = \"catppuccin_$flavour\"\" $HOME/.tmux.conf"
+eval "sed -i '/palette =/c\'\"palette = \"catppuccin_$flavour\"\" $XDG_CONFIG_HOME/starship.toml"
 
 # zsh highlighting highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
