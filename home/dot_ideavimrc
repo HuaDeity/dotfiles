@@ -16,6 +16,8 @@ set textobj-entire
 set highlightedyank
 set textobj-indent
 set which-key
+set keep-english-in-normal-and-restore-in-insert
+let context_aware=1
 
 """ Plugin settings -------------------------
 let g:argtextobj_pairs="[:],(:),<:>"
