@@ -240,6 +240,10 @@ alias cat=bat
 alias cat=batcat
 {{- end }}
 
+{{- if lookPath "fdfind" }}
+alias fd=fdfind
+{{- end }}
+
 {{- if eq .chezmoi.os "darwin" }}
 # Yoink.app alias
 alias yoink="open -a Yoink"

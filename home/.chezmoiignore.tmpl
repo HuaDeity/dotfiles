@@ -14,7 +14,3 @@
 {{- if ne .chezmoi.os "linux" }}
 .chezmoiscripts/linux/**
 {{- end }}
-
-{{- if and (eq .chezmoi.os "linux") (ne .chezmoi.osRelease.versionCodename "jammy" )  }}
-.chezmoiscripts/linux/**
-{{- end }}
