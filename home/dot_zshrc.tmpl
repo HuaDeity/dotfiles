@@ -193,11 +193,14 @@ eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOM
 # starship
 eval "sed -i '/palette =/c\'\"palette = \\\"catppuccin_$flavour\\\"\" $XDG_CONFIG_HOME/starship.toml"
 
+if [[ $TERM_PROGRAM != "Apple_Terminal" ]]; then
+# zsh syntax highlighting theme
+source $zsh_syntax_highlighting_theme
+fi
+
 # zsh highlighting highlighters
 ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 
-# zsh syntax highlighting theme
-source $zsh_syntax_highlighting_theme
 {{- end }}
 
 # 1Password for Github
