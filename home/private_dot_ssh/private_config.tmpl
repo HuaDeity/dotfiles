@@ -7,5 +7,10 @@ Host {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
   HostName {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
   User {{ onepasswordRead "op://Development/DigitalOcean/username" }}
 
+Host 192.168.31.1
+  HostName 192.168.31.1
+  User root 
+  HostKeyAlgorithms=+ssh-rsa
+
 Host *
   IdentityAgent ~/.1password/agent.sock
