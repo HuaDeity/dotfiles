@@ -1,7 +1,6 @@
 Host {{ onepasswordRead "op://Development/NPU/URL" }}
   HostName {{ onepasswordRead "op://Development/NPU/URL" }}
   User {{ onepasswordRead "op://Development/NPU/username" }}
-  ProxyCommand /usr/bin/nc -X 5 -x 127.0.0.1:6153 %h %p
 
 Host {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
   HostName {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
