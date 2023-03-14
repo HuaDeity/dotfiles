@@ -51,8 +51,6 @@
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
     osid = {{ $osID | quote }}
-[git]
-    autoCommit = true
 {{- if eq .chezmoi.os "darwin" }}
 [edit]
     command = "code"
