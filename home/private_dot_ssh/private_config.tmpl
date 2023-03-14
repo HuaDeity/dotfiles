@@ -11,5 +11,10 @@ Host 192.168.31.1
   User root 
   HostKeyAlgorithms=+ssh-rsa
 
+Host {{ onepasswordRead "op://Personal/Redmi AX6000/10" }}
+  HostName {{ onepasswordRead "op://Personal/Redmi AX6000/10" }}
+  User root 
+  HostKeyAlgorithms=+ssh-rsa
+
 Host *
   IdentityAgent ~/.1password/agent.sock
