@@ -32,9 +32,9 @@ export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 export TERMINFO_DIRS="$HOME/.local/share/terminfo:$TERMINFO_DIRS"
 
 # Proxy for terminal
-export https_proxy=http://127.0.0.1:6152
-export http_proxy=http://127.0.0.1:6152
-export all_proxy=socks5://127.0.0.1:6153
+# export https_proxy=http://127.0.0.1:6152
+# export http_proxy=http://127.0.0.1:6152
+# export all_proxy=socks5://127.0.0.1:6153
 {{- end }}
 
 # Path to your oh-my-zsh installation.
@@ -253,8 +253,8 @@ alias yoink="open -a Yoink"
 # Tower.app alias
 alias gtower='gittower $(git rev-parse --show-toplevel)'
 # Proxy alias
-alias proxy='export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153'
-alias unproxy='unset https_pxoxy;unset http_proxy;unset all_proxy'
+alias proxy='export https_proxy=http://127.0.0.1:6152;export http_proxy=http://127.0.0.1:6152;export all_proxy=socks5://127.0.0.1:6153;git config --global http.proxy socks5://127.0.0.1:6153;git config --global https.proxy socks5://127.0.0.1:6153'
+alias unproxy='unset https_proxy;unset http_proxy;unset all_proxy;git config --global --unset http.proxy;git config --global --unset https.proxy'
 {{- end }}
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
