@@ -63,6 +63,12 @@
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
+[".oh-my-zsh/custom/plugins/zsh-osx-autoproxy"]
+    type = "archive"
+    url = "https://github.com/HuaDeity/zsh-osx-autoproxy/archive/master.tar.gz"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
 [".local/share/bin/rime-install"]
     type = "file"
     url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
