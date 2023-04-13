@@ -1,13 +1,13 @@
-Host {{ onepasswordRead "op://Development/NPU/URL" }}
-  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
-  User {{ onepasswordRead "op://Development/NPU/username" }}
+Host {{ onepasswordRead "op://Development/NPU2/URL" }}
+  HostName {{ onepasswordRead "op://Development/NPU2/URL" }}
+  User {{ onepasswordRead "op://Development/NPU2/username" }}
 
 Host {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
   HostName {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
   User {{ onepasswordRead "op://Development/DigitalOcean/username" }}
 
-Host 192.168.31.1
-  HostName 192.168.31.1
+Host 192.168.1.1
+  HostName 192.168.1.1
   User root 
   HostKeyAlgorithms=+ssh-rsa
 
@@ -16,5 +16,23 @@ Host {{ onepasswordRead "op://Personal/Redmi AX6000/10" }}
   User root 
   HostKeyAlgorithms=+ssh-rsa
 
+Host {{ onepasswordRead "op://Development/NPU/port1" }}
+  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
+  User {{ onepasswordRead "op://Development/NPU/username" }}
+  Port {{ onepasswordRead "op://Development/NPU/port1" }} 
+
+Host {{ onepasswordRead "op://Development/NPU/port2" }}
+  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
+  User {{ onepasswordRead "op://Development/NPU/username" }}
+  Port {{ onepasswordRead "op://Development/NPU/port2" }} 
+
+Host {{ onepasswordRead "op://Development/NPU/port3" }}
+  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
+  User {{ onepasswordRead "op://Development/NPU/username" }}
+  Port {{ onepasswordRead "op://Development/NPU/port3" }} 
+
+{{- if ne .chezmoi.os "windows" }}
+
 Host *
   IdentityAgent ~/.1password/agent.sock
+{{- end }}
