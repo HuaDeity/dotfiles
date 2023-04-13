@@ -9,11 +9,19 @@
 	required = true
 [gpg]
 	format = ssh
+{{- if eq .chezmoi.os "darwin" }}
 	program = /usr/local/bin/gpg
+{{- end }}
 [gpg "ssh"]
+{{- if eq .chezmoi.os "darwin" }}
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+{{- end }}
+{{- if eq .chezmoi.os "windows" }}
+	program = C:\\Program Files\\1Password\\app\\8\\op-ssh-sign.exe
+{{- end }}
 [commit]
 	gpgsign = true
+{{- if eq .chezmoi.os "darwin" }}
 [diff]
 	tool = Kaleidoscope
 [difftool "Kaleidoscope"]
@@ -28,5 +36,9 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+{{- end }}
 [core]
-	excludesfile = /Users/huadeity/.gitignore_global
+	excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
+{{- if eq .chezmoi.os "windows" }}
+	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
+{{- end }}
