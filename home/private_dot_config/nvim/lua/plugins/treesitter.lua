@@ -1,6 +1,7 @@
 return {
   {
     'HiPhish/nvim-ts-rainbow2',
+    lazy = true,
   },
   {
     'nvim-treesitter/nvim-treesitter',
@@ -12,7 +13,7 @@ return {
         'go',
         'jsonc',
         'rust',
-        'help',
+        'vimdoc',
       })
       opts.rainbow = {
         enable = true,
