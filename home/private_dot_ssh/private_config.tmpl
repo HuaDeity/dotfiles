@@ -2,9 +2,13 @@ Host {{ onepasswordRead "op://Development/NPU2/URL" }}
   HostName {{ onepasswordRead "op://Development/NPU2/URL" }}
   User {{ onepasswordRead "op://Development/NPU2/username" }}
 
-Host {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
+Host Mastodon 
   HostName {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
   User {{ onepasswordRead "op://Development/DigitalOcean/username" }}
+
+Host Blog
+  HostName {{ onepasswordRead "op://Development/Saltyfish/URL" }}
+  User huadeity 
 
 Host 192.168.31.1
   HostName 192.168.31.1

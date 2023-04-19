@@ -1,1 +1,7 @@
+channels:
+  - defaults
+{{- if ne .chezmoi.os "windows" }}
 auto_activate_base: false
+{{ else }}
+auto_activate_base: true
+{{- end }}

@@ -1,3 +1,4 @@
+{{- if ne .chezmoi.os "windows" }}
 [".oh-my-zsh"]
     type = "archive"
     url = "https://github.com/ohmyzsh/ohmyzsh/archive/master.tar.gz"
@@ -28,7 +29,13 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-
+[".config/zsh-syntax-highlighting/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/zsh-syntax-highlighting/archive/master.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.zsh"]
 {{- if lookPath "conda" }}
 [".oh-my-zsh/custom/plugins/conda-zsh-completion"]
     type = "archive"
@@ -37,30 +44,41 @@
     stripComponents = 1
     refreshPeriod = "168h"
 {{- end }}
+{{- end }}
 
-{{- if not .headless }}
+{{- if ne .chezmoi.os "linux" }}
+[".local/share/bin/im-select"]
+    type = "file"
+{{- if eq .chezmoi.os "darwin" }}
+    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/im-select-mac/out/apple/im-select"
+{{ else }}
+    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/im-select-win/out/x64/im-select.exe"
+{{- end }}
+    refreshPeriod = "168h"
+{{- end }}
+
+{{- if ne .chezmoi.os "windows" }}
 [".config/bat/themes"]
+{{ else }}
+["AppData/Roaming/bat/themes"]
+{{- end }}
     type = "archive"
     url = "https://github.com/catppuccin/bat/archive/master.tar.gz"
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
     include = ["*/*.tmTheme"]
-[".config/zsh-syntax-highlighting/themes"]
-    type = "archive"
-    url = "https://github.com/catppuccin/zsh-syntax-highlighting/archive/master.tar.gz"
-    exact = true
-    stripComponents = 2
-    refreshPeriod = "168h"
-    include = ["*/*/*.zsh"]
+{{- if ne .chezmoi.os "windows" }}
 [".config/lazygit/themes"]
+{{ else }}
+["AppData/Local/lazygit/themes"]
+{{- end }}
     type = "archive"
     url = "https://github.com/catppuccin/lazygit/archive/master.tar.gz"
     exact = true
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.yml"]
-{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 [".oh-my-zsh/custom/plugins/zsh-osx-autoproxy"]
@@ -72,10 +90,6 @@
 [".local/share/bin/rime-install"]
     type = "file"
     url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
-    refreshPeriod = "168h"
-[".local/share/bin/im-select"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/im-select-mac/out/apple/im-select"
     refreshPeriod = "168h"
 [".warp/themes"]
     type = "archive"
@@ -91,11 +105,4 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.xccolortheme"]
-["Library/Application Support/BetterDiscord/themes"]
-    type = "archive"
-    url = "https://github.com/catppuccin/discord/archive/master.tar.gz"
-    exact = true
-    stripComponents = 2
-    refreshPeriod = "168h"
-    include = ["*/*/*.css"]
 {{- end }}
