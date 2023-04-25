@@ -65,12 +65,12 @@
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
-[".local/share/bin/im-select"]
+[".local/bin/im-select"]
     type = "file"
 {{- if eq .chezmoi.os "darwin" }}
-    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/im-select-mac/out/apple/im-select"
+    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/macOS/out/apple/im-select"
 {{ else }}
-    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/im-select-win/out/x64/im-select.exe"
+    url = "https://raw.githubusercontent.com/daipeihust/im-select/master/win/out/x64/im-select.exe"
 {{- end }}
     refreshPeriod = "168h"
 {{- end }}
@@ -82,7 +82,7 @@
     exact = true
     stripComponents = 1
     refreshPeriod = "168h"
-[".local/share/bin/rime-install"]
+[".local/bin/rime-install"]
     type = "file"
     url = "https://raw.githubusercontent.com/rime/plum/master/rime-install"
     refreshPeriod = "168h"
