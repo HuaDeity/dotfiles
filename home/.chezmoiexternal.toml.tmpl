@@ -100,4 +100,14 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/*/*.xccolortheme"]
+[".config/spicetify/CustomApps/marketplace"]
+    type = "archive"
+    url = "https://github.com/spicetify/spicetify-marketplace/releases/latest/download/spicetify-marketplace.zip"
+    exact = true
+    stripComponents = 1
+    refreshPeriod = "168h"
+[".config/spicetify/Themes/marketplace/color.ini"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/color.ini"
+    refreshPeriod = "168h"
 {{- end }}
