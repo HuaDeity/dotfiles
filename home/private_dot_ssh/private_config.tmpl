@@ -1,4 +1,4 @@
-Host {{ onepasswordRead "op://Development/NPU2/URL" }}
+Host 2080
   HostName {{ onepasswordRead "op://Development/NPU2/URL" }}
   User {{ onepasswordRead "op://Development/NPU2/username" }}
 
@@ -9,6 +9,7 @@ Host Mastodon
 Host Blog
   HostName {{ onepasswordRead "op://Development/Saltyfish/URL" }}
   User huadeity 
+  ProxyCommand /usr/bin/nc -X 5 -x 127.0.0.1:6153 %h %p
 
 Host 192.168.31.1
   HostName 192.168.31.1
