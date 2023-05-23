@@ -8,7 +8,7 @@ Host Mastodon
 
 Host Blog
   HostName {{ onepasswordRead "op://Development/Saltyfish/URL" }}
-  User huadeity 
+  User root 
   ProxyCommand /usr/bin/nc -X 5 -x 127.0.0.1:6153 %h %p
 
 Host 192.168.31.1
