@@ -1,3 +1,9 @@
+{{- if eq .chezmoi.os "darwin" }}
+if [ "$(arch)" = "i386" ]; then
+	eval "$(/usr/local/bin/brew shellenv)"
+	return
+fi
+{{- end }}
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -20,10 +26,10 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export PATH="$HOME/.local/bin:$PATH"
 
 # gnu-sed
-export PATH="/opt/homebrew/opt/gnu-sed/libexec/gnubin:$PATH"
+export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
 
 # Path to pkgconfig installation.
-export PKG_CONFIG_PATH="/opt/homebrew/lib/pkgconfig:$PKG_CONFIG_PATH"
+export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # iterm2 shell intergration with tmux
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
