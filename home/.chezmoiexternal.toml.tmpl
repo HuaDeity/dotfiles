@@ -65,13 +65,14 @@
 {{- end }}
 
 {{- if ne .chezmoi.os "linux" }}
-[".local/bin/im-select"]
-    type = "file"
 {{- if eq .chezmoi.os "darwin" }}
+[".local/bin/im-select"]
     url = "https://raw.githubusercontent.com/daipeihust/im-select/master/macOS/out/apple/im-select"
 {{ else }}
+[".local/bin/im-select-mspy.exe"]
     url = "https://raw.githubusercontent.com/daipeihust/im-select/master/win-mspy/out/x64/im-select-mspy.exe"
 {{- end }}
+    type = "file"
     refreshPeriod = "168h"
 {{- end }}
 
