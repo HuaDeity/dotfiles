@@ -80,28 +80,6 @@
                 "source": "Windows.Terminal.PowershellCore"
             },
             {
-                "commandline": "ssh 10.68.89.35",
-                "guid": "{9e6d13e8-e61a-55d6-a04e-0ad610a9b27c}",
-                "name": "ssh npu"
-            },
-            {
-                "commandline": "ssh 10188",
-                "guid": "{ad94c664-abbb-582a-88ad-5288156de974}",
-                "name": "ssh 10188"
-            },
-            {
-                "guid": "{06de586a-2e00-5ef4-8f18-e86b5f0621a8}",
-                "hidden": false,
-                "name": "Developer Command Prompt for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
-                "guid": "{758b17bc-ad7a-52e8-b35d-f59441f10d6a}",
-                "hidden": false,
-                "name": "Developer PowerShell for VS 2022",
-                "source": "Windows.Terminal.VisualStudio"
-            },
-            {
                 "guid": "{51855cb2-8cce-5362-8f54-464b92b32386}",
                 "hidden": false,
                 "name": "Ubuntu",
@@ -112,6 +90,14 @@
                 "hidden": true,
                 "name": "Ubuntu",
                 "source": "Windows.Terminal.Wsl"
+            },
+            {
+                "guid": "{4d01f14b-a31e-44b5-b785-61e8c14b78bd}",
+                "hidden": false,
+                "name": "Git Bash",
+                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
+                "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "startingDirectory": "%USERPROFILE%"
             }
         ]
     },
