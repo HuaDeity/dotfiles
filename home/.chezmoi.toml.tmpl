@@ -51,11 +51,9 @@
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
     osid = {{ $osID | quote }}
-{{- if not .headless }}
 [edit]
     command = "code"
     args = ["--wait"]
-{{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 [diff]
     command = "ksdiff"
