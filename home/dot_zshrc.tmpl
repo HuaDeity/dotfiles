@@ -125,7 +125,7 @@ zstyle ':omz:update' mode disabled  # disable automatic updates
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
-		zsh-syntax-highlighting
+		fast-syntax-highlighting
 		zsh-autosuggestions
 		history-substring-search
 		z
@@ -196,6 +196,7 @@ eval "cp $HOME/.config/lazygit/general $HOME/.config/lazygit/config.yml;cat $HOM
 # starship
 eval "sed -i '/palette =/c\'\"palette = \\\"catppuccin_$flavour\\\"\" $XDG_CONFIG_HOME/starship.toml"
 
+
 if [[ $TERM_PROGRAM != "Apple_Terminal" ]]; then
 # zsh syntax highlighting theme
 source $zsh_syntax_highlighting_theme
@@ -210,6 +211,9 @@ ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets pattern cursor regexp root line)
 # source ~/.config/op/plugins.sh
 
 source $ZSH/oh-my-zsh.sh
+
+# fsh
+fast-theme -q XDG:catppuccin-$flavour
 
 # User configuration
 
