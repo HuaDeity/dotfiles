@@ -1,43 +1,32 @@
 Host 2080
-  HostName {{ onepasswordRead "op://Development/NPU2/URL" }}
-  User {{ onepasswordRead "op://Development/NPU2/username" }}
+  HostName {{ onepasswordRead "op://Personal/2080/URL" }}
+  User {{ onepasswordRead "op://Personal/2080/username" }}
 
 Host Mastodon 
-  HostName {{ onepasswordRead "op://Development/DigitalOcean/URL" }}
-  User {{ onepasswordRead "op://Development/DigitalOcean/username" }}
-
-Host Blog
-  HostName {{ onepasswordRead "op://Development/Saltyfish/URL" }}
-  User root 
-  # ProxyCommand /usr/bin/nc -X 5 -x 127.0.0.1:6153 %h %p
+  HostName {{ onepasswordRead "op://Personal/DigitalOcean/URL" }}
+  User {{ onepasswordRead "op://Personal/DigitalOcean/username" }}
 
 Host 192.168.31.1
   HostName 192.168.31.1
   User root 
   HostKeyAlgorithms=+ssh-rsa
 
-Host {{ onepasswordRead "op://Personal/Redmi AX6000/10" }}
-  HostName {{ onepasswordRead "op://Personal/Redmi AX6000/10" }}
-  User root 
-  HostKeyAlgorithms=+ssh-rsa
+Host {{ onepasswordRead "op://Personal/NPU/port1" }}
+  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/NPU/port1" }} 
 
-Host {{ onepasswordRead "op://Development/NPU/port1" }}
-  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
-  User {{ onepasswordRead "op://Development/NPU/username" }}
-  Port {{ onepasswordRead "op://Development/NPU/port1" }} 
+Host {{ onepasswordRead "op://Personal/NPU/port2" }}
+  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/NPU/port2" }} 
 
-Host {{ onepasswordRead "op://Development/NPU/port2" }}
-  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
-  User {{ onepasswordRead "op://Development/NPU/username" }}
-  Port {{ onepasswordRead "op://Development/NPU/port2" }} 
-
-Host {{ onepasswordRead "op://Development/NPU/port3" }}
-  HostName {{ onepasswordRead "op://Development/NPU/URL" }}
-  User {{ onepasswordRead "op://Development/NPU/username" }}
-  Port {{ onepasswordRead "op://Development/NPU/port3" }} 
+Host {{ onepasswordRead "op://Personal/NPU/port3" }}
+  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/NPU/port3" }} 
 
 {{- if ne .chezmoi.os "windows" }}
-
 Host *
   IdentityAgent ~/.1password/agent.sock
 {{- end }}
