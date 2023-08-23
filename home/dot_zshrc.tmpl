@@ -239,9 +239,10 @@ fi
 
 export BAT_THEME="Catppuccin-$flavour"
 # tmux
-sed -i '/flavour/c\'"set -g @catppuccin_flavour '$flavour'" $HOME/.tmux.conf
-# lazygit
-cp $XDG_CONFIG_HOME/lazygit/general $XDG_CONFIG_HOME/lazygit/config.yml;cat $XDG_CONFIG_HOME/lazygit/themes/$flavour.yml >> $XDG_CONFIG_HOME/lazygit/config.yml
+if tmux has-session -t default 2>/dev/null; then 
+	tmux set -g @catppuccin_flavour '$flavour'
+	tmux source ~/.tmux.conf
+fi
 {{- end }}
 
 {{- if lookPath "conda" }}
