@@ -9,7 +9,6 @@ set keep-english-in-normal-and-restore-in-insert
 
 """ Common settings -------------------------
 set showmode
-set scrolloff=5
 set number
 set ignorecase
 set sidescrolloff=8
