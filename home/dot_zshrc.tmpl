@@ -111,6 +111,9 @@ plugins=(
 {{- if lookPath "pyenv" }}
 		pyenv
 {{- end }}
+{{- if lookPath "yarn" }}
+		yarn
+{{- end }}
 {{- if lookPath "gh" }}
 		gh
 {{- end }}
