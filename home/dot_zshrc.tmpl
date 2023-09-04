@@ -130,7 +130,7 @@ plugins=(
 FPATH="${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/plugins/zsh-completions/src:${FPATH}"
 
 {{- if lookPath "conda" }}
-FPATH="$ZSH_CUSTOM/plugins/conda-zsh-completion:${FPATH}"
+FPATH="${ZSH_CUSTOM:-${ZSH:-$HOME/.oh-my-zsh}/custom}/plugins/conda-zsh-completion:${FPATH}"
 {{- end }}
 
 {{- if lookPath "brew"}}
