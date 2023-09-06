@@ -16,10 +16,6 @@
             "keys": "ctrl+v"
         },
         {
-            "command": "find",
-            "keys": "ctrl+shift+f"
-        },
-        {
             "command": 
             {
                 "action": "splitPane",
@@ -27,6 +23,10 @@
                 "splitMode": "duplicate"
             },
             "keys": "alt+shift+d"
+        },
+        {
+            "command": "find",
+            "keys": "ctrl+shift+f"
         }
     ],
     "centerOnLaunch": true,
@@ -92,12 +92,24 @@
                 "source": "Windows.Terminal.Wsl"
             },
             {
+                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
                 "guid": "{4d01f14b-a31e-44b5-b785-61e8c14b78bd}",
                 "hidden": true,
-                "name": "Git Bash",
-                "commandline": "C:\\Program Files\\Git\\bin\\bash.exe -li",
                 "icon": "C:\\Program Files\\Git\\mingw64\\share\\git\\git-for-windows.ico",
+                "name": "Git Bash",
                 "startingDirectory": "%USERPROFILE%"
+            },
+            {
+                "guid": "{e30126c4-5ed2-5613-a1ee-336298194bac}",
+                "hidden": false,
+                "name": "Developer Command Prompt for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
+            },
+            {
+                "guid": "{7705b016-dc69-5e57-841e-5c1f7f9be47b}",
+                "hidden": false,
+                "name": "Developer PowerShell for VS 2022",
+                "source": "Windows.Terminal.VisualStudio"
             }
         ]
     },
@@ -382,39 +394,47 @@
     ],
     "theme": 
     {
-        "dark" : "Catppuccin Mocha",
-        "light" : "Catppuccin Latte"
+        "dark": "Catppuccin Mocha",
+        "light": "Catppuccin Latte"
     },
     "themes": 
     [
         {
             "name": "Catppuccin Latte",
-            "tab": {
-              "background": "#EFF1F5FF",
-              "showCloseButton": "always",
-              "unfocusedBackground": null
+            "tab": 
+            {
+                "background": "#EFF1F5FF",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
             },
-            "tabRow": {
-              "background": "#E6E9EFFF",
-              "unfocusedBackground": "#DCE0E8FF"
+            "tabRow": 
+            {
+                "background": "#E6E9EFFF",
+                "unfocusedBackground": "#DCE0E8FF"
             },
-            "window": {
-              "applicationTheme": "light"
+            "window": 
+            {
+                "applicationTheme": "light",
+                "useMica": false
             }
         },
         {
             "name": "Catppuccin Mocha",
-            "tab": {
-              "background": "#1E1E2EFF",
-              "showCloseButton": "always",
-              "unfocusedBackground": null
+            "tab": 
+            {
+                "background": "#1E1E2EFF",
+                "showCloseButton": "always",
+                "unfocusedBackground": null
             },
-            "tabRow": {
-              "background": "#181825FF",
-              "unfocusedBackground": "#11111BFF"
+            "tabRow": 
+            {
+                "background": "#181825FF",
+                "unfocusedBackground": "#11111BFF"
             },
-            "window": {
-              "applicationTheme": "dark"
+            "window": 
+            {
+                "applicationTheme": "dark",
+                "useMica": false
             }
         }
     ]
