@@ -82,6 +82,16 @@
     refreshPeriod = "168h"
 {{- end }}
 
+{{- if lookPath "fleet" }}
+[".fleet/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/fleet/archive/master.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.json"]
+{{- end }}
+
 {{- if eq .chezmoi.os "darwin" }}
 [".oh-my-zsh/custom/plugins/zsh-osx-autoproxy"]
     type = "archive"
