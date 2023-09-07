@@ -26,6 +26,11 @@ Host {{ onepasswordRead "op://Personal/NPU/port3" }}
   User {{ onepasswordRead "op://Personal/NPU/username" }}
   Port {{ onepasswordRead "op://Personal/NPU/port3" }} 
 
+Host {{ onepasswordRead "op://Personal/NPU/port4" }}
+  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/NPU/port4" }} 
+
 {{- if ne .chezmoi.os "windows" }}
 Host *
   IdentityAgent ~/.1password/agent.sock
