@@ -1,37 +1,38 @@
 Host 2080
-  HostName {{ onepasswordRead "op://Personal/2080/URL" }}
-  User {{ onepasswordRead "op://Personal/2080/username" }}
+  HostName {{ (keepassxc "2080").URL }}
+  User {{ (keepassxc "2080").UserName }}
 
 Host Mastodon 
-  HostName {{ onepasswordRead "op://Personal/DigitalOcean/URL" }}
-  User {{ onepasswordRead "op://Personal/DigitalOcean/username" }}
+  HostName {{ (keepassxc "DigitalOcean").URL }}
+  User {{ (keepassxc "DigitalOcean").UserName }}
 
 Host 192.168.31.1
   HostName 192.168.31.1
   User root 
   HostKeyAlgorithms=+ssh-rsa
 
-Host {{ onepasswordRead "op://Personal/NPU/port1" }}
-  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
-  User {{ onepasswordRead "op://Personal/NPU/username" }}
-  Port {{ onepasswordRead "op://Personal/NPU/port1" }} 
+Host {{ keepassxcAttribute "NPU" "port1" }}
+  HostName {{ (keepassxc "NPU").URL }}
+  User {{ (keepassxc "NPU").UserName }}
+  Port {{ keepassxcAttribute "NPU" "port1" }}
 
-Host {{ onepasswordRead "op://Personal/NPU/port2" }}
-  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
-  User {{ onepasswordRead "op://Personal/NPU/username" }}
-  Port {{ onepasswordRead "op://Personal/NPU/port2" }} 
+Host {{ keepassxcAttribute "NPU" "port2" }}
+  HostName {{ (keepassxc "NPU").URL }}
+  User {{ (keepassxc "NPU").UserName }}
+  Port {{ keepassxcAttribute "NPU" "port2" }}
 
-Host {{ onepasswordRead "op://Personal/NPU/port3" }}
-  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
-  User {{ onepasswordRead "op://Personal/NPU/username" }}
-  Port {{ onepasswordRead "op://Personal/NPU/port3" }} 
+Host {{ keepassxcAttribute "NPU" "port3" }}
+  HostName {{ (keepassxc "NPU").URL }}
+  User {{ (keepassxc "NPU").UserName }}
+  Port {{ keepassxcAttribute "NPU" "port3" }}
 
-Host {{ onepasswordRead "op://Personal/NPU/port4" }}
-  HostName {{ onepasswordRead "op://Personal/NPU/URL" }}
-  User {{ onepasswordRead "op://Personal/NPU/username" }}
-  Port {{ onepasswordRead "op://Personal/NPU/port4" }} 
+Host {{ keepassxcAttribute "NPU" "port4" }}
+  HostName {{ (keepassxc "NPU").URL }}
+  User {{ (keepassxc "NPU").UserName }}
+  Port {{ keepassxcAttribute "NPU" "port4" }}
 
 {{- if ne .chezmoi.os "windows" }}
+
 Host *
    IdentityAgent ~/.strongbox/agent.sock
 {{- end }}
