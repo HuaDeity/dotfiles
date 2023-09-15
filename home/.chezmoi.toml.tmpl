@@ -62,8 +62,10 @@
 [merge]
     command = "ksdiff"
     args = ["--merge", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+{{- end }}
 [keepassxc]
-    database = "~/Library/Mobile Documents/iCloud~com~strongbox/Documents/ViKeePass.kdbx"
+{{- if eq .chezmoi.os "darwin" }}
+    database = "{{.chezmoi.homeDir}}/Library/Mobile Documents/iCloud~com~strongbox/Documents/ViKeePass.kdbx"
 {{- end }}
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
