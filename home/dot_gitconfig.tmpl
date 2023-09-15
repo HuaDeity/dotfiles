@@ -1,7 +1,7 @@
 [user]
 	name = HuaDeity
 	email = hello@huadeity.com
-	signingkey = {{ onepasswordRead "op://Personal/SSH Key/public key" }}
+	signingkey = {{ keepassxcAttribute "SSH Key" "public key" }}
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -14,7 +14,7 @@
 {{- end }}
 [gpg "ssh"]
 {{- if eq .chezmoi.os "darwin" }}
-	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = ~/.ssh/git_allowed_signers
 {{- end }}
 {{- if eq .chezmoi.os "windows" }}
 	program = C:\\Program Files\\1Password\\app\\8\\op-ssh-sign.exe

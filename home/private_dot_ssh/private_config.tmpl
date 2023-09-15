@@ -33,5 +33,5 @@ Host {{ onepasswordRead "op://Personal/NPU/port4" }}
 
 {{- if ne .chezmoi.os "windows" }}
 Host *
-  IdentityAgent ~/.1password/agent.sock
+   IdentityAgent ~/.strongbox/agent.sock
 {{- end }}
