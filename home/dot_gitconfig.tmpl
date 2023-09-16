@@ -11,9 +11,7 @@
 	format = ssh
 {{- if eq .chezmoi.os "darwin" }}
 	program = /usr/local/bin/gpg
-{{- end }}
 [gpg "ssh"]
-{{- if eq .chezmoi.os "darwin" }}
 	allowedSignersFile = ~/.ssh/git_allowed_signers
 {{- end }}
 [commit]
@@ -36,6 +34,3 @@
 {{- end }}
 [core]
 	excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
-{{- if eq .chezmoi.os "windows" }}
-	sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
-{{- end }}
