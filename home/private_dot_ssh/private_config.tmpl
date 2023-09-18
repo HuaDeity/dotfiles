@@ -39,11 +39,6 @@ Host 1080-2admin
   HostName {{ (keepassxc "1080-2").URL }}
   User {{ (keepassxc "1080-2").UserName }}
 
-Host 1080-3admin
-  HostName {{ (keepassxc "1080-3").URL }}
-  User {{ (keepassxc "1080-3").UserName }}
-  Port {{ keepassxcAttribute "1080-3" "port" }} 
-
 Host {{ keepassxcAttribute "Lab1" "port1" }}admin
   HostName {{ (keepassxc "Lab1").URL }}
   User {{ (keepassxc "Lab1").UserName }}
