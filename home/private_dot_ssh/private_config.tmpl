@@ -1,6 +1,6 @@
-Host 2080
-  HostName {{ (keepassxc "2080").URL }}
-  User {{ (keepassxc "2080").UserName }}
+Host 1080
+  HostName {{ (keepassxc "1080").URL }}
+  User {{ (keepassxc "1080").UserName }}
 
 Host Mastodon 
   HostName {{ (keepassxc "DigitalOcean").URL }}
@@ -30,6 +30,49 @@ Host {{ keepassxcAttribute "NPU" "port4" }}
   HostName {{ (keepassxc "NPU").URL }}
   User {{ (keepassxc "NPU").UserName }}
   Port {{ keepassxcAttribute "NPU" "port4" }}
+
+Host 1080-1admin
+  HostName {{ (keepassxc "1080-1").URL }}
+  User {{ (keepassxc "1080-1").UserName }}
+
+Host 1080-2admin
+  HostName {{ (keepassxc "1080-2").URL }}
+  User {{ (keepassxc "1080-2").UserName }}
+
+Host 1080-3admin
+  HostName {{ (keepassxc "1080-3").URL }}
+  User {{ (keepassxc "1080-3").UserName }}
+  Port {{ keepassxcAttribute "1080-3" "port" }} 
+
+Host {{ keepassxcAttribute "Lab1" "port1" }}admin
+  HostName {{ (keepassxc "Lab1").URL }}
+  User {{ (keepassxc "Lab1").UserName }}
+  Port {{ keepassxcAttribute "Lab1" "port1" }}
+
+Host {{ keepassxcAttribute "Lab1" "port2" }}admin
+  HostName {{ (keepassxc "Lab1").URL }}
+  User {{ (keepassxc "Lab1").UserName }}
+  Port {{ keepassxcAttribute "Lab1" "port2" }}
+
+Host {{ keepassxcAttribute "Lab1" "port3" }}admin
+  HostName {{ (keepassxc "Lab1").URL }}
+  User {{ (keepassxc "Lab1").UserName }}
+  Port {{ keepassxcAttribute "Lab1" "port3" }}
+
+Host {{ keepassxcAttribute "Lab1" "port4" }}admin
+  HostName {{ (keepassxc "Lab1").URL }}
+  User {{ (keepassxc "Lab1").UserName }}
+  Port {{ keepassxcAttribute "Lab1" "port4" }}
+
+Host {{ keepassxcAttribute "Lab2" "port1" }}admin
+  HostName {{ (keepassxc "Lab2").URL }}
+  User {{ (keepassxc "Lab2").UserName }}
+  Port {{ keepassxcAttribute "Lab2" "port1" }}
+
+Host {{ keepassxcAttribute "Lab2" "port2" }}admin
+  HostName {{ (keepassxc "Lab2").URL }}
+  User {{ (keepassxc "Lab2").UserName }}
+  Port {{ keepassxcAttribute "Lab2" "port2" }}
 
 {{- if ne .chezmoi.os "windows" }}
 
