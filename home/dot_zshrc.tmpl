@@ -90,6 +90,9 @@ plugins=(
 {{- if lookPath "fzf" }}
 		fzf
 {{- end }}
+{{- if lookPath "rustup"}}
+		rust
+{{- end }}
 {{- if eq .chezmoi.os "darwin" }}
     	macos
 		zsh-osx-autoproxy
