@@ -105,9 +105,6 @@ plugins=(
 		docker
 		docker-compose
 {{- end }}
-{{- if lookPath "op" }}
-		1password
-{{- end }}
 {{- if lookPath "pyenv" }}
 		pyenv
 {{- end }}
@@ -121,9 +118,6 @@ plugins=(
     	macos
 		zsh-osx-autoproxy
 		dash
-{{- end }}
-{{ if eq .osid "linux-ubuntu" -}}
-		ubuntu
 {{- end }}
 		)
 
@@ -160,11 +154,6 @@ export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
 # iterm2 shell intergration with tmux
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-{{- end }}
-
-{{- if lookPath "op" }}
-# SSH_Auth
-export SSH_AUTH_SOCK=~/.1password/agent.sock
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
