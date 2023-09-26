@@ -151,6 +151,10 @@ fi
 export SSH_AUTH_SOCK=~/.strongbox/agent.sock
 {{- end }}
 
+{{- if .personal }}
+export GITHUB_TOKEN={{ keepassxcAttribute "GitHub Personal Access Token" "token" }}
+{{- end }}
+
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
