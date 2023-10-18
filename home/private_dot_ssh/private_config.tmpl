@@ -6,11 +6,6 @@ Host Mastodon
   HostName {{ (keepassxc "DigitalOcean").URL }}
   User {{ (keepassxc "DigitalOcean").UserName }}
 
-Host 192.168.31.1
-  HostName 192.168.31.1
-  User root 
-  HostKeyAlgorithms=+ssh-rsa
-
 Host {{ keepassxcAttribute "NPU" "port1" }}
   HostName {{ (keepassxc "NPU").URL }}
   User {{ (keepassxc "NPU").UserName }}
