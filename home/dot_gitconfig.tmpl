@@ -37,3 +37,8 @@
 {{- end }}
 [core]
 	excludesfile = {{.chezmoi.homeDir}}/.gitignore_global
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+    sshCommand = "ssh.exe"
+{{   end }}
+{{ end }}
