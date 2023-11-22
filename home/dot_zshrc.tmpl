@@ -90,6 +90,9 @@ plugins=(
 {{- if lookPath "fzf" }}
 		fzf
 {{- end }}
+{{- if lookPath "op" }}
+		1password
+{{- end }}
 {{- if lookPath "rustup"}}
 		rust
 {{- end }}
