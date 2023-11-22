@@ -1,71 +1,66 @@
-Host 1080
-  HostName {{ (keepassxc "1080").URL }}
-  User {{ (keepassxc "1080").UserName }}
-
 Host Mastodon 
-  HostName {{ (keepassxc "DigitalOcean").URL }}
-  User {{ (keepassxc "DigitalOcean").UserName }}
+  HostName {{ onepasswordRead "op://Personal/DigitalOcean/URL" }}
+  User {{ onepasswordRead "op://Personal/DigitalOcean/username" }}
 
-Host {{ keepassxcAttribute "NPU" "port1" }}
-  HostName {{ (keepassxc "NPU").URL }}
-  User {{ (keepassxc "NPU").UserName }}
-  Port {{ keepassxcAttribute "NPU" "port1" }}
+Host {{ onepasswordRead "op://Personal/Lab1/port2" }}
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port2" }}
 
-Host {{ keepassxcAttribute "NPU" "port2" }}
-  HostName {{ (keepassxc "NPU").URL }}
-  User {{ (keepassxc "NPU").UserName }}
-  Port {{ keepassxcAttribute "NPU" "port2" }}
+Host {{ onepasswordRead "op://Personal/Lab1/port4" }}
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port4" }}
 
-Host {{ keepassxcAttribute "NPU" "port3" }}
-  HostName {{ (keepassxc "NPU").URL }}
-  User {{ (keepassxc "NPU").UserName }}
-  Port {{ keepassxcAttribute "NPU" "port3" }}
+Host {{ onepasswordRead "op://Personal/Lab2/port1" }}
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port1" }}
 
-Host {{ keepassxcAttribute "NPU" "port4" }}
-  HostName {{ (keepassxc "NPU").URL }}
-  User {{ (keepassxc "NPU").UserName }}
-  Port {{ keepassxcAttribute "NPU" "port4" }}
+Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/NPU/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port2" }}
 
-Host 1080-1admin
-  HostName {{ (keepassxc "1080-1").URL }}
-  User {{ (keepassxc "1080-1").UserName }}
+Host 1080admin
+  HostName {{ onepasswordRead "op://Personal/1080/URL" }}
+  User {{ onepasswordRead "op://Personal/1080/username" }}
 
-Host 1080-2admin
-  HostName {{ (keepassxc "1080-2").URL }}
-  User {{ (keepassxc "1080-2").UserName }}
+Host 2080admin
+  HostName {{ onepasswordRead "op://Personal/2080/URL" }}
+  User {{ onepasswordRead "op://Personal/2080/username" }}
 
-Host {{ keepassxcAttribute "Lab1" "port1" }}admin
-  HostName {{ (keepassxc "Lab1").URL }}
-  User {{ (keepassxc "Lab1").UserName }}
-  Port {{ keepassxcAttribute "Lab1" "port1" }}
+Host {{ onepasswordRead "op://Personal/Lab1/port1" }}admin
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab1/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port1" }}
 
-Host {{ keepassxcAttribute "Lab1" "port2" }}admin
-  HostName {{ (keepassxc "Lab1").URL }}
-  User {{ (keepassxc "Lab1").UserName }}
-  Port {{ keepassxcAttribute "Lab1" "port2" }}
+Host {{ onepasswordRead "op://Personal/Lab1/port2" }}admin
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab1/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port2" }}
 
-Host {{ keepassxcAttribute "Lab1" "port3" }}admin
-  HostName {{ (keepassxc "Lab1").URL }}
-  User {{ (keepassxc "Lab1").UserName }}
-  Port {{ keepassxcAttribute "Lab1" "port3" }}
+Host {{ onepasswordRead "op://Personal/Lab1/port3" }}admin
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab1/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port3" }}
 
-Host {{ keepassxcAttribute "Lab1" "port4" }}admin
-  HostName {{ (keepassxc "Lab1").URL }}
-  User {{ (keepassxc "Lab1").UserName }}
-  Port {{ keepassxcAttribute "Lab1" "port4" }}
+Host {{ onepasswordRead "op://Personal/Lab1/port4" }}admin
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab1/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port4" }}
 
-Host {{ keepassxcAttribute "Lab2" "port1" }}admin
-  HostName {{ (keepassxc "Lab2").URL }}
-  User {{ (keepassxc "Lab2").UserName }}
-  Port {{ keepassxcAttribute "Lab2" "port1" }}
+Host {{ onepasswordRead "op://Personal/Lab2/port1" }}admin
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab1/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port1" }}
 
-Host {{ keepassxcAttribute "Lab2" "port2" }}admin
-  HostName {{ (keepassxc "Lab2").URL }}
-  User {{ (keepassxc "Lab2").UserName }}
-  Port {{ keepassxcAttribute "Lab2" "port2" }}
+Host {{ onepasswordRead "op://Personal/Lab2/port2" }}admin
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab1/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab1/port2" }}
 
 {{- if ne .chezmoi.os "windows" }}
-
 Host *
-   IdentityAgent ~/.strongbox/agent.sock
+   IdentityAgent ~/.1password/agent.sock
 {{- end }}

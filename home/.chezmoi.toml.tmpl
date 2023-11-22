@@ -63,13 +63,6 @@
     command = "ksdiff"
     args = ["--merge", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
 {{- end }}
-[keepassxc]
-{{- if eq .chezmoi.os "darwin" }}
-    database = "{{.chezmoi.homeDir}}/Library/Mobile Documents/iCloud~com~strongbox/Documents/ViKeePass.kdbx"
-{{- end }}
-{{- if eq .chezmoi.os "windows" }}
-    database = "{{.chezmoi.homeDir}}/iCloudDrive/iCloud~com~strongbox/ViKeePass.kdbx"
-{{- end }}
 {{ if eq .chezmoi.os "linux" }}
 {{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [onepassword]

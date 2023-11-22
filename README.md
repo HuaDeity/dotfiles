@@ -8,7 +8,7 @@ Install them with:
 chezmoi init HuaDeity
 ```
 
-Personal secrets are stored in KDBX format and you'll need the [KeePassXC](https://keepassxc.org) installed.
+Personal secrets are stored in [1Password](https://1password.com) and you'll need the [1Password CLI](https://developer.1password.com/docs/cli) installed.
 
 It is only perfectly used in macOS at the moment, my primary platform.
 I will adapt it to Windows and WSL in the future.
