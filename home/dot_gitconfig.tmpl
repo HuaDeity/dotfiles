@@ -1,6 +1,6 @@
 [user]
-	name = HuaDeity
-	email = hello@huadeity.com
+	name = {{ onepasswordRead "op://Personal/Identity/username" }}
+	email = {{ onepasswordRead "op://Personal/Identity/email" }}
 	signingkey = {{ onepasswordRead "op://Personal/SSH Key/public key" }}
 [filter "lfs"]
 	clean = git-lfs clean -- %f
@@ -11,6 +11,11 @@
 	format = ssh
 {{- if eq .chezmoi.os "darwin" }}
 	program = /usr/local/bin/gpg
+{{- end }}
+[gpg "ssh"]
+	allowedsignersfile = ~/.config/git/allowed_signers
+{{- if eq .chezmoi.os "darwin" }}
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 {{- end }}
 [commit]
 	gpgsign = true
