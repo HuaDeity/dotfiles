@@ -13,14 +13,14 @@ Host {{ onepasswordRead "op://Personal/Lab1/port4" }}
   Port {{ onepasswordRead "op://Personal/Lab1/port4" }}
 
 Host {{ onepasswordRead "op://Personal/Lab2/port1" }}
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  HostName {{ onepasswordRead "op://Personal/Lab2/URL" }}
   User {{ onepasswordRead "op://Personal/NPU/username" }}
-  Port {{ onepasswordRead "op://Personal/Lab1/port1" }}
+  Port {{ onepasswordRead "op://Personal/Lab2/port1" }}
 
 Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
+  HostName {{ onepasswordRead "op://Personal/Lab2/URL" }}
   User {{ onepasswordRead "op://Personal/NPU/username" }}
-  Port {{ onepasswordRead "op://Personal/Lab1/port2" }}
+  Port {{ onepasswordRead "op://Personal/Lab2/port2" }}
 
 Host 1080admin
   HostName {{ onepasswordRead "op://Personal/1080/URL" }}
@@ -51,14 +51,14 @@ Host {{ onepasswordRead "op://Personal/Lab1/port4" }}admin
   Port {{ onepasswordRead "op://Personal/Lab1/port4" }}
 
 Host {{ onepasswordRead "op://Personal/Lab2/port1" }}admin
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
-  User {{ onepasswordRead "op://Personal/Lab1/username" }}
-  Port {{ onepasswordRead "op://Personal/Lab1/port1" }}
+  HostName {{ onepasswordRead "op://Personal/Lab2/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab2/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab2/port1" }}
 
 Host {{ onepasswordRead "op://Personal/Lab2/port2" }}admin
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" }}
-  User {{ onepasswordRead "op://Personal/Lab1/username" }}
-  Port {{ onepasswordRead "op://Personal/Lab1/port2" }}
+  HostName {{ onepasswordRead "op://Personal/Lab2/URL" }}
+  User {{ onepasswordRead "op://Personal/Lab2/username" }}
+  Port {{ onepasswordRead "op://Personal/Lab2/port2" }}
 
 {{- if ne .chezmoi.os "windows" }}
 Host *
