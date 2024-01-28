@@ -1,3 +1,7 @@
+{{- if eq .chezmoi.os "darwin" }}
+Include ~/.orbstack/ssh/config
+{{- end }}
+
 Host Mastodon 
   HostName {{ onepasswordRead "op://Personal/DigitalOcean/URL" }}
   User {{ onepasswordRead "op://Personal/DigitalOcean/username" }}
