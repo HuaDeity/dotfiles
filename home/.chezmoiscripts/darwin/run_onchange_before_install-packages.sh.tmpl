@@ -4,10 +4,14 @@ brew bundle --no-lock --file=/dev/stdin <<EOF
 tap "homebrew/aliases"
 tap "homebrew/autoupdate"
 tap "homebrew/bundle"
+tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
 tap "homebrew/command-not-found"
+tap "homebrew/core"
 tap "homebrew/services"
+tap "huadeity/tap"
+tap "nrlquaker/createzap"
 tap "huadeity/tap"
 brew "bat"
 brew "blueutil"
@@ -21,18 +25,23 @@ brew "git"
 brew "git-lfs"
 brew "go"
 brew "hugo"
+brew "jq"
 brew "lazygit"
 brew "mackup"
+brew "mas"
 brew "mysql", restart_service: true
 brew "neovim"
 brew "ninja"
 brew "nvm"
 brew "ripgrep"
 brew "rustup-init"
+brew "swift-format"
+brew "tesseract"
 brew "tesseract-lang"
 brew "thefuck"
 brew "tmux"
-brew "wgcf"
+brew "wget"
+brew "wireguard-tools"
 cask "1password"
 cask "1password-cli"
 cask "adguard"
@@ -40,7 +49,9 @@ cask "airbuddy"
 cask "aldente"
 cask "alfred"
 cask "apparency"
+cask "arc"
 cask "bartender"
+cask "bbedit"
 cask "bibdesk"
 cask "bilibili"
 cask "bookends"
@@ -64,6 +75,7 @@ cask "font-symbols-only-nerd-font"
 cask "gpg-suite-no-mail"
 cask "hazel"
 cask "hazeover"
+cask "ia-presenter"
 cask "istat-menus"
 cask "iterm2"
 cask "jetbrains-toolbox"
@@ -77,11 +89,15 @@ cask "mactex-no-gui"
 cask "macupdater"
 cask "mail-assistant"
 cask "marked"
+cask "marsedit"
+cask "microblog"
+cask "microsoft-auto-update"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
 cask "microsoft-word"
 cask "miniforge"
 cask "obsidian"
+cask "opencat"
 cask "orbstack"
 cask "parallels"
 cask "permute"
@@ -92,6 +108,8 @@ cask "qq"
 cask "qqlive"
 cask "rar"
 cask "rectangle-pro"
+cask "screens-assist"
+cask "screens-connect"
 cask "sketch"
 cask "skim"
 cask "sleeve"
@@ -109,4 +127,118 @@ cask "whisky"
 cask "xld"
 cask "xscope"
 cask "zoom"
+mas "1Password for Safari", id: 1569813296
+mas "Actions", id: 1586435171
+mas "Bob", id: 1630034110
+mas "Broadcasts", id: 1469995354
+mas "Calory", id: 1476831360
+mas "ComicTrack", id: 1601966301
+mas "Compressor", id: 424390742
+mas "Curve", id: 1219074514
+mas "Dato", id: 1470584107
+mas "DevCleaner", id: 1388020431
+mas "Developer", id: 640199958
+mas "Dice", id: 1479250666
+mas "Drafts", id: 1435957248
+mas "DuckDuckGo Privacy for Safari", id: 1482920575
+mas "Final Cut Pro", id: 424389933
+mas "Flighty", id: 1358823008
+mas "GameTrack", id: 1136800740
+mas "GarageBand", id: 682658836
+mas "Goodnotes", id: 1444383602
+mas "Highlights", id: 1498912833
+mas "HP Smart", id: 1474276998
+mas "iA Writer", id: 775737590
+mas "Image2icon", id: 992115977
+mas "Immersive Translate", id: 6447957425
+mas "iMovie", id: 408981434
+mas "Infuse", id: 1136220934
+mas "Keynote", id: 409183694
+mas "Kindle", id: 302584613
+mas "lire", id: 1482527526
+mas "Logic Pro", id: 634148309
+mas "LookUp", id: 872564448
+mas "MainStage", id: 634159523
+mas "Maipo", id: 789066512
+mas "Mona", id: 1659154653
+mas "Motion", id: 434290957
+mas "MusicBox", id: 1614730313
+mas "MusicHarbor", id: 1440405750
+mas "MusicSmart", id: 1512195368
+mas "Night Sky", id: 475772902
+mas "Noir", id: 1592917505
+mas "Numbers", id: 409203825
+mas "Omnivore", id: 1564031042
+mas "Pages", id: 409201541
+mas "Pastel", id: 413897608
+mas "PastePal", id: 1503446680
+mas "Photomator", id: 1444636541
+mas "Pixelmator Pro", id: 1289583905
+mas "Pizza for HSR", id: 6448894222
+mas "Pizza Helper for Genshin", id: 1635319193
+mas "Play", id: 1596506190
+mas "Playgrounds", id: 1496833156
+mas "PopClip", id: 445189367
+mas "Prompt", id: 1594420480
+mas "ReminderCal", id: 1662218674
+mas "Screens 5", id: 1663047912
+mas "Shareful", id: 1522267256
+mas "Shazam", id: 897118787
+mas "Shortery", id: 1594183810
+mas "sing-box", id: 6451272673
+mas "SnippetsLab", id: 1006087419
+mas "Spring", id: 1508706541
+mas "Streaks", id: 963034692
+mas "Subscriptions", id: 1577082754
+mas "TestFlight", id: 899247664
+mas "TextSniper", id: 1528890965
+mas "Timery", id: 1425368544
+mas "Tripsy", id: 1429967544
+mas "Vidimote", id: 1585702412
+mas "WaterMinder", id: 1415257369
+mas "Web Scrobbler", id: 6449224218
+mas "Xcode", id: 497799835
+mas "优酷", id: 1014945607
+mas "爱奇艺", id: 1012296988
+vscode "1Password.op-vscode"
+vscode "bradlc.vscode-tailwindcss"
+vscode "Catppuccin.catppuccin-vsc"
+vscode "Catppuccin.catppuccin-vsc-icons"
+vscode "catppuccin.catppuccin-vsc-pack"
+vscode "charliermarsh.ruff"
+vscode "CircleCI.circleci"
+vscode "codezombiech.gitignore"
+vscode "csstools.postcss"
+vscode "dbaeumer.vscode-eslint"
+vscode "deerawan.vscode-dash"
+vscode "esbenp.prettier-vscode"
+vscode "fmoronzirfas.open-in-marked"
+vscode "GitHub.copilot"
+vscode "GitHub.copilot-chat"
+vscode "GitHub.vscode-pull-request-github"
+vscode "golang.go"
+vscode "James-Yu.latex-workshop"
+vscode "JohnnyMorganz.stylua"
+vscode "kaleidoscope-app.vscode-ksdiff"
+vscode "ms-azuretools.vscode-docker"
+vscode "ms-playwright.playwright"
+vscode "ms-python.python"
+vscode "ms-python.vscode-pylance"
+vscode "ms-vscode-remote.remote-containers"
+vscode "ms-vscode-remote.remote-ssh"
+vscode "ms-vscode-remote.remote-ssh-edit"
+vscode "ms-vscode.remote-explorer"
+vscode "ParallelsDesktop.parallels-desktop"
+vscode "rust-lang.rust-analyzer"
+vscode "sswg.swift-lang"
+vscode "tombonnike.vscode-status-bar-format-toggle"
+vscode "usernamehw.errorlens"
+vscode "vadimcn.vscode-lldb"
+vscode "VisualStudioExptTeam.intellicode-api-usage-examples"
+vscode "VisualStudioExptTeam.vscodeintellicode"
+vscode "vscodevim.vim"
+vscode "Vue.volar"
+vscode "Vue.vscode-typescript-vue-plugin"
+vscode "WakaTime.vscode-wakatime"
+vscode "ZixuanChen.vitest-explorer"
 EOF
