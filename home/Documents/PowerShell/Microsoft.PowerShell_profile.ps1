@@ -1,12 +1,25 @@
-Install-Module -Name powershell-windows-autoproxy -Repository PSGallery -Force
-Install-Module -Name posh-git -Repository PSGallery -Force
-Install-Module -Name Terminal-Icons -Repository PSGallery -Force
-Import-Module powershell-windows-autoproxy
-Import-Module Terminal-Icons
-Import-Module posh-git
+function CheckAndInstallModule {
+    param (
+        [string]$ModuleName
+    )
+
+    $module = Get-Module -ListAvailable -Name $ModuleName
+    if ($null -eq $module) {
+        Write-Host "Module $ModuleName is not installed. Attempting to install..."
+        Install-Module -Name $ModuleName -Scope CurrentUser -Force -AllowClobber
+    }
+    Import-Module $ModuleName
+}
+
+CheckAndInstallModule "powershell-windows-autoproxy"
+CheckAndInstallModule "Terminal-Icons"
+CheckAndInstallModule "posh-git"
+
 if ((Get-ItemPropertyValue -Path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize' -Name 'AppsUseLightTheme') -eq 0) {
     $env:flavour = "mocha"
 } else {
     $env:flavour = "latte"
 }
-oh-my-posh init pwsh --config (Join-Path (Split-Path $PROFILE.CurrentUserCurrentHost) "catppuccin.omp.json") | Invoke-Expression
+
+$ompConfigPath = Join-Path (Split-Path $PROFILE.CurrentUserCurrentHost) "catppuccin.omp.json"
+oh-my-posh init pwsh --config $ompConfigPath | Invoke-Expression
