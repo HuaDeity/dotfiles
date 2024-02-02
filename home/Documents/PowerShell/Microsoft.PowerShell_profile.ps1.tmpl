@@ -1,20 +1,21 @@
-function CheckAndInstallModule {
+function TryImportOrInstallModule {
     param (
         [string]$ModuleName
     )
 
-    $module = Get-Module -ListAvailable -Name $ModuleName
-    if ($null -eq $module) {
-        Write-Host "Module $ModuleName is not installed. Attempting to install..."
+    try {
+        Import-Module $ModuleName -ErrorAction Stop
+    } catch {
+        Write-Host "Module $ModuleName not found. Attempting to install..."
         Install-Module -Name $ModuleName -Scope CurrentUser -Force -AllowClobber
+        Write-Host "Module $ModuleName installed successfully."
     }
-    Import-Module $ModuleName
 }
 
-CheckAndInstallModule "powershell-windows-autoproxy"
-CheckAndInstallModule "Terminal-Icons"
+TryImportOrInstallModule "powershell-windows-autoproxy"
+TryImportOrInstallModule "Terminal-Icons"
 {{- if ne .chezmoi.os "darwin" -}}
-CheckAndInstallModule "posh-git"
+TryImportOrInstallModule "posh-git"
 {{- end }}
 
 if ((Get-ItemPropertyValue -Path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize' -Name 'AppsUseLightTheme') -eq 0) {
