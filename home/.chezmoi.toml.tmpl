@@ -1,5 +1,4 @@
 {{/* boolean feature tags */}}
-{{- $docker := false -}}{{/* true if this machine should have Docker installed */}}
 {{- $ephemeral := false -}}{{/* true if this machine is ephemeral, e.g. a cloud or VM instance */}}
 {{- $headless := false -}}{{/* true if this machine does not have a screen and keyboard */}}
 {{- $personal := false -}}{{/* true if this machine should have personal secrets */}}
@@ -28,44 +27,44 @@
 {{- end -}}
 
 {{- if not $ephemeral -}}
-{{-   if stdinIsATTY -}}
+{{-   if eq $hostname "ViMacBook" -}}
+{{-     $personal = true -}}
+{{-   else if stdinIsATTY -}}
 {{-     $headless = promptBoolOnce . "headless" "headless" -}}
 {{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
-{{-     if not $ephemeral -}}
-{{-       $docker = promptBoolOnce . "docker" "docker" -}}
-{{-     end -}}
 {{-   else -}}
 {{-     $ephemeral = true -}}
 {{-     $headless = true -}}
 {{-   end -}}
 {{- end -}}
 
-{{- if (eq $hostname "ViMacBook" "Vi103") -}}
-{{- $personal = true -}}
-{{- end -}}
+{{- $email := "hello@huadeity.com" -}}
 
 [data]
-    docker = {{ $docker }}
     ephemeral = {{ $ephemeral }}
+    email = {{ $email | quote }}
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
+    onepasswordAccount = "FIMALOMFVBGADEDIKMSNPWSHNY"
     osid = {{ $osID | quote }}
+
+[github]
+    refreshPeriod = "12h"
+
 [edit]
     command = "code"
     args = ["--wait"]
-{{- if eq .chezmoi.os "darwin" }}
+{{ if eq .chezmoi.os "darwin" }}
 [diff]
     command = "ksdiff"
     args = ["--diff", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
     exclude = ["externals"]
+
 [merge]
     command = "ksdiff"
     args = ["--merge", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
-{{- end }}
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
+{{ else if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
 [onepassword]
     command = "op.exe"
-{{   end }}
 {{ end }}
