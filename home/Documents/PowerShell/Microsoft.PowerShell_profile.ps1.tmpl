@@ -13,7 +13,9 @@ function CheckAndInstallModule {
 
 CheckAndInstallModule "powershell-windows-autoproxy"
 CheckAndInstallModule "Terminal-Icons"
+{{- if ne .chezmoi.os "darwin" -}}
 CheckAndInstallModule "posh-git"
+{{- end }}
 
 if ((Get-ItemPropertyValue -Path 'HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Themes\Personalize' -Name 'AppsUseLightTheme') -eq 0) {
     $env:flavour = "mocha"
