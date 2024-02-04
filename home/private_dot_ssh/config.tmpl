@@ -1,6 +1,6 @@
 {{- if lookPath "orb" }}
 Include ~/.orbstack/ssh/config
-{{- end -}}
+{{- end }}
 
 Host Mastodon 
   HostName {{ onepasswordRead "op://Personal/DigitalOcean/URL" .onepasswordAccount}}
