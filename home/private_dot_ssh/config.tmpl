@@ -2,9 +2,9 @@
 Include ~/.orbstack/ssh/config
 {{- end }}
 
-Host Mastodon 
-  HostName {{ onepasswordRead "op://Personal/DigitalOcean/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/DigitalOcean/username" .onepasswordAccount}}
+Host 2080 
+  HostName {{ onepasswordRead "op://Personal/2080/URL" .onepasswordAccount}}
+  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
 
 Host {{ onepasswordRead "op://Personal/Lab1/port2" .onepasswordAccount}}
   HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
