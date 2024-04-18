@@ -6,6 +6,10 @@ Host DMIT
   HostName {{ onepasswordRead "op://Personal/DMIT-LAX/URL" .onepasswordAccount}}
   User {{ onepasswordRead "op://Personal/DMIT-LAX/username" .onepasswordAccount}}
 
+Host 1080 
+  HostName {{ onepasswordRead "op://Personal/1080/URL" .onepasswordAccount}}
+  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
+
 Host 2080 
   HostName {{ onepasswordRead "op://Personal/2080/URL" .onepasswordAccount}}
   User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
