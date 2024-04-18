@@ -14,10 +14,20 @@ Host 2080
   HostName {{ onepasswordRead "op://Personal/2080/URL" .onepasswordAccount}}
   User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
 
+Host {{ onepasswordRead "op://Personal/Lab1/port1" .onepasswordAccount}}
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
+  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
+  Port {{ onepasswordRead "op://Personal/Lab1/port1" .onepasswordAccount}}
+
 Host {{ onepasswordRead "op://Personal/Lab1/port2" .onepasswordAccount}}
   HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
   User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
   Port {{ onepasswordRead "op://Personal/Lab1/port2" .onepasswordAccount}}
+
+Host {{ onepasswordRead "op://Personal/Lab1/port3" .onepasswordAccount}}
+  HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
+  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
+  Port {{ onepasswordRead "op://Personal/Lab1/port3" .onepasswordAccount}}
 
 Host {{ onepasswordRead "op://Personal/Lab1/port4" .onepasswordAccount}}
   HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
