@@ -130,17 +130,18 @@ export XDG_CONFIG_HOME="$HOME/.config"
 # Set defalt bin path
 export PATH="$HOME/.local/bin:$PATH"
 
-# gnu-sed
-export PATH="$(brew --prefix)/opt/gnu-sed/libexec/gnubin:$PATH"
-
 # Path to pkgconfig installation.
 export PKG_CONFIG_PATH="$(brew --prefix)/lib/pkgconfig:$PKG_CONFIG_PATH"
 
+if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
 # iterm2 shell intergration with tmux
 export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-{{- end }}
 
-{{- if eq .chezmoi.os "darwin" }}
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+alias ssh="it2ssh"
+fi
+
 # Auto Dark for CLI on macOS
 if $(defaults read -g AppleInterfaceStyle &>/dev/null); then
 	# flavour Dark
