@@ -33,6 +33,7 @@ brew "mysql", restart_service: true
 brew "neovim"
 brew "ninja"
 brew "nvm"
+brew "php", restart_service: true
 brew "ripgrep"
 brew "rustup-init"
 brew "swift-format"
@@ -52,7 +53,6 @@ cask "alfred"
 cask "apparency"
 cask "arc"
 cask "archaeology"
-cask "bartender"
 cask "bbedit"
 cask "bibdesk"
 cask "bilibili"
@@ -84,7 +84,6 @@ cask "kaleidoscope"
 cask "keka"
 cask "kekaexternalhelper"
 cask "keyclu"
-cask "league-of-legends"
 cask "logi-options-plus"
 cask "lunar"
 cask "mactex-no-gui"
@@ -92,7 +91,6 @@ cask "macupdater"
 cask "mail-assistant"
 cask "marked"
 cask "marsedit"
-cask "microblog"
 cask "microsoft-auto-update"
 cask "microsoft-excel"
 cask "microsoft-powerpoint"
@@ -100,9 +98,9 @@ cask "microsoft-word"
 cask "miniforge"
 cask "neteasemusic"
 cask "obsidian"
-cask "opgg"
 cask "orbstack"
 cask "permute"
+cask "playcover-nightly"
 cask "popclip"
 cask "prompt-local-terminal"
 cask "qlmarkdown"
@@ -118,7 +116,6 @@ cask "sf-symbols"
 cask "sketch"
 cask "skim"
 cask "sleeve"
-cask "sony-ps-remote-play"
 cask "soulver"
 cask "spotify"
 cask "surge"
@@ -130,8 +127,12 @@ cask "tencent-meeting"
 cask "tower"
 cask "visual-studio-code"
 cask "wechat"
+cask "whisky"
+cask "wwdc"
 cask "xld"
 cask "xscope"
+cask "yaagl"
+cask "yaagl-hsr"
 cask "zed"
 cask "zoom"
 cask "zotero@beta"
@@ -139,18 +140,17 @@ mas "1Password for Safari", id: 1569813296
 mas "Actions", id: 1586435171
 mas "Bob", id: 1630034110
 mas "Broadcasts", id: 1469995354
-mas "Calory", id: 1476831360
-mas "com.zaumstudio.discoelysium", id: 1508191454
 mas "ComicTrack", id: 1601966301
 mas "Compressor", id: 424390742
 mas "Dato", id: 1470584107
+mas "DaVinci Resolve", id: 571213070
 mas "Day One", id: 1055511498
 mas "DevCleaner", id: 1388020431
 mas "Developer", id: 640199958
 mas "Dice", id: 1479250666
+mas "Disco Elysium", id: 1508191454
 mas "Drafts", id: 1435957248
 mas "DuckDuckGo Privacy for Safari", id: 1482920575
-mas "FastMinder", id: 1526749985
 mas "FilmNoir", id: 1528417240
 mas "Final Cut Pro", id: 424389933
 mas "Flighty", id: 1358823008
@@ -166,11 +166,11 @@ mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "Linearity Curve", id: 1219074514
 mas "Linearity Move", id: 6443677011
-mas "lire", id: 1482527526
 mas "Logic Pro", id: 634148309
 mas "LookUp", id: 872564448
 mas "MainStage", id: 634159523
 mas "Maipo", id: 789066512
+mas "Mela", id: 1568924476
 mas "Mona", id: 1659154653
 mas "Motion", id: 434290957
 mas "MusicBox", id: 1614730313
@@ -194,9 +194,10 @@ mas "ReminderCal", id: 1662218674
 mas "Screens 5", id: 1663047912
 mas "Shareful", id: 1522267256
 mas "Shazam", id: 897118787
-mas "Shortery", id: 1594183810
 mas "sing-box", id: 6451272673
+mas "SmartGym", id: 922744883
 mas "SnippetsLab", id: 1006087419
+mas "Spring", id: 1508706541
 mas "Streaks", id: 963034692
 mas "Subscriptions", id: 1577082754
 mas "TestFlight", id: 899247664
