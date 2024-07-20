@@ -36,7 +36,7 @@ brew "php", restart_service: true
 brew "pre-commit"
 brew "ripgrep"
 brew "ruff"
-brew "rustup-init"
+brew "rustup-init", link: true
 brew "swift-format"
 brew "tesseract"
 brew "tesseract-lang"
@@ -65,6 +65,7 @@ cask "crossover"
 cask "cxpatcher"
 cask "dash"
 cask "discord"
+cask "dockdoor"
 cask "douyin"
 cask "douyin-chat"
 cask "downie"
@@ -87,7 +88,9 @@ cask "kaleidoscope"
 cask "keka"
 cask "kekaexternalhelper"
 cask "keyclu"
+cask "lo-rain"
 cask "logi-options-plus"
+cask "longplay"
 cask "lunar"
 cask "mactex-no-gui"
 cask "macupdater"
@@ -100,9 +103,11 @@ cask "microsoft-powerpoint"
 cask "microsoft-word"
 cask "miniforge"
 cask "neteasemusic"
+cask "notchnook"
 cask "obsidian"
 cask "orbstack"
 cask "permute"
+cask "playcover-community"
 cask "popclip"
 cask "prompt-local-terminal"
 cask "qlmarkdown"
@@ -122,6 +127,7 @@ cask "surge"
 cask "suspicious-package"
 cask "syntax-highlight"
 cask "tableplus"
+cask "teamviewer"
 cask "telegram"
 cask "tencent-meeting"
 cask "tower"
@@ -132,7 +138,6 @@ cask "wwdc"
 cask "xld"
 cask "xscope"
 cask "yaagl"
-cask "yaagl-hsr"
 cask "zed"
 cask "zoom"
 mas "Actions", id: 1586435171
@@ -155,11 +160,13 @@ mas "Flighty", id: 1358823008
 mas "GameTrack", id: 1136800740
 mas "GarageBand", id: 682658836
 mas "Goodnotes", id: 1444383602
+mas "HextEdit", id: 1557247094
 mas "Highlights", id: 1498912833
 mas "iA Writer", id: 775737590
 mas "Image2icon", id: 992115977
 mas "iMovie", id: 408981434
 mas "Infuse", id: 1136220934
+mas "Ivory", id: 6444602274
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "Linearity Curve", id: 1219074514
@@ -169,14 +176,12 @@ mas "LookUp", id: 872564448
 mas "MainStage", id: 634159523
 mas "Maipo", id: 789066512
 mas "Mela", id: 1568924476
-mas "Mona", id: 1659154653
 mas "Motion", id: 434290957
 mas "MusicBox", id: 1614730313
 mas "MusicHarbor", id: 1440405750
 mas "MusicSmart", id: 1512195368
 mas "Night Sky", id: 475772902
 mas "Noir", id: 1592917505
-mas "Notchmeister", id: 1599169747
 mas "Numbers", id: 409203825
 mas "Omnivore", id: 1564031042
 mas "Pages", id: 409201541
@@ -189,7 +194,6 @@ mas "Pizza Helper for Genshin", id: 1635319193
 mas "Play", id: 1596506190
 mas "Playgrounds", id: 1496833156
 mas "Prompt", id: 1594420480
-mas "Reeder", id: 1529448980
 mas "Screens 5", id: 1663047912
 mas "Shareful", id: 1522267256
 mas "Shazam", id: 897118787
@@ -198,13 +202,13 @@ mas "SmartGym", id: 922744883
 mas "SnippetsLab", id: 1006087419
 mas "Streaks", id: 963034692
 mas "Subscriptions", id: 1577082754
+mas "Territory", id: 1454112177
 mas "TestFlight", id: 899247664
 mas "TextSniper", id: 1528890965
 mas "Timery", id: 1425368544
 mas "Tot", id: 1491071483
 mas "Tripsy", id: 1429967544
 mas "Vidimote", id: 1585702412
-# mas "Xcode", id: 497799835
 mas "优酷", id: 1014945607
 mas "爱奇艺", id: 1012296988
 vscode "1password.op-vscode"

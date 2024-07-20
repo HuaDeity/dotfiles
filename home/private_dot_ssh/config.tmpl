@@ -39,10 +39,10 @@ Host {{ onepasswordRead "op://Personal/Lab2/port1" }}
   User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
   Port {{ onepasswordRead "op://Personal/Lab2/port1" .onepasswordAccount}}
 
-# Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
-#   HostName {{ onepasswordRead "op://Personal/Lab2/URL" .onepasswordAccount}}
-#   User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-#   Port {{ onepasswordRead "op://Personal/Lab2/port2" .onepasswordAccount}}
+Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
+  HostName {{ onepasswordRead "op://Personal/Lab2/URL" .onepasswordAccount}}
+  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
+  Port {{ onepasswordRead "op://Personal/Lab2/port2" .onepasswordAccount}}
 
 {{- if ne .chezmoi.os "windows" }}
 Host *
