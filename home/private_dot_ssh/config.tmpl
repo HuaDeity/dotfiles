@@ -47,4 +47,5 @@ Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
 {{- if ne .chezmoi.os "windows" }}
 Host *
    IdentityAgent ~/.1password/agent.sock
+   ProxyCommand nc -X connect -x 127.0.0.1:6152 %h %p
 {{- end }}
