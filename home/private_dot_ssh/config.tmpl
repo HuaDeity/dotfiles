@@ -44,8 +44,8 @@ Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
   User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
   Port {{ onepasswordRead "op://Personal/Lab2/port2" .onepasswordAccount}}
 
-{{- if ne .chezmoi.os "windows" }}
+{{- if eq .chezmoi.os "darwin" }}
 Host *
-   IdentityAgent ~/.1password/agent.sock
+   IdentityAgent "~/.1password/agent.sock"
    ProxyCommand nc -X connect -x 127.0.0.1:6152 %h %p
 {{- end }}

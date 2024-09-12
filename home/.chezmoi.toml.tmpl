@@ -64,7 +64,22 @@
 [merge]
     command = "ksdiff"
     args = ["--merge", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
-{{ else if (and (eq .chezmoi.os "linux") (.chezmoi.kernel.osrelease | lower | contains "microsoft")) }}
+{{ else }}
+[diff]
+	command = "code"
+	args = ["--wait", "--diff"]
+
+[merge]
+command = "bash"
+args = [
+    "-c",
+    "cp {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base && code --new-window --wait --merge {{ "{{" }} .Destination {{ "}}" }} {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base {{ "{{" }} .Source {{ "}}" }}",
+]
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
 [onepassword]
     command = "op.exe"
+{{   end }}
 {{ end }}
