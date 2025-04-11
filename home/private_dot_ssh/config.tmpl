@@ -1,51 +1,13 @@
+{{- if eq .chezmoi.os "darwin" }}
+Include "~/Library/Group Containers/YCKFLA6N72.app.elpass.macos.group/ssh_config"
+{{- end }}
+
 {{- if lookPath "orb" }}
 Include ~/.orbstack/ssh/config
 {{- end }}
 
-Host DMIT
-  HostName {{ onepasswordRead "op://Personal/DMIT-LAX/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/DMIT-LAX/username" .onepasswordAccount}}
-
-Host 1080 
-  HostName {{ onepasswordRead "op://Personal/1080/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-
-Host 2080 
-  HostName {{ onepasswordRead "op://Personal/2080/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-
-Host {{ onepasswordRead "op://Personal/Lab1/port1" .onepasswordAccount}}
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-  Port {{ onepasswordRead "op://Personal/Lab1/port1" .onepasswordAccount}}
-
-Host {{ onepasswordRead "op://Personal/Lab1/port2" .onepasswordAccount}}
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-  Port {{ onepasswordRead "op://Personal/Lab1/port2" .onepasswordAccount}}
-
-Host {{ onepasswordRead "op://Personal/Lab1/port3" .onepasswordAccount}}
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-  Port {{ onepasswordRead "op://Personal/Lab1/port3" .onepasswordAccount}}
-
-Host {{ onepasswordRead "op://Personal/Lab1/port4" .onepasswordAccount}}
-  HostName {{ onepasswordRead "op://Personal/Lab1/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-  Port {{ onepasswordRead "op://Personal/Lab1/port4" .onepasswordAccount}}
-
-Host {{ onepasswordRead "op://Personal/Lab2/port1" }}
-  HostName {{ onepasswordRead "op://Personal/Lab2/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-  Port {{ onepasswordRead "op://Personal/Lab2/port1" .onepasswordAccount}}
-
-Host {{ onepasswordRead "op://Personal/Lab2/port2" }}
-  HostName {{ onepasswordRead "op://Personal/Lab2/URL" .onepasswordAccount}}
-  User {{ onepasswordRead "op://Personal/NPU/username" .onepasswordAccount}}
-  Port {{ onepasswordRead "op://Personal/Lab2/port2" .onepasswordAccount}}
-
 {{- if eq .chezmoi.os "darwin" }}
 Host *
-   IdentityAgent "~/.1password/agent.sock"
+   IdentityAgent "/var/folders/f2/txjbhvbs1m712k_zgrzg2lg40000gn/T/IdentityAgent/0EA7DF59"
    ProxyCommand nc -X connect -x 127.0.0.1:6152 %h %p
 {{- end }}

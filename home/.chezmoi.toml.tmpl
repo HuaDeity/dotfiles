@@ -46,14 +46,13 @@
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
-    onepasswordAccount = "FIMALOMFVBGADEDIKMSNPWSHNY"
     osid = {{ $osID | quote }}
 
 [github]
     refreshPeriod = "12h"
 
 [edit]
-    command = "code"
+    command = "zed"
     args = ["--wait"]
 {{ if eq .chezmoi.os "darwin" }}
 [diff]
@@ -75,11 +74,4 @@ args = [
     "-c",
     "cp {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base && code --new-window --wait --merge {{ "{{" }} .Destination {{ "}}" }} {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base {{ "{{" }} .Source {{ "}}" }}",
 ]
-{{ end }}
-
-{{ if eq .chezmoi.os "linux" }}
-{{   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-[onepassword]
-    command = "op.exe"
-{{   end }}
 {{ end }}
