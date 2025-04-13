@@ -1,11 +1,7 @@
 return {
   { import = "lazyvim.plugins.extras.util.octo" },
   {
-    "catppuccin/nvim",
-    opts = {
-      integrations = {
-        octo = true,
-      },
-    },
+    "alanhamlett/neovim-wakatime",
+    config = true,
   },
 }

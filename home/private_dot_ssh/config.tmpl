@@ -10,4 +10,5 @@ Include ~/.orbstack/ssh/config
 Host *
    IdentityAgent "/var/folders/f2/txjbhvbs1m712k_zgrzg2lg40000gn/T/IdentityAgent/0EA7DF59"
    ProxyCommand nc -X connect -x 127.0.0.1:6152 %h %p
+   ForwardAgent yes
 {{- end }}
