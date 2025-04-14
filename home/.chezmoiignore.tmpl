@@ -4,3 +4,14 @@
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
 {{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+.config/zed
+.config/zsh-syntax-highlighting
+.oh-my-zsh
+.ideavimrc
+.p10k.zsh
+.tmux.conf
+.zprofile
+.zshrc
+{{ end }}
