@@ -19,6 +19,20 @@ return {
     "LazyVim/LazyVim",
     opts = {
       colorscheme = "catppuccin",
+      icons = {
+        kinds = {
+          -- LLM Provider icons
+          claude = "󰋦",
+          openai = "󱢆",
+          codestral = "󱎥",
+          gemini = "",
+          Groq = "",
+          Openrouter = "󱂇",
+          Ollama = "󰳆",
+          ["Llama.cpp"] = "󰳆",
+          Deepseek = "",
+        },
+      },
     },
   },
 }
