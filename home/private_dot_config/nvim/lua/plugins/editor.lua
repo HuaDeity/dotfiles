@@ -5,5 +5,4 @@ return {
       current_line_blame = true,
     },
   },
-  { import = "lazyvim.plugins.extras.editor.overseer" },
 }

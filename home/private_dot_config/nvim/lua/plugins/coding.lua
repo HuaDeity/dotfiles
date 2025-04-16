@@ -34,6 +34,4 @@ return {
       completion = { trigger = { prefetch_on_insert = false } },
     },
   },
-  { import = "lazyvim.plugins.extras.coding.mini-surround" },
-  { import = "lazyvim.plugins.extras.coding.neogen" },
 }

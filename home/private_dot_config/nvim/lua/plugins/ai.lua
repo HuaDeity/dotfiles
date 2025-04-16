@@ -1,5 +1,4 @@
 return {
-  { import = "lazyvim.plugins.extras.ai.copilot" },
   {
     "milanglacier/minuet-ai.nvim",
     config = function()

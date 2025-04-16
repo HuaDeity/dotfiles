@@ -1,7 +1,10 @@
 [user]
 	name = HuaDeity
 	email = hello@huadeity.com
-	signingkey = "key::ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFADIHCnmIMoyQq5zv05TuLeFeanIrSb3V+6W9iG1ylO "
+	signingkey = "key::
+{{- range gitHubKeys "HuaDeity" }}
+{{- .Key }}
+{{- end }} "
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
