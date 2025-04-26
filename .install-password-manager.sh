@@ -8,7 +8,7 @@ Darwin)
     brew install doppler
     ;;
 Linux)
-    nix shell "nixpkgs#doppler"
+    # nix shell "nixpkgs#doppler"
     ;;
 *)
     echo "unsupported OS"
