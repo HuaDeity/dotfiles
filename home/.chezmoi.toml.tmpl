@@ -17,8 +17,13 @@
 
 {{/* work around unreliable hostname on darwin */}}
 {{- $hostname := .chezmoi.hostname -}}
+{{- $computerName := .chezmoi.hostname -}}
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+{{-   if lookPath "scutil" }}
+{{-     $computerName := output "scutil" "--get" "ComputerName" | trim -}}
+{{-   else }}
+{{-     $computerName := promptString "hostname" -}}
+{{-   end }}
 {{-   $hostname = $computerName -}}
 {{- end -}}
 
