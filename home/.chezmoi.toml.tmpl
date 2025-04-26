@@ -58,14 +58,13 @@
 
 [edit]
     command = "nvim"
-
+{{ if not (lookPath "doppler") }}
 [hooks.read-source-state.pre]
     command = ".local/share/chezmoi/.install-password-manager.sh"
-
+{{ end }}
 [doppler]
     project = "dotfiles"
     config = "dev_personal"
-
 {{ if eq .chezmoi.os "darwin" }}
 [diff]
     command = "ksdiff"
