@@ -53,6 +53,11 @@
 
 [edit]
     command = "nvim"
+
+[doppler]
+    project = "dotfiles"
+    config = "dev_personal"
+
 {{ if eq .chezmoi.os "darwin" }}
 [diff]
     command = "ksdiff"
@@ -64,13 +69,13 @@
     args = ["--merge", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
 {{ else }}
 [diff]
-	command = "code"
+	command = "zed"
 	args = ["--wait", "--diff"]
 
 [merge]
 command = "bash"
 args = [
     "-c",
-    "cp {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base && code --new-window --wait --merge {{ "{{" }} .Destination {{ "}}" }} {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base {{ "{{" }} .Source {{ "}}" }}",
+    "cp {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base && zed --new-window --wait --merge {{ "{{" }} .Destination {{ "}}" }} {{ "{{" }} .Target {{ "}}" }} {{ "{{" }} .Target {{ "}}" }}.base {{ "{{" }} .Source {{ "}}" }}",
 ]
 {{ end }}

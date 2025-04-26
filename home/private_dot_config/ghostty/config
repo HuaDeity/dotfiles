@@ -1,7 +1,0 @@
-theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
-shell-integration-features = sudo
-font-family = "Monaspace Neon Var"
-font-family = "Monaspace Neon"
-font-feature = calt, liga, ss01, ss02, ss03, cv01=2
-macos-option-as-alt = true
-# keybind = global:ctrl+grave_accent=toggle_quick_terminal

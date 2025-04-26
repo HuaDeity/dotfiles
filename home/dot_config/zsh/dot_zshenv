@@ -1,0 +1,14 @@
+#!/bin/zsh
+#
+# .zshenv: Zsh environment file, loaded always.
+#
+
+# Make Terminal.app behave.
+if [[ "$OSTYPE" == darwin* ]]; then
+  export SHELL_SESSIONS_DISABLE=1
+  export SSH_AUTH_SOCK="/var/folders/f2/txjbhvbs1m712k_zgrzg2lg40000gn/T/IdentityAgent/0EA7DF59"
+fi
+
+if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
+  export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
+fi
