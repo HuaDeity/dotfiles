@@ -12,3 +12,7 @@ fi
 if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
   export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
 fi
+
+# Lang
+export NVM_COMPLETION=true
+export NVM_LAZY_LOAD=true

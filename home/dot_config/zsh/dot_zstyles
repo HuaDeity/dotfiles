@@ -79,12 +79,6 @@ zstyle ':zephyr:plugin:prompt' theme starship auto
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
 #
-# Lang
-#
-
-zstyle ':omz:plugins:nvm' lazy yes
-
-#
 # Tools
 #
 # Git

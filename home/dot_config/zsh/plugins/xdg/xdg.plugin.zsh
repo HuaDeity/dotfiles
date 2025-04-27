@@ -6,6 +6,10 @@
 # Shell utils
 #
 
+# ncurses
+export TERMINFO="${TERMINFO:-$XDG_DATA_HOME/terminfo}"
+export TERMINFO_DIRS="${TERMINFO_DIRS:-$XDG_DATA_HOME/terminfo:/usr/share/terminfo}"
+
 # readline
 export INPUTRC="${INPUTRC:-$XDG_CONFIG_HOME/readline/inputrc}"
 
@@ -22,6 +26,9 @@ alias wget="${aliases[wget]:-wget} --hsts-file=\$XDG_CACHE_HOME/wget/wget-hsts"
 
 # docker
 export DOCKER_CONFIG="${DOCKER_CONFIG:-$XDG_CONFIG_HOME/docker}"
+
+# gradle
+export GRADLE_USER_HOME="${GRADLE_USER_HOME:-$XDG_DATA_HOME/gradle}"
 
 # groovy
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -42,6 +49,12 @@ export NODE_REPL_HISTORY="${NODE_REPL_HISTORY:-$XDG_DATA_HOME/nodejs/repl_histor
 # nuget
 export NUGET_PACKAGES="${NUGET_PACKAGES:-$XDG_CACHE_HOME/NuGetPackages}"
 
+# nvm
+export NVM_DIR="${NVM_DIR:-$XDG_DATA_HOME/nvm}"
+
+# ollama
+export OLLAMA_MODELS="${OLLAMA_MODELS:-$XDG_DATA_HOME/ollama/models}"
+
 # postgres
 export PSQLRC="${PSQLRC:-$XDG_CONFIG_HOME/pg/psqlrc}"
 export PSQL_HISTORY="${PSQL_HISTORY:-$XDG_CACHE_HOME/pg/psql_history}"
@@ -50,6 +63,8 @@ export PGSERVICEFILE="${PGSERVICEFILE:-$XDG_CONFIG_HOME/pg/pg_service.conf}"
 
 # python
 export PYTHON_HISTORY="${PYTHON_HISTORY:-$XDG_CACHE_HOME/python/python_history}"
+export MPLCONFIGDIR="${MPLCONFIGDIR:-$XDG_CONFIG_HOME/matplotlib}"
+export IPYTHONDIR="${IPYTHONDIR:-$XDG_CONFIG_HOME/ipython}"
 
 # ruby bundler
 export BUNDLE_USER_CONFIG="${BUNDLE_USER_CONFIG:-$XDG_CONFIG_HOME/bundle}"
