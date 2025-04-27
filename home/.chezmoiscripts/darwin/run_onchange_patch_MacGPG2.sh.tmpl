@@ -1,8 +1,10 @@
 #!/bin/zsh
 
+{{- if lookPath "gpg" }}
 # The following lines are used by chezmoi for change detection
 # fixGpgHome hash: {{ include "/usr/local/MacGPG2/libexec/fixGpgHome" | sha256sum }}
 # shutdown-gpg-agent hash: {{ include "/usr/local/MacGPG2/libexec/shutdown-gpg-agent" | sha256sum }}
+{{- end }}
 
 set -euo pipefail     # or:  setopt err_exit nounset pipefail
 
@@ -32,7 +34,7 @@ patch_file() {
   # Check 1: Target exists
   if [[ ! -f "$file" ]]; then
     echo "    ERROR: target not found"
-    return 1
+    return 0
   fi
 
   # Check 2: already patched?
@@ -44,7 +46,7 @@ patch_file() {
   # Check 3: contains line to patch?
   if ! grep -qF -- "$old_line" "$file"; then
     echo "    ERROR: original line not found – aborting"
-    return 1
+    return 0
   fi
 
   # Escape special chars for sed
