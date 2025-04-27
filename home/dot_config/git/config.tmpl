@@ -36,6 +36,10 @@
 	trustExitCode = true
 [mergetool]
 	prompt = false
+[https]
+	proxy = http://127.0.0.1:6152
+[http]
+	proxy = http://127.0.0.1:6152
 {{- else }}
 [core]
 {{- if eq .chezmoi.os "linux" }}
