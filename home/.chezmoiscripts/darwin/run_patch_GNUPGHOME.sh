@@ -31,7 +31,18 @@ SED_NEW_LINE=$(printf '%s\n' "$NEW_LINE" | sed -e 's/[\/&]/\\&/g')
 if sudo sed -i.bak "s/$SED_OLD_LINE/$SED_NEW_LINE/" "$TARGET_FILE"; then
   echo "SUCCESS: Patched $TARGET_FILE."
   echo "(Backup created: $TARGET_FILE.bak)"
-  exit 0
+
+  # Execute the patched script
+  echo "Executing the patched script: $TARGET_FILE..."
+  # Note: This runs the script as the current user after patching.
+  # The script itself might have internal logic regarding user context (like runAsUser).
+  if "$TARGET_FILE"; then
+    echo "INFO: Script executed successfully."
+    exit 0
+  else
+    echo "WARNING: Script execution failed after patching (exit code $?). Check $HOME/Library/Logs/gpg-home-fixer.log for details."
+    exit 1 # Exit with error if the script fails after patching
+  fi
 else
   echo "ERROR: Failed to patch $TARGET_FILE. Check permissions or sudo access."
   exit 1
