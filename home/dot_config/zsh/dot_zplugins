@@ -77,7 +77,6 @@ zimfw/git conditional:"is-callable git"
 zimfw/exa conditional:"is-callable eza || is-callable exa"
 zimfw/fzf conditional:"is-callable fzf"
 $ZSH_CUSTOM/plugins/orbstack conditional:is-macos
-$ZSH_CUSTOM/plugins/thefuck
 
 #
 # Fish-like
