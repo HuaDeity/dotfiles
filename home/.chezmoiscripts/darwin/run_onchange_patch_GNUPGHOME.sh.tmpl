@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# fixGpgHome hash: {{ include "/usr/local/MacGPG2/libexec/fixGpgHome" | sha256sum }}
+
 TARGET_FILE="/usr/local/MacGPG2/libexec/fixGpgHome"
 OLD_LINE='GNUPGHOME=${GNUPGHOME:-$HOME/.gnupg}'
 NEW_LINE='GNUPGHOME=${GNUPGHOME:-$HOME/.local/share/gnupg}'
