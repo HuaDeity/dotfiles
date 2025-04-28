@@ -17,6 +17,15 @@
     refreshPeriod = "168h"
     include = ["*/themes-mergable/**"]
 {{- end }}
+{{- if not .headless }}
+[".config/ghostty/themes"]
+    type = "archive"
+    url = "https://github.com/catppuccin/ghostty/archive/main.tar.gz"
+    exact = true
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.conf"]
+{{- end }}
 [".local/bin/imgcat"]
     type = "file"
     url = "https://raw.githubusercontent.com/gnachman/iTerm2-shell-integration/main/utilities/imgcat"
@@ -104,13 +113,6 @@
     executable = true
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
-[".config/ghostty/themes"]
-    type = "archive"
-    url = "https://github.com/catppuccin/ghostty/archive/main.tar.gz"
-    exact = true
-    stripComponents = 2
-    refreshPeriod = "168h"
-    include = ["*/*/*.conf"]
 ["Library/Developer/Xcode/UserData/FontAndColorThemes"]
     type = "archive"
     url = "https://github.com/catppuccin/xcode/archive/main.tar.gz"

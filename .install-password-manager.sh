@@ -5,13 +5,13 @@ type doppler >/dev/null 2>&1 && exit
 
 case "$(uname -s)" in
 Darwin)
-    brew install doppler
-    ;;
+  brew install doppler
+  ;;
 Linux)
-    nix shell "nixpkgs#doppler"
-    ;;
+  nix run "nixpkgs#doppler"
+  ;;
 *)
-    echo "unsupported OS"
-    exit 1
-    ;;
+  echo "unsupported OS"
+  exit 1
+  ;;
 esac

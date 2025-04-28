@@ -1,10 +1,16 @@
 {{ if ne .chezmoi.os "darwin" }}
 .chezmoiscripts/darwin/**
+.config/launchd
+.lldbinit
+.pdbrc
 Library
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
+{{ end }}
+
+{{ if .headless }}
+.config/ghostty
+.config/ideavim
 .config/zed
-.ideavimrc
-.tmux.conf
 {{ end }}
