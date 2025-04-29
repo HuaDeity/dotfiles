@@ -91,4 +91,8 @@ zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':omz:plugins:iterm2' shell-integration yes
 
 # Proxy
+{{ if eq .chezmoi.os "darwin" }}
 zstyle ':plugin:proxy' auto yes
+{{ else }}
+zstyle ':plugin:proxy' mixed "192.168.103.57:7878"
+{{ end }}

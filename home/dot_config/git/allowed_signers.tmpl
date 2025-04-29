@@ -1,1 +1,3 @@
-hello@huadeity.com ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFADIHCnmIMoyQq5zv05TuLeFeanIrSb3V+6W9iG1ylO
+hello@huadeity.com {{ range gitHubKeys "HuaDeity" }}
+{{- .Key }}
+{{- end }}
