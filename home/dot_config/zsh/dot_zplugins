@@ -66,7 +66,6 @@ ohmyzsh/ohmyzsh path:plugins/iterm2 conditional:is-macos
 #
 
 lukechilds/zsh-nvm
-ohmyzsh/ohmyzsh path:plugins/rust conditional:"is-callable rustup"
 $ZSH_CUSTOM/plugins/rustup conditional:"is-callable rustup && is-macos"
 
 #

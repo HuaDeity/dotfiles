@@ -27,6 +27,9 @@ alias wget="${aliases[wget]:-wget} --hsts-file=\$XDG_CACHE_HOME/wget/wget-hsts"
 # docker
 export DOCKER_CONFIG="${DOCKER_CONFIG:-$XDG_CONFIG_HOME/docker}"
 
+# # doppler
+# export DOPPLER_CONFIG_DIR="${DOPPLER_CONFIG_DIR:-$XDG_CONFIG_HOME/doppler}"
+
 # gradle
 export GRADLE_USER_HOME="${GRADLE_USER_HOME:-$XDG_DATA_HOME/gradle}"
 

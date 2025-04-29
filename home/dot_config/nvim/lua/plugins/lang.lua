@@ -6,11 +6,15 @@ return {
     end,
   },
 
-  -- just
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "just" } },
+    opts = {
+      ensure_installed = {
+        -- just
+        "just",
+      },
+    },
   },
 
-  vim.lsp.enable("just-lsp"),
+  vim.lsp.enable({ "just-lsp" }),
 }
