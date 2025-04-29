@@ -40,14 +40,4 @@
 	proxy = http://127.0.0.1:6152
 [https]
 	proxy = http://127.0.0.1:6152
-{{- else }}
-[core]
-{{- if eq .chezmoi.os "linux" }}
-{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") }}
-    sshCommand = ssh.exe
-{{-   end }}
-{{- end }}
-{{- if eq .chezmoi.os "windows" }}
-    sshCommand = C:/Windows/System32/OpenSSH/ssh.exe
-{{- end }}
 {{- end }}
