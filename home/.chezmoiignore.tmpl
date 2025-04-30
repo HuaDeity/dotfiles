@@ -5,9 +5,8 @@
 .lldbinit
 .pdbrc
 Library
-{{ end }}
-
-{{ if eq .chezmoi.os "linux" }}
+{{ else }}
+.local/share/terminfo
 {{ end }}
 
 {{ if .headless }}
