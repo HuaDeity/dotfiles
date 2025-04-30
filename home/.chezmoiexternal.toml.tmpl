@@ -111,7 +111,6 @@
     url = "https://raw.githubusercontent.com/gnachman/iTerm2-shell-integration/main/utilities/it2universion"
     refreshPeriod = "168h"
     executable = true
-{{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 ["Library/Developer/Xcode/UserData/FontAndColorThemes"]
     type = "archive"
@@ -121,3 +120,5 @@
     refreshPeriod = "168h"
     include = ["*/*/*.xccolortheme"]
 {{- end }}
+{{- end }}
+

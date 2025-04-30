@@ -52,9 +52,6 @@ export NODE_REPL_HISTORY="${NODE_REPL_HISTORY:-$XDG_DATA_HOME/nodejs/repl_histor
 # nuget
 export NUGET_PACKAGES="${NUGET_PACKAGES:-$XDG_CACHE_HOME/NuGetPackages}"
 
-# nvm
-export NVM_DIR="${NVM_DIR:-$XDG_DATA_HOME/nvm}"
-
 # ollama
 export OLLAMA_MODELS="${OLLAMA_MODELS:-$XDG_DATA_HOME/ollama/models}"
 

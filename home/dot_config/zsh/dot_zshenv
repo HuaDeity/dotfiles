@@ -3,16 +3,31 @@
 # .zshenv: Zsh environment file, loaded always.
 #
 
+export ZDOTDIR=${ZDOTDIR:-$HOME/.config/zsh}
+
+# XDG
+export XDG_CONFIG_HOME=${XDG_CONFIG_HOME:-$HOME/.config}
+export XDG_CACHE_HOME=${XDG_CACHE_HOME:-$HOME/.cache}
+export XDG_DATA_HOME=${XDG_DATA_HOME:-$HOME/.local/share}
+export XDG_STATE_HOME=${XDG_STATE_HOME:-$HOME/.local/state}
+export XDG_RUNTIME_DIR=${XDG_RUNTIME_DIR:-$HOME/.xdg}
+export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
+
+# Ensure Zsh directories exist.
+() {
+  local zdir
+  for zdir in $@; do
+    [[ -d "${(P)zdir}" ]] || mkdir -p -- "${(P)zdir}"
+  done
+} XDG_{CONFIG,CACHE,DATA,STATE}_HOME XDG_{RUNTIME,PROJECTS}_DIR
+
 # Make Terminal.app behave.
 if [[ "$OSTYPE" == darwin* ]]; then
   export SHELL_SESSIONS_DISABLE=1
   export SSH_AUTH_SOCK="/var/folders/f2/txjbhvbs1m712k_zgrzg2lg40000gn/T/IdentityAgent/0EA7DF59"
+  source $XDG_CONFIG_HOME/homebrew/brew.env
 fi
 
-if [[ $TERM_PROGRAM == "iTerm.app" ]]; then
-  export ITERM_ENABLE_SHELL_INTEGRATION_WITH_TMUX=YES
-fi
+# Secret
+source $XDG_CONFIG_HOME/env/config
 
-# Lang
-export NVM_COMPLETION=true
-export NVM_LAZY_LOAD=true

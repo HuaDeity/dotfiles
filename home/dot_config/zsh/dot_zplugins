@@ -59,13 +59,11 @@ romkatv/zsh-no-ps2
 #
 
 mattmc3/zephyr path:plugins/macos conditional:is-macos
-ohmyzsh/ohmyzsh path:plugins/iterm2 conditional:is-macos
 
 #
 # Lang
 #
 
-lukechilds/zsh-nvm
 $ZSH_CUSTOM/plugins/rustup conditional:"is-callable rustup && is-macos"
 
 #

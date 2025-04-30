@@ -7,5 +7,3 @@ export EDITOR=nvim
 export VISUAL=zed
 export PAGER=less
 
-# Secret
-source $XDG_CONFIG_HOME/env/config
