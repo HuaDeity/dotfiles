@@ -8,7 +8,7 @@
 
 # ncurses
 export TERMINFO="${TERMINFO:-$XDG_DATA_HOME/terminfo}"
-export TERMINFO_DIRS="${TERMINFO_DIRS:-$XDG_DATA_HOME/terminfo:/usr/share/terminfo}"
+export TERMINFO_DIRS="$TERMINFO:$TERMINFO_DIRS"
 
 # readline
 export INPUTRC="${INPUTRC:-$XDG_CONFIG_HOME/readline/inputrc}"
