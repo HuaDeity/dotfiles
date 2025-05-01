@@ -81,15 +81,6 @@ zstyle ':zephyr:plugin:prompt' theme p10k lean
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
-#
-# Tools
-#
-# Git
-zstyle ':zim:git' aliases-prefix 'g'
-
-# iTerm2
-zstyle ':omz:plugins:iterm2' shell-integration yes
-
 # Proxy
 {{ if eq .chezmoi.os "darwin" }}
 zstyle ':plugin:proxy' auto yes
