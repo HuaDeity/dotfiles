@@ -1,4 +1,5 @@
 auto-update-channel = tip
+clipboard-read = allow
 # command = /opt/homebrew/bin/fish
 font-family = "Monaspace Neon Var"
 font-family = "Monaspace Neon"
