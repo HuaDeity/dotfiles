@@ -1,9 +1,10 @@
-theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
-shell-integration-features = sudo
+auto-update-channel = tip
+# command = /opt/homebrew/bin/fish
 font-family = "Monaspace Neon Var"
 font-family = "Monaspace Neon"
 font-feature = calt, liga, ss01, ss02, ss03, cv01=2
-macos-option-as-alt = true
-window-inherit-working-directory = false
-# command = /opt/homebrew/bin/fish
 # keybind = global:ctrl+grave_accent=toggle_quick_terminal
+macos-option-as-alt = true
+shell-integration-features = sudo
+theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
+window-inherit-working-directory = false
