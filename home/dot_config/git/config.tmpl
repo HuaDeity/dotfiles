@@ -1,43 +1,45 @@
 [user]
-	name = HuaDeity
-	email = hello@huadeity.com
-	signingkey = "key::
+  name = HuaDeity
+  email = hello@huadeity.com
+  signingkey = "key::
 {{- range gitHubKeys "HuaDeity" }}
 {{- .Key }}
 {{- end }} "
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
 [gpg]
 {{- if eq .chezmoi.os "darwin" }}
-	program = /usr/local/bin/gpg
+  program = /usr/local/bin/gpg
 {{- end }}
-	format = ssh
+  format = ssh
 [gpg "ssh"]
-	allowedsignersfile = ~/.config/git/allowed_signers
+  allowedsignersfile = ~/.config/git/allowed_signers
 [commit]
-	gpgsign = true
+  gpgsign = true
 [init]
-    defaultBranch = main
+  defaultBranch = main
+[pull]
+  rebase = false
 {{- if eq .chezmoi.os "darwin" }}
 [diff]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [difftool "Kaleidoscope"]
-	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 [difftool]
-	prompt = false
-	trustExitCode = true
+  prompt = false
+  trustExitCode = true
 [merge]
-	tool = Kaleidoscope
+  tool = Kaleidoscope
 [mergetool "Kaleidoscope"]
-	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-	trustExitCode = true
+  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+  trustExitCode = true
 [mergetool]
-	prompt = false
+  prompt = false
 [http]
-	proxy = http://127.0.0.1:6152
+  proxy = http://127.0.0.1:6152
 [https]
-	proxy = http://127.0.0.1:6152
+  proxy = http://127.0.0.1:6152
 {{- end }}
