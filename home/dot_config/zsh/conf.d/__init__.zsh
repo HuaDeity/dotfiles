@@ -4,6 +4,12 @@
 
 # Apps
 export EDITOR=nvim
-export VISUAL=zed
-export PAGER=less
 
+# Preferred editor for local and remote sessions
+if [[ -n $SSH_CONNECTION ]]; then
+  export VISUAL='nvim'
+else
+  export VISUAL='zed'
+fi
+
+export PAGER=less
