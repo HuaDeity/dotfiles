@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+{{ range .packages.python.shared -}}
+uv tool install {{ . | quote }}
+{{ end -}}
+{{ if eq .chezmoi.os "linux" -}}
+{{ range .packages.python.linux -}}
+uv tool install {{ . | quote }}
+{{ end -}}
+{{ end -}}

@@ -1,0 +1,9 @@
+packages:
+  python:
+    shared:
+      - "basedpyright"
+      - "debugpy"
+      - "jupyterlab"
+      - "ruff"
+    linux:
+      - "nvitop"

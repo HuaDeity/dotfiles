@@ -60,7 +60,7 @@
     command = "nvim"
 
 [hooks.read-source-state.pre]
-    command = ".local/share/chezmoi/.install-password-manager.sh"
+    command = "{{ .chezmoi.sourceDir }}/.chezmoiscripts/.install-password-manager.sh"
 
 [doppler]
     project = "dotfiles"

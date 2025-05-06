@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # exit immediately if doppler is already in $PATH
 type doppler >/dev/null 2>&1 && exit
@@ -8,7 +8,7 @@ Darwin)
   brew install doppler
   ;;
 Linux)
-  nix run "nixpkgs#doppler"
+  nix profile install "nixpkgs#doppler"
   ;;
 *)
   echo "unsupported OS"
