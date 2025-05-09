@@ -7,13 +7,9 @@
 # Antidote
 #
 
-: ${ANTIDOTE_HOME:=${XDG_CACHE_HOME:-$HOME/.cache}/antidote}
+: ${ANTIDOTE_HOME:=${XDG_CACHE_HOME:-$HOME/.cache}/repos}
 
-{{ if eq .chezmoi.os "darwin" }}
-antidote_repo=${HOMEBREW_PREFIX:-/opt/homebrew}/opt/antidote/share/antidote
-{{ else }}
-antidote_repo=${XDG_STATE_HOME:-$HOME/.local/state}/nix/profile/share/antidote
-{{ end }}
+antidote_repo=$ANTIDOTE_HOME/mattmc3/antidote
 
 zstyle ':antidote:home' path $ANTIDOTE_HOME
 zstyle ':antidote:repo' path $antidote_repo

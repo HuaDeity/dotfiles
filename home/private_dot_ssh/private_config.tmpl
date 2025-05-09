@@ -1,0 +1,12 @@
+{{- if eq .chezmoi.os "darwin" -}}
+{{- if lookPath "orb" -}}
+Include ~/.orbstack/ssh/config
+{{- end }}
+
+Include ~/.ssh/config.d/*.config
+
+Host *
+   IdentityAgent ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+   ProxyCommand nc -X connect -x 127.0.0.1:6152 %h %p
+   ForwardAgent yes
+{{- end }}

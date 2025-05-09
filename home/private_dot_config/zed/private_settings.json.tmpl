@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "assistant": {
+  "agent": {
     "inline_assistant_model": {
       "provider": "zed.dev",
       "model": "claude-3-7-sonnet-latest"
@@ -67,7 +67,7 @@
       "proxy": null,
       "proxy_no_verify": null
     },
-    "enabled_in_assistant": false
+    "enabled_in_text_threads": false
   },
   "features": {
     "edit_prediction_provider": "zed"
@@ -155,14 +155,21 @@
     {
       "host": "10357",
       "projects": [
+        {
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
+        }
       ],
-      "upload_binary_over_ssh": true 
+      "upload_binary_over_ssh": true
     },
     {
       "host": "10358",
       "projects": [
         {
-          "paths": ["~/projects/FTFDrag"]
+          "paths": [
+            "~/projects/FTFDrag"
+          ]
         }
       ]
     }

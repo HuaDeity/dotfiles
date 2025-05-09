@@ -44,10 +44,18 @@
 {{- end -}}
 
 {{- $email := "hello@huadeity.com" -}}
+{{- $name := "HuaDeity" -}}
+{{- $rawsigningkey := promptStringOnce . "signingkey" "Signingkey" -}}
+{{- $signingkey := $rawsigningkey -}}
+{{- if regexMatch "^([^ ]+ [^ ]+) .*$" $rawsigningkey -}}
+{{-   $signingkey = regexFind "^([^ ]+ [^ ]+)" $rawsigningkey -}}
+{{- end -}}
 
 [data]
     ephemeral = {{ $ephemeral }}
     email = {{ $email | quote }}
+    name = {{ $name | quote }}
+    signingkey = {{ $signingkey | quote }}
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}

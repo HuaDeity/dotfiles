@@ -1,0 +1,48 @@
+{{- $dopplerSecretNames := list "LAB1" "LAB2" "LAB3" "LAB4" "LAB5" "LAB6" "LAB7" "LAB8" "LAB9" -}}
+{{- $dopplerProjectName := "dotfiles" -}}
+{{- $dopplerConfigEnvironments := list "ser_personal" "ser_admin" -}}
+{{- $isFirstSshBlock := true -}}
+{{- range $_, $dopplerConfigEnvironment := $dopplerConfigEnvironments }}
+  {{- range $index, $secretName := $dopplerSecretNames }}
+    {{- $uri := (doppler $secretName $dopplerProjectName $dopplerConfigEnvironment) -}}
+    {{- if $uri -}}
+      {{- if $isFirstSshBlock -}}
+        {{- $isFirstSshBlock = false -}}
+      {{- else -}}
+{{- "\n" -}}
+      {{- end -}}
+      {{- $cleanUri := trimPrefix "ssh://" $uri -}}
+      {{- $parsedUser := "" -}}
+      {{- $parsedHostPart := "" -}}
+      {{- $parsedPort := "" -}}
+      {{- $hostAlias := $secretName | lower | replace "_" "-" -}}
+      {{- if contains "@" $cleanUri -}}
+        {{- $splitUserHostPort := regexSplit "@" $cleanUri -1 -}}
+        {{- $parsedUser = index $splitUserHostPort 0 -}}
+        {{- $parsedHostPart = index $splitUserHostPort 1 -}}
+      {{- else -}}
+        {{- $parsedHostPart = $cleanUri -}}
+      {{- end -}}
+      {{- if contains ":" $parsedHostPart -}}
+        {{- $splitHostPort := regexSplit ":" $parsedHostPart -1 -}}
+        {{- $parsedHostPart = index $splitHostPort 0 -}}
+        {{- $parsedPort = index $splitHostPort 1 -}}
+        {{- $hostAlias = $parsedPort -}}
+      {{- else -}}
+        {{- $hostAlias = $parsedHostPart -}}
+      {{- end -}}
+      {{- if eq $dopplerConfigEnvironment "ser_admin" -}}
+        {{- $hostAlias = printf "%s_admin" $hostAlias -}}
+      {{- end -}}
+Host {{ $hostAlias }}
+  HostName {{ $parsedHostPart }}
+  {{- if $parsedUser }}
+  User {{ $parsedUser }}
+  {{- end }}
+  {{- if $parsedPort }}
+  Port {{ $parsedPort }}
+  {{- end }}
+{{- "\n" }}
+    {{- end -}} {{/* End of "if $uri" (ensures we only process if URI was found) */}}
+  {{- end -}} {{/* End of "range $dopplerSecretNames" */}}
+{{- end -}} {{/* End of "range $dopplerConfigEnvironments" */}}

@@ -24,7 +24,7 @@ export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
 # Make Terminal.app behave.
 if [[ "$OSTYPE" == darwin* ]]; then
   export SHELL_SESSIONS_DISABLE=1
-  export SSH_AUTH_SOCK="/var/folders/f2/txjbhvbs1m712k_zgrzg2lg40000gn/T/IdentityAgent/0EA7DF59"
+  export SSH_AUTH_SOCK=$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
   source $XDG_CONFIG_HOME/homebrew/brew.env
 fi
 

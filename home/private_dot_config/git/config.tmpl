@@ -1,10 +1,7 @@
 [user]
-  name = HuaDeity
-  email = hello@huadeity.com
-  signingkey = "key::
-{{- range gitHubKeys "HuaDeity" }}
-{{- .Key }}
-{{- end }} "
+  name = {{ .name }}
+  email = {{ .email }}
+  signingkey = "key::{{ .signingkey }} ecdsa-sha2-nistp256"
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -16,7 +13,7 @@
 {{- end }}
   format = ssh
 [gpg "ssh"]
-  allowedsignersfile = ~/.config/git/allowed_signers
+  allowedsignersfile = ~/.ssh/allowed_signers
 [commit]
   gpgsign = true
 [init]

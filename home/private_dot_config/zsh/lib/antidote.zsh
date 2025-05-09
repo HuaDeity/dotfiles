@@ -4,7 +4,7 @@
 
 # Setup antidote.
 export ZSH_CUSTOM=${ZSH_CUSTOM:-$ZDOTDIR}
-export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/antidote}
+export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/repos}
 zstyle -s ':antidote:repo' path antidote_path
 
 # Clone antidote if missing.
