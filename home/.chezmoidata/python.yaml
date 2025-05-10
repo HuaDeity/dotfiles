@@ -3,6 +3,6 @@ packages:
     shared:
       - "debugpy"
       - "jupyterlab"
-      - "pyright"
+      - "ty"
     linux:
       - "nvitop"
