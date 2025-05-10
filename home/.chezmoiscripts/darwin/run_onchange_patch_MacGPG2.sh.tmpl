@@ -83,7 +83,8 @@ if [[ -d "$NEW_GNUPGHOME" ]]; then
     echo -e "\n==> Migrating legacy GnuPG data to $NEW_GNUPGHOME"
 
     # Copy everything except transient sockets / lock files
-    rsync -av --exclude 'S.gpg-agent*' --exclude '*.lock' \
+    # Use --ignore-existing to avoid overwriting files that already exist in the destination
+    rsync -av --ignore-existing --exclude 'S.gpg-agent*' --exclude '*.lock' \
           "$OLD_GNUPGHOME/" "$NEW_GNUPGHOME/"
 
     rm -rf "$OLD_GNUPGHOME"
