@@ -13,7 +13,7 @@
 {{- end }}
   format = ssh
 [gpg "ssh"]
-  allowedsignersfile = ~/.ssh/allowed_signers
+  allowedsignersfile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 [commit]
   gpgsign = true
 [init]

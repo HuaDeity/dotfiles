@@ -47,8 +47,10 @@
 {{- $name := "HuaDeity" -}}
 {{- $rawsigningkey := promptStringOnce . "signingkey" "Signingkey" -}}
 {{- $signingkey := $rawsigningkey -}}
-{{- if regexMatch "^([^ ]+ [^ ]+) .*$" $rawsigningkey -}}
+{{- $keycomment := $email -}}
+{{- if regexMatch "^([^ ]+ [^ ]+) (.+)$" $rawsigningkey -}}
 {{-   $signingkey = regexFind "^([^ ]+ [^ ]+)" $rawsigningkey -}}
+{{-   $keycomment = regexReplaceAll "^[^ ]+ [^ ]+ (.+)$" $rawsigningkey "$1" -}}
 {{- end -}}
 
 [data]
@@ -56,6 +58,7 @@
     email = {{ $email | quote }}
     name = {{ $name | quote }}
     signingkey = {{ $signingkey | quote }}
+    keycomment = {{ $keycomment | quote }}
     headless = {{ $headless }}
     hostname = {{ $hostname | quote }}
     personal = {{ $personal }}
