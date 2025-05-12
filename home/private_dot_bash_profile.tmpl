@@ -1,5 +1,9 @@
 {{- if eq .chezmoi.os "linux" }}
-[ -f $HOME/.local/state/nix/profile/bin/zsh ] && exec $HOME/.local/state/nix/profile/bin/zsh -l
+if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]
+then
+	shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
+	[ -f $HOME/.local/state/nix/profile/bin/zsh ] && exec $HOME/.local/state/nix/profile/bin/zsh $LOGIN_OPTION
+fi
 {{- end }}
 # include .bashrc if it exists
 if [ -f "$HOME/.bashrc" ]; then
