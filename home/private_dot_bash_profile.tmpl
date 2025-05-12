@@ -1,0 +1,7 @@
+{{- if eq .chezmoi.os "linux" }}
+[ -f $HOME/.local/state/nix/profile/bin/zsh ] && exec $HOME/.local/state/nix/profile/bin/zsh -l
+{{- end }}
+# include .bashrc if it exists
+if [ -f "$HOME/.bashrc" ]; then
+  . "$HOME/.bashrc"
+fi
