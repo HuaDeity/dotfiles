@@ -33,7 +33,7 @@ return {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
     opts = {
-      ensure_installed = { "lua" },
+      ensure_installed = { "lua", "luadoc", "luap", "vim", "vimdoc" },
     },
   },
 

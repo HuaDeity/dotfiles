@@ -10,18 +10,27 @@ function M.setup(client, bufnr)
     return client:supports_method(method, bufnr)
   end
 
-  local map = function(keys, func, desc, mode)
+  local map = function(keys, func, desc, mode, args)
     mode = mode or "n"
-    vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = "LSP: " .. desc })
+    local opts = {
+      buffer = bufnr,
+      desc = "LSP: " .. desc,
+    }
+    if args and type(args) == "table" then
+      for k, v in pairs(args) do
+        opts[k] = v
+      end
+    end
+    vim.keymap.set(mode, keys, func, opts)
   end
 
   if client_supports_method "rename" then
     -- Rename the variable under your cursor.
     map("grn", vim.lsp.buf.rename, "Rename")
-    -- map("<leader>cr", function()
-    --   local inc_rename = require "inc_rename"
-    --   return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand "<cword>"
-    -- end, "Rename (inc-rename.nvim)")
+    map("<leader>cr", function()
+      local inc_rename = require "inc_rename"
+      return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand "<cword>"
+    end, "Rename (inc-rename.nvim)", { expr = true })
   end
 
   if client_supports_method "codeAction" then
@@ -31,12 +40,7 @@ function M.setup(client, bufnr)
   end
 
   -- Find references for the word under your cursor.
-  vim.keymap.set(
-    "n",
-    "gr",
-    function() Snacks.picker.lsp_references() end,
-    { nowait = true, buffer = bufnr, desc = "LSP: References" }
-  )
+  map("gr", function() Snacks.picker.lsp_references() end, "References", { nowait = true })
 
   -- Jump to the implementation of the word under your cursor.
   map("gI", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")

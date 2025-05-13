@@ -1,0 +1,27 @@
+-- lsp
+vim.lsp.enable "dockerls"
+vim.lsp.enable "docker_compose_language_service"
+
+return {
+  -- treesitter
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = { ensure_installed = { "dockerfile" } },
+  },
+  -- {
+  --   "mason.nvim",
+  --   opts = { ensure_installed = { "hadolint" } },
+  -- },
+
+  -- lint
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        dockerfile = { "hadolint" },
+      },
+    },
+  },
+}
