@@ -111,9 +111,9 @@ return {
     event = "VeryLazy",
     enabled = true,
     opts = {
-      move = {
-        -- set_jumps = true,
-      },
+      -- move = {
+      --   set_jumps = true,
+      -- },
     },
     keys = {
       {

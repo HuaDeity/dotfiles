@@ -53,5 +53,9 @@ return {
     },
     config = function(_, opts) pairs(opts) end,
   },
-  { "HiPhish/rainbow-delimiters.nvim", event = "VeryLazy" },
+  {
+    "HiPhish/rainbow-delimiters.nvim",
+    submodules = false,
+    event = "VeryLazy",
+  },
 }

@@ -1,5 +1,6 @@
 -- lsp
-vim.lsp.enable "basedpyright"
+vim.lsp.enable "ty"
+-- vim.lsp.enable "basedpyright"
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),

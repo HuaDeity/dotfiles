@@ -8,6 +8,7 @@ return {
     },
     dependencies = {
       "rafamadriz/friendly-snippets",
+      "xzbdmw/colorful-menu.nvim",
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config
@@ -78,10 +79,5 @@ return {
       opts.appearance = opts.appearance or {}
       opts.appearance.kind_icons = vim.tbl_extend("force", opts.appearance.kind_icons or {}, ViM.config.icons.kinds)
     end,
-  },
-
-  -- treesitter menu
-  {
-    "xzbdmw/colorful-menu.nvim",
   },
 }
