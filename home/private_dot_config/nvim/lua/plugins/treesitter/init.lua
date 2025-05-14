@@ -18,8 +18,11 @@ return {
         callback = function() vim.treesitter.start() end,
       })
 
-      -- folds
-      vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+      -- fold
+      vim.wo.foldexpr = "v:lua.require'util'.ui.foldexpr()"
+      vim.o.foldmethod = "expr"
+      vim.o.foldtext = ""
+      vim.o.foldlevel = 99
 
       -- indentation
       vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"

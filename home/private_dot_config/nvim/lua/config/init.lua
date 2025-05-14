@@ -6,24 +6,7 @@ local M = {}
 ViM.config = M
 
 ---@class ViMOptions
-local defaults = {
-  -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
-  ---@type string|fun()
-  colorscheme = function() require("catppuccin").load() end,
-  -- load the default settings
-  defaults = {
-    autocmds = true, -- lazyvim.config.autocmds
-    keymaps = true, -- lazyvim.config.keymaps
-    -- lazyvim.config.options can't be configured here since that's loaded before lazyvim setup
-    -- if you want to disable loading options, add `package.loaded["lazyvim.config.options"] = true` to the top of your init.lua
-  },
-  news = {
-    -- When enabled, NEWS.md will be shown when changed.
-    -- This only contains big new features and breaking changes.
-    lazyvim = true,
-    -- Same but for Neovim's news.txt
-    neovim = false,
-  },
+local options = {
   -- icons used by other plugins
   -- stylua: ignore
   icons = {
@@ -141,8 +124,45 @@ local defaults = {
   },
 }
 
+---@param name "autocmds" | "options" | "keymaps" | "lazy"
+function M.load(name)
+  if require("lazy.core.cache").find("config." .. name)[1] then
+    ViM.try(function() require("config." .. name) end, { msg = "Failed loading " .. "config." .. name })
+  end
+end
+
+local lazy_autocmds = vim.fn.argc(-1) == 0
+if not lazy_autocmds then M.load "autocmds" end
+local group = vim.api.nvim_create_augroup("ViM", { clear = true })
+vim.api.nvim_create_autocmd("User", {
+  group = group,
+  pattern = "VeryLazy",
+  callback = function()
+    if lazy_autocmds then M.load "autocmds" end
+    M.load "keymaps"
+    if lazy_clipboard ~= nil then vim.opt.clipboard = lazy_clipboard end
+
+    ViM.root.setup()
+
+    vim.api.nvim_create_user_command("LazyHealth", function()
+      vim.cmd [[Lazy! load all]]
+      vim.cmd [[checkhealth]]
+    end, { desc = "Load all plugins and run :checkhealth" })
+
+    local health = require "lazy.health"
+    vim.list_extend(health.valid, {
+      "recommended",
+      "desc",
+      "vscode",
+    })
+  end,
+})
+
 setmetatable(M, {
-  __index = function(_, key) return vim.deepcopy(defaults)[key] end,
+  __index = function(_, key)
+    ---@cast options ViMConfig
+    return options[key]
+  end,
 })
 
 return M
