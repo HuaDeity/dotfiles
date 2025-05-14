@@ -1,0 +1,14 @@
+packages:
+  node:
+    shared:
+      # bash
+      - "bash-language-server"
+      # docker
+      - "dockerfile-language-server-nodejs"
+      - "@microsoft/compose-language-service"
+      # html/json
+      - "@zed-industries/vscode-langservers-extracted"
+      # prettier
+      - "@fsouza/prettierd"
+      # yaml
+      - "yaml-language-server"

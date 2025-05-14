@@ -1,12 +1,11 @@
--- lsp
-vim.lsp.enable "nixd"
-
 return {
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    optinal = true,
-    opts = { ensure_installed = { "nix" } },
+    optional = true,
+    opts = {
+      ensure_installed = { "fish" },
+    },
   },
 
   -- format
@@ -15,7 +14,7 @@ return {
     optional = true,
     opts = {
       formatters_by_ft = {
-        nix = { "nixfmt" },
+        fish = { "fish_indent" },
       },
     },
   },

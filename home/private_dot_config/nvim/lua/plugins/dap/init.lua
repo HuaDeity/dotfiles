@@ -1,3 +1,21 @@
+---@param config {type?:string, args?:string[]|fun():string[]?}
+local function get_args(config)
+  local args = type(config.args) == "function" and (config.args() or {}) or config.args or {} --[[@as string[] | string ]]
+  local args_str = type(args) == "table" and table.concat(args, " ") or args --[[@as string]]
+
+  config = vim.deepcopy(config)
+  ---@cast args string[]
+  config.args = function()
+    local new_args = vim.fn.expand(vim.fn.input("Run with args: ", args_str)) --[[@as string]]
+    if config.type and config.type == "java" then
+      ---@diagnostic disable-next-line: return-type-mismatch
+      return new_args
+    end
+    return require("dap.utils").splitstr(new_args)
+  end
+  return config
+end
+
 return {
   {
     "mfussenegger/nvim-dap",
@@ -33,15 +51,7 @@ return {
     },
 
     config = function()
-      require("mason-nvim-dap").setup {
-        -- Makes a best effort to setup the various debuggers with
-        -- reasonable debug configurations
-        automatic_installation = false,
-
-        -- You can provide additional configuration to the handlers,
-        -- see mason-nvim-dap README for more information
-        handlers = {},
-      }
+      require("mason-nvim-dap").setup(ViM.opts "mason-nvim-dap.nvim")
 
       -- Change breakpoint icons
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
@@ -69,25 +79,7 @@ return {
       { "<leader>du", function() require("dapui").toggle({ }) end, desc = "Dap UI" },
       { "<leader>de", function() require("dapui").eval() end, desc = "Eval", mode = {"n", "v"} },
     },
-    opts = {
-      -- -- Set icons to characters that are more likely to work in every terminal.
-      -- --    Feel free to remove or use ones that you like more! :)
-      -- --    Don't feel like these are good choices.
-      -- icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-      -- controls = {
-      --   icons = {
-      --     pause = "⏸",
-      --     play = "▶",
-      --     step_into = "⏎",
-      --     step_over = "⏭",
-      --     step_out = "⏮",
-      --     step_back = "b",
-      --     run_last = "▶▶",
-      --     terminate = "⏹",
-      --     disconnect = "⏏",
-      --   },
-      -- },
-    },
+    opts = {},
     config = function(_, opts)
       local dap = require "dap"
       local dapui = require "dapui"
@@ -100,12 +92,12 @@ return {
   -- mason.nvim integration
   {
     "jay-babu/mason-nvim-dap.nvim",
-    dependencies = "mason.nvim",
+    dependencies = "mason-org/mason.nvim",
     cmd = { "DapInstall", "DapUninstall" },
     opts = {
       -- Makes a best effort to setup the various debuggers with
       -- reasonable debug configurations
-      automatic_installation = true,
+      automatic_installation = false,
 
       -- You can provide additional configuration to the handlers,
       -- see mason-nvim-dap README for more information

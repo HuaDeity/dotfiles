@@ -9,10 +9,11 @@ return {
     optional = true,
     opts = { ensure_installed = { "dockerfile" } },
   },
-  -- {
-  --   "mason.nvim",
-  --   opts = { ensure_installed = { "hadolint" } },
-  -- },
+  {
+    "mason-org/mason.nvim",
+    optional = true,
+    opts = { ensure_installed = { "hadolint" } },
+  },
 
   -- lint
   {

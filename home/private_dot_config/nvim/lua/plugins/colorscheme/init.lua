@@ -17,6 +17,7 @@ return {
           gitsigns = true,
           grug_far = true,
           lsp_trouble = true,
+          markdown = true,
           mason = true,
           mini = true,
           neotest = true,

@@ -3,6 +3,7 @@ local LazyUtil = require "lazy.core.util"
 ---@class util: UtilCore
 ---@field config ViMConfig
 ---@field root util.root
+---@field format util.format
 ---@field lualine util.lualine
 local M = {}
 

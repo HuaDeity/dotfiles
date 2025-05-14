@@ -5,23 +5,23 @@ vim.lsp.config("lua_ls", {
       completion = {
         callSnippet = "Replace",
       },
-      -- workspace = {
-      --   checkThirdParty = false,
-      -- },
-      -- codeLens = {
-      --   enable = true,
-      -- },
-      -- doc = {
-      --   privateName = { "^_" },
-      -- },
-      -- hint = {
-      --   enable = true,
-      --   setType = false,
-      --   paramType = true,
-      --   paramName = "Disable",
-      --   semicolon = "Disable",
-      --   arrayIndex = "Disable",
-      -- },
+      workspace = {
+        checkThirdParty = false,
+      },
+      codeLens = {
+        enable = true,
+      },
+      doc = {
+        privateName = { "^_" },
+      },
+      hint = {
+        enable = true,
+        setType = false,
+        paramType = true,
+        paramName = "Disable",
+        semicolon = "Disable",
+        arrayIndex = "Disable",
+      },
     },
   },
 })
@@ -45,11 +45,11 @@ return {
       linters_by_ft = {
         lua = { "selene" },
       },
-      -- linters = {
-      --   selene = {
-      --     condition = function(ctx) return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1] end,
-      --   },
-      -- },
+      linters = {
+        selene = {
+          condition = function(ctx) return vim.fs.find({ "selene.toml" }, { path = ctx.filename, upward = true })[1] end,
+        },
+      },
     },
   },
 

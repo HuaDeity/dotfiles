@@ -3,7 +3,15 @@ return {
     "olimorris/codecompanion.nvim",
     dependencies = {
       "ravitemer/codecompanion-history.nvim",
-      "ravitemer/mcphub.nvim",
+      {
+        "ravitemer/mcphub.nvim",
+        cmd = "MCPHub",
+        build = "bundled_build.lua",
+        opts = {
+          auto_approve = true,
+          use_bundled_binary = true,
+        },
+      },
     },
     cmd = { "CodeCompanion" },
     opts = {
@@ -76,5 +84,11 @@ return {
         mode = { "v" },
       },
     },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    event = "VeryLazy",
+    opts = function(_, opts) table.insert(opts.sections.lualine_x, 2, require "mcphub.extensions.lualine") end,
   },
 }

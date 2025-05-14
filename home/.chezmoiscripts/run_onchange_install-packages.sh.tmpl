@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+{{ range .packages.node.shared -}}
+volta install {{ . | quote }}
+{{ end -}}
+
 {{ range .packages.python.shared -}}
 uv tool install {{ . | quote }}
 {{ end -}}
@@ -8,3 +12,4 @@ uv tool install {{ . | quote }}
 uv tool install {{ . | quote }}
 {{ end -}}
 {{ end -}}
+

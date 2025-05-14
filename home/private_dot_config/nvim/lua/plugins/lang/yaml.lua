@@ -18,9 +18,6 @@ vim.lsp.config("yamlls", {
     redhat = { telemetry = { enabled = false } },
     yaml = {
       keyOrdering = false,
-      format = {
-        enable = true,
-      },
       validate = true,
       schemaStore = {
         -- Must disable built-in schemaStore support to use
@@ -43,10 +40,20 @@ return {
       ensure_installed = { "yaml" },
     },
   },
+
+  -- format
+  {
+    "stevearc/conform.nvim",
+    optional = true,
+    opts = {
+      formatters_by_ft = {
+        yaml = { "prettierd", "prettier", stop_after_first = true },
+      },
+    },
+  },
+
   -- yaml schema support
   {
     "b0o/SchemaStore.nvim",
-    lazy = true,
-    version = false, -- last release is way too old
   },
 }
