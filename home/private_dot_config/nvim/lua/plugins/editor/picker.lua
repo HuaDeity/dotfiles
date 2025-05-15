@@ -41,8 +41,13 @@ return {
       { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "Diagnostics" },
       {
         "<leader>sg",
-        function() Snacks.picker.grep() end,
+        function() Snacks.picker.grep { cmd = ViM.root() } end,
         desc = "Grep (Root Dir)",
+      },
+      {
+        "<leader>sG",
+        function() Snacks.picker.grep() end,
+        desc = "Grep (cwd)",
       },
       { "<leader>sh", function() Snacks.picker.help() end, desc = "Help Pages" },
       { "<leader>sH", function() Snacks.picker.highlights() end, desc = "Highlights" },
