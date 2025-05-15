@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+{{ if eq .chezmoi.os "linux" -}}
+export LIBRARY_PATH=$HOME/.local/state/nix/profile/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/.local/state/nix/profile/lib:$LD_LIBRARY_PATH
+{{ end -}}
+
 {{ range .packages.node.shared -}}
 volta install {{ . | quote }}
 {{ end -}}
