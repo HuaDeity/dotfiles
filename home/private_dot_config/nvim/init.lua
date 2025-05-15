@@ -38,9 +38,6 @@ lazy_notify()
 -- after installing missing plugins
 require "config.options"
 
-_G.lazy_clipboard = vim.o.clipboard
-vim.o.clipboard = ""
-
 if vim.g.deprecation_warnings == false then vim.deprecate = function() end end
 
 require "config.lazy"

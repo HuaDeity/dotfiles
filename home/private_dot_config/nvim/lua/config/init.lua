@@ -140,7 +140,6 @@ vim.api.nvim_create_autocmd("User", {
   callback = function()
     if lazy_autocmds then M.load "autocmds" end
     M.load "keymaps"
-    if lazy_clipboard ~= nil then vim.opt.clipboard = lazy_clipboard end
 
     ViM.root.setup()
 
