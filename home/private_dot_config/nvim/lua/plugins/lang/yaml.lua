@@ -11,8 +11,8 @@ vim.lsp.config("yamlls", {
   },
   -- lazy-load schemastore when needed
   before_init = function(_, config)
-    config.settings.json.schemas = config.settings.json.schemas or {}
-    vim.list_extend(config.settings.json.schemas, require("schemastore").json.schemas())
+    config.settings.yaml.schemas = config.settings.yaml.schemas or {}
+    vim.list_extend(config.settings.yaml.schemas, require("schemastore").yaml.schemas())
   end,
   settings = {
     redhat = { telemetry = { enabled = false } },

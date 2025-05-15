@@ -42,7 +42,7 @@ return {
     },
   },
 
-  -- yaml schema support
+  -- json schema support
   {
     "b0o/SchemaStore.nvim",
   },
