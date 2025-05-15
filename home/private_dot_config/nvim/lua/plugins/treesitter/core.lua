@@ -3,9 +3,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
     build = ":TSUpdate",
+    opts_extend = { "ensure_installed" },
     lazy = false,
     cmd = { "TSUpdate", "TSInstall" },
+    opts = {},
+    ---@param opts TSConfig | {ensure_installed: string[]}
     config = function(_, opts)
+      require("nvim-treesitter").setup(opts)
       -- install
       if type(opts.ensure_installed) == "table" then opts.ensure_installed = ViM.dedup(opts.ensure_installed) end
       local done = nil
