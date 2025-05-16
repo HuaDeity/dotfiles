@@ -7,192 +7,203 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-  "agent": {
-    "inline_assistant_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-latest"
-    },
-    "always_allow_tool_actions": true,
-    "default_profile": "write",
-    "default_model": {
-      "provider": "zed.dev",
-      "model": "claude-3-7-sonnet-thinking-latest"
-    },
-    "version": "2"
-  },
-  "auto_install_extensions": {
-    "basedpyright": true,
-    "biome": true,
-    "catppuccin": true,
-    "catppuccin-icons": true,
-    "dockerfile": true,
-    "git-firefly": true,
-    "html": false,
-    "lua": true,
-    "nix": true,
-    "ruby": true,
-    "ruff": true,
-    "toml": true,
-    "wakatime": true
-  },
-  "autosave": {
-    "after_delay": {
-      "milliseconds": 1000
-    }
-  },
-  "buffer_font_fallbacks": ["Monaspace Neon"],
-  "buffer_font_family": "Monaspace Neon Var",
-  "buffer_font_features": {
-    "calt": true,
-    "liga": true,
-    "ss01": true,
-    "ss02": true,
-    "ss03": true,
-    "cv01": 2
-  },
-  "buffer_font_size": 13,
-  "diagnostics": {
-    "inline": {
-      "enabled": true
-    }
-  },
-  "context_servers": {
-    "mcp-server-github": {
-      "settings": {
-        "github_personal_access_token": "{{ doppler "GITHUB_TOKEN" }}"
-      }
-    }
-  },
-  "edit_predictions": {
-    "mode": "subtle",
-    "copilot": {
-      "proxy": null,
-      "proxy_no_verify": null
-    },
-    "enabled_in_text_threads": false
-  },
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "file_types": {
-    "TOML": ["tmpl"]
-  },
-  "git": {
-    "inline_blame": {
-      "enabled": true,
-      "show_commit_summary": true
-    }
-  },
-  "icon_theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
-  },
-  "language_models": {
-    "openai": {
-      "version": "1",
-      "api_url": "https://openrouter.ai/api/v1"
-    }
-  },
-  "languages": {
-    "JSON": {
-      "formatter": [
-        {
-          "code_actions": {
-            "source.fixAll.biome": true,
-            "source.organizeImports.biome": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "biome"
-          }
-        }
-      ]
-    },
-    "Lua": {
-      "formatter": {
-        "external": {
-          "command": "stylua",
-          "arguments": [
-            "--syntax=Lua54",
-            "--respect-ignores",
-            "--stdin-filepath",
-            "{buffer_path}",
-            "-"
-          ]
-        }
-      }
-    },
-    "Python": {
-      "language_servers": ["basedpyright", "!pyright", "ruff"],
-      "formatter": [
-        {
-          "code_actions": {
-            "source.organizeImports.ruff": true,
-            "source.fixAll.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
-    }
-  },
-  "lsp": {
-    // "biome": {
-    //   "settings": {
-    //     "require_config_file": true
-    //   }
-    // },
-    "rust-analyzer": {
-      "check": {
-        "command": "clippy"
-      }
-    }
-  },
-  "ssh_connections": [
-    {
-      "host": "10357",
-      "projects": [
-        {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
-        }
-      ],
-      "upload_binary_over_ssh": true
-    },
-    {
-      "host": "10358",
-      "projects": [
-        {
-          "paths": [
-            "~/projects/FTFDrag"
-          ]
-        }
-      ]
-    }
-  ],
-  "tab_size": 2,
-  "tabs": {
-    "file_icons": true,
-    "git_status": true,
-    "show_diagnostics": "all"
-  },
-  "terminal": {
-    "alternate_scroll": "on"
-  },
-  "theme": {
-    "mode": "system",
-    "light": "Catppuccin Latte",
-    "dark": "Catppuccin Mocha"
-  },
-  "ui_font_size": 16,
-  "vim": {
-    "toggle_relative_line_numbers": true
-  },
-  "vim_mode": true
+	"agent": {
+		"inline_assistant_model": {
+			"provider": "zed.dev",
+			"model": "claude-3-7-sonnet-latest"
+		},
+		"always_allow_tool_actions": true,
+		"default_profile": "write",
+		"default_model": {
+			"provider": "zed.dev",
+			"model": "claude-3-7-sonnet-thinking-latest"
+		},
+		"version": "2"
+	},
+	"auto_install_extensions": {
+		"basedpyright": true,
+		"biome": true,
+		"catppuccin": true,
+		"catppuccin-icons": true,
+		"dockerfile": true,
+		"git-firefly": true,
+		"html": false,
+		"lua": true,
+		"nix": true,
+		"ruby": true,
+		"ruff": true,
+		"toml": true,
+		"wakatime": true
+	},
+	"autosave": {
+		"after_delay": {
+			"milliseconds": 1000
+		}
+	},
+	"buffer_font_fallbacks": ["Monaspace Neon"],
+	"buffer_font_family": "Monaspace Neon Var",
+	"buffer_font_features": {
+		"calt": true,
+		"liga": true,
+		"ss01": true,
+		"ss02": true,
+		"ss03": true,
+		"cv01": 2
+	},
+	"buffer_font_size": 13,
+	"diagnostics": {
+		"inline": {
+			"enabled": true
+		}
+	},
+	"context_servers": {
+		"mcp-server-github": {
+			"settings": {
+				"github_personal_access_token": "{{ doppler "GITHUB_TOKEN" }}"
+			}
+		}
+	},
+
+
+	"edit_predictions": {
+		"mode": "subtle",
+		"copilot": {
+			"proxy": null,
+			"proxy_no_verify": null
+		},
+		"enabled_in_text_threads": false
+	},
+	"features": {
+		"edit_prediction_provider": "zed"
+	},
+	"file_types": {
+		"TOML": ["tmpl"]
+	},
+	"git": {
+		"inline_blame": {
+			"enabled": true,
+			"show_commit_summary": true
+		}
+	},
+	"icon_theme": {
+		"mode": "system",
+		"light": "Catppuccin Latte",
+		"dark": "Catppuccin Mocha"
+	},
+	"language_models": {
+		"openai": {
+			"version": "1",
+			"api_url": "https://openrouter.ai/api/v1"
+		}
+	},
+	"languages": {
+		"JSON": {
+			"formatter": [
+				{
+					"code_actions": {
+						"source.fixAll.biome": true,
+						"source.organizeImports.biome": true
+					}
+				},
+				{
+					"language_server": {
+						"name": "biome"
+					}
+				}
+			]
+		},
+		"Lua": {
+			"formatter": {
+				"external": {
+					"command": "stylua",
+					"arguments": [
+						"--syntax=Lua54",
+						"--respect-ignores",
+						"--stdin-filepath",
+						"{buffer_path}",
+						"-"
+					]
+				}
+			}
+		},
+		"Python": {
+			"language_servers": ["basedpyright", "!pyright", "ruff"],
+			"formatter": [
+				{
+					"code_actions": {
+						"source.organizeImports.ruff": true,
+						"source.fixAll.ruff": true
+					}
+				},
+				{
+					"language_server": {
+						"name": "ruff"
+					}
+				}
+			]
+		},
+		"Ruby": {
+			"language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
+		}
+	},
+	"lsp": {
+		// "biome": {
+		//   "settings": {
+		//     "require_config_file": true
+		//   }
+		// },
+		"rubocop": {
+			"settings": {
+				"use_bundler": false
+			}
+		},
+		"ruby-lsp": {
+			"settings": {
+				"use_bundler": false
+			}
+		},
+		"rust-analyzer": {
+			"check": {
+				"command": "clippy"
+			}
+		}
+	},
+	"ssh_connections": [
+		{
+			"host": "10357",
+			"projects": [
+				{
+					"paths": ["~/Projects/ViS2O"]
+				}
+			],
+			"upload_binary_over_ssh": true
+		},
+		{
+			"host": "10358",
+			"projects": [
+				{
+					"paths": ["~/projects/FTFDrag"]
+				}
+			]
+		}
+	],
+	"tab_size": 2,
+	"tabs": {
+		"file_icons": true,
+		"git_status": true,
+		"show_diagnostics": "all"
+	},
+	"terminal": {
+		"alternate_scroll": "on"
+	},
+	"theme": {
+		"mode": "system",
+		"light": "Catppuccin Latte",
+		"dark": "Catppuccin Mocha"
+	},
+	"ui_font_size": 16,
+	"vim": {
+		"toggle_relative_line_numbers": true
+	},
+	"vim_mode": true
 }

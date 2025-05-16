@@ -12,7 +12,7 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     optional = true,
-    opts = { ensure_installed = { "bash", "printf", "query", "regex" } },
+    opts = { ensure_installed = { "bash" } },
   },
 
   -- format

@@ -1,0 +1,5 @@
+packages:
+  ruby:
+    shared:
+      - "rubocop"
+      - "ruby-lsp"

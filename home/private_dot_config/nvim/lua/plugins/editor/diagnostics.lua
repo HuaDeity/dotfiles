@@ -41,5 +41,12 @@ return {
         desc = "Next Trouble/Quickfix Item",
       },
     },
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = { disabled_filetypes = { "trouble" } },
+      },
+    },
   },
 }

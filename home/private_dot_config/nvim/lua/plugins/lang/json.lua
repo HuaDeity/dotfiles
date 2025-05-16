@@ -21,6 +21,18 @@ return {
     opts = { ensure_installed = { "json", "jsonc", "json5" } },
   },
 
+  -- lint
+  {
+    "mfussenegger/nvim-lint",
+    optional = true,
+    opts = {
+      linters_by_ft = {
+        json = { "biomejs" },
+        jsonc = { "biomejs" },
+      },
+    },
+  },
+
   -- format
   {
     "stevearc/conform.nvim",
@@ -28,17 +40,21 @@ return {
     opts = {
       formatters_by_ft = {
         json = {
+          "biome-check",
           "biome",
+          "biome-organize-imports",
         },
         jsonc = {
+          "biome-check",
           "biome",
+          "biome-organize-imports",
         },
       },
-      formatters = {
-        biome = {
-          require_cwd = true,
-        },
-      },
+      -- formatters = {
+      --   biome = {
+      --     require_cwd = true,
+      --   },
+      -- },
     },
   },
 

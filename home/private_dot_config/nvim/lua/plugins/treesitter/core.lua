@@ -7,16 +7,19 @@ return {
     lazy = false,
     cmd = { "TSUpdate", "TSInstall" },
     opts = {
-      disabled_filetypes = { "lazy", "template", "zsh" },
+      ensure_installed = { "printf", "query", "regex", "ssh_config", "vim", "vimdoc" },
+      disabled_filetypes = { "conf", "lazy", "properties", "template", "zsh" },
     },
     ---@param opts TSConfig | {ensure_installed: string[], disabled_filetypes: string[]}
     config = function(_, opts)
       require("nvim-treesitter").setup(opts)
       -- install
-      if type(opts.ensure_installed) == "table" then opts.ensure_installed = ViM.dedup(opts.ensure_installed) end
-      local done = nil
-      require("nvim-treesitter").install(opts.ensure_installed, {}, function(success) done = success end)
-      vim.wait(3000000, function() return done ~= nil end)
+      -- if type(opts.ensure_installed) == "table" then opts.ensure_installed = ViM.dedup(opts.ensure_installed) end
+      -- local done = nil
+      -- require("nvim-treesitter").install(opts.ensure_installed, {}, function(success) done = success end)
+      -- vim.wait(3000000, function() return done ~= nil end)
+
+      require("nvim-treesitter").install(opts.ensure_installed)
 
       vim.api.nvim_create_autocmd("FileType", {
         group = vim.api.nvim_create_augroup("ViM_treesitter_highlight", { clear = true }),

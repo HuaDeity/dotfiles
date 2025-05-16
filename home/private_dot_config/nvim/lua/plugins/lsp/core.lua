@@ -107,5 +107,12 @@ return {
         end
       end)
     end,
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = { disabled_filetypes = { "mason" } },
+      },
+    },
   },
 }

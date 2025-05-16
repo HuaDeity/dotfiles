@@ -99,7 +99,7 @@ vim.api.nvim_create_autocmd("FileType", {
 -- Fix conceallevel for json files
 vim.api.nvim_create_autocmd({ "FileType" }, {
   group = augroup "json_conceal",
-  pattern = { "json", "jsonc", "json5" },
+  pattern = { "json", "jsonc", "json5", "json.chezmoitmpl" },
   callback = function() vim.opt_local.conceallevel = 0 end,
 })
 
@@ -111,4 +111,11 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
     local file = vim.uv.fs_realpath(event.match) or event.match
     vim.fn.mkdir(vim.fn.fnamemodify(file, ":p:h"), "p")
   end,
+})
+
+-- Bind ~/.config/zed/settings.json to jsonc filetype
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  group = augroup "zed_jsonc_filetype",
+  pattern = vim.fn.expand "~/.config/zed/settings.json",
+  command = "set filetype=jsonc",
 })

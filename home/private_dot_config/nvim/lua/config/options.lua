@@ -125,6 +125,12 @@ vim.opt.sessionoptions = { "buffers", "curdir", "tabpages", "winsize", "help", "
 
 vim.opt.shortmess:append { W = true, I = true, c = true, C = true }
 
+-- Number of spaces tabs count for
+vim.o.tabstop = 2
+
+-- Size of an indent
+vim.o.shiftwidth = 2
+
 -- Round indent
 vim.o.shiftround = true
 

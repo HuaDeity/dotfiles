@@ -9,6 +9,7 @@ return {
     optional = true,
     opts = { ensure_installed = { "dockerfile" } },
   },
+
   {
     "mason-org/mason.nvim",
     optional = true,

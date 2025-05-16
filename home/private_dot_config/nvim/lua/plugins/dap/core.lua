@@ -94,6 +94,7 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
     dependencies = "mason-org/mason.nvim",
     cmd = { "DapInstall", "DapUninstall" },
+    opts_extend = { "ensure_installed" },
     opts = {
       -- Makes a best effort to setup the various debuggers with
       -- reasonable debug configurations
@@ -111,5 +112,10 @@ return {
     },
     -- mason-nvim-dap is loaded when nvim-dap loads
     config = function() end,
+  },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = { disabled_filetypes = { "dap", "dapui" } },
   },
 }
