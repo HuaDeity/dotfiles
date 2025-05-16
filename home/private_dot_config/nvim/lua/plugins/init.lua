@@ -1,6 +1,7 @@
 require "config.init"
 
 return {
+  { import = "plugins.treesitter" },
   {
     "folke/snacks.nvim",
     priority = 1000,
@@ -13,11 +14,17 @@ return {
       -- this is needed to have early notifications show up in noice history
       vim.notify = notify
     end,
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = { disabled_filetypes = { "snacks" } },
+      },
+    },
   },
   { import = "plugins.colorscheme" },
   { import = "plugins.ui" },
   { import = "plugins.util" },
-  { import = "plugins.treesitter" },
   { import = "plugins.editor" },
   { import = "plugins.coding" },
   { import = "plugins.lang" },

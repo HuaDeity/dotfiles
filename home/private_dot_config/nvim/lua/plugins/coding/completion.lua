@@ -80,4 +80,10 @@ return {
       opts.appearance.kind_icons = vim.tbl_extend("force", opts.appearance.kind_icons or {}, ViM.config.icons.kinds)
     end,
   },
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = { disabled_filetypes = { "blink" } },
+  },
 }

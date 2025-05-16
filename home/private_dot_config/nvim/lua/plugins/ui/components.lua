@@ -76,5 +76,12 @@ return {
       if vim.o.filetype == "lazy" then vim.cmd [[messages clear]] end
       require("noice").setup(opts)
     end,
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = { disabled_filetypes = { "noice" } },
+      },
+    },
   },
 }

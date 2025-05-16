@@ -67,16 +67,15 @@ return {
         float = { border = "rounded", source = "if_many" },
       }
 
-      local capabilities = vim.tbl_deep_extend("force", {}, vim.lsp.protocol.make_client_capabilities(), {
-        workspace = {
-          fileOperations = {
-            didRename = true,
-            willRename = true,
+      vim.lsp.config("*", {
+        capabilities = {
+          workspace = {
+            fileOperations = {
+              didRename = true,
+              willRename = true,
+            },
           },
         },
-      })
-      vim.lsp.config("*", {
-        capabilities = capabilities,
       })
     end,
   },

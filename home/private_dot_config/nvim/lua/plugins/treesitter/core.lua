@@ -3,11 +3,13 @@ return {
     "nvim-treesitter/nvim-treesitter",
     branch = "main",
     build = ":TSUpdate",
-    opts_extend = { "ensure_installed" },
+    opts_extend = { "ensure_installed", "disabled_filetypes" },
     lazy = false,
     cmd = { "TSUpdate", "TSInstall" },
-    opts = {},
-    ---@param opts TSConfig | {ensure_installed: string[]}
+    opts = {
+      disabled_filetypes = { "lazy", "template", "zsh" },
+    },
+    ---@param opts TSConfig | {ensure_installed: string[], disabled_filetypes: string[]}
     config = function(_, opts)
       require("nvim-treesitter").setup(opts)
       -- install
@@ -16,10 +18,20 @@ return {
       require("nvim-treesitter").install(opts.ensure_installed, {}, function(success) done = success end)
       vim.wait(3000000, function() return done ~= nil end)
 
-      -- highlighting
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = opts.ensure_installed,
-        callback = function() vim.treesitter.start() end,
+        group = vim.api.nvim_create_augroup("ViM_treesitter_highlight", { clear = true }),
+        pattern = { "*" },
+        callback = function()
+          local ft = vim.fn.expand "<amatch>"
+          local is_disabled = false
+          for _, pattern in ipairs(opts.disabled_filetypes) do
+            if string.find(ft, pattern) then
+              is_disabled = true
+              break
+            end
+          end
+          if not is_disabled then vim.treesitter.start() end
+        end,
       })
 
       -- fold

@@ -40,6 +40,11 @@ return {
     init = function() vim.g["chezmoi#use_tmp_buffer"] = true end,
   },
   {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = { disabled_filetypes = { "chezmoitmpl" } },
+  },
+  {
     "xvzc/chezmoi.nvim",
     cmd = { "ChezmoiEdit" },
     keys = {

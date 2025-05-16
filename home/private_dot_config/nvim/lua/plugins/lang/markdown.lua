@@ -69,9 +69,9 @@ return {
     ---@type render.md.UserConfig
     opts = {
       code = {
-        sign = false,
-        width = "block",
-        right_pad = 1,
+        sign = true,
+        -- width = "block",
+        -- right_pad = 1,
       },
       completions = {
         lsp = {
@@ -82,11 +82,11 @@ return {
         },
       },
       heading = {
-        sign = false,
+        sign = true,
         icons = {},
       },
       checkbox = {
-        enabled = false,
+        enabled = true,
       },
     },
     ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
