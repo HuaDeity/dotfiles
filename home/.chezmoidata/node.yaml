@@ -7,7 +7,7 @@ packages:
       - "dockerfile-language-server-nodejs"
       - "@microsoft/compose-language-service"
       # html/json
-      - "@zed-industries/vscode-langservers-extracted"
+      - "vscode-langservers-extracted"
       # prettier
       - "@fsouza/prettierd"
       # yaml
