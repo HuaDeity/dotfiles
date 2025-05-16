@@ -25,9 +25,5 @@ export XDG_PROJECTS_DIR=${XDG_PROJECTS_DIR:-$HOME/Projects}
 if [[ "$OSTYPE" == darwin* ]]; then
   export SHELL_SESSIONS_DISABLE=1
   export SSH_AUTH_SOCK=$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
-  source $XDG_CONFIG_HOME/homebrew/brew.env
 fi
-
-# Secret
-source $XDG_CONFIG_HOME/env/config
 

@@ -15,6 +15,17 @@ return {
     },
     cmd = { "CodeCompanion" },
     opts = {
+      adapters = {
+        azure_openai = function()
+          return require("codecompanion.adapters").extend("azure_openai", {
+            schema = {
+              model = {
+                default = "gpt-4.1",
+              },
+            },
+          })
+        end,
+      },
       display = {
         chat = {
           start_in_insert_mode = true,
