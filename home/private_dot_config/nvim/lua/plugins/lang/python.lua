@@ -1,4 +1,13 @@
 -- lsp
+vim.lsp.config("ty", {
+  settings = {
+    experimental = {
+      completions = {
+        enable = true,
+      },
+    },
+  },
+})
 vim.lsp.enable "ty"
 -- vim.lsp.enable "basedpyright"
 
