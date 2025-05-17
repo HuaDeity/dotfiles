@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+{{ if eq .chezmoi.os "linux" -}}
+export LIBRARY_PATH=$HOME/.local/state/nix/profile/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$HOME/.local/state/nix/profile/lib:$LD_LIBRARY_PATH
+{{ end -}}
+
+if command -v "uv" &>/dev/null; then
+  # Check if uv managed Python is installed
+  if ! uv python find --managed-python &>/dev/null; then
+    echo "Installing Python with uv..."
+    uv python install
+  fi
+  {{ range .packages.python.shared -}}
+  uv tool install -U {{ . | quote }}
+  {{ end -}}
+  {{ if eq .chezmoi.os "linux" -}}
+  {{ range .packages.python.linux -}}
+  uv tool install -U {{ . | quote }}
+  {{ end -}}
+  {{ end -}}
+fi

@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+
+if command -v "rbenv" &>/dev/null; then
+  # Get the latest Ruby version
+  LATEST_RUBY=$(rbenv install -l | grep -v - | tail -1 | tr -d ' ')
+
+  # Install Ruby if not already installed
+  if ! rbenv versions --bare | grep -q "^${LATEST_RUBY}$"; then
+    echo "Installing Ruby $LATEST_RUBY with rbenv..."
+    rbenv install "$LATEST_RUBY"
+  fi
+
+  # Set the installed version as global
+  rbenv global "$LATEST_RUBY"
+  rbenv rehash
+
+  # Remove all old Ruby versions except the latest
+  for v in $(rbenv versions --bare); do
+    if [[ "$v" != "$LATEST_RUBY" ]]; then
+      echo "Uninstalling old Ruby version: $v"
+      rbenv uninstall -f "$v"
+    fi
+  done
+  rbenv rehash
+
+  if command -v "gem" &>/dev/null; then
+    gem update --system
+    {{ range .packages.ruby.shared -}}
+    if ! command -v ${{ . | quote }} &>/dev/null; then
+      gem install {{ . | quote }}
+    fi
+    {{ end -}}
+    gem update
+    gem cleanup
+  fi
+fi

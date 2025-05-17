@@ -1,6 +1,6 @@
 packages:
   tex:
-    darwin:
+    shared:
       - "chktex"
       - "latexindent"
       - "latexmk"

@@ -20,6 +20,13 @@ return {
         desc = "Search and Replace",
       },
     },
+    specs = {
+      {
+        "nvim-treesitter/nvim-treesitter",
+        optional = true,
+        opts = { disabled_filetypes = { "grug" } },
+      },
+    },
   },
   {
     "folke/snacks.nvim",

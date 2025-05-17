@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+if command -v "tlmgr" &>/dev/null; then
+  sudo tlmgr update --self
+  {{ range .packages.tex.shared -}}
+  if ! command -v ${{ . | quote }} &>/dev/null; then
+    sudo tlmgr install {{ . | quote }}
+  fi
+  {{ end -}}
+  sudo tlmgr update --all
+fi
