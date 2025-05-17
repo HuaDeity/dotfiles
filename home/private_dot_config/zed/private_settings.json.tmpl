@@ -22,18 +22,33 @@
 	},
 	"auto_install_extensions": {
 		"basedpyright": true,
+		"basher": true,
 		"biome": true,
 		"catppuccin": true,
 		"catppuccin-icons": true,
+		"docker-compose": true,
 		"dockerfile": true,
+		"env": true,
+		"fish": true,
 		"git-firefly": true,
-		"html": false,
+		"html": true,
+		"just": true,
+		"latex": true,
+		"log": true,
+		"ltex": true,
 		"lua": true,
 		"nix": true,
+		"perplexity": true,
+		"rainbow-csv": true,
 		"ruby": true,
 		"ruff": true,
+		"snippets": true,
+		"swift": true,
 		"toml": true,
-		"wakatime": true
+		"tree-sitter-query": true,
+		"wakatime": true,
+		"xml": true
+		// "zig": true
 	},
 	"autosave": {
 		"after_delay": {
@@ -63,8 +78,6 @@
 			}
 		}
 	},
-
-
 	"edit_predictions": {
 		"mode": "subtle",
 		"copilot": {
@@ -97,7 +110,29 @@
 		}
 	},
 	"languages": {
+		"fish": {
+			"formatter": {
+				"external": {
+					"command": "fish_indent"
+				}
+			}
+		},
 		"JSON": {
+			"formatter": [
+				{
+					"code_actions": {
+						"source.fixAll.biome": true,
+						"source.organizeImports.biome": true
+					}
+				},
+				{
+					"language_server": {
+						"name": "biome"
+					}
+				}
+			]
+		},
+		"JSONC": {
 			"formatter": [
 				{
 					"code_actions": {
@@ -117,12 +152,29 @@
 				"external": {
 					"command": "stylua",
 					"arguments": [
-						"--syntax=Lua54",
 						"--respect-ignores",
 						"--stdin-filepath",
 						"{buffer_path}",
 						"-"
 					]
+				}
+			},
+			"inlay_hints": {
+				"enabled": true,
+				"show_type_hints": true,
+				"show_parameter_hints": true,
+				"show_other_hints": true
+			}
+		},
+		"Markdown": {
+			"language_servers": ["marksman"]
+		},
+		"Nix": {
+			"language_servers": ["nixd", "!nil"],
+			"formatter": {
+				"external": {
+					"command": "nixfmt",
+					"arguments": ["--quiet", "--"]
 				}
 			}
 		},
@@ -144,6 +196,17 @@
 		},
 		"Ruby": {
 			"language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
+		},
+		"Shell Script": {
+			"formatter": {
+				"external": {
+					"command": "shfmt",
+					// Change `--indent 2` to match your preferred tab_size
+					"arguments": ["--filename", "{buffer_path}", "--indent", "2"]
+				}
+			},
+			"hard_tabs": false,
+			"tab_size": 2
 		}
 	},
 	"lsp": {
@@ -153,11 +216,20 @@
 		//   }
 		// },
 		"rubocop": {
+			"initialization_options": {
+				"safeAutocorrect": false
+			},
 			"settings": {
 				"use_bundler": false
 			}
 		},
 		"ruby-lsp": {
+			"initialization_options": {
+				"enabledFeatures": {
+					// This disables diagnostics
+					"diagnostics": false
+				}
+			},
 			"settings": {
 				"use_bundler": false
 			}
@@ -165,6 +237,28 @@
 		"rust-analyzer": {
 			"check": {
 				"command": "clippy"
+			},
+			"initialization_options": {
+				"inlayHints": {
+					"maxLength": null,
+					"lifetimeElisionHints": {
+						"enable": "skip_trivial",
+						"useParameterNames": true
+					},
+					"closureReturnTypeHints": {
+						"enable": "always"
+					}
+				},
+				"rust": {
+					"analyzerTargetDir": true
+				}
+			}
+		},
+		"yaml-language-server": {
+			"settings": {
+				"yaml": {
+					"keyOrdering": false
+				}
 			}
 		}
 	},

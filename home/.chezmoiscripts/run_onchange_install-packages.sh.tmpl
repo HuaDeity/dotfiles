@@ -15,11 +15,11 @@ volta install {{ . | quote }}
 {{ if lookPath "uv" }}
 uv python install
 {{ range .packages.python.shared -}}
-uv tool install {{ . | quote }}
+uv tool install -U {{ . | quote }}
 {{ end -}}
 {{ if eq .chezmoi.os "linux" -}}
 {{ range .packages.python.linux -}}
-uv tool install {{ . | quote }}
+uv tool install -U {{ . | quote }}
 {{ end -}}
 {{ end -}}
 {{ end -}}
@@ -27,5 +27,14 @@ uv tool install {{ . | quote }}
 {{ if lookPath "rbenv" }}
 {{ range .packages.ruby.shared -}}
 gem install {{ . | quote }}
+{{ end -}}
+{{ end -}}
+
+{{ if lookPath "tlmgr" }}
+{{ if eq .chezmoi.os "darwin" -}}
+sudo tlmgr update --self
+{{ range .packages.tex.darwin -}}
+sudo tlmgr install {{ . | quote }}
+{{ end -}}
 {{ end -}}
 {{ end -}}

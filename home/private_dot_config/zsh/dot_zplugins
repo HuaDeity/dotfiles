@@ -66,6 +66,7 @@ mattmc3/zephyr path:plugins/macos conditional:is-macos
 
 $ZSH_CUSTOM/plugins/rustup conditional:"is-callable rustup && is-macos"
 $ZSH_CUSTOM/plugins/rbenv conditional:"is-callable rbenv" 
+$ZSH_CUSTOM/plugins/tex conditional:"is-macos" 
 
 #
 # Tools

@@ -1,0 +1,6 @@
+packages:
+  tex:
+    darwin:
+      - "chktex"
+      - "latexindent"
+      - "latexmk"
