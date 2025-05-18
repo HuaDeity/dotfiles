@@ -1,6 +1,7 @@
 packages:
   base:
     shared:
+      - "atuin"
       - "bash"
       - "bat"
       - "biome"
