@@ -13,7 +13,7 @@ with lib;
   ];
 
   environment = {
-    profiles = (mkOrder 801 [ "$HOME/.local/state/nix/profile" ]);
+    profiles = (mkOrder 799 [ "$HOME/.local/state/nix/profile" ]);
     systemPackages = import ../../modules/shared/system-packages.nix { inherit pkgs; };
   };
 
