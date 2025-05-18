@@ -1,0 +1,26 @@
+{
+  pkgs,
+  isGraphical ? false,
+  ...
+}:
+
+with pkgs;
+let
+  shared-packages = map (pkgName: if pkgName == "git-flow" then pkgs.gitflow else pkgs.${pkgName}) (
+    (import ../shared/packages.nix) { }
+  );
+
+  system-packages = (import ../shared/system-packages.nix) { inherit pkgs; };
+
+  guiPackages = [ ];
+
+  cliPackages = [
+  {{- range .packages.base.linux }}
+    {{ . }}
+  {{- end }}
+  ];
+
+  addPackages = if isGraphical then guiPackages ++ cliPackages else cliPackages;
+
+in
+shared-packages ++ system-packages ++ addPackages

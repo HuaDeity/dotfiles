@@ -1,0 +1,7 @@
+packages:
+  nix:
+    shared:
+      - "alejandra"
+      - "nil"
+      - "nixd"
+      - "nixfmt-rfc-style"

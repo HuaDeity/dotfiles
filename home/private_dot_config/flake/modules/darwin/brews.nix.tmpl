@@ -1,0 +1,11 @@
+_:
+
+let
+  shared-packages = (import ../shared/packages.nix) { };
+in
+shared-packages
+++ [
+{{- range .packages.base.darwin }}
+  {{ . | quote }}
+{{- end }}
+]

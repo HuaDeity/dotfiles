@@ -1,0 +1,7 @@
+_:
+
+{
+{{- range $name, $id := .mas }}
+  {{ $name | quote }} = {{ $id }}
+{{- end }}
+}

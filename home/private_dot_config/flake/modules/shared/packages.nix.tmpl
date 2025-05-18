@@ -1,0 +1,7 @@
+_:
+
+[
+{{- range .packages.base.shared }}
+  {{ . | quote }}
+{{- end }}
+]

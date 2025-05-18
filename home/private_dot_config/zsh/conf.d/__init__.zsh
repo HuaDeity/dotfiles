@@ -12,4 +12,3 @@ else
   export VISUAL='zed'
 fi
 
-export PAGER=less
