@@ -24,49 +24,50 @@ function M.setup(client, bufnr)
     vim.keymap.set(mode, keys, func, opts)
   end
 
+  if client_supports_method "definition" then
+    map("gd", function() Snacks.picker.lsp_definitions() end, "Definition")
+  end
+
+  if client_supports_method "declaration" then
+    map("gD", function() Snacks.picker.lsp_declarations() end, "Declaration")
+  end
+
+  if client_supports_method "typeDefinition" then
+    map("gy", function() Snacks.picker.lsp_type_definitions() end, "Type Definition")
+  end
+
+  if client_supports_method "implementation" then
+    map("gI", function() Snacks.picker.lsp_implementations() end, "Implementation")
+  end
+
   if client_supports_method "rename" then
     -- Rename the variable under your cursor.
-    map("grn", vim.lsp.buf.rename, "Rename")
-    map("<leader>cr", function()
+    map("cd", vim.lsp.buf.rename, "Rename(Change Definition)")
+    map("<leader>cd", function()
       local inc_rename = require "inc_rename"
       return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand "<cword>"
     end, "Rename (inc-rename.nvim)", { expr = true })
   end
 
-  if client_supports_method "codeAction" then
-    -- Execute a code action, usually your cursor needs to be on top of an error
-    -- or a suggestion from your LSP for this to activate.
-    map("gra", vim.lsp.buf.code_action, "Code Action", { "n", "v" })
+  if client_supports_method "references" then
+    map("gA", function() Snacks.picker.lsp_references() end, "Goto All References", { nowait = true })
   end
-
-  -- Find references for the word under your cursor.
-  map("gr", function() Snacks.picker.lsp_references() end, "References", { nowait = true })
-
-  -- Jump to the implementation of the word under your cursor.
-  map("gI", function() Snacks.picker.lsp_implementations() end, "Goto Implementation")
-
-  if client_supports_method "definition" then
-    -- Jump to the definition of the word under your cursor.
-    map("gd", function() Snacks.picker.lsp_definitions() end, "Goto Definition")
-  end
-
-  -- WARN: This is not Goto Definition, this is Goto Declaration.
-  map("grD", vim.lsp.buf.declaration, "Goto Declaration")
-
-  -- Jump to the type of the word under your cursor.
-  map("gy", function() Snacks.picker.lsp_type_definitions() end, "Goto T[y]pe Definition")
 
   if client_supports_method "documentSymbol" then
-    map("<leader>ss", function() Snacks.picker.lsp_symbols { filter = ViM.config.kind_filter } end, "Symbols")
+    map("gs", function() Snacks.picker.lsp_symbols { filter = ViM.config.kind_filter } end, "Symbols")
   end
 
   if client_supports_method "workspace/symbols" then
     map(
-      "<leader>sS",
+      "gS",
       function() Snacks.picker.lsp_workspace_symbols { filter = ViM.config.kind_filter } end,
       "Workspace Symbols"
     )
   end
+
+  if client_supports_method "hover" then map("gh", vim.lsp.buf.hover, "Hover", { "n", "v" }) end
+
+  if client_supports_method "codeAction" then map("g.", vim.lsp.buf.code_action, "Code Action", { "n", "v" }) end
 
   -- Setup document highlighting if supported
   if client_supports_method "documentHighlight" then

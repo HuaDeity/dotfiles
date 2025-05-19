@@ -10,6 +10,7 @@ return {
     "snacks.nvim",
     opts = {
       bigfile = { enabled = true },
+      image = { enabled = true },
       quickfile = { enabled = true },
       terminal = {
         win = {
@@ -32,7 +33,7 @@ return {
       {
         "nvim-treesitter/nvim-treesitter",
         optional = true,
-        opts = { disabled_filetypes = { "bigfile" } },
+        opts = { disabled_filetypes = { "bigfile", "image" } },
       },
     },
   },

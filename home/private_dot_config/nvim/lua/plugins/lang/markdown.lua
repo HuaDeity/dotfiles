@@ -58,6 +58,11 @@ return {
   },
 
   {
+    "itspriddle/vim-marked",
+    ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
+  },
+
+  {
     "mason-org/mason.nvim",
     optional = true,
     opts = { ensure_installed = { "markdownlint-cli2" } },
