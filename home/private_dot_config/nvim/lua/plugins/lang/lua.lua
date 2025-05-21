@@ -5,9 +5,9 @@ vim.lsp.config("lua_ls", {
       completion = {
         callSnippet = "Replace",
       },
-      workspace = {
-        checkThirdParty = false,
-      },
+      -- workspace = {
+      --   checkThirdParty = false,
+      -- },
       codeLens = {
         enable = true,
       },

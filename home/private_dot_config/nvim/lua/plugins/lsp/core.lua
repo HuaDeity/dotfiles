@@ -11,6 +11,15 @@ return {
       },
     },
     config = function()
+      -- delete default keymaps
+      vim.keymap.del("n", "grn") -- Rename
+      vim.keymap.del({ "n", "x" }, "gra") -- Code Action
+      vim.keymap.del("n", "grr") -- References
+      vim.keymap.del("n", "gri") -- Implementation
+      vim.keymap.del("n", "gO") -- Document Symbol
+      vim.keymap.del({ "i", "s" }, "<C-s>") -- Signature Help
+
+      -- custom keymaps
       local lsp_attach = require "plugins.lsp.attach"
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("vilsp-attach", { clear = true }),
@@ -107,12 +116,5 @@ return {
         end
       end)
     end,
-    specs = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-        optional = true,
-        opts = { disabled_filetypes = { "mason" } },
-      },
-    },
   },
 }

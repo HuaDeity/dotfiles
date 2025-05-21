@@ -20,13 +20,6 @@ return {
         desc = "Search and Replace",
       },
     },
-    specs = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-        optional = true,
-        opts = { disabled_filetypes = { "grug" } },
-      },
-    },
   },
   {
     "folke/snacks.nvim",
@@ -42,6 +35,11 @@ return {
       },
     },
     keys = {
+      {
+        "g/",
+        function() Snacks.picker.grep { cmd = ViM.root() } end,
+        desc = "Grep (Root Dir)",
+      },
       -- find
       { "<leader>fb", function() Snacks.picker.buffers() end, desc = "Buffers" },
       { "<leader>fB", function() Snacks.picker.buffers { hidden = true, nofile = true } end, desc = "Buffers (all)" },
@@ -79,12 +77,80 @@ return {
     },
   },
   {
+    "neovim/nvim-lspconfig",
+    opts = function()
+      local Keys = require("plugins.lsp.attach").get()
+      -- stylua: ignore
+      vim.list_extend(Keys, {
+        { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition", has = "definition" },
+        { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration", has = "declaration" },
+        { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition", has = "typeDefinition" },
+        { "grr", function() Snacks.picker.lsp_references() end, desc = "References", nowait = true, has = "references" },
+        { "gri", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation", has = "implementation" },
+        { "gO", function() Snacks.picker.lsp_symbols({ filter = ViM.config.kind_filter }) end, desc = "LSP Symbols", has = "documentSymbol" },
+        { "gS", function() Snacks.picker.lsp_workspace_symbols({ filter = ViM.config.kind_filter }) end, desc = "LSP Workspace Symbols", has = "workspace/symbols" },
+
+        { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info" },
+      })
+    end,
+  },
+  {
     "folke/todo-comments.nvim",
     optional = true,
     -- stylua: ignore
     keys = {
       { "<leader>st", function() Snacks.picker.todo_comments() end, desc = "Todo" },
       { "<leader>sT", function () Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, desc = "Todo/Fix/Fixme" },
+    },
+  },
+  {
+    "folke/snacks.nvim",
+    opts = function(_, opts)
+      table.insert(opts.dashboard.preset.keys, 3, {
+        icon = " ",
+        key = "p",
+        desc = "Projects",
+        action = ":lua Snacks.picker.projects()",
+      })
+    end,
+  },
+  {
+    "folke/flash.nvim",
+    optional = true,
+    specs = {
+      {
+        "folke/snacks.nvim",
+        opts = {
+          picker = {
+            win = {
+              input = {
+                keys = {
+                  ["<a-s>"] = { "flash", mode = { "n", "i" } },
+                  ["s"] = { "flash" },
+                },
+              },
+            },
+            actions = {
+              flash = function(picker)
+                require("flash").jump {
+                  pattern = "^",
+                  label = { after = { 0, 0 } },
+                  search = {
+                    mode = "search",
+                    exclude = {
+                      function(win) return vim.bo[vim.api.nvim_win_get_buf(win)].filetype ~= "snacks_picker_list" end,
+                    },
+                  },
+                  action = function(match)
+                    local idx = picker.list:row2idx(match.pos[1])
+                    picker.list:_move(idx, true, true)
+                  end,
+                }
+              end,
+            },
+          },
+        },
+      },
     },
   },
 }

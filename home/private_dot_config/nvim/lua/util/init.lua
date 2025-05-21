@@ -6,6 +6,7 @@ local LazyUtil = require "lazy.core.util"
 ---@field root util.root
 ---@field format util.format
 ---@field lualine util.lualine
+---@field spinner util.spinner
 local M = {}
 
 setmetatable(M, {

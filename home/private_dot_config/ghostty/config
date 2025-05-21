@@ -9,3 +9,5 @@ macos-option-as-alt = true
 shell-integration-features = sudo
 theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
 window-inherit-working-directory = false
+adjust-cell-height = 28%
+adjust-cursor-height = 28%

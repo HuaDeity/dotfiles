@@ -124,7 +124,7 @@ local options = {
   },
 }
 
----@param name "autocmds" | "options" | "keymaps" | "lazy"
+---@param name "autocmds" | "keymaps"
 function M.load(name)
   if require("lazy.core.cache").find("config." .. name)[1] then
     ViM.try(function() require("config." .. name) end, { msg = "Failed loading " .. "config." .. name })

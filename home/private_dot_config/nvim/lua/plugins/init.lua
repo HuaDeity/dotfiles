@@ -14,13 +14,6 @@ return {
       -- this is needed to have early notifications show up in noice history
       vim.notify = notify
     end,
-    specs = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-        optional = true,
-        opts = { disabled_filetypes = { "snacks" } },
-      },
-    },
   },
   { import = "plugins.colorscheme.catppuccin" },
   { import = "plugins.ui" },

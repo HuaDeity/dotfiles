@@ -27,10 +27,11 @@ return {
           { "[", group = "prev" },
           { "]", group = "next" },
           { "g", group = "goto" },
+          { "gr", group = "LSP Stuffs" },
           -- { "gs", group = "surround" },
           { "z", group = "fold" },
           {
-            "<leader>b",
+            "<S-Z>",
             group = "buffer",
             expand = function() return require("which-key.extras").expand.buf() end,
           },

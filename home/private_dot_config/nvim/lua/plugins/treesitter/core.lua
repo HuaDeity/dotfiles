@@ -8,7 +8,6 @@ return {
     cmd = { "TSUpdate", "TSInstall" },
     opts = {
       ensure_installed = { "dotenv", "log", "printf", "query", "regex", "ssh_config", "vim", "vimdoc" },
-      disabled_filetypes = { "conf", "lazy", "properties", "template", "zsh" },
     },
     ---@param opts TSConfig | {ensure_installed: string[], disabled_filetypes: string[]}
     config = function(_, opts)
@@ -22,8 +21,6 @@ return {
       require("nvim-treesitter").install(opts.ensure_installed)
 
       vim.api.nvim_create_autocmd("FileType", {
-        group = vim.api.nvim_create_augroup("ViM_treesitter_highlight", { clear = true }),
-        pattern = { "*" },
         callback = function()
           local ft = vim.fn.expand "<amatch>"
           local is_disabled = false
@@ -33,7 +30,7 @@ return {
               break
             end
           end
-          if not is_disabled then vim.treesitter.start() end
+          if not is_disabled then pcall(vim.treesitter.start) end
         end,
       })
 

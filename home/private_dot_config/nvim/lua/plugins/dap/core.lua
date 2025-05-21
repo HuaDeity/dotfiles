@@ -113,9 +113,4 @@ return {
     -- mason-nvim-dap is loaded when nvim-dap loads
     config = function() end,
   },
-  {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = { disabled_filetypes = { "dap", "dapui" } },
-  },
 }

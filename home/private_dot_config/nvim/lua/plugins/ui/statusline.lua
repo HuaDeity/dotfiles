@@ -3,7 +3,6 @@ return {
     "nvim-lualine/lualine.nvim",
     event = "VeryLazy",
     init = function()
-      vim.g.lualine_laststatus = vim.o.laststatus
       if vim.fn.argc(-1) > 0 then
         -- set an empty statusline till lualine loads
         vim.o.statusline = " "
@@ -13,38 +12,19 @@ return {
       end
     end,
     opts = function()
-      -- PERF: we don't need this lualine require madness 🤷
-      local lualine_require = require "lualine_require"
-      lualine_require.require = require
-
       local icons = ViM.config.icons
 
-      vim.o.laststatus = vim.g.lualine_laststatus
       local opts = {
         options = {
           theme = "catppuccin",
-          globalstatus = vim.o.laststatus == 3,
+          globalstatus = true,
           disabled_filetypes = { statusline = { "snacks_dashboard" } },
         },
         sections = {
-          lualine_a = { "mode" },
-          lualine_b = { "branch" },
-          lualine_c = {
-            ViM.lualine.root_dir(),
-            {
-              "diagnostics",
-              symbols = {
-                error = icons.diagnostics.Error,
-                warn = icons.diagnostics.Warn,
-                info = icons.diagnostics.Info,
-                hint = icons.diagnostics.Hint,
-              },
-            },
-            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { ViM.lualine.pretty_path() },
+          lualine_a = {
+            { "mode" },
           },
-          lualine_x = {
-            Snacks.profiler.status(),
+          lualine_b = {
             -- stylua: ignore
             {
               function() return require("noice").api.status.command.get() end,
@@ -57,18 +37,7 @@ return {
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
               color = function() return { fg = Snacks.util.color("Constant") } end,
             },
-            -- stylua: ignore
-            {
-              function() return "  " .. require("dap").status() end,
-              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-              color = function() return { fg = Snacks.util.color("Debug") } end,
-            },
-            -- stylua: ignore
-            {
-              require("lazy.status").updates,
-              cond = require("lazy.status").has_updates,
-              color = function() return { fg = Snacks.util.color("Special") } end,
-            },
+            { "branch" },
             {
               "diff",
               symbols = {
@@ -88,18 +57,46 @@ return {
               end,
             },
           },
+          lualine_c = {
+            {
+              "diagnostics",
+              sources = { "nvim_diagnostic" },
+              symbols = {
+                error = icons.diagnostics.Error,
+                warn = icons.diagnostics.Warn,
+                info = icons.diagnostics.Info,
+                hint = icons.diagnostics.Hint,
+              },
+            },
+            Snacks.profiler.status(),
+            -- stylua: ignore
+            {
+              function() return "  " .. require("dap").status() end,
+              cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+              color = function() return { fg = Snacks.util.color("Debug") } end,
+            },
+            -- stylua: ignore
+            {
+              require("lazy.status").updates,
+              cond = require("lazy.status").has_updates,
+              color = function() return { fg = Snacks.util.color("Special") } end,
+            },
+          },
+          lualine_x = {
+            "encoding",
+            "fileformat",
+            "filetype",
+          },
           lualine_y = {
-            { "progress", separator = " ", padding = { left = 1, right = 0 } },
-            { "location", padding = { left = 0, right = 1 } },
+            "progress",
           },
           lualine_z = {
-            function() return " " .. os.date "%R" end,
+            "location",
           },
         },
-        extensions = { "lazy", "fzf" },
+        extensions = { "lazy", "mason", "nvim-dap-ui", "overseer", "trouble" },
       }
       return opts
     end,
   },
-  -- { "echasnovski/mini.statusline", opts = {} },
 }

@@ -41,12 +41,24 @@ return {
         desc = "Next Trouble/Quickfix Item",
       },
     },
-    specs = {
-      {
-        "nvim-treesitter/nvim-treesitter",
-        optional = true,
-        opts = { disabled_filetypes = { "trouble" } },
-      },
-    },
   },
+  -- {
+  --   "nvim-lualine/lualine.nvim",
+  --   optional = true,
+  --   opts = function(_, opts)
+  --     local trouble = require "trouble"
+  --     local symbols = trouble.statusline {
+  --       mode = "symbols",
+  --       groups = {},
+  --       title = false,
+  --       filter = { range = true },
+  --       format = "{kind_icon}{symbol.name:Normal}",
+  --       hl_group = "lualine_c_normal",
+  --     }
+  --     table.insert(opts.winbar.lualine_c, {
+  --       symbols and symbols.get,
+  --       cond = function() return vim.b.trouble_lualine ~= false and symbols.has() end,
+  --     })
+  --   end,
+  -- },
 }

@@ -64,10 +64,13 @@ return {
     "nvim-lualine/lualine.nvim",
     optional = true,
     event = "VeryLazy",
-    opts = function(_, opts) table.insert(opts.sections.lualine_x, 2, require "minuet.lualine") end,
+    opts = function(_, opts) table.insert(opts.sections.lualine_x, require "minuet.lualine") end,
   },
   {
     "zbirenbaum/copilot.lua",
+    dependencies = {
+      "AndreM222/copilot-lualine",
+    },
     cmd = "Copilot",
     build = ":Copilot auth",
     event = "InsertEnter",
@@ -125,19 +128,6 @@ return {
   {
     "nvim-lualine/lualine.nvim",
     optional = true,
-    event = "VeryLazy",
-    opts = function(_, opts)
-      table.insert(
-        opts.sections.lualine_x,
-        2,
-        ViM.lualine.status(ViM.config.icons.kinds.Copilot, function()
-          local clients = package.loaded["copilot"] and vim.lsp.get_clients { name = "copilot", bufnr = 0 } or {}
-          if #clients > 0 then
-            local status = require("copilot.api").status.data.status
-            return (status == "InProgress" and "pending") or (status == "Warning" and "error") or "ok"
-          end
-        end)
-      )
-    end,
+    opts = function(_, opts) table.insert(opts.sections.lualine_x, { "copilot" }) end,
   },
 }
