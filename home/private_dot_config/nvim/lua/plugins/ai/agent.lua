@@ -5,6 +5,7 @@ return {
       "ravitemer/codecompanion-history.nvim",
     },
     cmd = { "CodeCompanion" },
+    init = function() vim.cmd [[cab cc CodeCompanion]] end,
     opts = {
       adapters = {
         azure_openai = function()
@@ -26,8 +27,8 @@ return {
         history = {
           enabled = true,
           opts = {
-            -- Keymap to open history from chat buffer (default: gh)
-            keymap = "gh",
+            keymap = { n = { "gh", "<D-S-h>" } },
+            -- keymap = "gh",
             -- Automatically generate titles for new chats
             auto_generate_title = true,
             ---On exiting and entering neovim, loads the last chat on opening chat
@@ -66,28 +67,42 @@ return {
       },
     },
     keys = {
-      { "<leader>a", "", desc = "+ai", mode = { "n", "v" } },
       {
-        "<leader>aa",
-        function() return require("codecompanion").toggle() end,
+        "<leader>a",
+        "<cmd>CodeCompanionChat Toggle<CR>",
         desc = "Toggle Agent",
         mode = { "n", "v" },
       },
       {
-        "<leader>ac",
-        function() return require("codecompanion").actions {} end,
-        desc = "Toggle Agent",
+        "<C-a>",
+        "<cmd>CodeCompanionActions<CR>",
+        desc = "Toggle Agent Actions",
         mode = { "n", "v" },
       },
       {
-        "ga",
-        function() require("codecompanion").add {} end,
+        "<LocalLeader>a",
+        "<cmd>CodeCompanionChat Add<CR>",
         desc = "Add Code to Agent",
         mode = { "v" },
       },
     },
     config = function(_, opts)
       ViM.spinner:init()
+      local groupKeymaps = vim.api.nvim_create_augroup("CodeCompanionUserKeymaps", { clear = true })
+      vim.api.nvim_create_autocmd("FileType", {
+        group = groupKeymaps,
+        pattern = "codecompanion", -- This matches the filetype set by the plugin
+        callback = function(args)
+          -- args.buf contains the buffer number of the matched buffer
+          local bufnr = args.buf
+          vim.keymap.set(
+            { "n", "i", "x" },
+            "<D-A-n>",
+            "<cmd>CodeCompanionChat<CR>",
+            { noremap = true, silent = true, buffer = bufnr, desc = "New Chat" }
+          )
+        end,
+      })
 
       -- Setup the entire opts table
       require("codecompanion").setup(opts)

@@ -1,0 +1,51 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+	{
+		"context": "Workspace",
+		"bindings": {
+			// "shift shift": "file_finder::Toggle"
+		}
+	},
+	{
+		"context": "Editor",
+		"bindings": {
+			// "j k": ["workspace::SendKeystrokes", "escape"]
+		}
+	},
+	{
+		"context": "vim_operator == a || vim_operator == i || vim_operator == cs",
+		"bindings": {
+			// Traditional Vim behavior
+			"q": "vim::AnyQuotes",
+			"b": "vim::AnyBrackets",
+
+			// mini.ai plugin behavior
+			"Q": "vim::MiniQuotes",
+			"B": "vim::MiniBrackets"
+		}
+	},
+	{
+		"context": "vim_mode == visual",
+		"bindings": {
+			"shift-s": ["vim::PushAddSurrounds", {}]
+		}
+	},
+	{
+		"context": "Workspace",
+		"bindings": {
+			"cmd-?": null
+		}
+	},
+	{
+		"context": "VimControl && !menu",
+		"bindings": {
+			"space a": "agent::ToggleFocus"
+		}
+	}
+]

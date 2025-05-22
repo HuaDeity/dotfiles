@@ -116,6 +116,6 @@ vim.api.nvim_create_autocmd({ "BufWritePre" }, {
 -- Bind ~/.config/zed/settings.json to jsonc filetype
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   group = augroup "zed_jsonc_filetype",
-  pattern = vim.fn.expand "~/.config/zed/settings.json",
+  pattern = "**/zed/*.json",
   command = "set filetype=jsonc",
 })
