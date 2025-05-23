@@ -2,10 +2,9 @@ return {
   {
     "ravitemer/mcphub.nvim",
     cmd = "MCPHub",
-    build = "bundled_build.lua",
+    build = "npm i -g mcp-hub@latest",
     opts = {
       auto_approve = true,
-      use_bundled_binary = true,
     },
   },
   {

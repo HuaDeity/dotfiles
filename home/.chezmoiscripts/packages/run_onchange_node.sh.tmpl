@@ -5,6 +5,6 @@ if command -v "volta" &>/dev/null; then
     volta install node
   fi
   {{ range .packages.node.shared -}}
-  volta install {{ . | quote }}
+  npm i -g {{ . | quote }}
   {{ end -}}
 fi

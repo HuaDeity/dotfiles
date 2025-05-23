@@ -8,6 +8,8 @@ packages:
       - "@microsoft/compose-language-service"
       # html/json
       - "vscode-langservers-extracted"
+      # mcp
+      - "mcp-hub"
       # prettier
       - "@fsouza/prettierd"
       # yaml

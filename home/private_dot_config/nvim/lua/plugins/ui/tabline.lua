@@ -24,10 +24,18 @@ return {
         right_mouse_command = "vertical sbuffer %d",
         diagnostics = "nvim_lsp",
         always_show_bufferline = false,
-        diagnostics_indicator = function(_, _, diag)
-          local icons = ViM.config.icons.diagnostics
-          local ret = (diag.error and icons.Error .. diag.error .. " " or "")
-            .. (diag.warning and icons.Warn .. diag.warning or "")
+        diagnostics_indicator = function(count, level, diagnostics_dict, context)
+          if context.buffer:current() then return "" end
+          local ret = (
+            diagnostics_dict.error
+              and vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.ERROR] .. diagnostics_dict.error .. " "
+            or ""
+          )
+            .. (
+              diagnostics_dict.warning
+                and vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.WARN] .. diagnostics_dict.warning
+              or ""
+            )
           return vim.trim(ret)
         end,
         offsets = {

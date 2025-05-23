@@ -52,6 +52,7 @@ packages:
       - "laishulu/homebrew/macism"
       - "mas"
       - "pinentry-mac"
+      - "pngpaste"
       - "uutils-coreutils"
     linux:
       - "clang"

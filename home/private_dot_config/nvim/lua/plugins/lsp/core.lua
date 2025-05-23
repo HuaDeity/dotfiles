@@ -1,3 +1,36 @@
+-- Diagnostic Config
+-- See :help vim.diagnostic.Opts
+local diagnostic_icons = {
+  Error = " ",
+  Warn = " ",
+  Hint = " ",
+  Info = " ",
+}
+vim.diagnostic.config {
+  underline = true,
+  update_in_insert = false,
+  virtual_text = {
+    spacing = 4,
+    source = "if_many",
+    prefix = function(diagnostic)
+      for d, icon in pairs(diagnostic_icons) do
+        if diagnostic.severity == vim.diagnostic.severity[d:upper()] then return icon end
+        return " "
+      end
+    end,
+  },
+  severity_sort = true,
+  signs = {
+    text = {
+      [vim.diagnostic.severity.ERROR] = diagnostic_icons.Error,
+      [vim.diagnostic.severity.WARN] = diagnostic_icons.Warn,
+      [vim.diagnostic.severity.HINT] = diagnostic_icons.Hint,
+      [vim.diagnostic.severity.INFO] = diagnostic_icons.Info,
+    },
+  },
+  float = { source = "if_many" },
+}
+
 return {
   {
     "neovim/nvim-lspconfig",
@@ -39,42 +72,6 @@ return {
           return result
         end
       end)(vim.lsp.handlers["client/registerCapability"])
-
-      -- Diagnostic Config
-      -- See :help vim.diagnostic.Opts
-      vim.diagnostic.config {
-        underline = true,
-        update_in_insert = false,
-        virtual_text = {
-          spacing = 4,
-          source = "if_many",
-          prefix = function(diagnostic)
-            local icons = ViM.config.icons.diagnostics
-            for d, icon in pairs(icons) do
-              if diagnostic.severity == vim.diagnostic.severity[d:upper()] then return icon end
-            end
-          end,
-          format = function(diagnostic)
-            local diagnostic_message = {
-              [vim.diagnostic.severity.ERROR] = diagnostic.message,
-              [vim.diagnostic.severity.WARN] = diagnostic.message,
-              [vim.diagnostic.severity.INFO] = diagnostic.message,
-              [vim.diagnostic.severity.HINT] = diagnostic.message,
-            }
-            return diagnostic_message[diagnostic.severity]
-          end,
-        },
-        severity_sort = true,
-        signs = {
-          text = {
-            [vim.diagnostic.severity.ERROR] = ViM.config.icons.diagnostics.Error,
-            [vim.diagnostic.severity.WARN] = ViM.config.icons.diagnostics.Warn,
-            [vim.diagnostic.severity.HINT] = ViM.config.icons.diagnostics.Hint,
-            [vim.diagnostic.severity.INFO] = ViM.config.icons.diagnostics.Info,
-          },
-        },
-        float = { border = "rounded", source = "if_many" },
-      }
 
       vim.lsp.config("*", {
         capabilities = {

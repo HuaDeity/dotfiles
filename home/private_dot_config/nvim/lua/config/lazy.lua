@@ -23,15 +23,6 @@ require("lazy").setup {
     version = false, -- always use the latest git commit
   },
   install = { colorscheme = { "catppuccin" } },
-  -- ui = {
-  --   backdrop = 100,
-  --   icons = {
-  --     ft = "",
-  --     lazy = "󰂠 ",
-  --     loaded = "",
-  --     not_loaded = "",
-  --   },
-  -- },
   checker = {
     enabled = true, -- check for plugin updates periodically
   }, -- automatically check for plugin updates

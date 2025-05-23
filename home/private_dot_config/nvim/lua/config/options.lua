@@ -79,7 +79,7 @@ vim.o.wrap = false
 -- Wrap lines at convenient point
 vim.o.linebreak = true
 -- Columns of context
-vim.o.sidescrolloff = 8
+vim.o.sidescrolloff = 36
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -149,3 +149,5 @@ vim.o.wildmode = "longest:full,full"
 
 -- Minimum window width
 vim.o.winminwidth = 5
+
+vim.o.winborder = "rounded"

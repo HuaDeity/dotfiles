@@ -75,10 +75,14 @@ return {
   },
   {
     "folke/snacks.nvim",
+    dependencies = {
+      "echasnovski/mini.icons",
+    },
     optional = true,
     opts = function(_, opts)
+      local icons = require "mini.icons"
       local chezmoi_entry = {
-        icon = " ",
+        icon = icons.get("directory", ".config"),
         key = "c",
         desc = "Config",
         action = pick_chezmoi,

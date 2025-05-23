@@ -56,7 +56,18 @@ return {
       -- Change breakpoint icons
       vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 
-      for name, sign in pairs(ViM.config.icons.dap) do
+      local icons = {
+        Stopped = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+        -- "●"
+        Breakpoint = { " ", "DapBreakpoint" },
+        -- "●"
+        BreakpointCondition = { " ", "DapBreakpointCondition" },
+        -- "◆"
+        BreakpointRejected = { " ", "DiagnosticError" },
+        LogPoint = { ".>", "DapLogPoint" },
+      }
+
+      for name, sign in pairs(icons) do
         sign = type(sign) == "table" and sign or { sign }
         vim.fn.sign_define(
           "Dap" .. name,

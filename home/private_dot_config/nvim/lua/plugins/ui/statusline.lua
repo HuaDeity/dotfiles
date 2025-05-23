@@ -12,7 +12,11 @@ return {
       end
     end,
     opts = function()
-      local icons = ViM.config.icons
+      local git_icons = {
+        added = " ",
+        modified = " ",
+        removed = " ",
+      }
 
       local opts = {
         options = {
@@ -41,9 +45,9 @@ return {
             {
               "diff",
               symbols = {
-                added = icons.git.added,
-                modified = icons.git.modified,
-                removed = icons.git.removed,
+                added = git_icons.added,
+                modified = git_icons.modified,
+                removed = git_icons.removed,
               },
               source = function()
                 local gitsigns = vim.b.gitsigns_status_dict
@@ -62,10 +66,10 @@ return {
               "diagnostics",
               sources = { "nvim_diagnostic" },
               symbols = {
-                error = icons.diagnostics.Error,
-                warn = icons.diagnostics.Warn,
-                info = icons.diagnostics.Info,
-                hint = icons.diagnostics.Hint,
+                error = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.ERROR],
+                warn = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.WARN],
+                info = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.INFO],
+                hint = vim.diagnostic.config()["signs"]["text"][vim.diagnostic.severity.HINT],
               },
             },
             Snacks.profiler.status(),

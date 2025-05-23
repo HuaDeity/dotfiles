@@ -87,8 +87,8 @@ return {
         { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition", has = "typeDefinition" },
         { "grr", function() Snacks.picker.lsp_references() end, desc = "References", nowait = true, has = "references" },
         { "gri", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation", has = "implementation" },
-        { "gO", function() Snacks.picker.lsp_symbols({ filter = ViM.config.kind_filter }) end, desc = "LSP Symbols", has = "documentSymbol" },
-        { "gS", function() Snacks.picker.lsp_workspace_symbols({ filter = ViM.config.kind_filter }) end, desc = "LSP Workspace Symbols", has = "workspace/symbols" },
+        { "gO", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", has = "documentSymbol" },
+        { "gS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", has = "workspace/symbols" },
 
         { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info" },
       })
@@ -106,8 +106,9 @@ return {
   {
     "folke/snacks.nvim",
     opts = function(_, opts)
+      local icons = require "mini.icons"
       table.insert(opts.dashboard.preset.keys, 3, {
-        icon = " ",
+        icon = icons.get("directory", "Projects"),
         key = "p",
         desc = "Projects",
         action = ":lua Snacks.picker.projects()",
@@ -148,6 +149,22 @@ return {
                 }
               end,
             },
+          },
+        },
+      },
+    },
+  },
+  {
+    "olimorris/codecompanion.nvim",
+    dependencies = {
+      "ravitemer/codecompanion-history.nvim",
+    },
+    optional = true,
+    opts = {
+      extensions = {
+        history = {
+          opts = {
+            picker = "snacks",
           },
         },
       },
