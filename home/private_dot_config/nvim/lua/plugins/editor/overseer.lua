@@ -26,21 +26,6 @@ return {
           ["<C-l>"] = false,
         },
       },
-      form = {
-        win_opts = {
-          winblend = 0,
-        },
-      },
-      confirm = {
-        win_opts = {
-          winblend = 0,
-        },
-      },
-      task_win = {
-        win_opts = {
-          winblend = 0,
-        },
-      },
     },
     -- stylua: ignore
     keys = {
@@ -87,5 +72,12 @@ return {
     "mfussenegger/nvim-dap",
     optional = true,
     opts = function() require("overseer").enable_dap() end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = {
+      extensions = { "overseer" },
+    },
   },
 }

@@ -12,37 +12,40 @@ local function ai_buffer(ai_type)
   return { from = { line = start_line, col = 1 }, to = { line = end_line, col = to_col } }
 end
 
--- register all text objects with which-key
+--register all text objects with which-key
 ---@param opts table
 local function ai_whichkey(opts)
   local objects = {
     { " ", desc = "whitespace" },
-    { '"', desc = '" string' },
-    { "'", desc = "' string" },
-    { "(", desc = "() block" },
-    { ")", desc = "() block with ws" },
-    { "<", desc = "<> block" },
-    { ">", desc = "<> block with ws" },
+    { '"', desc = "double quotes" },
+    { "'", desc = "quotes" },
+    { "`", desc = "back quotes" },
+    { "(", desc = "parentheses" },
+    { ")", desc = "parentheses with ws" },
+    { "<", desc = "angle brackets" },
+    { ">", desc = "angle brackets with ws" },
+    { "[", desc = "squarebrackets" },
+    { "]", desc = "squarebrackets with ws" },
+    { "{", desc = "curly brackets" },
+    { "}", desc = "curly brackets with ws" },
     { "?", desc = "user prompt" },
-    { "U", desc = "use/call without dot" },
-    { "[", desc = "[] block" },
-    { "]", desc = "[] block with ws" },
     { "_", desc = "underscore" },
-    { "`", desc = "` string" },
+    { "|", desc = "vertical bars" },
     { "a", desc = "argument" },
-    { "b", desc = ")]} block" },
+    { "b", desc = "mini parentheses" },
     { "c", desc = "class" },
-    { "d", desc = "digit(s)" },
-    { "e", desc = "CamelCase / snake_case" },
+    { "e", desc = "entire file" },
     { "f", desc = "function" },
-    { "g", desc = "entire file" },
+    { "g", desc = "comment" },
     { "i", desc = "indent" },
+    { "n", desc = "number" },
     { "o", desc = "block, conditional, loop" },
-    { "q", desc = "quote `\"'" },
+    { "q", desc = "mini quotes" },
+    { "r", desc = "squarebrackets" },
     { "t", desc = "tag" },
-    { "u", desc = "use/call" },
-    { "{", desc = "{} block" },
-    { "}", desc = "{} with ws" },
+    { "u", desc = "subword" },
+    { "A", desc = "argument(treesitter)" },
+    { "F", desc = "function(treesitter)" },
   }
 
   ---@type wk.Spec[]
@@ -78,23 +81,31 @@ return {
     opts = function()
       local ai = require "mini.ai"
       return {
+        mappings = {
+          goto_left = "",
+          goto_right = "",
+        },
         n_lines = 500,
         custom_textobjects = {
+          ["|"] = ai.gen_spec.pair("|", "|", { type = "non-balanced" }),
+          c = ai.gen_spec.treesitter { a = "@class.outer", i = "@class.inner" }, -- class
+          e = ai_buffer, -- buffer
+          f = ai.gen_spec.treesitter { a = "@function.outer", i = "@function.inner" }, -- function
+          g = ai.gen_spec.treesitter { a = "@comment.outer", i = "@comment.inner" }, -- comment
+          n = { "%f[%d]%d+" }, -- number
           o = ai.gen_spec.treesitter { -- code block
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
             i = { "@block.inner", "@conditional.inner", "@loop.inner" },
           },
-          f = ai.gen_spec.treesitter { a = "@function.outer", i = "@function.inner" }, -- function
-          c = ai.gen_spec.treesitter { a = "@class.outer", i = "@class.inner" }, -- class
-          t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" }, -- tags
-          d = { "%f[%d]%d+" }, -- digits
-          e = { -- Word with case
+          r = { "%b[]", "^.%s*().-()%s*.$" },
+          -- t = { "<([%p%w]-)%f[^<%w][^<>]->.-</%1>", "^<.->().*()</[^/]->$" }, -- tags
+          u = { -- Word with case
             { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
             "^().*()$",
           },
-          g = ai_buffer, -- buffer
-          u = ai.gen_spec.function_call(), -- u for "Usage"
-          U = ai.gen_spec.function_call { name_pattern = "[%w_]" }, -- without dot in function name
+
+          A = ai.gen_spec.treesitter { a = "@parameter.outer", i = "@parameter.inner" }, --arguments
+          F = ai.gen_spec.function_call(), -- function
         },
       }
     end,
@@ -104,35 +115,40 @@ return {
         vim.schedule(function() ai_whichkey(opts) end)
       end)
     end,
+    keys = function()
+      local ai = require "mini.ai"
+      local move_mode = { "n", "x", "o" }
+      local next_opts = { search_method = "next" }
+      local prev_opts = { search_method = "prev" }
+      local cov_prev_opts = { search_method = "cover_or_prev" }
+      local move_mappings = {
+        { "]m", function() ai.move_cursor("left", "a", "f", next_opts) end, desc = "Next Function" },
+        { "[m", function() ai.move_cursor("left", "a", "f", prev_opts) end, desc = "Previous Function" },
+        { "]M", function() ai.move_cursor("right", "a", "f", next_opts) end, desc = "Next Function End" },
+        { "[M", function() ai.move_cursor("right", "a", "f", prev_opts) end, desc = "Previous Function End" },
+        { "]]", function() ai.move_cursor("left", "a", "c", next_opts) end, desc = "Next Class" },
+        { "[[", function() ai.move_cursor("left", "a", "c", prev_opts) end, desc = "Previous Class" },
+        { "][", function() ai.move_cursor("right", "a", "c", next_opts) end, desc = "Next Class End" },
+        { "[]", function() ai.move_cursor("right", "a", "c", prev_opts) end, desc = "Previous Class End" },
+        { "]/", function() ai.move_cursor("right", "a", "g") end, desc = "Next Comment" },
+        { "[/", function() ai.move_cursor("left", "a", "g", cov_prev_opts) end, desc = "Previous Comment" },
+        { "]*", function() ai.move_cursor("right", "a", "g") end, desc = "Next Comment" },
+        { "[*", function() ai.move_cursor("left", "a", "g", cov_prev_opts) end, desc = "Previous Comment" },
+      }
+      for _, move_mapping in ipairs(move_mappings) do
+        move_mapping.mode = move_mapping.mode or move_mode
+      end
+      return move_mappings
+    end,
   },
   {
     "nvim-treesitter/nvim-treesitter-textobjects",
     branch = "main",
     event = "VeryLazy",
-    enabled = true,
     opts = {
       -- move = {
       --   set_jumps = true,
       -- },
     },
-    keys = function(_, keys)
-      local move = require "nvim-treesitter-textobjects.move"
-      local move_mode = { "n", "x", "o" }
-      local move_mappings = {
-        { "]m", function() move.goto_next_start("@function.outer", "textobjects") end, desc = "Next Method" },
-        { "[m", function() move.goto_previous_start("@function.outer", "textobjects") end, desc = "Previous Method" },
-        { "]M", function() move.goto_next_end("@function.outer", "textobjects") end, desc = "Next Method End" },
-        { "[M", function() move.goto_previous_end("@function.outer", "textobjects") end, desc = "Previous Method End" },
-        { "]]", function() move.goto_next_start("@class.outer", "textobjects") end, desc = "Next Section" },
-        { "[[", function() move.goto_previous_start("@class.outer", "textobjects") end, desc = "Previous Section" },
-        { "]]", function() move.goto_next_end("@class.outer", "textobjects") end, desc = "Next Section End" },
-        { "[[", function() move.goto_previous_end("@class.outer", "textobjects") end, desc = "Previous Section End" },
-      }
-      for _, move_mapping in ipairs(move_mappings) do
-        move_mapping.mode = move_mapping.mode or move_mode
-      end
-      move_mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, move_mappings)
-      return vim.list_extend(move_mappings, keys)
-    end,
   },
 }

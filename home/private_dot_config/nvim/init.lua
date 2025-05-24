@@ -1,3 +1,8 @@
+_G.dd = function(...) require("snacks.debug").inspect(...) end
+_G.bt = function(...) require("snacks.debug").backtrace() end
+_G.p = function(...) require("snacks.debug").profile(...) end
+vim.print = _G.dd
+
 -- delay notifications till vim.notify was replaced or after 500ms
 local function lazy_notify()
   local notifs = {}

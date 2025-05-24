@@ -5,6 +5,16 @@ return {
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     opts = {
+      custom_highlights = function(colors)
+        return {
+          BlinkCmpKind = { fg = colors.blue },
+          BlinkCmpMenu = { fg = colors.text },
+          BlinkCmpMenuBorder = { fg = colors.blue },
+          BlinkCmpDocBorder = { fg = colors.blue },
+          BlinkCmpSignatureHelpActiveParameter = { fg = colors.mauve },
+          BlinkCmpSignatureHelpBorder = { fg = colors.blue },
+        }
+      end,
       integrations = {
         blink_cmp = true,
         copilot_vim = true,
@@ -59,9 +69,18 @@ return {
       vim.cmd.colorscheme "catppuccin"
     end,
   },
-  -- {
-  --   "akinsho/bufferline.nvim",
-  --   optional = true,
-  --   opts = { highlights = require("catppuccin.groups.integrations.bufferline").get() },
-  -- },
+  {
+    "akinsho/bufferline.nvim",
+    optional = true,
+    opts = function(_, opts) opts.highlights = require("catppuccin.groups.integrations.bufferline").get() end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = {
+      options = {
+        theme = "catppuccin",
+      },
+    },
+  },
 }

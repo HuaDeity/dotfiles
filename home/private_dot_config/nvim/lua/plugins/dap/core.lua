@@ -124,4 +124,26 @@ return {
     -- mason-nvim-dap is loaded when nvim-dap loads
     config = function() end,
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = function(_, opts)
+      table.insert(
+        opts.sections.lualine_c,
+        -- stylua: ignore
+        {
+          function() return "  " .. require("dap").status() end,
+          cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
+          color = function() return { fg = Snacks.util.color "Debug" } end,
+        }
+      )
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = {
+      extensions = { "nvim-dap-ui" },
+    },
+  },
 }

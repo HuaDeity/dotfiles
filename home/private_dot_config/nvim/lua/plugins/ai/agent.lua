@@ -5,6 +5,7 @@ return {
       "ravitemer/codecompanion-history.nvim",
       {
         "HakonHarnes/img-clip.nvim",
+        branch = "feat/pbctl",
         event = "VeryLazy",
         cmd = "PasteImage",
         opts = {
@@ -53,7 +54,7 @@ return {
             },
             schema = {
               model = {
-                default = "anthropic/claude-sonnet-4",
+                default = "anthropic/claude-opus-4",
               },
             },
           })

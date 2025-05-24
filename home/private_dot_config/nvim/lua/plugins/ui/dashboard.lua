@@ -1,6 +1,6 @@
 return {
   {
-    "snacks.nvim",
+    "folke/snacks.nvim",
     dependencies = {
       "echasnovski/mini.icons",
     },
@@ -23,5 +23,23 @@ return {
         },
       }
     end,
+  },
+  {
+    "dstein64/nvim-scrollview",
+    optional = true,
+    opts = {
+      excluded_filetypes = { "snacks_dashboard" },
+    },
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = {
+      options = {
+        disabled_filetypes = {
+          statusline = { "snacks_dashboard" },
+        },
+      },
+    },
   },
 }

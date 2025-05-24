@@ -1,7 +1,17 @@
 return {
   {
     "folke/snacks.nvim",
-    opts = { explorer = {} },
+    opts = {
+      explorer = {},
+      picker = {
+        sources = {
+          explorer = {
+            hidden = true,
+            ignored = true,
+          },
+        },
+      },
+    },
     keys = {
       {
         "<leader>fe",
@@ -33,5 +43,27 @@ return {
         filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
       })
     end,
+  },
+  {
+    "akinsho/bufferline.nvim",
+    optional = true,
+    opts = function(_, opts)
+      return vim.tbl_deep_extend("force", opts or {}, {
+        options = {
+          offsets = {
+            {
+              filetype = "snacks_layout_box",
+            },
+          },
+        },
+      })
+    end,
+  },
+  {
+    "dstein64/nvim-scrollview",
+    optional = true,
+    opts = {
+      excluded_filetypes = { "snacks_layout_box" },
+    },
   },
 }

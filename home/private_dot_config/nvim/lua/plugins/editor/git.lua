@@ -1,5 +1,29 @@
 return {
   {
+    "folke/snacks.nvim",
+    keys = function()
+      local keys = {
+        { "<leader>gy", function() Snacks.gitbrowse() end, desc = "Git Browse (open)", mode = { "n", "x" } },
+        {
+          "<leader>gY",
+          function()
+            Snacks.gitbrowse { open = function(url) vim.fn.setreg("+", url) end, notify = false }
+          end,
+          desc = "Git Browse (copy)",
+          mode = { "n", "x" },
+        },
+      }
+      -- lazygit
+      if vim.fn.executable "lazygit" == 1 then
+        vim.tbl_deep_extend("force", keys or {}, {
+          { "<leader>gg", function() Snacks.lazygit { cwd = ViM.root.git() } end, desc = "Lazygit (Root Dir)" },
+          { "<leader>gG", function() Snacks.lazygit() end, desc = "Lazygit (cwd)" },
+        })
+      end
+      return keys
+    end,
+  },
+  {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
@@ -85,6 +109,45 @@ return {
         get = function() return require("gitsigns.config").config.signcolumn end,
         set = function(state) require("gitsigns").toggle_signs(state) end,
       }):map "<leader>uG"
+    end,
+  },
+  {
+    "echasnovski/mini.map",
+    optional = true,
+    options = function(_, opts)
+      opts.integrations = opts.integrations or {}
+      local map = require "mini.map"
+      table.insert(opts.integrations, map.gen_integration.gitsigns())
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    optional = true,
+    opts = function(_, opts)
+      local git_icons = {
+        added = " ",
+        modified = " ",
+        removed = " ",
+      }
+      table.insert(opts.sections.lualine_b, "branch")
+      table.insert(opts.sections.lualine_b, {
+        "diff",
+        symbols = {
+          added = git_icons.added,
+          modified = git_icons.modified,
+          removed = git_icons.removed,
+        },
+        source = function()
+          local gitsigns = vim.b.gitsigns_status_dict
+          if gitsigns then
+            return {
+              added = gitsigns.added,
+              modified = gitsigns.changed,
+              removed = gitsigns.removed,
+            }
+          end
+        end,
+      })
     end,
   },
   -- {

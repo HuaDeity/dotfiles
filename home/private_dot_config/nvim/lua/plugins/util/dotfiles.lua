@@ -98,7 +98,6 @@ return {
       table.insert(opts.dashboard.preset.keys, config_index, chezmoi_entry)
     end,
   },
-
   -- Filetype icons
   {
     "echasnovski/mini.icons",

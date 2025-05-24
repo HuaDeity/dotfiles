@@ -2,7 +2,7 @@ return {
   -- treesitter
   {
     "nvim-treesitter/nvim-treesitter",
-    optinal = true,
+    optional = true,
     opts = { ensure_installed = { "just" } },
   },
 }

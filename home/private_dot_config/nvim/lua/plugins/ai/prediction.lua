@@ -75,37 +75,28 @@ return {
     build = ":Copilot auth",
     event = "InsertEnter",
     opts = {
-      suggestion = {
-        enabled = false,
-        auto_trigger = true,
-        hide_during_completion = true,
-        keymap = {
-          accept = false, -- handled by nvim-cmp / blink.cmp
-          next = "<M-]>",
-          prev = "<M-[>",
-        },
-      },
+      suggestion = { enabled = false },
       panel = { enabled = false },
       filetypes = {
         markdown = true,
         help = true,
       },
     },
-    config = function(_, opts)
-      require("copilot").setup(opts)
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "BlinkCmpMenuOpen",
-        callback = function()
-          require("copilot.suggestion").dismiss()
-          vim.b.copilot_suggestion_hidden = true
-        end,
-      })
-
-      vim.api.nvim_create_autocmd("User", {
-        pattern = "BlinkCmpMenuClose",
-        callback = function() vim.b.copilot_suggestion_hidden = false end,
-      })
-    end,
+    -- config = function(_, opts)
+    --   require("copilot").setup(opts)
+    --   vim.api.nvim_create_autocmd("User", {
+    --     pattern = "BlinkCmpMenuOpen",
+    --     callback = function()
+    --       require("copilot.suggestion").dismiss()
+    --       vim.b.copilot_suggestion_hidden = true
+    --     end,
+    --   })
+    --
+    --   vim.api.nvim_create_autocmd("User", {
+    --     pattern = "BlinkCmpMenuClose",
+    --     callback = function() vim.b.copilot_suggestion_hidden = false end,
+    --   })
+    -- end,
   },
   {
     "saghen/blink.cmp",

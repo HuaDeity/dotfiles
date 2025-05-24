@@ -1,17 +1,16 @@
 return {
   {
     "gbprod/yanky.nvim",
+    dependencies = {
+      { "kkharji/sqlite.lua" },
+    },
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
       highlight = { timer = 150 },
+      ring = { storage = "sqlite" },
     },
     keys = {
-      {
-        "<leader>p",
-        function() vim.cmd [[YankyRingHistory]] end,
-        mode = { "n", "x" },
-        desc = "Open Yank History",
-      },
+      { "<leader>p", "<cmd>YankyRingHistory<cr>", mode = { "n", "x" }, desc = "Open Yank History" },
         -- stylua: ignore
       { "y", "<Plug>(YankyYank)", mode = { "n", "x" }, desc = "Yank Text" },
       { "p", "<Plug>(YankyPutAfter)", mode = { "n", "x" }, desc = "Put Text After Cursor" },

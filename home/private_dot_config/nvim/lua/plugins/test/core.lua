@@ -17,45 +17,8 @@ return {
       -- },
       status = { virtual_text = true },
       output = { open_on_run = true },
-      quickfix = {
-        open = function() require("trouble").open { mode = "quickfix", focus = false } end,
-      },
     },
     config = function(_, opts)
-      local neotest_ns = vim.api.nvim_create_namespace "neotest"
-      vim.diagnostic.config({
-        virtual_text = {
-          format = function(diagnostic)
-            -- Replace newline and tab characters with space for more compact diagnostics
-            local message = diagnostic.message:gsub("\n", " "):gsub("\t", " "):gsub("%s+", " "):gsub("^%s+", "")
-            return message
-          end,
-        },
-      }, neotest_ns)
-
-      opts.consumers = opts.consumers or {}
-      -- Refresh and auto close trouble after running tests
-      ---@type neotest.Consumer
-      opts.consumers.trouble = function(client)
-        client.listeners.results = function(adapter_id, results, partial)
-          if partial then return end
-          local tree = assert(client:get_position(nil, { adapter = adapter_id }))
-
-          local failed = 0
-          for pos_id, result in pairs(results) do
-            if result.status == "failed" and tree:get_key(pos_id) then failed = failed + 1 end
-          end
-          vim.schedule(function()
-            local trouble = require "trouble"
-            if trouble.is_open() then
-              trouble.refresh()
-              if failed == 0 then trouble.close() end
-            end
-          end)
-          return {}
-        end
-      end
-
       if opts.adapters then
         local adapters = {}
         for name, config in pairs(opts.adapters or {}) do
@@ -106,5 +69,17 @@ return {
     keys = {
       { "<leader>td", function() require("neotest").run.run({strategy = "dap"}) end, desc = "Debug Nearest" },
     },
+  },
+  {
+    "folke/edgy.nvim",
+    optional = true,
+    opts = function(_, opts)
+      local output_pos = "bottom"
+      opts[output_pos] = opts[output_pos] or {}
+      table.insert(opts[output_pos], { title = "Neotest Output", ft = "neotest-output-panel", size = { height = 15 } })
+      local summary_pos = "left"
+      opts[summary_pos] = opts[summary_pos] or {}
+      table.insert(opts[summary_pos], { title = "Neotest Summary", ft = "neotest-summary" })
+    end,
   },
 }

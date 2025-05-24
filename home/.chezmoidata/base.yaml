@@ -51,8 +51,8 @@ packages:
       - "hugo"
       - "laishulu/homebrew/macism"
       - "mas"
+      - "hakonharnes/tap/pbctl"
       - "pinentry-mac"
-      - "pngpaste"
       - "uutils-coreutils"
     linux:
       - "clang"

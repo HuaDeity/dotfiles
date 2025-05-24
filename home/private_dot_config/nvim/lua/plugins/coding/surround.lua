@@ -24,21 +24,31 @@ return {
       mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
       return vim.list_extend(mappings, keys)
     end,
-    opts = {
-      mappings = {
-        add = "ys", -- Add surrounding in Normal and Visual modes
-        delete = "ds", -- Delete surrounding
-        find = "", -- Find surrounding (to the right)
-        find_left = "", -- Find surrounding (to the left)
-        highlight = "", -- Highlight surrounding
-        replace = "cs", -- Replace surrounding
-        update_n_lines = "", -- Update `n_lines`
+    opts = function()
+      local surround = require "mini.surround"
+      return {
+        custom_surroundings = {
+          -- Use tree-sitter to search for function call
+          f = {
+            input = surround.gen_spec.input.treesitter { outer = "@call.outer", inner = "@call.inner" },
+          },
+        },
+        mappings = {
+          add = "ys", -- Add surrounding in Normal and Visual modes
+          delete = "ds", -- Delete surrounding
+          find = "", -- Find surrounding (to the right)
+          find_left = "", -- Find surrounding (to the left)
+          highlight = "", -- Highlight surrounding
+          replace = "cs", -- Replace surrounding
+          update_n_lines = "", -- Update `n_lines`
 
-        -- Add this only if you don't want to use extended mappings
-        -- suffix_last = "",
-        -- suffix_next = "",
-      },
-    },
+          -- Add this only if you don't want to use extended mappings
+          -- suffix_last = "",
+          -- suffix_next = "",
+        },
+        search_method = "cover_or_next",
+      }
+    end,
     config = function(_, opts)
       require("mini.surround").setup(opts)
       -- Remap adding surrounding to Visual mode selection

@@ -30,7 +30,6 @@ return {
         keymap = {
           -- recommended, as the default keymap will only show and select the next item
           ["<Tab>"] = { "show", "accept" },
-          ["<CR>"] = { "accept_and_enter", "fallback" },
         },
         completion = {
           menu = {
@@ -68,22 +67,45 @@ return {
             components = {
               kind_icon = {
                 text = function(ctx)
-                  if extra_kind_icons[ctx.kind] then return extra_kind_icons[ctx.kind].glyph end
-                  local kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                  local kind_icon = nil
+                  if kind_icon == nil and extra_kind_icons[ctx.kind] then
+                    kind_icon = extra_kind_icons[ctx.kind].glyph
+                  end
+                  -- if LSP source, check for color derived from documentation
+                  if kind_icon == nil and ctx.item.source_name == "LSP" then
+                    local color_item =
+                      require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr ~= "" then kind_icon = color_item.abbr end
+                  end
+                  if kind_icon == nil then
+                    kind_icon, _, _ = require("mini.icons").get("lsp", ctx.kind)
+                  end
                   return kind_icon .. ctx.icon_gap
                 end,
                 -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
-                  if extra_kind_icons[ctx.kind] then return extra_kind_icons[ctx.kind].hl end
-                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                  local hl = nil
+                  if hl == nil and extra_kind_icons[ctx.kind] then hl = extra_kind_icons[ctx.kind].hl end
+                  -- if LSP source, check for color derived from documentation
+                  if hl == nil and ctx.item.source_name == "LSP" then
+                    local color_item =
+                      require("nvim-highlight-colors").format(ctx.item.documentation, { kind = ctx.kind })
+                    if color_item and color_item.abbr_hl_group then hl = color_item.abbr_hl_group end
+                  end
+                  if hl == nil then
+                    _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                  end
                   return { { group = hl, priority = 20000 } }
                 end,
               },
               kind = {
                 -- (optional) use highlights from mini.icons
                 highlight = function(ctx)
-                  if extra_kind_icons[ctx.kind] then return extra_kind_icons[ctx.kind].hl end
-                  local _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                  local hl = nil
+                  if hl == nil and extra_kind_icons[ctx.kind] then hl = extra_kind_icons[ctx.kind].hl end
+                  if hl == nil then
+                    _, hl, _ = require("mini.icons").get("lsp", ctx.kind)
+                  end
                   return hl
                 end,
               },
