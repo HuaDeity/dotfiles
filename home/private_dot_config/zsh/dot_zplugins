@@ -6,6 +6,7 @@
 # Init
 #
 
+$ZSH_CUSTOM/plugins/ghostty
 $ZSH_CUSTOM/plugins/p10k-instaprompt conditional:is-theme-p10k
 mattmc3/zephyr path:plugins/environment
 huadeity/zsh-proxy

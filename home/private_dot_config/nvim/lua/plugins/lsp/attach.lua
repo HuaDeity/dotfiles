@@ -77,9 +77,9 @@ function M.setup(client, bufnr)
 
   -- code lens
   if M.has(client, bufnr, "codeLens") then
-    vim.lsp.codelens.refresh()
+    -- vim.lsp.codelens.refresh()
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
-      callback = function() vim.lsp.codelens.refresh { bufnr = bufnr } end,
+      callback = function() vim.lsp.codelens.refresh { bufnr = 0 } end,
     })
   end
 

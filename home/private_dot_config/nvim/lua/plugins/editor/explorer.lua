@@ -15,16 +15,10 @@ return {
     keys = {
       {
         "<leader>fe",
-        function() Snacks.explorer { cwd = ViM.root() } end,
-        desc = "Explorer Snacks (root dir)",
-      },
-      {
-        "<leader>fE",
         function() Snacks.explorer() end,
-        desc = "Explorer Snacks (cwd)",
+        desc = "Explorer Snacks",
       },
-      { "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
-      { "<leader>E", "<leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
+      { "<leader>e", "<leader>fe", desc = "Explorer Snacks", remap = true },
     },
   },
   -- -- Edgy integration
@@ -39,7 +33,7 @@ return {
   --       title = "Explorer",
   --       size = { width = 30 },
   --       pinned = true,
-  --       open = function() Snacks.explorer { cwd = ViM.root() } end,
+  --       open = function() Snacks.explorer()  end,
   --       filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
   --     })
   --   end,

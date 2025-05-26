@@ -25,8 +25,6 @@ vim.api.nvim_create_autocmd("User", {
     if lazy_autocmds then M.load "autocmds" end
     M.load "keymaps"
 
-    ViM.root.setup()
-
     vim.api.nvim_create_user_command("LazyHealth", function()
       vim.cmd [[Lazy! load all]]
       vim.cmd [[checkhealth]]

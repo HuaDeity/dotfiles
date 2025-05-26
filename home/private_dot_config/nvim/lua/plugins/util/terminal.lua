@@ -22,10 +22,9 @@ return {
       },
     },
     keys = {
-      { "<leader>fT", function() Snacks.terminal() end, desc = "Terminal (cwd)" },
-      { "<leader>ft", function() Snacks.terminal(nil, { cwd = ViM.root() }) end, desc = "Terminal (Root Dir)" },
-      { "<c-/>", function() Snacks.terminal(nil, { cwd = ViM.root() }) end, desc = "Terminal (Root Dir)" },
-      { "<c-_>", function() Snacks.terminal(nil, { cwd = ViM.root() }) end, desc = "which_key_ignore" },
+      { "<leader>fT", function() Snacks.terminal() end, desc = "Terminal" },
+      { "<C-`>", function() Snacks.terminal() end, desc = "Terminal" },
+      { "<C-S-`>", function() Snacks.terminal.open() end, desc = "New Terminal" },
     },
   },
   {

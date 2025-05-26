@@ -1,6 +1,15 @@
 return {
   { "nvim-lua/plenary.nvim", lazy = true },
   {
+    "echasnovski/mini.misc",
+    event = "VeryLazy",
+    opts = {},
+    config = function(_, opts)
+      require("mini.misc").setup(opts)
+      MiniMisc.setup_auto_root()
+    end,
+  },
+  {
     "folke/snacks.nvim",
     opts = {
       bigfile = { enabled = true },

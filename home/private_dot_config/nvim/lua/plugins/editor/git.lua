@@ -3,8 +3,7 @@ return {
     "folke/snacks.nvim",
     keys = function(_, keys)
       keys = keys or {}
-      -- Base keymaps
-      local git_keys = {
+      vim.list_extend(keys, {
         { "<leader>gy", function() Snacks.gitbrowse() end, desc = "Git Browse (open)", mode = { "n", "x" } },
         {
           "<leader>gY",
@@ -14,45 +13,21 @@ return {
           desc = "Git Browse (copy)",
           mode = { "n", "x" },
         },
-      }
-      -- Conditionally add lazygit keymaps
-      if vim.fn.executable "lazygit" == 1 then
-        vim.list_extend(git_keys, {
-          {
-            "<leader>gg",
-            function() Snacks.lazygit { cwd = ViM.root.git() } end,
-            desc = "Lazygit (Root Dir)",
-          },
-          {
-            "<leader>gG",
-            function() Snacks.lazygit() end,
-            desc = "Lazygit (cwd)",
-          },
-        })
-      end
-      -- Conditionally add gitui keymaps
-      if vim.fn.executable "gitui" == 1 then
-        vim.list_extend(git_keys, {
-          {
-            "<leader>gg",
-            function()
-              local colorscheme = vim.g.colors_name
-              Snacks.terminal({ "gitui", "-t", colorscheme .. ".ron" }, { cwd = ViM.root.get() })
-            end,
-            desc = "GitUi (Root Dir)",
-          },
-          {
-            "<leader>gG",
-            function()
+        {
+          "<leader>gg",
+          function()
+            if ViM.get_plugin "neogit" then
+              require("neogit").open()
+            elseif vim.fn.executable "gitui" == 1 then
               local colorscheme = vim.g.colors_name
               Snacks.terminal { "gitui", "-t", colorscheme .. ".ron" }
-            end,
-            desc = "GitUi (cwd)",
-          },
-        })
-      end
-      -- Merge with existing keys
-      vim.list_extend(keys, git_keys)
+            elseif vim.fn.executable "lazygit" == 1 then
+              Snacks.lazygit()
+            end
+          end,
+          desc = "Git Panel",
+        },
+      })
     end,
   },
   {
@@ -324,6 +299,19 @@ return {
       {
         "f-person/git-blame.nvim",
         event = { "BufReadPost", "BufNewFile", "BufWritePre" },
+        -- specs = {
+        --   {
+        --     "nvim-lualine/lualine.nvim",
+        --     optional = true,
+        --     opts = function(_, opts)
+        --       local git_blame = require "gitblame"
+        --       table.insert(
+        --         opts.sections.lualine_b,
+        --         { git_blame.get_current_blame_text, cond = git_blame.is_blame_text_available }
+        --       )
+        --     end,
+        --   },
+        -- },
       },
       {
         "olimorris/codecompanion.nvim",
@@ -360,7 +348,7 @@ return {
         end,
       },
       {
-       "nvim-lualine/lualine.nvim",
+        "nvim-lualine/lualine.nvim",
         optional = true,
         opts = function(_, opts)
           local x = opts.sections.lualine_b
@@ -381,5 +369,45 @@ return {
         end,
       },
     },
+  },
+  {
+    "NeogitOrg/neogit",
+    cmd = "Neogit",
+    opts = {
+      disable_signs = true,
+      graph_style = "kitty",
+    },
+  },
+  {
+    "sindrets/diffview.nvim",
+    cmd = { "DiffviewOpen" },
+    opts = {
+      enhanced_diff_hl = true,
+      view = {
+        default = { winbar_info = true },
+        file_history = { winbar_info = true },
+      },
+      hooks = { diff_buf_read = function(bufnr) vim.b[bufnr].view_activated = false end },
+    },
+    specs = {
+      {
+        "NeogitOrg/neogit",
+        optional = true,
+        opts = { integrations = { diffview = true } },
+      },
+    },
+  },
+  {
+    "echasnovski/mini-git",
+    cmd = "Git",
+    opts = {},
+    config = function(_, opts)
+      require("mini.git").setup(opts)
+      vim.api.nvim_create_autocmd("FileType", {
+        pattern = { "git", "diff" },
+        callback = function() vim.wo.foldexpr = "v:lua.MiniGit.diff_foldexpr()" end,
+        desc = "Setup git folding with mini.git",
+      })
+    end,
   },
 }

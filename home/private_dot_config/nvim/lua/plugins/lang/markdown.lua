@@ -59,6 +59,7 @@ return {
 
   {
     "itspriddle/vim-marked",
+    enabled = function() return vim.fn.has "mac" end,
     ft = { "markdown", "norg", "rmd", "org", "codecompanion" },
   },
 

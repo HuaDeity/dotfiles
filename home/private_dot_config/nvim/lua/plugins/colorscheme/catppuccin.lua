@@ -24,6 +24,7 @@ return {
         copilot_vim = true,
         dap = true,
         dap_ui = true,
+        diffview = true,
         dropbar = {
           enabled = true,
           color_mode = true,
@@ -60,6 +61,7 @@ return {
             background = true,
           },
         },
+        neogit = true,
         neotest = true,
         noice = true,
         octo = true,
