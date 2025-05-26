@@ -45,10 +45,10 @@ return {
         y_multiplier = 2, ---@type integer
       }
     end,
+    config = function() end,
   },
   {
     "dstein64/nvim-scrollview",
-    dependencies = { "lewis6991/gitsigns.nvim" },
     event = "VeryLazy",
     opts_extend = { "excluded_filetypes" },
     opts = {

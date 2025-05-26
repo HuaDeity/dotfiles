@@ -45,7 +45,19 @@
 	{
 		"context": "VimControl && !menu",
 		"bindings": {
-			"space a": "agent::ToggleFocus"
+			"space a": "agent::ToggleFocus",
+			"space h i": "editor::ToggleSelectedDiffHunks",
+			"space h s": "git::StageAndNext",
+			"space h r": "git::UnstageAndNext"
+		}
+	},
+	{
+		"context": "vim_operator == d",
+		"bindings": {
+			"o": null,
+			"shift-o": null,
+			"u": null,
+			"shift-u": null
 		}
 	}
 ]
