@@ -11,9 +11,9 @@ return {
     },
     ---@param opts TSConfig | {ensure_installed: string[], disabled_filetypes: string[]}
     config = function(_, opts)
-      require("nvim-treesitter").setup(opts)
       require("nvim-treesitter").install(opts.ensure_installed)
 
+      -- highlight
       vim.api.nvim_create_autocmd("FileType", {
         callback = function()
           local ft = vim.fn.expand "<amatch>"
@@ -27,15 +27,6 @@ return {
           if not is_disabled then pcall(vim.treesitter.start) end
         end,
       })
-
-      -- fold
-      vim.wo.foldexpr = "v:lua.require'util'.ui.foldexpr()"
-      vim.o.foldmethod = "expr"
-      vim.o.foldtext = ""
-      vim.o.foldlevel = 99
-
-      -- indentation
-      vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
     end,
   },
 }

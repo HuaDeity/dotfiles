@@ -23,18 +23,8 @@ function M.get()
       { "gO", function () vim.lsp.buf.document_symbol() end, desc = "LSP Symbols", has = "documentSymbol" },
       { "gS", function () vim.lsp.buf.workspace_symbol() end, desc = "LSP Workspace Symbols", has = "workspace/symbol" },
       { "<C-s>", function () vim.lsp.buf.signature_help() end, mode = { "i", "s" }, desc = "Signature Help", has = "signatureHelp" },
-      -- { "<leader>cR", function() Snacks.rename.rename_file() end, desc = "Rename File", mode ={"n"}, has = { "workspace/didRenameFiles", "workspace/willRenameFiles" } },
-      -- { "<leader>cA", LazyVim.lsp.action.source, desc = "Source Action", has = "codeAction" },
       -- { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
       -- { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
-      -- { "]]", function() Snacks.words.jump(vim.v.count1) end, has = "documentHighlight",
-      --   desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },
-      -- { "[[", function() Snacks.words.jump(-vim.v.count1) end, has = "documentHighlight",
-      --   desc = "Prev Reference", cond = function() return Snacks.words.is_enabled() end },
-      -- { "<a-n>", function() Snacks.words.jump(vim.v.count1, true) end, has = "documentHighlight",
-      --   desc = "Next Reference", cond = function() return Snacks.words.is_enabled() end },
-      -- { "<a-p>", function() Snacks.words.jump(-vim.v.count1, true) end, has = "documentHighlight",
-      --   desc = "Prev Reference", cond = function() return Snacks.words.is_enabled() end },
     }
   return M._keys
 end
@@ -74,30 +64,6 @@ function M.setup(client, bufnr)
     end
   end
 
-  -- Setup document highlighting if supported
-  if M.has(client, bufnr, "documentHighlight") then
-    local highlight_augroup = vim.api.nvim_create_augroup("vilsp-highlight-" .. bufnr, { clear = false })
-    vim.api.nvim_create_autocmd({ "CursorHold", "CursorHoldI" }, {
-      buffer = bufnr,
-      group = highlight_augroup,
-      callback = vim.lsp.buf.document_highlight,
-    })
-
-    vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI" }, {
-      buffer = bufnr,
-      group = highlight_augroup,
-      callback = vim.lsp.buf.clear_references,
-    })
-
-    vim.api.nvim_create_autocmd("LspDetach", {
-      buffer = bufnr,
-      callback = function()
-        vim.lsp.buf.clear_references()
-        vim.api.nvim_clear_autocmds { group = highlight_augroup, buffer = bufnr }
-      end,
-    })
-  end
-
   -- inlay hints
   if M.has(client, bufnr, "inlayHint") then
     if
@@ -115,6 +81,12 @@ function M.setup(client, bufnr)
     vim.api.nvim_create_autocmd({ "BufEnter", "CursorHold", "InsertLeave" }, {
       callback = function() vim.lsp.codelens.refresh { bufnr = bufnr } end,
     })
+  end
+
+  -- fold
+  if M.has(client, bufnr, "foldingRange") then
+    local win = vim.api.nvim_get_current_win()
+    vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
   end
 end
 

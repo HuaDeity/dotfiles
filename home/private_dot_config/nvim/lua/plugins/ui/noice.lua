@@ -2,21 +2,12 @@ return {
   {
     "folke/snacks.nvim",
     opts = {
-      input = { enabled = true },
       notifier = { enabled = true },
-      scroll = { enabled = true },
-      statuscolumn = { enabled = true }, -- we set this in options.lua
-      words = { enabled = true },
     },
-    -- stylua: ignore
     keys = {
       -- { "<leader>n", function() Snacks.notifier.show_history() end, desc = "Notification History" },
       { "<leader>un", function() Snacks.notifier.hide() end, desc = "Dismiss All Notifications" },
     },
-  },
-  {
-    "MunifTanjim/nui.nvim",
-    lazy = true,
   },
   {
     "folke/noice.nvim",

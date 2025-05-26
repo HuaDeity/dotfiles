@@ -35,4 +35,24 @@ return {
       },
     },
   },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = function(_, opts)
+      table.insert(
+        opts.sections.lualine_c,
+        -- stylua: ignore
+        {
+          require("lazy.status").updates,
+          cond = require("lazy.status").has_updates,
+          color = function() return { fg = Snacks.util.color "Special" } end,
+        }
+      )
+    end,
+  },
+  {
+    "nvim-lualine/lualine.nvim",
+    opts = {
+      extensions = { "lazy" },
+    },
+  },
 }

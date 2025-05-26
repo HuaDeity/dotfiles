@@ -12,6 +12,11 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {},
   },
+  {
+    "nvim-treesitter/nvim-treesitter",
+    optional = true,
+    opts = function() vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()" end,
+  },
   -- {
   --   "Darazaki/indent-o-matic",
   --   cmd = "IndentOMatic",

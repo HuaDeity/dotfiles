@@ -17,6 +17,10 @@ return {
       end,
       integrations = {
         blink_cmp = true,
+        colorful_winsep = {
+          enabled = true,
+          color = "red",
+        },
         copilot_vim = true,
         dap = true,
         dap_ui = true,
@@ -28,6 +32,10 @@ return {
         fzf = true,
         gitsigns = true,
         grug_far = true,
+        illuminate = {
+          enabled = true,
+          lsp = true,
+        },
         lsp_trouble = true,
         markdown = true,
         mason = true,
@@ -58,6 +66,7 @@ return {
         overseer = true,
         rainbow_delimiters = true,
         render_markdown = true,
+        semantic_tokens = true,
         treesitter = true,
         treesitter_context = true,
         which_key = true,

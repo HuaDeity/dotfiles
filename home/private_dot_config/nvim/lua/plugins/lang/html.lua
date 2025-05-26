@@ -21,10 +21,4 @@ return {
       },
     },
   },
-
-  {
-    "windwp/nvim-ts-autotag",
-    event = { "BufReadPre", "BufReadPost", "BufNewFile", "BufWritePre" },
-    opts = {},
-  },
 }

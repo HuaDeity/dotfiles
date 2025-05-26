@@ -116,13 +116,13 @@ return {
         mode = { "n", "v" },
       },
       {
-        "<C-a>",
+        "<LocalLeader>a",
         "<cmd>CodeCompanionActions<CR>",
         desc = "Toggle Agent Actions",
         mode = { "n", "v" },
       },
       {
-        "<LocalLeader>a",
+        "ga",
         "<cmd>CodeCompanionChat Add<CR>",
         desc = "Add Code to Agent",
         mode = { "v" },

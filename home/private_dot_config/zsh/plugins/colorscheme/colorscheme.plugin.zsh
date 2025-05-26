@@ -26,3 +26,6 @@ if [ "$ZSH_THEME" = "starship auto" ]; then
     zstyle ':zephyr:plugin:prompt' theme starship $flavour
     ZSH_THEME=(starship $flavour)
 fi
+
+# gitui
+alias gitui="gitui -t catppuccin-$flavour.ron"

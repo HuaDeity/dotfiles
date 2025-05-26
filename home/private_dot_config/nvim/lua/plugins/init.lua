@@ -6,7 +6,6 @@ return {
     "folke/snacks.nvim",
     priority = 1000,
     lazy = false,
-    init = function() vim.g.snacks_animate = true end,
     opts = {},
     config = function(_, opts)
       local notify = vim.notify

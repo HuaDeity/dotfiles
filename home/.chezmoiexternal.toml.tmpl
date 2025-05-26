@@ -17,6 +17,14 @@
     refreshPeriod = "168h"
     include = ["*/themes-mergable/**"]
 {{- end }}
+{{- if lookPath "gitui" }}
+[".config/gitui"]
+    type = "archive"
+    url = "https://github.com/catppuccin/gitui/archive/main.tar.gz"
+    stripComponents = 2
+    refreshPeriod = "168h"
+    include = ["*/*/*.ron"]
+{{- end }}
 {{- if lookPath "tmux" }}
 [".config/tmux/plugins/catppuccin/tmux"]
     type = "archive"

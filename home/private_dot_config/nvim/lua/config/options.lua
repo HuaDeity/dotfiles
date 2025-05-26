@@ -137,8 +137,6 @@ vim.opt.spelllang = { "en" }
 
 vim.o.splitkeep = "screen"
 
--- vim.o.statuscolumn = [[%!v:lua.require'snacks.statuscolumn'.get()]]
-
 vim.o.undolevels = 10000
 
 -- Allow cursor to move where there is no text in visual block mode
@@ -151,3 +149,8 @@ vim.o.wildmode = "longest:full,full"
 vim.o.winminwidth = 5
 
 vim.o.winborder = "rounded"
+
+-- fold
+vim.o.foldmethod = "expr"
+vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldlevel = 99
