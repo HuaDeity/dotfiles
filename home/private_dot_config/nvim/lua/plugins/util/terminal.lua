@@ -22,7 +22,7 @@ return {
       },
     },
     keys = {
-      { "<leader>fT", function() Snacks.terminal() end, desc = "Terminal" },
+      { "<leader>ft", function() Snacks.terminal() end, desc = "Terminal" },
       { "<C-`>", function() Snacks.terminal() end, desc = "Terminal" },
       { "<C-S-`>", function() Snacks.terminal.open() end, desc = "New Terminal" },
     },
