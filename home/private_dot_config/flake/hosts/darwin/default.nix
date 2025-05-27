@@ -100,5 +100,7 @@ with lib;
     };
 
     primaryUser = "huadeity";
+
+    stateVersion = 6;
   };
 }
