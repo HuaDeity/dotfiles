@@ -70,5 +70,6 @@ in
       options = "--sort dateadded --view fan --display stack";
     }
   ];
-  local.dock.username = "${user}";
+  # defaults to config.system.primaryUser
+  # local.dock.username = "${user}";
 }

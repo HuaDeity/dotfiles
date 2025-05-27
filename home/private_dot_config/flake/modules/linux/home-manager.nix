@@ -11,6 +11,6 @@ in
     username = "${user}";
     homeDirectory = "/nas/${user}";
     packages = pkgs.callPackage ./packages.nix { };
-    stateVersion = "24.11";
+    stateVersion = "25.05";
   };
 }
