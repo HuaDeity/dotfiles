@@ -20,7 +20,7 @@ with lib;
   programs = {
     zsh = {
       enableBashCompletion = false;
-      enableCompletion = false;
+      enableGlobalCompInit = false;
       interactiveShellInit = ''
         # Disable the log builtin, so we don't conflict with /usr/bin/log
         disable log

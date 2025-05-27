@@ -11,6 +11,7 @@ $ZSH_CUSTOM/plugins/p10k-instaprompt conditional:is-theme-p10k
 mattmc3/zephyr path:plugins/environment
 huadeity/zsh-proxy
 mattmc3/zephyr path:plugins/homebrew conditional:is-macos
+$ZSH_CUSTOM/plugins/nix conditional:is-linux
 $ZSH_CUSTOM/plugins/xdg
 
 #

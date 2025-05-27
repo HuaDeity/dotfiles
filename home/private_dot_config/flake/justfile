@@ -23,6 +23,7 @@ update *args:
 switch *args:
   just build {{args}}
   just confirm-switch {{args}}
+  unlink ./result
 
 [confirm]
 confirm-switch *args:

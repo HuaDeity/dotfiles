@@ -33,6 +33,7 @@ packages:
       - "selene"
       - "shellcheck"
       - "shfmt"
+      - "sqlite"
       - "starship"
       - "stylua"
       - "taplo"
@@ -62,3 +63,4 @@ packages:
       - "home-manager"
       - "llvmPackages.openmp"
       - "mihomo"
+      - "nix-zsh-completions"
