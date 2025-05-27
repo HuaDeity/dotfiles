@@ -106,6 +106,18 @@ return {
             },
           },
         },
+        inline = {
+          keymaps = {
+            accept_change = {
+              modes = { n = "ga" },
+              description = "Accept the suggested change",
+            },
+            reject_change = {
+              modes = { n = "gz" },
+              description = "Reject the suggested change",
+            },
+          },
+        },
       },
     },
     keys = {
