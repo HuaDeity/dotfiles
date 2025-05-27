@@ -2,13 +2,6 @@
 
 {
   nixpkgs = {
-    config = {
-      allowUnfree = false;
-      allowBroken = false;
-      allowInsecure = false;
-      allowUnsupportedSystem = false;
-    };
-
     overlays =
       # Apply each overlay found in the /overlays directory
       let

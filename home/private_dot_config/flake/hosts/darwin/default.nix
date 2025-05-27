@@ -61,7 +61,6 @@ with lib;
     pam = {
       services = {
         sudo_local = {
-          enable = true;
           reattach = true;
           touchIdAuth = true;
         };
@@ -70,17 +69,12 @@ with lib;
   };
 
   system = {
-    checks = {
-      verifyNixPath = false;
-    };
-
     defaults = {
       dock = {
         autohide = true;
         show-recents = true;
         launchanim = true;
         orientation = "bottom";
-        tilesize = 64;
       };
 
       finder = {
@@ -106,7 +100,5 @@ with lib;
     };
 
     primaryUser = "huadeity";
-
-    stateVersion = 6;
   };
 }
