@@ -9,10 +9,10 @@ export flavor_capitalized="$(tr '[:lower:]' '[:upper:]' <<< ${flavor:0:1})${flav
 
 update_config_flavor() {
 	local config_file="$1"
-	local pattern="${2:-'latte|mocha'}"
+	local pattern="${2:-latte|mocha}"
 	local replacement="${3:-$flavor}"
 	if [ -f "$config_file" ] && is-callable rg; then
-		rg $pattern -r "$replacement" --passthru "$config_file" > "$config_file.tmp" && mv "$config_file.tmp" "$config_file"
+		sed -i '' -E "s/$pattern/$replacement/g" "$config_file"
 	fi
 }
 
