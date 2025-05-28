@@ -52,7 +52,7 @@ mattmc3/zman
 #
 
 mattmc3/zephyr path:plugins/editor
-jeffreytse/zsh-vi-mode
+ohmyzsh/ohmyzsh path:plugins/vi-mode
 romkatv/zsh-no-ps2
 
 #
