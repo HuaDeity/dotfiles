@@ -1,10 +1,10 @@
 # Auto Dark for CLI on macOS
 if $(defaults read -g AppleInterfaceStyle &>/dev/null); then
-	# flavour Dark
-	export flavour=mocha
+	# flavor Dark
+	export flavor=mocha
 else
-	# flavour Light
-	export flavour=latte
+	# flavor Light
+	export flavor=latte
 fi
 
 colorssh() {
@@ -19,5 +19,5 @@ colorssh() {
 	# The -t flag is crucial for an interactive session
 	# The double quotes around the remote command ensure local variable expansion
 	# "$@" now contains any remaining arguments (the remote command)
-	ssh -t "$host_target" "export flavour=$flavour; /nas/wangyizun/.local/state/nix/profile/bin/zsh -l" "$@"
+	ssh -t "$host_target" "export flavor=$flavor; /nas/wangyizun/.local/state/nix/profile/bin/zsh -l" "$@"
 }
