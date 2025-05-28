@@ -11,8 +11,12 @@ update_config_flavor() {
 	local config_file="$1"
 	local pattern="${2:-latte|mocha}"
 	local replacement="${3:-$flavor}"
-	if [ -f "$config_file" ] && is-callable rg; then
-		sed -i '' -E "s/$pattern/$replacement/g" "$config_file"
+	if [ -f "$config_file" ]; then
+		if is-macos; then
+			sed -i '' -E "s/$pattern/$replacement/g" "$config_file"
+		else
+			sed -i -E "s/$pattern/$replacement/g" "$config_file"
+		fi
 	fi
 }
 
