@@ -9,6 +9,9 @@ return {
         event = "VeryLazy",
         cmd = "PasteImage",
         opts = {
+          default = {
+            verbose = false,
+          },
           filetypes = {
             codecompanion = {
               prompt_for_file_name = false,
