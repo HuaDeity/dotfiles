@@ -12,6 +12,8 @@ let
       pkgs.gitflow
     else if pkgName == "git-delta" then
       pkgs.delta
+    else if pkgName == "bat-extras" then
+      pkgs.bat-extras.core
     else
       pkgs.${pkgName}
   ) ((import ../shared/packages.nix) { });

@@ -1,16 +1,16 @@
 -- lsp
--- vim.lsp.config("ty", {
---   settings = {
---     experimental = {
---       completions = {
---         enable = true,
---       },
---     },
---   },
--- })
--- vim.lsp.enable "ty"
+vim.lsp.config("ty", {
+  settings = {
+    experimental = {
+      completions = {
+        enable = true,
+      },
+    },
+  },
+})
+vim.lsp.enable "ty"
 -- vim.lsp.enable "pyrefly"
-vim.lsp.enable "basedpyright"
+-- vim.lsp.enable "basedpyright"
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),

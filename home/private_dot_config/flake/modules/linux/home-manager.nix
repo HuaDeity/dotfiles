@@ -26,7 +26,7 @@ in
       WantedBy = [ "default.target" ];
     };
     Service = {
-      ExecStart = "${lib.getExe config.home.packages.atuin.package} daemon";
+      ExecStart = "${lib.getExe pkgs.atuin} daemon";
       Environment = [ "ATUIN_LOG=info" ];
       Restart = "on-failure";
       RestartSteps = 3;
@@ -35,8 +35,7 @@ in
   };
   systemd.user.sockets.atuin-daemon =
     let
-      socket_dir =
-        if lib.versionAtLeast config.home.packages.atuin.package.version "18.4.0" then "%t" else "%D/atuin";
+      socket_dir = if lib.versionAtLeast pkgs.atuin.version "18.4.0" then "%t" else "%D/atuin";
     in
     {
       Unit = {

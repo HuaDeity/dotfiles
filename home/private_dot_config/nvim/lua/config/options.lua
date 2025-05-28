@@ -26,7 +26,13 @@ vim.o.showmode = false
 --  Remove this option if you want your OS clipboard to remain independent.
 --  See `:help 'clipboard'`
 vim.schedule(function() vim.o.clipboard = "unnamedplus" end)
-if vim.env.SSH_TTY then vim.g.clipboard = "osc52" end
+if vim.env.SSH_TTY then
+  if vim.env.TMUX then
+    vim.g.clipboard = "tmux"
+  else
+    vim.g.clipboard = "osc52"
+  end
+end
 
 -- Enable break indent
 vim.o.breakindent = true
