@@ -7,7 +7,7 @@ return {
     lazy = false,
     cmd = { "TSUpdate", "TSInstall" },
     opts = {
-      ensure_installed = { "dotenv", "log", "printf", "query", "regex", "ssh_config", "vim", "vimdoc" },
+      ensure_installed = { "dotenv", "log", "printf", "regex", "ssh_config" },
     },
     ---@param opts TSConfig | {ensure_installed: string[], disabled_filetypes: string[]}
     config = function(_, opts)

@@ -5,15 +5,6 @@ vim.filetype.add {
   extension = { mdx = "markdown.mdx" },
 }
 return {
-  -- treesitter
-  {
-    "nvim-treesitter/nvim-treesitter",
-    optional = true,
-    opts = {
-      ensure_installed = { "markdown", "markdown_inline" },
-    },
-  },
-
   -- lint
   {
     "mfussenegger/nvim-lint",
