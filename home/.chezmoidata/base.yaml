@@ -60,7 +60,6 @@ packages:
       - "pinentry-mac"
       - "uutils-coreutils"
     linux:
-      - "atuin"
       - "clang"
       - "home-manager"
       - "llvmPackages.openmp"

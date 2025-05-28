@@ -26,6 +26,9 @@ let
   {{- range .packages.base.linux }}
     {{ . }}
   {{- end }}
+  {{- range .services.base.shared }}
+    {{ .name }}
+  {{- end }}
   ];
 
   addPackages = if isGraphical then guiPackages ++ cliPackages else cliPackages;
