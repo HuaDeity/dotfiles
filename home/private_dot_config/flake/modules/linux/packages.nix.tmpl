@@ -6,9 +6,15 @@
 
 with pkgs;
 let
-  shared-packages = map (pkgName: if pkgName == "git-flow" then pkgs.gitflow else pkgs.${pkgName}) (
-    (import ../shared/packages.nix) { }
-  );
+  shared-packages = map (
+    pkgName:
+    if pkgName == "git-flow" then
+      pkgs.gitflow
+    else if pkgName == "git-delta" then
+      pkgs.delta
+    else
+      pkgs.${pkgName}
+  ) ((import ../shared/packages.nix) { });
 
   system-packages = (import ../shared/system-packages.nix) { inherit pkgs; };
 

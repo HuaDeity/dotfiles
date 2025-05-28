@@ -20,19 +20,10 @@
   defaultBranch = main
 [pull]
   rebase = false
-{{- if eq .chezmoi.os "darwin" }}
-[diff]
-  tool = Kaleidoscope
-[difftool "Kaleidoscope"]
-  cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
-[difftool]
-  prompt = false
-  trustExitCode = true
-[merge]
-  tool = Kaleidoscope
-[mergetool "Kaleidoscope"]
-  cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
-  trustExitCode = true
-[mergetool]
-  prompt = false
+{{- if lookPath "delta" }}
+[include]
+    path = ~/.config/delta/delta.gitconfig
+{{- end }}
+{{- if lookPath "ksdiff" }}
+    path = ~/.config/ksdiff/ksdiff.gitconfig
 {{- end }}

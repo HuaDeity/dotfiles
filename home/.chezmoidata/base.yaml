@@ -1,9 +1,9 @@
 packages:
   base:
     shared:
-      - "atuin"
       - "bash"
       - "bat"
+      - "bat-extras"
       - "biome"
       - "chafa"
       - "chezmoi"
@@ -15,6 +15,7 @@ packages:
       - "fzf"
       - "gh"
       - "git"
+      - "git-delta"
       - "git-flow"
       - "git-lfs"
       - "gitui"

@@ -1,0 +1,12 @@
+workspaces = true
+enter_accept = true
+keymap_mode = "auto"
+
+[sync]
+records = true
+
+[daemon]
+enabled = true
+
+[theme]
+name = "mocha/catppuccin-mocha-mauve"

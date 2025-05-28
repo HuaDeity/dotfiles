@@ -72,11 +72,11 @@ $ZSH_CUSTOM/plugins/volta conditional:"is-callable volta"
 #
 # Tools
 #
-fdellwing/zsh-bat conditional:"is-callable bat"
 zimfw/git conditional:"is-callable git"
 zimfw/exa conditional:"is-callable eza || is-callable exa"
 zimfw/fzf conditional:"is-callable fzf"
 $ZSH_CUSTOM/plugins/atuin
+$ZSH_CUSTOM/plugins/bat
 $ZSH_CUSTOM/plugins/direnv
 $ZSH_CUSTOM/plugins/orbstack conditional:is-macos
 

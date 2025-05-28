@@ -13,4 +13,7 @@ in
     packages = pkgs.callPackage ./packages.nix { };
     stateVersion = "25.05";
   };
+
+  programs.atuin.enable = true;
+  programs.atuin.daemon.enable = true;
 }
