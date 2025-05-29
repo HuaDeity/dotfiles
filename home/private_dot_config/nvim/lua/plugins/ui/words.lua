@@ -21,10 +21,15 @@ return {
   --     },
   --   },
   -- },
+
   {
     "RRethy/vim-illuminate",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
+      providers = {
+        "lsp",
+        "treesitter",
+      },
       -- delay = 200,
       -- large_file_cutoff = 2000,
       -- large_file_overrides = {

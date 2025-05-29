@@ -29,7 +29,7 @@ return {
   --     opts.left = opts.left or {}
   --     table.insert(opts.left, {
   --       -- ft = "snacks_layout_box",
-  --       ft = "snacks_picker_input",
+  --       ft = "snacks_picker_list",
   --       title = "Explorer",
   --       size = { width = 30 },
   --       pinned = true,
