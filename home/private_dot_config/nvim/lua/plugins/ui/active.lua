@@ -1,7 +1,21 @@
 return {
-  {
-    "nvim-zh/colorful-winsep.nvim",
-    event = { "WinLeave" },
-    opts = {},
-  },
+  -- {
+  --   "nvim-zh/colorful-winsep.nvim",
+  --   event = { "WinLeave" },
+  --   opts = {},
+  --   specs = {
+  --     {
+  --       "catppuccin/nvim",
+  --       optional = true,
+  --       opts = {
+  --         integrations = {
+  --           colorful_winsep = {
+  --             enabled = true,
+  --             color = "red",
+  --           },
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 }
