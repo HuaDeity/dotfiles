@@ -1,15 +1,15 @@
 -- lsp
-vim.lsp.config("ty", {
-  settings = {
-    experimental = {
-      completions = {
-        enable = true,
-      },
-    },
-  },
-})
-vim.lsp.enable "ty"
--- vim.lsp.enable "pyrefly"
+-- vim.lsp.config("ty", {
+--   settings = {
+--     experimental = {
+--       completions = {
+--         enable = true,
+--       },
+--     },
+--   },
+-- })
+-- vim.lsp.enable "ty"
+vim.lsp.enable "pyrefly"
 -- vim.lsp.enable "basedpyright"
 
 vim.api.nvim_create_autocmd("LspAttach", {
