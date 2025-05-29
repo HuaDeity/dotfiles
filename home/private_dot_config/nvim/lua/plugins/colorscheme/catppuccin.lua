@@ -18,10 +18,6 @@ return {
       integrations = {
         aerial = true,
         blink_cmp = true,
-        colorful_winsep = {
-          enabled = true,
-          color = "red",
-        },
         copilot_vim = true,
         dap = true,
         dap_ui = true,
