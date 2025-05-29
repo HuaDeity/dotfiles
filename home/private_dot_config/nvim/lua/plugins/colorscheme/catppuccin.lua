@@ -16,6 +16,7 @@ return {
         }
       end,
       integrations = {
+        aerial = true,
         blink_cmp = true,
         colorful_winsep = {
           enabled = true,
