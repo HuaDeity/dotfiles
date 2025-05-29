@@ -39,15 +39,6 @@ return {
             },
           })
         end,
-        copilot = function()
-          return require("codecompanion.adapters").extend("copilot", {
-            schema = {
-              model = {
-                default = "claude-sonnet-4",
-              },
-            },
-          })
-        end,
         openrouter = function()
           return require("codecompanion.adapters").extend("openai_compatible", {
             env = {
@@ -80,6 +71,10 @@ return {
       },
       strategies = {
         chat = {
+          adapter = {
+            name = "copilot",
+            model = "claude-sonnet-4",
+          },
           keymaps = {
             send = {
               callback = function(chat)
