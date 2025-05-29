@@ -1,4 +1,7 @@
+inline_height = 1
+show_help = false
 workspaces = true
+
 enter_accept = true
 keymap_mode = "auto"
 
