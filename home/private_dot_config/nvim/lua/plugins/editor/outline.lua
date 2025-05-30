@@ -4,6 +4,7 @@ return {
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
       attach_mode = "global",
+      backend = { "lsp", "treesitter", "markdown", "asciidoc", "man" },
       default_direction = "prefer_left",
       filter_kind = false,
       -- stylua: ignore
