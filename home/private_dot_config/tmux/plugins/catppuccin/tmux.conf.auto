@@ -1,0 +1,10 @@
+set-hook -g client-dark-theme {
+  set -g @catppuccin_flavor "mocha"
+  set -g @catppuccin_reset "true"
+  run "#{TMUX_PLUGIN_MANAGER_PATH}/tmux-catppuccin/catppuccin.tmux"
+}
+set-hook -g client-light-theme {
+  set -g @catppuccin_flavor "latte"
+  set -g @catppuccin_reset "true"
+  run "#{TMUX_PLUGIN_MANAGER_PATH}/tmux-catppuccin/catppuccin.tmux"
+}

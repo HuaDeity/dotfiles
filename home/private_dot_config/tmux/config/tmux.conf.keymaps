@@ -1,0 +1,43 @@
+# Change prefix
+# set -g prefix C-a
+# unbind C-b
+# bind -N "Send the prefix key through to the application" C-a send-prefix
+# bind -N "Switches between alternate windows" a last-window
+
+set -g status-keys vi
+setw -g mode-keys vi
+
+# Split Window
+bind -N "Split the pane into two, left and right" v splitw -h -c '#{pane_current_path}'
+bind -N "Split the pane into two, top and bottom" s splitw -v -c '#{pane_current_path}'
+
+# Select Pane
+bind -N "Select pane to the left of the active pane" h selectp -L
+bind -N "Select pane below the active pane" j selectp -D
+bind -N "Select pane above the active pane" k selectp -U
+bind -N "Select pane to the right of the active pane" l selectp -R
+
+# Resize Pane
+bind -r -N "Resize the pane left by 5" H resizep -L 5
+bind -r -N "Resize the pane down by 5" J resizep -D 5 
+bind -r -N "Resize the pane up by 5" K resizep -U 5 
+bind -r -N "Resize the pane right by 5" L resizep -R 5
+
+unbind -T copy-mode-vi Space
+bind -T copy-mode-vi v send -X begin-selection
+
+bind -N "Switch previous window" C-p prev
+bind -N "Switch Next window" C-p next
+bind -N "Source Config File" R source "~/.config/tmux/tmux.conf"
+
+bind c neww -c '#{pane_current_path}'
+bind % splitw -v -c '#{pane_current_path}'
+bind '"' splitw -h -c '#{pane_current_path}'
+
+bind C new
+bind S switchc -l
+
+# Mouse Clipboard Options
+# unbind -T copy-mode-vi MouseDragEnd1Pane
+# bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection
+# bind -T copy-mode-vi MouseDragEnd1Pane send -X copy-selection-no-clear

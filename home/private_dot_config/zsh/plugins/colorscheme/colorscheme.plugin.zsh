@@ -41,3 +41,11 @@ export LG_CONFIG_FILE="$HOME/.config/lazygit/config.yml,$HOME/.config/lazygit/th
 # starship
 update_config_flavor "$XDG_CONFIG_HOME/starship/config.toml" 'palette = .*$' "palette = \"catppuccin_$flavor\""
 
+# tmux
+# if [[ "$TMUX" != "" ]]; then
+# 	tmux set -g @catppuccin_flavor "$flavor"
+# 	tmux set -g @catppuccin_reset "true"
+# 	tmux source "$TMUX_CONF_DIR/plugins/catppuccin/tmux.conf.before"
+# 	tmux run "$TMUX_PLUGIN_MANAGER_PATH/tmux-catppuccin/catppuccin.tmux"
+# 	tmux source "$TMUX_CONF_DIR/plugins/catppuccin/tmux.conf.after"
+# fi

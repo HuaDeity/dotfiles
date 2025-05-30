@@ -1,0 +1,32 @@
+# Clipboard
+# set -s set-clipboard on
+# set -sa terminal-features ',tmux*:clipboard'
+
+# Color
+set -g default-terminal "tmux-256color"
+set -sa terminal-features ',xterm*:RGB'
+
+# Outside
+set -g allow-passthrough on
+set -g set-titles on
+set -g set-titles-string '#T'
+
+# Sensible
+set -g mouse on
+set -g focus-events on
+setw -g aggressive-resize on
+# setw -g clock-mode-style 12
+set -s escape-time 0
+set -g history-limit 50000
+set -g display-time 4000
+set -g status-interval 5
+set -g status-position top
+set -g status-justify left
+
+# Shell
+# set -g default-shell "/opt/homebrew/bin/zsh"
+
+# Windows
+set -g base-index 1
+set -g renumber-windows on
+

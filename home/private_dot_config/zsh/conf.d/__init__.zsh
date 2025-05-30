@@ -7,8 +7,8 @@ export EDITOR=nvim
 
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export VISUAL='nvim'
+  export VISUAL=nvim
 else
-  export VISUAL='zed'
+  export VISUAL=zed
 fi
 
