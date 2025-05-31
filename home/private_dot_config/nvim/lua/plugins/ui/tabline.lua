@@ -11,8 +11,6 @@ return {
       { "<S-z>H", "<Cmd>BufferLineCloseLeft<CR>", desc = "Delete Buffers to the Left" },
       { "<S-z>h", "<cmd>BufferLineMovePrev<cr>", desc = "Move buffer prev" },
       { "<S-z>l", "<cmd>BufferLineMoveNext<cr>", desc = "Move buffer next" },
-      { "<S-h>", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
-      { "<S-l>", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
       { "[b", "<cmd>BufferLineCyclePrev<cr>", desc = "Prev Buffer" },
       { "]b", "<cmd>BufferLineCycleNext<cr>", desc = "Next Buffer" },
       { "[B", function() require("bufferline").go_to(1, true) end, desc = "First Buffer" },

@@ -1,4 +1,4 @@
-# Change prefix
+# # Change prefix
 # set -g prefix C-a
 # unbind C-b
 # bind -N "Send the prefix key through to the application" C-a send-prefix

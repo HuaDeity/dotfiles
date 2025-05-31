@@ -28,13 +28,13 @@ return {
       },
       keys = {
         -- increase width
-        ["<C-w><S-.>"] = function(win) win:resize("width", 2) end,
+        ["<A-l>"] = function(win) win:resize("width", 2) end,
         -- decrease width
-        ["<C-w><S-,>"] = function(win) win:resize("width", -2) end,
+        ["<A-h>"] = function(win) win:resize("width", -2) end,
         -- increase height
-        ["<C-w><S-=>"] = function(win) win:resize("height", 2) end,
+        ["<A-k>"] = function(win) win:resize("height", 2) end,
         -- decrease height
-        ["<C-w>-"] = function(win) win:resize("height", -2) end,
+        ["<A-j>"] = function(win) win:resize("height", -2) end,
       },
     },
   },

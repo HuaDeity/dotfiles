@@ -70,11 +70,19 @@ with lib;
 
   system = {
     defaults = {
+      CustomUserPreferences = {
+        AppleKeyboardUIMode = 2; # TODO: after nix fix can use official namespace
+      };
+
       dock = {
         autohide = true;
         show-recents = true;
         launchanim = true;
         orientation = "bottom";
+      };
+
+      hitoolbox = {
+        AppleFnUsageType = "Change Input Source";
       };
 
       finder = {
@@ -88,6 +96,7 @@ with lib;
         KeyRepeat = 6; # Values: 120, 90, 60, 30, 12, 6, 2
         InitialKeyRepeat = 35; # Values: 120, 94, 68, 35, 25, 15
 
+        "com.apple.keyboard.fnState" = true;
         "com.apple.mouse.tapBehavior" = 1;
         "com.apple.sound.beep.feedback" = 0;
         "com.apple.sound.beep.volume" = 1.0;
