@@ -1,0 +1,15 @@
+#!/bin/zsh
+
+if [[ -z "$1" ]]; then
+    echo "Usage: colorssh <user@host_or_alias> [command...]"
+    return 1
+fi
+
+local host_target="$1"  # Capture the first argument as the host
+local remote_command=("${@:2}")  # Get remaining arguments as the remote command
+[[ -z "$flavor" ]] && local flavor="mocha"  # Ensure flavor is set, default to mocha if not
+
+# The -t flag is crucial for an interactive session
+# The double quotes around the remote command ensure local variable expansion
+ssh -t "$host_target" "export flavor=$flavor" "${remote_command[@]}"
+

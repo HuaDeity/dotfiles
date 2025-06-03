@@ -1,0 +1,45 @@
+#!/bin/zsh
+# Start with emacs mode to establish all emacs bindings
+bindkey -e
+
+# Capture all current emacs bindings
+local emacs_bindings
+emacs_bindings=(${(f)"$(bindkey)"})
+
+# Switch to vi mode
+bindkey -v
+
+# Apply emacs bindings to vi modes only where undefined
+local binding key widget
+for binding in $emacs_bindings; do
+	# Split binding into key and widget
+	key="${binding%% *}"
+	widget="${binding##* }"
+
+	# Remove quotes from key
+	key="${key//\"/}"
+
+	# Skip empty keys (like space after quote removal)
+	[[ -z "$key" ]] && continue
+
+	# Skip self-insert bindings
+	[[ "$widget" == "self-insert" ]] && continue
+	
+	# Use vi-specific widget if it exists
+	local vi_widget="vi-$widget"
+	if (( ${+widgets[$vi_widget]} )); then
+		widget=$vi_widget
+	fi
+
+	# Check viins mode - bind if undefined or self-insert
+	current_widget="$(bindkey -M viins "$key" 2>/dev/null)"
+	if [[ "$current_widget" == *"undefined-key"* ]] || [[ "$current_widget" == *"self-insert"* ]]; then
+		bindkey -M viins "$key" "$widget"
+	fi
+
+	# Check vicmd mode - bind if undefined or self-insert
+	current_widget="$(bindkey -M vicmd "$key" 2>/dev/null)"
+	if [[ "$current_widget" == *"undefined-key"* ]] || [[ "$current_widget" == *"self-insert"* ]]; then
+		bindkey -M vicmd "$key" "$widget"
+	fi
+done

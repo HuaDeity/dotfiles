@@ -5,16 +5,6 @@ return {
     lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     opts = {
-      custom_highlights = function(colors)
-        return {
-          BlinkCmpKind = { fg = colors.blue },
-          BlinkCmpMenu = { fg = colors.text },
-          BlinkCmpMenuBorder = { fg = colors.blue },
-          BlinkCmpDocBorder = { fg = colors.blue },
-          BlinkCmpSignatureHelpActiveParameter = { fg = colors.mauve },
-          BlinkCmpSignatureHelpBorder = { fg = colors.blue },
-        }
-      end,
       integrations = {
         aerial = true,
         blink_cmp = true,

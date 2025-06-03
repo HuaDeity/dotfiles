@@ -25,19 +25,29 @@ alias zprofrc="ZPROFRC=1 zsh"
 typeset -ga ZSH_THEME
 zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME
 
-# Set helpers for antidote.
-is-theme-p10k()     { [[ "$ZSH_THEME" == p10k* ]] }
-is-theme-starship() { [[ "$ZSH_THEME" == starship* ]] }
+# Setup antidote.
+export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/repos}
+antidote_path=$ANTIDOTE_HOME/mattmc3/antidote
 
-#
-# Libs
-#
+# Clone antidote if missing.
+[[ -d $antidote_path ]] \
+  || git clone --depth 1 --quiet https://github.com/mattmc3/antidote $antidote_path
 
-# Load all library files from ZDOTDIR/lib
-for zlib in "$ZDOTDIR"/lib/*.zsh(N); do
-  source "$zlib"
-done
-unset zlib
+# Lazy-load antidote from its functions directory.
+fpath=($antidote_path/functions $fpath)
+autoload -Uz antidote
+
+# Generate static file in a subshell whenever .zplugins is updated.
+zplugins=${ZDOTDIR:-$HOME}/zsh_plugins
+if [[ ! ${zplugins}.zsh -nt ${zplugins} ]] || [[ ! -e $ANTIDOTE_HOME/.lastupdated ]]; then
+  antidote bundle <${zplugins} >|${zplugins}.zsh
+  date +%Y-%m-%dT%H:%M:%S%z >| $ANTIDOTE_HOME/.lastupdated
+fi
+
+# Source the static file.
+source ${zplugins}.zsh
+
+hybrid_key_bindings
 
 #
 # Aliases

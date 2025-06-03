@@ -3,6 +3,6 @@
 #
 
 # Defined shortcut keys: [Esc] [Esc]
-bindkey -M emacs '\e\e' prepend-sudo
-bindkey -M vicmd '\e\e' prepend-sudo
-bindkey -M viins '\e\e' prepend-sudo
+bindkey -M emacs "^[^[" prepend-sudo
+bindkey -M vicmd "^[^[" prepend-sudo
+bindkey -M viins "^[^[" prepend-sudo

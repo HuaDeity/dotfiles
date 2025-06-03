@@ -71,7 +71,9 @@ with lib;
   system = {
     defaults = {
       CustomUserPreferences = {
-        AppleKeyboardUIMode = 2; # TODO: after nix fix can use official namespace
+        NSGlobalDomain = {
+          AppleKeyboardUIMode = 2; # TODO: after nix fix can use official namespace
+        };
       };
 
       dock = {

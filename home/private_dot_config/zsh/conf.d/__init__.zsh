@@ -12,3 +12,4 @@ else
   export VISUAL=zed
 fi
 
+set_flavor

@@ -20,7 +20,7 @@ in
     home = "/Users/${user}";
     isHidden = false;
     uid = 501;
-    shell = "${brewPrefix}/zsh";
+    shell = "${brewPrefix}/fish";
   };
 
   homebrew = {
@@ -50,7 +50,7 @@ in
   # };
 
   # Fully declarative dock using the latest from Nix Store
-  local.dock.enable = true;
+  local.dock.enable = false;
   local.dock.entries = [
     { path = "/System/Applications/Facetime.app/"; }
     { path = "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app/"; }
