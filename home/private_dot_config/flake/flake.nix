@@ -5,12 +5,16 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
+    darwin = {
+      url = "github:nix-darwin/nix-darwin";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    darwin = {
-      url = "github:nix-darwin/nix-darwin";
+    index-database = {
+      url = "github:nix-community/nix-index-database";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -20,6 +24,7 @@
       self,
       darwin,
       home-manager,
+      index-database,
       nixpkgs,
     }@inputs:
     let
@@ -74,6 +79,7 @@
           inherit pkgs;
           extraSpecialArgs = inputs;
           modules = [
+            index-database.hmModules.nix-index
             ./hosts/linux
           ];
         }
