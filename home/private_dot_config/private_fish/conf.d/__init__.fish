@@ -21,12 +21,18 @@ else
 end
 set -gx PAGER less
 
+# Auto Proxy
+set -g FISH_PROXY_AUTO yes
+
 switch (uname -s)
     case Darwin
         # Set browser on macOS.
         set -q BROWSER; or set -gx BROWSER open
         # SSH Agent
         set -gx SSH_AUTH_SOCK $HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+    case Linux
+        # Proxy
+        set -g FISH_PROXY_MIXED "192.168.103.42:7878"
 end
 
 fish_add_path $HOME/.local/bin
