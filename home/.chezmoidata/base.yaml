@@ -63,5 +63,4 @@ packages:
       - "home-manager"
       - "llvmPackages.openmp"
       - "mihomo"
-      - "nix-index"
       - "nix-zsh-completions"
