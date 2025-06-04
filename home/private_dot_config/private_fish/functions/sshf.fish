@@ -10,5 +10,5 @@ function sshf
 
     # The -t flag is crucial for an interactive session
     # The double quotes around the remote command ensure local variable expansion
-    ssh -t $host_target "set -gx flavor=$flavor" $remote_command
+    ssh -t $host_target "export flavor=$flavor;" $remote_command
 end
