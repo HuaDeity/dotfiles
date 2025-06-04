@@ -1,4 +1,4 @@
 # Initialize zoxide for fast jumping with 'z'.
-if type -q zoxide
+if command -q zoxide
     zoxide init fish | source
 end

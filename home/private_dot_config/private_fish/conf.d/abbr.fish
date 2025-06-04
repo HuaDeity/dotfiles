@@ -1,0 +1,8 @@
+abbr ll "ls -l --git"
+abbr l "ll -a"
+abbr lr "ll -T"
+abbr lx "ll -sextension"
+abbr lk "ll -ssize"
+abbr lt "ll -smodified"
+abbr lc "ll -schanged"
+abbr gtower 'gittower $(git rev-parse --show-toplevel)'

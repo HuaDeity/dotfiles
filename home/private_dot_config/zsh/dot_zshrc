@@ -1,29 +1,12 @@
 #!/bin/zsh
-#
-# .zshrc - Run on interactive Zsh session.
-#
-
-#
-# Profiling
-#
-
-[[ "$ZPROFRC" -ne 1 ]] || zmodload zsh/zprof
-alias zprofrc="ZPROFRC=1 zsh"
-
-#
-# Zstyles
-#
+if [[ "$ZSH_THEME" == p10k* ]]; then
+  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+  fi
+fi
 
 # Load .zstyles file with customizations.
 [[ -r ${ZDOTDIR:-$HOME}/.zstyles ]] && source ${ZDOTDIR:-$HOME}/.zstyles
-
-#
-# Theme
-#
-
-# Set prompt theme
-typeset -ga ZSH_THEME
-zstyle -a ':zephyr:plugin:prompt' theme ZSH_THEME
 
 # Setup antidote.
 export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/repos}
@@ -49,36 +32,9 @@ source ${zplugins}.zsh
 
 hybrid_key_bindings
 
-#
-# Aliases
-#
+if [[ $ZSH_THEME == p10k ]]; then
+  [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
+elif [[ $ZSH_THEME == starship ]]; then
+  eval "$(starship init zsh)"
+fi
 
-[[ -r ${ZDOTDIR:-$HOME}/.zaliases ]] && source ${ZDOTDIR:-$HOME}/.zaliases
-
-#
-# Prompt
-#
-
-# Uncomment to manually set your prompt, or let Zephyr do it automatically in the
-# zshrc-post hook. Note that some prompts like powerlevel10k may not work well
-# with post_zshrc.
-setopt prompt_subst transient_rprompt
-autoload -Uz promptinit && promptinit
-prompt "$ZSH_THEME[@]"
-
-#
-# Wrap up
-#
-
-# Never start in the root file system. Looking at you, Zed.
-[[ "$PWD" != "/" ]] || cd
-
-# Manually call post_zshrc to bypass the hook
-(( $+functions[run_post_zshrc] )) && run_post_zshrc
-
-# Finish profiling by calling zprof.
-[[ "$ZPROFRC" -eq 1 ]] && zprof
-[[ -v ZPROFRC ]] && unset ZPROFRC
-
-# Always return success
-true

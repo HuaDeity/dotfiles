@@ -26,6 +26,12 @@
     refreshPeriod = "168h"
     include = ["*/*.gitconfig"]
 {{- end }}
+{{- if lookPath "eza" }}
+[".config/eza/theme.yml"]
+    type = "file"
+    url = "https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml"
+    stripComponents = 1
+{{- end }}
 {{- if lookPath "fzf" }}
 [".config/fzf/themes"]
     type = "archive"

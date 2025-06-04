@@ -7,9 +7,9 @@
 # Antidote
 #
 
-zstyle ':antidote:bundle' use-friendly-names 'yes'
+zstyle ':antidote:bundle' use-friendly-names yes
 zstyle ':antidote:plugin:*' defer-options '-p'
-zstyle ':antidote:*' zcompile 'yes'
+zstyle ':antidote:*' zcompile yes
 
 #
 # Zephyr features
@@ -19,58 +19,18 @@ zstyle ':antidote:*' zcompile 'yes'
 # zstyle ':zephyr:plugin:*' 'use-cache' yes
 
 #
-# XDG
-#
-zstyle 'zephyr:plugin:*' 'use-xdg-basedirs' yes
-
-#
 # Homebrew
 #
 zstyle ':zephyr:plugin:homebrew' 'keg-only-brews' curl rustup
 
 #
-# Editor
+# Confd
 #
-
-# Set the key mapping style to 'emacs' or 'vi'.
-zstyle ':zephyr:plugin:editor' key-bindings 'vi'
-
-# Auto convert .... to ../..
-zstyle ':zephyr:plugin:editor' dot-expansion 'yes'
-
-# Use ^z to return background processes to foreground.
-zstyle ':zephyr:plugin:editor' symmetric-ctrl-z 'yes'
-
-# Expand aliases to their actual command like Fish abbreviations.
-zstyle ':zephyr:plugin:editor' glob-alias 'yes'
-noexpand=(
-  cat
-  ls
-  grep
-  gpg
-  vi
-  z
-  0 1 2 3 4 5 6 7 8 9
-)
-zstyle ':zephyr:plugin:editor:glob-alias' noexpand $noexpand
-
-# Set the default (magic) command when hitting enter on an empty prompt.
-zstyle ':zephyr:plugin:editor' magic-enter 'yes'
-# zstyle ':zephyr:plugin:editor:magic-enter' command 'ls -lh .'
-# zstyle ':zephyr:plugin:editor:magic-enter' git-command 'git status -u .'
-
-#
-# Prompt
-#
-
-# Set prompt
-# zstyle ':zephyr:plugin:prompt' theme p10k lean
-zstyle ':zephyr:plugin:prompt' theme starship config
+zstyle ':zephyr:plugin:confd' immediate yes
 
 #
 # Completions
 #
-
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
 # Proxy
