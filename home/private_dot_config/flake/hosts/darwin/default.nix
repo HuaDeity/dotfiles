@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   lib,
   ...
@@ -96,7 +97,7 @@ with lib;
           "/System/Applications/iPhone Mirroring.app"
         ];
         persistent-others = [
-          "~/Downloads"
+          "${config.users.users.${config.system.primaryUser}.home}/Downloads"
         ];
       };
 

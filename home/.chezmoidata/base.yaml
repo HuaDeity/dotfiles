@@ -53,13 +53,11 @@ packages:
       - "zoxide"
       - "zsh"
     darwin:
-      - "dockutil"
       - "hugo"
       - "laishulu/homebrew/macism"
       - "mas"
       - "hakonharnes/tap/pbctl"
       - "pinentry-mac"
-      - "uutils-coreutils"
     linux:
       - "clang"
       - "home-manager"
