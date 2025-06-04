@@ -81,6 +81,23 @@ with lib;
         show-recents = true;
         launchanim = true;
         orientation = "bottom";
+        persistent-apps = [
+          "/System/Applications/Facetime.app"
+          "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+          "/System/Applications/Messages.app"
+          "/System/Applications/Music.app"
+          "/System/Applications/Mail.app"
+          "/System/Applications/Photo Booth.app"
+          "/Applications/Reeder.app"
+          "/Applications/Bookends.app"
+          "/Applications/Tower.app"
+          "/Applications/Ghostty.app"
+          "/Applications/Zed Preview.app"
+          "/System/Applications/iPhone Mirroring.app"
+        ];
+        persistent-others = [
+          "~/Downloads"
+        ];
       };
 
       hitoolbox = {
