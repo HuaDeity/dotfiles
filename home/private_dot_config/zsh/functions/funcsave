@@ -1,0 +1,23 @@
+#!/bin/zsh
+
+emulate -L zsh; setopt local_options
+: ${ZFUNCDIR:=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions}
+
+# check args
+if (( $# == 0 )); then
+	echo >&2 "funcsave: Expected at least 1 args, got only 0."
+	return 1
+elif ! typeset -f "$1" > /dev/null; then
+	echo >&2 "funcsave: Unknown function '$1'."
+	return 1
+elif [[ ! -d "$ZFUNCDIR" ]]; then
+	echo >&2 "funcsave: Directory not found '$ZFUNCDIR'."
+	return 1
+fi
+
+# make sure the function is loaded in case it's already lazy
+autoload +X "$1" > /dev/null
+
+# remove first/last lines (ie: 'function foo {' and '}') and de-indent one level
+type -f "$1" | awk 'NR>2 {print prev} {gsub(/^\t/, "", $0); prev=$0}' >| "$ZFUNCDIR/$1"
+

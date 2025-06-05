@@ -49,5 +49,3 @@ set -q XDG_DATA_DIRS; or set -gx XDG_DATA_DIRS
 set -q DOPPLER_CONFIG_DIR; or set -gx DOPPLER_CONFIG_DIR $XDG_CONFIG_HOME/doppler
 
 set_flavor
-
-set -U HOMEBREW_KEG_ONLY_APPS curl rustup

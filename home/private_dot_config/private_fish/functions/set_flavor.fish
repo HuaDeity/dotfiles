@@ -7,7 +7,7 @@ function set_flavor
 
         # Check if requested flavor is valid
         if contains $requested_flavor $valid_flavors
-            set -gx flavor $requested_flavor
+            set -U flavor $requested_flavor
         else
             echo "Invalid flavor '$requested_flavor'. Valid options: $valid_flavors"
             return 1
@@ -17,16 +17,16 @@ function set_flavor
         if test (uname -s) = Darwin
             if defaults read -g AppleInterfaceStyle &>/dev/null
                 # flavor Dark
-                set -gx flavor mocha
+                set -U flavor mocha
             else
                 # flavor Light
-                set -gx flavor latte
+                set -U flavor latte
             end
         else
             # Non-macOS systems - default to dark theme
-            set -gx flavor mocha
+            set -U flavor mocha
         end
     end
 
-    set -gx flavor_capitalized (string upper (string sub -l 1 $flavor))(string sub -s 2 $flavor)
+    set -U flavor_capitalized (string upper (string sub -l 1 $flavor))(string sub -s 2 $flavor)
 end

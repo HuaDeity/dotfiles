@@ -8,27 +8,41 @@ fi
 # Load .zstyles file with customizations.
 [[ -r ${ZDOTDIR:-$HOME}/.zstyles ]] && source ${ZDOTDIR:-$HOME}/.zstyles
 
-# Setup antidote.
-export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/repos}
-antidote_path=$ANTIDOTE_HOME/mattmc3/antidote
+function autoload-dir {
+  local zdir
+  local -a zautoloads
+  for zdir in $@; do
+    [[ -d "$zdir" ]] || continue
+    fpath=("$zdir" $fpath)
+    zautoloads=($zdir/[^_]*(N:t))
+    (( $#zautoloads > 0 )) && autoload -Uz $zautoloads
+  done
+}
 
-# Clone antidote if missing.
-[[ -d $antidote_path ]] \
-  || git clone --depth 1 --quiet https://github.com/mattmc3/antidote $antidote_path
+ZFUNCDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions"
 
-# Lazy-load antidote from its functions directory.
-fpath=($antidote_path/functions $fpath)
-autoload -Uz antidote
-
-# Generate static file in a subshell whenever .zplugins is updated.
-zplugins=${ZDOTDIR:-$HOME}/zsh_plugins
-if [[ ! ${zplugins}.zsh -nt ${zplugins} ]] || [[ ! -e $ANTIDOTE_HOME/.lastupdated ]]; then
-  antidote bundle <${zplugins} >|${zplugins}.zsh
-  date +%Y-%m-%dT%H:%M:%S%z >| $ANTIDOTE_HOME/.lastupdated
+# Autoload ZFUNCDIR.
+if [[ -d "$ZFUNCDIR" ]]; then
+  autoload-dir $ZFUNCDIR(N/) $ZFUNCDIR/*(N/)
 fi
 
-# Source the static file.
-source ${zplugins}.zsh
+set_flavor
+
+function run_confd {
+  # Find the conf.d directory.
+  local confd
+  confd="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/conf.d"
+
+  # Sort and source all scripts in conf.d.
+  local rc; local -a rcs=(${confd}/*.{z,}sh(N))
+  for rc in ${(o)rcs}; do
+    # ignore files that begin with ~
+    [[ "${rc:t}" != '~'* ]] || continue
+    source "$rc"
+  done
+}
+
+run_confd
 
 hybrid_key_bindings
 

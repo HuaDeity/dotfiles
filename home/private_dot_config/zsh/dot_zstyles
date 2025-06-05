@@ -12,23 +12,6 @@ zstyle ':antidote:plugin:*' defer-options '-p'
 zstyle ':antidote:*' zcompile yes
 
 #
-# Zephyr features
-#
-
-# Use caching.
-# zstyle ':zephyr:plugin:*' 'use-cache' yes
-
-#
-# Homebrew
-#
-zstyle ':zephyr:plugin:homebrew' 'keg-only-brews' curl rustup
-
-#
-# Confd
-#
-zstyle ':zephyr:plugin:confd' immediate yes
-
-#
 # Completions
 #
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'

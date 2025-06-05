@@ -11,5 +11,5 @@ local remote_command=("${@:2}")  # Get remaining arguments as the remote command
 
 # The -t flag is crucial for an interactive session
 # The double quotes around the remote command ensure local variable expansion
-ssh -t "$host_target" "export flavor=$flavor" "${remote_command[@]}"
+ssh -t "$host_target" "export flavor=$flavor;" "${remote_command[@]}"
 

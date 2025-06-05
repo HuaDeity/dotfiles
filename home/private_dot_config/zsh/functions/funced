@@ -1,0 +1,34 @@
+#!/bin/zsh
+
+emulate -L zsh; setopt local_options
+: ${ZFUNCDIR:=${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions}
+
+# check args
+if (( $# == 0 )); then
+	echo >&2 "funced: Expected at least 1 args, got only 0."
+	return 1
+elif [[ ! -d "$ZFUNCDIR" ]]; then
+	echo >&2 "funced: Directory not found '$ZFUNCDIR'."
+	return 1
+fi
+
+# new function definition: make a file template
+if [[ ! -f "$ZFUNCDIR/$1" ]]; then
+	local -a funcstub
+	funcstub=(
+		"#\!/bin/zsh"
+		"#function $1 {"
+		""
+		"#}"
+		"#$1 \"\$@\""
+	)
+	printf '%s\n' "${funcstub[@]}" > "$ZFUNCDIR/$1"
+	autoload -Uz "$ZFUNCDIR/$1"
+fi
+
+# open the function file
+if [[ -n "$VISUAL" ]]; then
+	$VISUAL "$ZFUNCDIR/$1"
+else
+	${EDITOR:-vim} "$ZFUNCDIR/$1"
+fi
