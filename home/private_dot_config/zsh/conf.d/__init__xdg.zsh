@@ -5,6 +5,9 @@
 # docker
 export DOCKER_CONFIG="${DOCKER_CONFIG:-$XDG_CONFIG_HOME/docker}"
 
+# doppler
+export DOPPLER_CONFIG_DIR="${DOPPLER_CONFIG_DIR:-$XDG_CONFIG_HOME/doppler}"
+
 # gpg
 export GNUPGHOME="${GNUPGHOME:-$XDG_DATA_HOME/gnupg}"
 alias gpg="gpg --homedir '$GNUPGHOME'"

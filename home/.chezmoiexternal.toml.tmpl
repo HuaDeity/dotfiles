@@ -26,12 +26,6 @@
     refreshPeriod = "168h"
     include = ["*/*.gitconfig"]
 {{- end }}
-{{- if lookPath "eza" }}
-[".config/eza/theme.yml"]
-    type = "file"
-    url = "https://raw.githubusercontent.com/eza-community/eza-themes/refs/heads/main/themes/catppuccin.yml"
-    stripComponents = 1
-{{- end }}
 {{- if lookPath "fzf" }}
 [".config/fzf/themes"]
     type = "archive"
@@ -65,26 +59,6 @@
     refreshPeriod = "168h"
     include = ["*/themes-mergable/**"]
 {{- end }}
-# {{- if lookPath "tmux" }}
-# [".config/tmux/plugins/catppuccin/tmux"]
-#     type = "archive"
-#     url = "https://github.com/catppuccin/tmux/archive/main.tar.gz"
-#     exact = true
-#     stripComponents = 1
-#     refreshPeriod = "168h"
-# [".config/tmux/plugins/tmux-plugins/tmux-cpu"]
-#     type = "archive"
-#     url = "https://github.com/tmux-plugins/tmux-cpu/archive/master.tar.gz"
-#     exact = true
-#     stripComponents = 1
-#     refreshPeriod = "168h"
-# [".config/tmux/plugins/tmux-plugins/tmux-battery"]
-#     type = "archive"
-#     url = "https://github.com/tmux-plugins/tmux-battery/archive/master.tar.gz"
-#     exact = true
-#     stripComponents = 1
-#     refreshPeriod = "168h"
-# {{- end }}
 {{- if not .headless }}
 [".config/ghostty/themes"]
     type = "archive"

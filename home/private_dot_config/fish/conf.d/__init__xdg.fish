@@ -5,6 +5,9 @@
 # docker
 set -q DOCKER_CONFIG; or set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
+# doppler
+set -q DOPPLER_CONFIG_DIR; or set -gx DOPPLER_CONFIG_DIR $XDG_CONFIG_HOME/doppler
+
 # gpg
 set -q GNUPGHOME; or set -gx GNUPGHOME $XDG_DATA_HOME/gnupg
 alias gpg "gpg --homedir '$GNUPGHOME'"

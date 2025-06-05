@@ -45,7 +45,4 @@ set -q TERMINFO_DIRS; or set -gx TERMINFO_DIRS /usr/share/terminfo
 set -q XDG_CONFIG_DIRS; or set -gx XDG_CONFIG_DIRS
 set -q XDG_DATA_DIRS; or set -gx XDG_DATA_DIRS
 
-# doppler
-set -q DOPPLER_CONFIG_DIR; or set -gx DOPPLER_CONFIG_DIR $XDG_CONFIG_HOME/doppler
-
 set_flavor

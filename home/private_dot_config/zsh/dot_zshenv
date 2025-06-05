@@ -31,12 +31,5 @@ export TERMINFO_DIRS
 export XDG_CONFIG_DIRS
 export XDG_DATA_DIRS
 
-HISTFILE=$XDG_DATA_HOME/zsh/zsh_history
-HISTSIZE=2000
-SAVEHIST=1000
-
 path=($HOME/.local/bin(N) $path)
-
-# doppler
-export DOPPLER_CONFIG_DIR="${DOPPLER_CONFIG_DIR:-$XDG_CONFIG_HOME/doppler}"
 
