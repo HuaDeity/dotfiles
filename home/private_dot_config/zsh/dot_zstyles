@@ -1,22 +1,10 @@
 #!/bin/zsh
-#
-# .zstyles - zstyle settings for features/plugins that need them.
-#
-
-#
-# Antidote
-#
-
 zstyle ':antidote:bundle' use-friendly-names yes
 zstyle ':antidote:plugin:*' defer-options '-p'
 zstyle ':antidote:*' zcompile yes
 
-#
-# Completions
-#
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
-# Proxy
 if [[ "$OSTYPE" == darwin* ]]; then
   zstyle ':plugin:proxy' auto yes
 else

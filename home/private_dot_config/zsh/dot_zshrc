@@ -27,23 +27,7 @@ if [[ -d "$ZFUNCDIR" ]]; then
 fi
 
 set_flavor
-
-function run_confd {
-  # Find the conf.d directory.
-  local confd
-  confd="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/conf.d"
-
-  # Sort and source all scripts in conf.d.
-  local rc; local -a rcs=(${confd}/*.{z,}sh(N))
-  for rc in ${(o)rcs}; do
-    # ignore files that begin with ~
-    [[ "${rc:t}" != '~'* ]] || continue
-    source "$rc"
-  done
-}
-
-run_confd
-
+confded
 hybrid_key_bindings
 
 if [[ $ZSH_THEME == p10k ]]; then
