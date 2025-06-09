@@ -11,15 +11,15 @@ export HISTFILE=$XDG_STATE_HOME/bash/history
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	NIX_CONFIG_DIR="$XDG_CONFIG_HOME/flake"
-	# if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]; then
-	if [[ $(ps --no-header --pid=$PPID --format=comm) != "zsh" && -z ${BASH_EXECUTION_STRING} ]]; then
+	# if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && ${SHLVL} == 1 ]]; then
+	if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} ]]; then
 		shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
-		if [ -f "$HOME/.local/state/nix/profile/bin/zsh" ]; then
-			exec "$HOME/.local/state/nix/profile/bin/zsh" $LOGIN_OPTION
+		if [ -f "$HOME/.local/state/nix/profile/bin/fish" ]; then
+			exec "$HOME/.local/state/nix/profile/bin/fish" $LOGIN_OPTION
 		else
 			if command -v nix >/dev/null 2>&1 && [ -d "$NIX_CONFIG_DIR" ]; then
 				(cd "$NIX_CONFIG_DIR" && nix run home-manager/master -- switch --flake .#x86_64-linux)
-				[ -f "$HOME/.local/state/nix/profile/bin/zsh" ] && exec "$HOME/.local/state/nix/profile/bin/zsh" $LOGIN_OPTION
+				[ -f "$HOME/.local/state/nix/profile/bin/fish" ] && exec "$HOME/.local/state/nix/profile/bin/fish" $LOGIN_OPTION
 			fi
 		fi
 	fi
