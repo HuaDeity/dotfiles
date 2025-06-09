@@ -23,6 +23,7 @@ set -gx PAGER less
 
 # Auto Proxy
 set -g FISH_PROXY_AUTO yes
+set -g FISH_PROXY_PLUGINS shell nix
 
 switch (uname -s)
     case Darwin
