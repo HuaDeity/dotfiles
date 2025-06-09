@@ -4,6 +4,7 @@ packages:
       - "basedpyright"
       - "debugpy"
       - "jupyterlab"
+      - "pyrefly"
       - "ty"
       - "vectorcode"
     linux:
