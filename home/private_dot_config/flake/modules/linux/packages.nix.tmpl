@@ -14,6 +14,8 @@ let
       pkgs.delta
     else if pkgName == "bat-extras" then
       pkgs.bat-extras.core
+    else if pkgName == "jj" then
+      pkgs.jujutsu
     else
       pkgs.${pkgName}
   ) ((import ../shared/packages.nix) { });
