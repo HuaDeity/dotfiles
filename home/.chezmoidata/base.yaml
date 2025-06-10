@@ -48,6 +48,7 @@ packages:
       - "tree-sitter"
       - "uv"
       # - "viu"
+      - "vivid"
       - "volta"
       - "wakatime-cli"
       - "wget"
