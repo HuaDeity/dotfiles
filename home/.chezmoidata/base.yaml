@@ -64,6 +64,7 @@ packages:
       - "mas"
       - "hakonharnes/tap/pbctl"
       - "pinentry-mac"
+      - "tag"
     linux:
       - "clang"
       - "home-manager"
