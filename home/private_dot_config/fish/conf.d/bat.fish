@@ -7,6 +7,9 @@ if command -q bat; or command -q batcat
         alias cat="batcat"
     end
 
+    abbr -a --position anywhere -- --help '--help | cat -plhelp'
+    abbr -a --position anywhere -- -h '-h | cat -plhelp'
+
     if command -q batman
         batman --export-env | source
     end
