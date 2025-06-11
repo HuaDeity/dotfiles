@@ -8,6 +8,7 @@ packages:
       - "basictex"
       - "bettertouchtool"
       - "bookends"
+      - "chatgpt"
       - "chatwise"
       - "cleanshot"
       - "copilot-for-xcode"
