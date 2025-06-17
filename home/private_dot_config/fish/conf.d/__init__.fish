@@ -46,4 +46,7 @@ set -q TERMINFO_DIRS; or set -gx TERMINFO_DIRS /usr/share/terminfo
 set -q XDG_CONFIG_DIRS; or set -gx XDG_CONFIG_DIRS
 set -q XDG_DATA_DIRS; or set -gx XDG_DATA_DIRS
 
+set -g hydro_fetch true
+set -g hydro_multiline true
+
 set_flavor

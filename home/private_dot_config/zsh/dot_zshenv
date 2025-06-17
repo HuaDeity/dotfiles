@@ -24,8 +24,8 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export SSH_AUTH_SOCK=$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 fi
 
-# export ZSH_THEME=p10k
-export ZSH_THEME=starship
+export ZSH_THEME=p10k
+# export ZSH_THEME=starship
 
 export TERMINFO_DIRS
 export XDG_CONFIG_DIRS

@@ -39,7 +39,6 @@ packages:
       - "shellcheck"
       - "shfmt"
       - "sqlite"
-      - "starship"
       - "stylua"
       - "taplo"
       # - "television"

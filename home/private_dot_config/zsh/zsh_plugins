@@ -7,7 +7,7 @@ zsh-users/zsh-autosuggestions
 olets/zsh-abbr
 olets/zsh-autosuggestions-abbreviations-strategy
 # zsh-hooks/zsh-hooks
-romkatv/powerlevel10k kind:fpath
+romkatv/powerlevel10k
 romkatv/zsh-bench kind:path
 romkatv/zsh-no-ps2
 wazum/zsh-directory-dot-expansion

@@ -1,39 +1,28 @@
 "$schema" = "https://yazi-rs.github.io/schemas/keymap.json"
 
 [mgr]
-
 prepend_keymap = [
 	# Navigation
-	{ on = "n", run = "leave" },
-	{ on = "i", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+	{ on = "<D-[>", run = "back", desc = "Back to previous directory" },
+	{ on = "<D-]>", run = "forward", desc = "Forward to next directory" },
+	{ on = "<D-o>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+	{ on = "<Enter>", run = "rename --cursor=before_ext", desc = "Rename selected file(s)" },
 
 	# Goto
-	{ on = [
-		"g",
-		"r",
-	], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"' },
-	{ on = [
-		'g',
-		'f',
-	], run = 'shell -- ya emit cd "$(zoxide query Friends)"' },
-	{ on = [
-		"g",
-		"c",
-	], run = "plugin vcs-files" },
+	{ on = ["g", "r", "t"], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "cd into the top of the current repository or submodule" },
+	{ on = ["g", "c"], run = "plugin vcs-files", desc = "Show Git file changes" },
+
+	{ on = "$", run = 'shell --block $SHELL', desc = "Open $SHELL here" },
+
+	{ on = "<Space>", run = 'shell -- qlmanage -p "$@"', desc = "Quicklook" },
 
 	# Plugins
+	{ on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
 	{ on = "M", run = "plugin mount" },
 	{ on = "<C-d>", run = "plugin diff", desc = "Diff the selected with the hovered file" },
-	{ on = [
-		"c",
-		"m",
-	], run = "plugin chmod", desc = "Chmod on selected files" },
-	{ on = [
-		"b",
-		"a",
-	], run = "plugin mactag add", desc = "Tag selected files" },
-	{ on = [
-		"b",
-		"r",
-	], run = "plugin mactag remove", desc = "Untag selected files" },
+	{ on = ["c", "m"], run = "plugin chmod", desc = "Chmod on selected files" },
+	{ on = ["b", "a"], run = "plugin mactag add", desc = "Tag selected files" },
+	{ on = ["b", "r"], run = "plugin mactag remove", desc = "Untag selected files" },
+	{ on = "<D-+>", run = "plugin zoom 1", desc = "Zoom in hovered file" },
+	{ on = "<D-->", run = "plugin zoom -1", desc = "Zoom out hovered file" },
 ]

@@ -22,7 +22,7 @@ packages:
       - "istat-menus"
       - "jordanbaird-ice"
       - "kaleidoscope"
-      - "keka"
+      - "keka@beta"
       - "kekaexternalhelper"
       - "keyclu"
       - "macupdater"

@@ -1,9 +1,22 @@
 # Get editor completions based on the config schema
 "$schema" = 'https://starship.rs/config-schema.json'
 
+format = """
+$directory\
+$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+$git_status\
+$fill\
+$python\
+$line_break\
+$character\
+"""
+
 # Sets user-defined palette
 # Palettes must be defined _after_ this line
-palette = "catppuccin_mocha"
+palette = "catppuccin_latte"
 
 # Starship modules
 [character]
@@ -11,6 +24,9 @@ palette = "catppuccin_mocha"
 success_symbol = "[[󰄛](green) ❯](peach)"
 error_symbol = "[[󰄛](red) ❯](peach)"
 vimcmd_symbol = "[󰄛 ❮](subtext1)"        # For use with zsh-vi-mode
+
+[fill]
+symbol = ' '
 
 [git_branch]
 style = "bold mauve"

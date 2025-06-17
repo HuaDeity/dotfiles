@@ -137,6 +137,11 @@ return {
         desc = "Add Code to Agent",
         mode = { "v" },
       },
+      {
+        "<D-A-n>",
+        desc = "New Chat",
+        mode = { "n", "i", "x" },
+      },
     },
     config = function(_, opts)
       ViM.spinner:init()
