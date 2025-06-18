@@ -21,7 +21,6 @@
 		"version": "2"
 	},
 	"auto_install_extensions": {
-		"basedpyright": true,
 		"basher": true,
 		"biome": true,
 		"catppuccin": true,
@@ -37,6 +36,7 @@
 		"log": true,
 		"ltex": true,
 		"lua": true,
+		"pyrefly": true,
 		"python-requirements-and-constraints": true,
 		"nix": true,
 		"perplexity": true,
@@ -46,6 +46,7 @@
 		"snippets": true,
 		"swift": true,
 		"toml": true,
+		"ty": true,
 		"tree-sitter-query": true,
 		"wakatime": true,
 		"xml": true,
@@ -184,7 +185,7 @@
 			}
 		},
 		"Python": {
-			"language_servers": ["basedpyright", "!pyright", "ruff"],
+			"language_servers": ["pyrefly", "!pyright", "!pylsp", "ruff"],
 			"formatter": [
 				{
 					"code_actions": {
