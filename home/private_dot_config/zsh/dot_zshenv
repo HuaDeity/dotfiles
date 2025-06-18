@@ -22,6 +22,7 @@ if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER=${BROWSER:-open}
   # SSH Agent
   export SSH_AUTH_SOCK=$HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+  alias keka="/Applications/Keka.app/Contents/MacOS/Keka --cli"
 fi
 
 export ZSH_THEME=p10k

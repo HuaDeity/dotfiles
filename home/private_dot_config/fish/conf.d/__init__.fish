@@ -31,6 +31,7 @@ switch (uname -s)
         set -q BROWSER; or set -gx BROWSER open
         # SSH Agent
         set -gx SSH_AUTH_SOCK $HOME/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+        alias keka="/Applications/Keka.app/Contents/MacOS/Keka --cli"
     case Linux
         # Proxy
         set -g FISH_PROXY_MIXED "192.168.103.42:7878"
@@ -45,8 +46,5 @@ set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_co
 set -q TERMINFO_DIRS; or set -gx TERMINFO_DIRS /usr/share/terminfo
 set -q XDG_CONFIG_DIRS; or set -gx XDG_CONFIG_DIRS
 set -q XDG_DATA_DIRS; or set -gx XDG_DATA_DIRS
-
-set -g hydro_fetch true
-set -g hydro_multiline true
 
 set_flavor

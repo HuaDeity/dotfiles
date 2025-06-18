@@ -4,6 +4,7 @@ return {
     "Isrothy/neominimap.nvim",
     lazy = false, -- NOTE: NO NEED to Lazy load
     init = function()
+      vim.o.sidescrolloff = 36
       --- Put your configuration here
       ---@type Neominimap.UserConfig
       vim.g.neominimap = {
@@ -46,6 +47,9 @@ return {
       }
     end,
     config = function() end,
+    keys = {
+      { "<leader>um", "<cmd>Neominimap Toggle<cr>", desc = "Toggle global minimap" },
+    },
   },
   {
     "dstein64/nvim-scrollview",

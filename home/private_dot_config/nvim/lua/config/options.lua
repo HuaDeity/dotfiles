@@ -66,7 +66,6 @@ vim.o.splitbelow = true
 --   See `:help lua-options`
 --   and `:help lua-options-guide`
 vim.o.list = true
-vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
 vim.opt.listchars:append { precedes = "<", extends = ">" }
 
 vim.o.smoothscroll = true
@@ -78,14 +77,14 @@ vim.o.inccommand = "split"
 vim.o.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 4
+vim.o.scrolloff = 1
 
 -- Disable line wrap
 vim.o.wrap = false
 -- Wrap lines at convenient point
 vim.o.linebreak = true
 -- Columns of context
-vim.o.sidescrolloff = 36
+vim.o.sidescrolloff = 2
 
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
@@ -160,3 +159,5 @@ vim.o.winborder = "rounded"
 vim.o.foldmethod = "expr"
 vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99
+
+vim.opt.display:append { "truncate" }

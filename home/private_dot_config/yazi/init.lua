@@ -24,3 +24,7 @@ require("mactag"):setup {
     Purple = "#cb88f8",
   },
 }
+
+require("mime-ext"):setup {
+  fallback_file1 = true,
+}

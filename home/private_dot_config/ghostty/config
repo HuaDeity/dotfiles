@@ -6,7 +6,6 @@ font-feature = calt, liga, ss01, ss02, ss03, cv01=2
 macos-option-as-alt = true
 shell-integration-features = sudo
 theme = dark:catppuccin-mocha.conf,light:catppuccin-latte.conf
-window-inherit-working-directory = false
 adjust-cell-height = 28%
 adjust-cursor-height = 28%
 # keybind = global:ctrl+grave_accent=toggle_quick_terminal
@@ -14,5 +13,6 @@ keybind = performable:super+c=copy_to_clipboard
 # keybind = performable:super+alt+n=csi:110;11u
 keybind = super+bracket_left=unbind
 keybind = super+bracket_right=unbind
+keybind = ctrl+`=goto_split:next
 window-height = 42
 window-width = 140

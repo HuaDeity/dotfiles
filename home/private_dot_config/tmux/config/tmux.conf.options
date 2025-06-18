@@ -1,5 +1,5 @@
 # Clipboard
-# set -s set-clipboard on
+set -s set-clipboard on
 # set -sa terminal-features ',tmux*:clipboard'
 
 # Color
