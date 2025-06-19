@@ -51,14 +51,7 @@ local function ai_whichkey(opts)
   ---@type wk.Spec[]
   local ret = { mode = { "o", "x" } }
   ---@type table<string, string>
-  local mappings = vim.tbl_extend("force", {}, {
-    around = "a",
-    inside = "i",
-    around_next = "an",
-    inside_next = "in",
-    around_last = "al",
-    inside_last = "il",
-  }, opts.mappings or {})
+  local mappings = vim.tbl_extend("force", {}, {}, opts.mappings or {})
   mappings.goto_left = nil
   mappings.goto_right = nil
 
@@ -82,6 +75,13 @@ return {
       local ai = require "mini.ai"
       return {
         mappings = {
+          around = "",
+          inside = "",
+          around_next = "",
+          inside_next = "",
+          around_last = "",
+          inside_last = "",
+
           goto_left = "",
           goto_right = "",
         },

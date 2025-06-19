@@ -7,7 +7,7 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
-	"agent": {
+  "agent": {
 		"inline_assistant_model": {
 			"provider": "zed.dev",
 			"model": "claude-sonnet-4-latest"
@@ -75,6 +75,7 @@
 	},
 	"context_servers": {
 		"mcp-server-github": {
+			"source": "extension",
 			"settings": {
 				"github_personal_access_token": "{{ doppler "GITHUB_ACCESS_TOKEN" }}"
 			}
@@ -185,7 +186,7 @@
 			}
 		},
 		"Python": {
-			"language_servers": ["pyrefly", "!pyright", "!pylsp", "ruff"],
+			"language_servers": ["ruff", "!ty", "pyrefly", "!pyright", "!pylsp"],
 			"formatter": [
 				{
 					"code_actions": {
@@ -211,7 +212,6 @@
 					"arguments": ["--filename", "{buffer_path}", "--indent", "2"]
 				}
 			},
-			"hard_tabs": false,
 			"tab_size": 2
 		}
 	},
@@ -294,7 +294,6 @@
 			]
 		}
 	],
-	"tab_size": 2,
 	"tabs": {
 		"file_icons": true,
 		"git_status": false,

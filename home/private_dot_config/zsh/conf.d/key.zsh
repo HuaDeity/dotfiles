@@ -44,6 +44,7 @@ fi
 [[ -n ${key[End]} ]] && bindkey "${key[End]}" end-of-line
 [[ -n ${key[Up]} ]] && bindkey "${key[Up]}" up-line-or-search
 [[ -n ${key[Down]} ]] && bindkey "${key[Down]}" down-line-or-search
+
 [[ -n ${key[Left]} ]] && bindkey "^[${key[Left]}" backward-word
 [[ -n ${key[Right]} ]] && bindkey "^[${key[Right]}" forward-word
 

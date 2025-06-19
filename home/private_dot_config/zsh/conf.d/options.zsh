@@ -1,7 +1,7 @@
 # Set general Zsh options.
-setopt COMBINING_CHARS       # Combine 0-len chars with the base character (eg: accents).
+
 setopt INTERACTIVE_COMMENTS  # Enable comments in interactive shell.
-setopt BEEP
+setopt BEEP                  # Beep on error
 unsetopt MAIL_WARNING        # Don't print a warning message if a mail file has been accessed.
 
 # Set Zsh options related to job control.

@@ -15,14 +15,16 @@ function M.get()
       { "gd", function () vim.lsp.buf.definition() end, desc = "Goto Definition", has = "definition" },
       { "gD", function () vim.lsp.buf.declaration() end, desc = "Goto Declaration", has = "declaration" },
       { "gy", function () vim.lsp.buf.type_definition() end, desc = "Goto T[y]pe Definition", has = "typeDefinition" },
-      { "gh", function () vim.lsp.buf.hover() end, desc = "Hover", has = "hover"},
-      { "grn", function() vim.lsp.buf.rename() end, desc = "Rename", has = "rename" },
-      { "gra", function () vim.lsp.buf.code_action() end, desc = "Code Action", mode = { "n", "x" }, has = "codeAction" },
-      { "grr", function () vim.lsp.buf.references() end, desc = "References", nowait = true, has = "references" },
-      { "gri", function () vim.lsp.buf.implementation() end, desc = "Goto Implementation", has = "implementation" },
-      { "gO", function () vim.lsp.buf.document_symbol() end, desc = "LSP Symbols", has = "documentSymbol" },
+
+      -- zed specific
+      { "cd", function() vim.lsp.buf.rename() end, desc = "Rename", has = "rename" },
+      { "g.", function () vim.lsp.buf.code_action() end, desc = "Code Action", mode = { "n", "x" }, has = "codeAction" },
+      { "<C-x><C-l>", function () vim.lsp.buf.code_action() end, desc = "Code Action", mode = { "i" }, has = "codeAction" },
+      { "gA", function () vim.lsp.buf.references() end, desc = "References", nowait = true, has = "references" },
+
+      { "gI", function () vim.lsp.buf.implementation() end, desc = "Goto Implementation", has = "implementation" },
+      { "gs", function () vim.lsp.buf.document_symbol() end, desc = "LSP Symbols", has = "documentSymbol" },
       { "gS", function () vim.lsp.buf.workspace_symbol() end, desc = "LSP Workspace Symbols", has = "workspace/symbol" },
-      { "<C-s>", function () vim.lsp.buf.signature_help() end, mode = { "i", "s" }, desc = "Signature Help", has = "signatureHelp" },
       -- { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
       -- { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
     }
@@ -64,17 +66,6 @@ function M.setup(client, bufnr)
     end
   end
 
-  -- inlay hints
-  if M.has(client, bufnr, "inlayHint") then
-    if
-      vim.api.nvim_buf_is_valid(bufnr)
-      and vim.bo[bufnr].buftype == ""
-      and not vim.tbl_contains(inlay_hints_excluded, vim.bo[bufnr].filetype)
-    then
-      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr })
-    end
-  end
-
   -- code lens
   if M.has(client, bufnr, "codeLens") then
     -- vim.lsp.codelens.refresh()
@@ -87,6 +78,17 @@ function M.setup(client, bufnr)
   if M.has(client, bufnr, "foldingRange") then
     local win = vim.api.nvim_get_current_win()
     vim.wo[win][0].foldexpr = "v:lua.vim.lsp.foldexpr()"
+  end
+
+  -- inlay hints
+  if M.has(client, bufnr, "inlayHint") then
+    if
+      vim.api.nvim_buf_is_valid(bufnr)
+      and vim.bo[bufnr].buftype == ""
+      and not vim.tbl_contains(inlay_hints_excluded, vim.bo[bufnr].filetype)
+    then
+      vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled { bufnr = bufnr })
+    end
   end
 end
 
