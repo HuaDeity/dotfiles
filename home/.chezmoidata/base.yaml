@@ -31,7 +31,6 @@ packages:
       - "ltex-ls-plus"
       - "lua-language-server"
       - "marksman"
-      - "neovim"
       - "ollama"
       - "rbenv"
       - "ripgrep"

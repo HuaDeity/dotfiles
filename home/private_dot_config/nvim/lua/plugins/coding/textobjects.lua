@@ -34,11 +34,11 @@ local function ai_whichkey(opts)
     { "a", desc = "argument" },
     { "b", desc = "mini parentheses" },
     { "c", desc = "class" },
+    { "d", desc = "digit" },
     { "e", desc = "entire file" },
     { "f", desc = "function" },
     { "g", desc = "comment" },
     { "i", desc = "indent" },
-    { "n", desc = "number" },
     { "o", desc = "block, conditional, loop" },
     { "q", desc = "mini quotes" },
     { "r", desc = "squarebrackets" },
@@ -51,7 +51,7 @@ local function ai_whichkey(opts)
   ---@type wk.Spec[]
   local ret = { mode = { "o", "x" } }
   ---@type table<string, string>
-  local mappings = vim.tbl_extend("force", {}, {}, opts.mappings or {})
+  local mappings = vim.tbl_extend("force", {}, opts.mappings or {})
   mappings.goto_left = nil
   mappings.goto_right = nil
 
@@ -75,8 +75,8 @@ return {
       local ai = require "mini.ai"
       return {
         mappings = {
-          around = "",
-          inside = "",
+          around = "a",
+          inside = "i",
           around_next = "",
           inside_next = "",
           around_last = "",
@@ -89,10 +89,10 @@ return {
         custom_textobjects = {
           ["|"] = ai.gen_spec.pair("|", "|", { type = "non-balanced" }),
           c = ai.gen_spec.treesitter { a = "@class.outer", i = "@class.inner" }, -- class
+          d = { "%f[%d]%d+" }, -- digit
           e = ai_buffer, -- buffer
           f = ai.gen_spec.treesitter { a = "@function.outer", i = "@function.inner" }, -- function
           g = ai.gen_spec.treesitter { a = "@comment.outer", i = "@comment.inner" }, -- comment
-          n = { "%f[%d]%d+" }, -- number
           o = ai.gen_spec.treesitter { -- code block
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
             i = { "@block.inner", "@conditional.inner", "@loop.inner" },

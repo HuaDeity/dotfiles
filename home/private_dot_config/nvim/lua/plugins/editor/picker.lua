@@ -102,12 +102,6 @@ return {
             { "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition", has = "definition" },
             { "gD", function() Snacks.picker.lsp_declarations() end, desc = "Goto Declaration", has = "declaration" },
             { "gy", function() Snacks.picker.lsp_type_definitions() end, desc = "Goto T[y]pe Definition", has = "typeDefinition" },
-            { "grr", function() Snacks.picker.lsp_references() end, desc = "References", nowait = true, has = "references" },
-            { "gri", function() Snacks.picker.lsp_implementations() end, desc = "Goto Implementation", has = "implementation" },
-            { "gO", function() Snacks.picker.lsp_symbols() end, desc = "LSP Symbols", has = "documentSymbol" },
-            { "gS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", has = "workspace/symbols" },
-
-            { "<leader>cl", function() Snacks.picker.lsp_config() end, desc = "Lsp Info" },
           })
         end,
       },

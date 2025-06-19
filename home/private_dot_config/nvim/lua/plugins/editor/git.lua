@@ -2,8 +2,7 @@ return {
   {
     "folke/snacks.nvim",
     keys = function(_, keys)
-      keys = keys or {}
-      vim.list_extend(keys, {
+      local mappings = {
         { "<leader>gy", function() Snacks.gitbrowse() end, desc = "Git Browse (open)", mode = { "n", "x" } },
         {
           "<leader>gY",
@@ -27,7 +26,9 @@ return {
           end,
           desc = "Git Panel",
         },
-      })
+      }
+      mappings = vim.tbl_filter(function(m) return m[1] and #m[1] > 0 end, mappings)
+      return vim.list_extend(mappings, keys)
     end,
   },
   {

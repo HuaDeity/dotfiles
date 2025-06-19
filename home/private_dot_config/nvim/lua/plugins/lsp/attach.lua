@@ -16,15 +16,6 @@ function M.get()
       { "gD", function () vim.lsp.buf.declaration() end, desc = "Goto Declaration", has = "declaration" },
       { "gy", function () vim.lsp.buf.type_definition() end, desc = "Goto T[y]pe Definition", has = "typeDefinition" },
 
-      -- zed specific
-      { "cd", function() vim.lsp.buf.rename() end, desc = "Rename", has = "rename" },
-      { "g.", function () vim.lsp.buf.code_action() end, desc = "Code Action", mode = { "n", "x" }, has = "codeAction" },
-      { "<C-x><C-l>", function () vim.lsp.buf.code_action() end, desc = "Code Action", mode = { "i" }, has = "codeAction" },
-      { "gA", function () vim.lsp.buf.references() end, desc = "References", nowait = true, has = "references" },
-
-      { "gI", function () vim.lsp.buf.implementation() end, desc = "Goto Implementation", has = "implementation" },
-      { "gs", function () vim.lsp.buf.document_symbol() end, desc = "LSP Symbols", has = "documentSymbol" },
-      { "gS", function () vim.lsp.buf.workspace_symbol() end, desc = "LSP Workspace Symbols", has = "workspace/symbol" },
       -- { "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
       -- { "<leader>cC", vim.lsp.codelens.refresh, desc = "Refresh & Display Codelens", mode = { "n" }, has = "codeLens" },
     }

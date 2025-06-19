@@ -25,10 +25,7 @@
   outputs =
     {
       self,
-      darwin,
-      home-manager,
-      index-database,
-      nixpkgs,
+      ...
     }@inputs:
     let
       linuxSystems = [
@@ -38,11 +35,11 @@
       darwinSystems = [
         "aarch64-darwin"
       ];
-      forAllSystems = f: nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
+      forAllSystems = f: inputs.nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
       devShell =
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
         {
           default =
@@ -61,28 +58,28 @@
     {
       devShells = forAllSystems devShell;
 
-      darwinConfigurations = nixpkgs.lib.genAttrs darwinSystems (
+      darwinConfigurations = inputs.nixpkgs.lib.genAttrs darwinSystems (
         system:
-        darwin.lib.darwinSystem {
+        inputs.darwin.lib.darwinSystem {
           inherit system;
           specialArgs = inputs;
           modules = [
-            home-manager.darwinModules.home-manager
+            inputs.home-manager.darwinModules.home-manager
             ./hosts/darwin
           ];
         }
       );
 
-      homeConfigurations = nixpkgs.lib.genAttrs linuxSystems (
+      homeConfigurations = inputs.nixpkgs.lib.genAttrs linuxSystems (
         system:
         let
-          pkgs = nixpkgs.legacyPackages.${system};
+          pkgs = inputs.nixpkgs.legacyPackages.${system};
         in
-        home-manager.lib.homeManagerConfiguration {
+        inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = inputs;
           modules = [
-            index-database.hmModules.nix-index
+            inputs.index-database.hmModules.nix-index
             ./hosts/linux
           ];
         }
