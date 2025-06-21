@@ -157,10 +157,11 @@ vim.o.winborder = "rounded"
 
 -- fold
 vim.o.foldmethod = "expr"
-vim.wo.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99
+vim.o.foldcolumn = "auto"
 
 -- omni
-vim.bo.omnifunc = "v:lua.vim.treesitter.query.omnifunc"
+vim.o.omnifunc = "v:lua.vim.treesitter.query.omnifunc"
 
 vim.opt.display:append { "truncate" }

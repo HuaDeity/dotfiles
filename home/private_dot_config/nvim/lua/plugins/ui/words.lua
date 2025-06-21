@@ -30,7 +30,7 @@ return {
         "lsp",
         "treesitter",
       },
-      -- delay = 200,
+      delay = 75,
       -- large_file_cutoff = 2000,
       -- large_file_overrides = {
       --   providers = { "lsp" },

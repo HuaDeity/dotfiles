@@ -57,11 +57,13 @@ local function ai_whichkey(opts)
 
   for name, prefix in pairs(mappings) do
     name = name:gsub("^around_", ""):gsub("^inside_", "")
-    ret[#ret + 1] = { prefix, group = name }
-    for _, obj in ipairs(objects) do
-      local desc = obj.desc
-      if prefix:sub(1, 1) == "i" then desc = desc:gsub(" with ws", "") end
-      ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
+    if prefix ~= "" then
+      ret[#ret + 1] = { prefix, group = name }
+      for _, obj in ipairs(objects) do
+        local desc = obj.desc
+        if prefix:sub(1, 1) == "i" then desc = desc:gsub(" with ws", "") end
+        ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
+      end
     end
   end
   require("which-key").add(ret, { notify = false })

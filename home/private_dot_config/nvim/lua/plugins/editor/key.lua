@@ -47,8 +47,6 @@ return {
           },
           -- better descriptions
           { "gx", desc = "Open with system app" },
-          { "K", desc = "Keyword Program" },
-          { "gh", "K", desc = "Keyword Program", remap = true },
         },
       },
     },

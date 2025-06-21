@@ -36,6 +36,8 @@ vim.api.nvim_create_autocmd("User", {
       "desc",
       "vscode",
     })
+
+    io.write "\x1b[>1s"
   end,
 })
 

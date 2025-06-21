@@ -7,309 +7,308 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
+  },
+  "icon_theme": {
+    "mode": "system",
+    "light": "Catppuccin Latte",
+    "dark": "Catppuccin Mocha"
+  },
+  "buffer_font_family": "Monaspace Neon Var",
+  "buffer_font_fallbacks": ["Monaspace Neon"],
+  "buffer_font_features": {
+    "calt": true,
+    "liga": true,
+    "ss01": true,
+    "ss02": true,
+    "ss03": true,
+    "cv01": 2
+  },
+  "buffer_font_size": 13,
+  "pane_split_direction_horizontal": "down",
+  "pane_split_direction_vertical": "right",
+  "vim_mode": true,
+  "auto_signature_help": true,
+  "title_bar": {
+    "show_branch_icon": true
+  },
+  "minimap": {
+    "show": "auto",
+    "thumb": "hover",
+    "thumb_border": "none"
+  },
+  "indent_guides": {
+    "coloring": "indent_aware"
+    // "background_coloring": "indent_aware"
+  },
+  "vertical_scroll_margin": 1,
+  "autoscroll_on_clicks": true,
+  "horizontal_scroll_margin": 2,
+  "use_smartcase_search": true,
+  "inlay_hints": {
+    "enabled": true
+  },
   "agent": {
-		"inline_assistant_model": {
-			"provider": "zed.dev",
-			"model": "claude-sonnet-4-latest"
-		},
-		"always_allow_tool_actions": true,
-		"default_profile": "write",
-		"default_model": {
-			"provider": "zed.dev",
-			"model": "claude-sonnet-4-latest"
-		},
-		"version": "2"
-	},
-	"auto_install_extensions": {
-		"basher": true,
-		"biome": true,
-		"catppuccin": true,
-		"catppuccin-icons": true,
-		"docker-compose": true,
-		"dockerfile": true,
-		"env": true,
-		"fish": true,
-		"git-firefly": true,
-		"html": true,
-		"just": true,
-		"latex": true,
-		"log": true,
-		"ltex": true,
-		"lua": true,
-		"pyrefly": true,
-		"python-requirements-and-constraints": true,
-		"nix": true,
-		"perplexity": true,
-		"rainbow-csv": true,
-		"ruby": true,
-		"ruff": true,
-		"snippets": true,
-		"swift": true,
-		"toml": true,
-		"ty": true,
-		"tree-sitter-query": true,
-		"wakatime": true,
-		"xml": true,
-		"zig": true
-	},
-	"autosave": {
-		"after_delay": {
-			"milliseconds": 1000
-		}
-	},
-	"buffer_font_fallbacks": ["Monaspace Neon"],
-	"buffer_font_family": "Monaspace Neon Var",
-	"buffer_font_features": {
-		"calt": true,
-		"liga": true,
-		"ss01": true,
-		"ss02": true,
-		"ss03": true,
-		"cv01": 2
-	},
-	"buffer_font_size": 13,
-	"diagnostics": {
-		"inline": {
-			"enabled": true
-		}
-	},
-	"context_servers": {
-		"mcp-server-github": {
-			"source": "extension",
-			"settings": {
-				"github_personal_access_token": "{{ doppler "GITHUB_ACCESS_TOKEN" }}"
-			}
-		}
-	},
-	"edit_predictions": {
-		"mode": "subtle",
-		"copilot": {
-			"proxy": null,
-			"proxy_no_verify": null
-		},
-		"enabled_in_text_threads": false
-	},
-	"features": {
-		"edit_prediction_provider": "zed"
-	},
-	"file_types": {
-		"TOML": ["tmpl"]
-	},
-	"git": {
-		"inline_blame": {
-			"enabled": true,
-			"show_commit_summary": true
-		}
-	},
-	"icon_theme": {
-		"mode": "system",
-		"light": "Catppuccin Latte",
-		"dark": "Catppuccin Mocha"
-	},
-	"indent_guides": {
-		"coloring": "indent_aware",
-		// "background_coloring": "indent_aware"
-	},
-	"language_models": {
-		"openai": {
-			"version": "1",
-			"api_url": "https://openrouter.ai/api/v1"
-		}
-	},
-	"languages": {
-		"fish": {
-			"formatter": {
-				"external": {
-					"command": "fish_indent"
-				}
-			}
-		},
-		"JSON": {
-			"formatter": [
-				{
-					"code_actions": {
-						"source.fixAll.biome": true,
-						"source.organizeImports.biome": true
-					}
-				},
-				{
-					"language_server": {
-						"name": "biome"
-					}
-				}
-			]
-		},
-		"JSONC": {
-			"formatter": [
-				{
-					"code_actions": {
-						"source.fixAll.biome": true,
-						"source.organizeImports.biome": true
-					}
-				},
-				{
-					"language_server": {
-						"name": "biome"
-					}
-				}
-			]
-		},
-		"Lua": {
-			"formatter": {
-				"external": {
-					"command": "stylua",
-					"arguments": [
-						"--respect-ignores",
-						"--stdin-filepath",
-						"{buffer_path}",
-						"-"
-					]
-				}
-			},
-			"inlay_hints": {
-				"enabled": true,
-				"show_type_hints": true,
-				"show_parameter_hints": true,
-				"show_other_hints": true
-			}
-		},
-		"Markdown": {
-			"language_servers": ["marksman"]
-		},
-		"Nix": {
-			"language_servers": ["nixd", "!nil"],
-			"formatter": {
-				"external": {
-					"command": "nixfmt",
-					"arguments": ["--quiet", "--"]
-				}
-			}
-		},
-		"Python": {
-			"language_servers": ["ruff", "!ty", "pyrefly", "!pyright", "!pylsp"],
-			"formatter": [
-				{
-					"code_actions": {
-						"source.fixAll.ruff": true,
-						"source.organizeImports.ruff": true
-					}
-				},
-				{
-					"language_server": {
-						"name": "ruff"
-					}
-				}
-			]
-		},
-		"Ruby": {
-			"language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
-		},
-		"Shell Script": {
-			"formatter": {
-				"external": {
-					"command": "shfmt",
-					// Change `--indent 2` to match your preferred tab_size
-					"arguments": ["--filename", "{buffer_path}", "--indent", "2"]
-				}
-			},
-			"tab_size": 2
-		}
-	},
-	"load_direnv": "shell_hook",
-	"lsp": {
-		// "biome": {
-		//   "settings": {
-		//     "require_config_file": true
-		//   }
-		// },
-		"rubocop": {
-			"initialization_options": {
-				"safeAutocorrect": false
-			},
-			"settings": {
-				"use_bundler": false
-			}
-		},
-		"ruby-lsp": {
-			"initialization_options": {
-				"enabledFeatures": {
-					// This disables diagnostics
-					"diagnostics": false
-				}
-			},
-			"settings": {
-				"use_bundler": false
-			}
-		},
-		"rust-analyzer": {
-			"check": {
-				"command": "clippy"
-			},
-			"initialization_options": {
-				"inlayHints": {
-					"maxLength": null,
-					"lifetimeElisionHints": {
-						"enable": "skip_trivial",
-						"useParameterNames": true
-					},
-					"closureReturnTypeHints": {
-						"enable": "always"
-					}
-				},
-				"rust": {
-					"analyzerTargetDir": true
-				}
-			}
-		},
-		"yaml-language-server": {
-			"settings": {
-				"yaml": {
-					"keyOrdering": false
-				}
-			}
-		}
-	},
-	"minimap": {
-		"show": "auto",
-		"thumb": "hover",
-		"thumb_border": "none",
-		"current_line_highlight": "all"
-	},
-	"ssh_connections": [
-		{
-			"host": "10357",
-			"projects": [
-				{
-					"paths": ["~/Projects/ViS2O"]
-				}
-			],
-			"upload_binary_over_ssh": true
-		},
-		{
-			"host": "10358",
-			"projects": [
-				{
-					"paths": ["~/projects/FTFDrag"]
-				}
-			]
-		}
-	],
-	"tabs": {
-		"file_icons": true,
-		"git_status": false,
-		"show_diagnostics": "all"
-	},
-	"terminal": {
-		"alternate_scroll": "on"
-	},
-	"theme": {
-		"mode": "system",
-		"light": "Catppuccin Latte",
-		"dark": "Catppuccin Mocha"
-	},
-	"ui_font_size": 16,
-	"vim": {
-		"toggle_relative_line_numbers": true
-	},
-	"vim_mode": true
+    "version": "2",
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "claude-sonnet-4"
+    },
+    "always_allow_tool_actions": true
+  },
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000
+    }
+  },
+  "tabs": {
+    "git_status": false,
+    "file_icons": true,
+    "show_diagnostics": "all"
+  },
+  "diagnostics": {
+    "inline": {
+      "enabled": true
+    }
+  },
+  "git": {
+    "inline_blame": {
+      "show_commit_summary": true
+    }
+  },
+  "load_direnv": "shell_hook",
+  "edit_predictions": {
+    "mode": "subtle"
+  },
+  "terminal": {
+    "option_as_meta": true,
+    "copy_on_select": true
+  },
+  "file_types": {
+    "TOML": ["tmpl"]
+  },
+  "auto_install_extensions": {
+    "basher": true,
+    "biome": true,
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "docker-compose": true,
+    "dockerfile": true,
+    "env": true,
+    "fish": true,
+    "git-firefly": true,
+    "html": true,
+    "just": true,
+    "latex": true,
+    "log": true,
+    "ltex": true,
+    "lua": true,
+    "pyrefly": true,
+    "python-requirements-and-constraints": true,
+    "nix": true,
+    "perplexity": true,
+    "rainbow-csv": true,
+    "ruby": true,
+    "ruff": true,
+    "snippets": true,
+    "swift": true,
+    "toml": true,
+    "ty": true,
+    "tree-sitter-query": true,
+    "wakatime": true,
+    "xml": true,
+    "zig": true
+  },
+  "languages": {
+    "fish": {
+      "formatter": {
+        "external": {
+          "command": "fish_indent"
+        }
+      }
+    },
+    "JSON": {
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "code_actions": {
+            "source.fixAll.biome": true,
+            "source.organizeImports.biome": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
+        }
+      ]
+    },
+    "JSONC": {
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": [
+        {
+          "code_actions": {
+            "source.fixAll.biome": true,
+            "source.organizeImports.biome": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
+        }
+      ]
+    },
+    "Lua": {
+      "formatter": {
+        "external": {
+          "command": "stylua",
+          "arguments": [
+            "--respect-ignores",
+            "--stdin-filepath",
+            "{buffer_path}",
+            "-"
+          ]
+        }
+      }
+    },
+    "Markdown": {
+      "language_servers": ["marksman"]
+    },
+    "Nix": {
+      "language_servers": ["nixd", "!nil"],
+      "formatter": {
+        "external": {
+          "command": "nixfmt",
+          "arguments": ["--quiet", "--"]
+        }
+      }
+    },
+    "Python": {
+      "language_servers": ["ruff", "!ty", "pyrefly", "!pyright", "!pylsp"],
+      "formatter": [
+        {
+          "code_actions": {
+            "source.fixAll.ruff": true,
+            "source.organizeImports.ruff": true
+          }
+        },
+        {
+          "language_server": {
+            "name": "ruff"
+          }
+        }
+      ]
+    },
+    "Ruby": {
+      "language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
+    },
+    "Shell Script": {
+      "formatter": {
+        "external": {
+          "command": "shfmt",
+          // Change `--indent 2` to match your preferred tab_size
+          "arguments": ["--filename", "{buffer_path}", "--indent", "2"]
+        }
+      },
+      "tab_size": 2
+    }
+  },
+  "language_models": {
+    "openai": {
+      "version": "1",
+      "api_url": "https://openrouter.ai/api/v1"
+    }
+  },
+  "lsp": {
+    // "biome": {
+    //   "settings": {
+    //     "require_config_file": true
+    //   }
+    // },
+    "rubocop": {
+      "initialization_options": {
+        "safeAutocorrect": false
+      },
+      "settings": {
+        "use_bundler": false
+      }
+    },
+    "ruby-lsp": {
+      "initialization_options": {
+        "enabledFeatures": {
+          // This disables diagnostics
+          "diagnostics": false
+        }
+      },
+      "settings": {
+        "use_bundler": false
+      }
+    },
+    "rust-analyzer": {
+      "check": {
+        "command": "clippy"
+      },
+      "initialization_options": {
+        "inlayHints": {
+          "maxLength": null,
+          "lifetimeElisionHints": {
+            "enable": "skip_trivial",
+            "useParameterNames": true
+          },
+          "closureReturnTypeHints": {
+            "enable": "always"
+          }
+        },
+        "rust": {
+          "analyzerTargetDir": true
+        }
+      }
+    },
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "keyOrdering": false
+        }
+      }
+    }
+  },
+  "vim": {
+    "toggle_relative_line_numbers": true,
+    "use_smartcase_find": true
+  },
+  "ssh_connections": [
+    {
+      "host": "10357",
+      "projects": [
+        {
+          "paths": ["~/Projects/ViS2O"]
+        }
+      ],
+      "upload_binary_over_ssh": true
+    },
+    {
+      "host": "10358",
+      "projects": [
+        {
+          "paths": ["~/projects/FTFDrag"]
+        }
+      ]
+    }
+  ],
+  "context_servers": {
+    "mcp-server-github": {
+      "source": "extension",
+      "settings": {
+        "github_personal_access_token": "{{ doppler "GITHUB_ACCESS_TOKEN" }}"
+      }
+    }
+  }
 }

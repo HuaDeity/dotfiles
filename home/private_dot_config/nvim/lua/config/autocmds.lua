@@ -118,3 +118,11 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
   pattern = "**/zed/*.json",
   command = "set filetype=jsonc",
 })
+
+-- Send XTSHIFTESCAPE to the parent terminal on startup and reset on exit
+-- Disable on exit (restores default behavior)
+vim.api.nvim_create_autocmd("VimLeave", {
+  group = augroup "leave_xtshiftescape",
+  pattern = "*",
+  callback = function() io.write "\x1b[>0s" end,
+})
