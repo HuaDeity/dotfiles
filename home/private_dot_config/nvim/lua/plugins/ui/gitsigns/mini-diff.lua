@@ -28,6 +28,10 @@ return {
       },
       view = {
         style = "sign",
+        signs = {
+          add = ViM.config.icons.git.add,
+          delete = ViM.config.icons.git.delete,
+        },
       },
     },
     specs = {
@@ -61,6 +65,7 @@ return {
             },
           })
         end,
+        config = function() end,
       },
       {
         "echasnovski/mini.map",

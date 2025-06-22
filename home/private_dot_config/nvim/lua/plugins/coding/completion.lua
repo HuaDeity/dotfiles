@@ -150,7 +150,7 @@ return {
       signature = { enabled = true },
 
       sources = {
-        default = { "lsp", "path", "snippets", "buffer", "omni" },
+        default = { "lsp", "path", "snippets", "buffer" },
         providers = {
           cmdline = {
             min_keyword_length = function(ctx)

@@ -6,7 +6,14 @@ local M = {}
 ViM.config = M
 
 ---@class ViMOptions
-local options = {}
+local options = {
+  icons = {
+    git = {
+      add = "▊",
+      delete = "",
+    },
+  },
+}
 
 ---@param name "autocmds" | "keymaps"
 function M.load(name)

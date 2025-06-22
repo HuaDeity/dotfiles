@@ -10,8 +10,8 @@ return {
   {
     "luukvbaal/statuscol.nvim",
     lazy = false,
+    opts_extend = { "ft_ignore" },
     opts = {
-      ft_ignore = { "neominimap" },
       relculright = true,
       clickhandlers = {
         MiniDiffViz = function(args)

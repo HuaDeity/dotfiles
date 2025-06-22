@@ -3,6 +3,23 @@ return {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPost", "BufNewFile", "BufWritePre" },
     opts = {
+      signs = {
+        add = { text = ViM.config.icons.git.add },
+        change = { text = ViM.config.icons.git.add },
+        delete = { text = ViM.config.icons.git.delete },
+        topdelete = { text = ViM.config.icons.git.delete },
+        changedelete = { text = ViM.config.icons.git.add },
+        untracked = { text = ViM.config.icons.git.add },
+      },
+      signs_staged = {
+        add = { text = ViM.config.icons.git.add },
+        change = { text = ViM.config.icons.git.add },
+        delete = { text = ViM.config.icons.git.delete },
+        topdelete = { text = ViM.config.icons.git.delete },
+        changedelete = { text = ViM.config.icons.git.add },
+        untracked = { text = ViM.config.icons.git.add },
+      },
+      attach_to_untracked = false,
       current_line_blame = true,
       on_attach = function(buffer)
         local gs = package.loaded.gitsigns

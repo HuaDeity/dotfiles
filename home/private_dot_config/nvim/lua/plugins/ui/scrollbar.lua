@@ -34,6 +34,7 @@ return {
           local plugin = ViM.get_plugin "todo-comments.nvim"
           if not plugin then return {} end
           local ns_id = vim.api.nvim_get_namespaces()["todo-comments"]
+          if not ns_id or type(ns_id) ~= "number" then return {} end
           local extmarks = vim.api.nvim_buf_get_extmarks(bufnr, ns_id, 0, -1, {
             details = true,
           })
@@ -236,13 +237,8 @@ return {
       --- Put your configuration here
       ---@type Neominimap.UserConfig
       vim.g.neominimap = {
-        auto_enable = true,
-
         click = {
-          -- Enable mouse click on the minimap
-          enabled = true, ---@type boolean
-          -- Automatically switch focus to the minimap when clicked
-          auto_switch_focus = true, ---@type boolean
+          enabled = true,
         },
 
         buffer = {
@@ -264,7 +260,6 @@ return {
 
         diagnostic = {
           use_event_diagnostics = true, ---@type boolean
-          mode = "line", ---@type Neominimap.Handler.Annotation.Mode
         },
 
         mark = {
@@ -309,6 +304,14 @@ return {
           vim.list_extend(opts.extensions, { minimap_extension })
           return opts
         end,
+      },
+      {
+
+        "luukvbaal/statuscol.nvim",
+        optional = true,
+        opts = {
+          ft_ignore = { "neominimap" },
+        },
       },
     },
   },

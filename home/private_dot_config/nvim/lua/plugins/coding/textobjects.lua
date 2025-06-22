@@ -1,17 +1,3 @@
-local function ai_buffer(ai_type)
-  local start_line, end_line = 1, vim.fn.line "$"
-  if ai_type == "i" then
-    -- Skip first and last blank lines for `i` textobject
-    local first_nonblank, last_nonblank = vim.fn.nextnonblank(start_line), vim.fn.prevnonblank(end_line)
-    -- Do nothing for buffer with all blanks
-    if first_nonblank == 0 or last_nonblank == 0 then return { from = { line = start_line, col = 1 } } end
-    start_line, end_line = first_nonblank, last_nonblank
-  end
-
-  local to_col = math.max(vim.fn.getline(end_line):len(), 1)
-  return { from = { line = start_line, col = 1 }, to = { line = end_line, col = to_col } }
-end
-
 --register all text objects with which-key
 ---@param opts table
 local function ai_whichkey(opts)
@@ -32,20 +18,20 @@ local function ai_whichkey(opts)
     { "_", desc = "underscore" },
     { "|", desc = "vertical bars" },
     { "a", desc = "argument" },
+    { "A", desc = "argument(treesitter)" },
     { "b", desc = "mini parentheses" },
     { "c", desc = "class" },
-    { "d", desc = "digit" },
     { "e", desc = "entire file" },
     { "f", desc = "function" },
+    { "F", desc = "function(treesitter)" },
     { "g", desc = "comment" },
     { "i", desc = "indent" },
+    { "N", desc = "number" },
     { "o", desc = "block, conditional, loop" },
     { "q", desc = "mini quotes" },
     { "r", desc = "squarebrackets" },
     { "t", desc = "tag" },
     { "u", desc = "subword" },
-    { "A", desc = "argument(treesitter)" },
-    { "F", desc = "function(treesitter)" },
   }
 
   ---@type wk.Spec[]
@@ -72,9 +58,13 @@ end
 return {
   {
     "echasnovski/mini.ai",
+    dependencies = {
+      { "echasnovski/mini.extra", opts = {} },
+    },
     event = "VeryLazy",
     opts = function()
       local ai = require "mini.ai"
+      local gen_ai_spec = require("mini.extra").gen_ai_spec
       return {
         mappings = {
           around = "a",
@@ -90,11 +80,13 @@ return {
         n_lines = 500,
         custom_textobjects = {
           ["|"] = ai.gen_spec.pair("|", "|", { type = "non-balanced" }),
+          A = ai.gen_spec.treesitter { a = "@parameter.outer", i = "@parameter.inner" }, --arguments
           c = ai.gen_spec.treesitter { a = "@class.outer", i = "@class.inner" }, -- class
-          d = { "%f[%d]%d+" }, -- digit
-          e = ai_buffer, -- buffer
+          e = gen_ai_spec.buffer(), -- buffer
           f = ai.gen_spec.treesitter { a = "@function.outer", i = "@function.inner" }, -- function
+          F = ai.gen_spec.function_call(), -- function
           g = ai.gen_spec.treesitter { a = "@comment.outer", i = "@comment.inner" }, -- comment
+          N = gen_ai_spec.number(),
           o = ai.gen_spec.treesitter { -- code block
             a = { "@block.outer", "@conditional.outer", "@loop.outer" },
             i = { "@block.inner", "@conditional.inner", "@loop.inner" },
@@ -105,9 +97,6 @@ return {
             { "%u[%l%d]+%f[^%l%d]", "%f[%S][%l%d]+%f[^%l%d]", "%f[%P][%l%d]+%f[^%l%d]", "^[%l%d]+%f[^%l%d]" },
             "^().*()$",
           },
-
-          A = ai.gen_spec.treesitter { a = "@parameter.outer", i = "@parameter.inner" }, --arguments
-          F = ai.gen_spec.function_call(), -- function
         },
       }
     end,
