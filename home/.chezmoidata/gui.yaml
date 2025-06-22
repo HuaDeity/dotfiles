@@ -1,7 +1,6 @@
 packages:
   gui:
     darwin:
-      - "airbuddy"
       - "aldente"
       - "apparency"
       - "archaeology"
@@ -11,7 +10,6 @@ packages:
       - "chatgpt"
       - "chatwise"
       - "cleanshot"
-      - "copilot-for-xcode"
       - "downie"
       - "festivitas"
       - "font-monaspace"
@@ -20,14 +18,11 @@ packages:
       - "ia-markdown-dictionary"
       - "ia-presenter"
       - "istat-menus"
-      - "jordanbaird-ice"
       - "kaleidoscope"
       - "keka@beta"
       - "kekaexternalhelper"
-      - "keyclu"
       - "macupdater"
       - "marked"
-      - "notchnook"
       - "orbstack"
       - "orion"
       - "pearcleaner"
