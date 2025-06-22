@@ -3,6 +3,4 @@ if command -q fzf
     if test -f "$theme_file"
         source "$theme_file"
     end
-    # Set up fzf key bindings
-    fzf --fish | source
 end
