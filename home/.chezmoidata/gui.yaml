@@ -22,7 +22,7 @@ packages:
       - "keka@beta"
       - "kekaexternalhelper"
       - "macupdater"
-      - "marked"
+      - "marked-app"
       - "orbstack"
       - "orion"
       - "pearcleaner"

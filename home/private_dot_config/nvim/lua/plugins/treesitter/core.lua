@@ -8,6 +8,7 @@ return {
     cmd = { "TSUpdate", "TSInstall" },
     opts = {
       ensure_installed = { "dotenv", "log", "printf", "regex", "ssh_config" },
+      disabled_filetypes = {},
     },
     ---@param opts TSConfig | {ensure_installed: string[], disabled_filetypes: string[]}
     config = function(_, opts)

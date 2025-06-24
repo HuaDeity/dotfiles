@@ -22,6 +22,8 @@ return {
     dependencies = {
       "rafamadriz/friendly-snippets",
       "xzbdmw/colorful-menu.nvim",
+      "echasnovski/mini.icons",
+      "brenoprata10/nvim-highlight-colors",
     },
     --- @module 'blink.cmp'
     --- @type blink.cmp.Config

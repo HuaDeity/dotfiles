@@ -25,7 +25,6 @@ return {
         get_element_icon = function(element) return MiniIcons.get("filetype", element.filetype) end,
         hover = {
           enabled = true,
-          delay = 200,
           reveal = { "close" },
         },
       },

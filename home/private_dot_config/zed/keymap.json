@@ -52,12 +52,9 @@
 		}
 	},
 	{
-		"context": "vim_operator == d",
+		"context": "ProjectPanel && not_editing",
 		"bindings": {
-			"o": null,
-			"shift-o": null,
-			"u": null,
-			"shift-u": null
+			"enter": "project_panel::Rename"
 		}
 	}
 ]

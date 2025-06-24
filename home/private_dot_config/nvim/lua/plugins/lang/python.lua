@@ -1,16 +1,37 @@
 -- lsp
--- vim.lsp.config("ty", {
---   settings = {
---     experimental = {
---       completions = {
---         enable = true,
---       },
---     },
---   },
--- })
--- vim.lsp.enable "ty"
-vim.lsp.enable "pyrefly"
--- vim.lsp.enable "basedpyright"
+vim.lsp.config("basedpyright", {
+  settings = {
+    basedpyright = {
+      disableOrganizeImports = true,
+      analysis = {
+        typeCheckingMode = "off",
+      },
+    },
+  },
+})
+vim.lsp.config("pyrefly", {
+  settings = {
+    python = {
+      pyrefly = {
+        disableTypeErrors = true,
+      },
+    },
+  },
+})
+vim.lsp.config("ty", {
+  init_options = {
+    settings = {
+      python = {
+        ty = {
+          disableLanguageServices = true,
+        },
+      },
+    },
+  },
+})
+
+vim.lsp.enable { "basedpyright", "ty" }
+-- vim.lsp.enable { "pyrefly", "ty" }
 
 vim.api.nvim_create_autocmd("LspAttach", {
   group = vim.api.nvim_create_augroup("lsp_attach_disable_ruff_hover", { clear = true }),

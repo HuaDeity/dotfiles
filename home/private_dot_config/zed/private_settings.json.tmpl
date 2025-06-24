@@ -79,18 +79,30 @@
       "show_commit_summary": true
     }
   },
-  "load_direnv": "shell_hook",
   "edit_predictions": {
     "mode": "subtle"
   },
   "terminal": {
     "option_as_meta": true,
-    "copy_on_select": true
+    "copy_on_select": true,
+    "detect_venv": {
+      "on": {
+        "activate_script": "fish"
+      }
+    }
   },
   "file_types": {
+    "Python constraints": [
+      "*constraints*.txt"
+    ],
+    "Python requirements": [
+      "**/requirements/*.{in,txt}",
+      "*requirements*.{in,txt}"
+    ],
     "TOML": ["tmpl"]
   },
   "auto_install_extensions": {
+    "basedpyright": true,
     "basher": true,
     "biome": true,
     "catppuccin": true,
@@ -107,7 +119,7 @@
     "ltex": true,
     "lua": true,
     "pyrefly": true,
-    "python-requirements-and-constraints": true,
+    "python-requirements": true,
     "nix": true,
     "perplexity": true,
     "rainbow-csv": true,
@@ -192,7 +204,7 @@
       }
     },
     "Python": {
-      "language_servers": ["ruff", "!ty", "pyrefly", "!pyright", "!pylsp"],
+      "language_servers": ["basedpyright", "!pyrefly", "ty", "ruff"],
       "formatter": [
         {
           "code_actions": {
@@ -205,7 +217,7 @@
             "name": "ruff"
           }
         }
-      ]
+      ],
     },
     "Ruby": {
       "language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
@@ -228,11 +240,28 @@
     }
   },
   "lsp": {
+    "basedpyright": {
+      "settings": {
+        "basedpyright.analysis": {
+          "typeCheckingMode": "off",
+        },
+        "basedpyright.disableOrganizeImports": true,
+      },
+    },
     // "biome": {
     //   "settings": {
     //     "require_config_file": true
     //   }
     // },
+    "pyrefly": {
+      "settings": {
+        "python": {
+          "pyrefly": {
+            "disableTypeErrors": true,
+          },
+        }
+      }
+    },
     "rubocop": {
       "initialization_options": {
         "safeAutocorrect": false
@@ -271,6 +300,21 @@
           "analyzerTargetDir": true
         }
       }
+    },
+    "ty": {
+      "binary": {
+        "path": "ty",
+        "arguments": ["server"]
+      },
+      "initialization_options": {
+        "settings": {
+          "python": {
+            "ty": {
+              "disableLanguageServices": true,
+            },
+          },
+        },
+      },
     },
     "yaml-language-server": {
       "settings": {
