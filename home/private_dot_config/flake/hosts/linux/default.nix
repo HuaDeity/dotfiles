@@ -1,8 +1,8 @@
-{ inputs, ... }:
+{ neovim-nightly-overlay, ... }:
 
 let
   overlays = [
-    inputs.neovim-nightly-overlay.overlays.default
+    neovim-nightly-overlay.overlays.default
   ];
 in
 

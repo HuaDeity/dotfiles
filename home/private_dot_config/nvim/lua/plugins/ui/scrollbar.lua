@@ -258,10 +258,6 @@ return {
           persist = false,
         },
 
-        diagnostic = {
-          use_event_diagnostics = true, ---@type boolean
-        },
-
         mark = {
           enabled = true,
           show_builtins = true,
