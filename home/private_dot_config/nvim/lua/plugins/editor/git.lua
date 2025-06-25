@@ -1,3 +1,11 @@
+-- if ViM.get_plugin "neogit" then
+--   require("neogit").open()
+-- elseif vim.fn.executable "gitui" == 1 then
+--   local colorscheme = vim.g.colors_name
+--   Snacks.terminal { "gitui", "-t", colorscheme .. ".ron" }
+-- elseif vim.fn.executable "lazygit" == 1 then
+--   Snacks.lazygit()
+-- end
 return {
   {
     "folke/snacks.nvim",
@@ -15,14 +23,8 @@ return {
         {
           "<leader>gg",
           function()
-            if ViM.get_plugin "neogit" then
-              require("neogit").open()
-            elseif vim.fn.executable "gitui" == 1 then
-              local colorscheme = vim.g.colors_name
-              Snacks.terminal { "gitui", "-t", colorscheme .. ".ron" }
-            elseif vim.fn.executable "lazygit" == 1 then
-              Snacks.lazygit()
-            end
+            require("neogit").open()
+            -- Snacks.lazygit()
           end,
           desc = "Git Panel",
         },
