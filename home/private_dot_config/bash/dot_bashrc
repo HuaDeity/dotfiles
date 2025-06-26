@@ -29,10 +29,5 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 				[ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ] && exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" $LOGIN_OPTION
 			fi
 		fi
-	else
-		# Non-interactive shell: source PATH from fish if available
-		if [ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ]; then
-			export PATH=$("$NIX_PROFILE_BIN_DIR/$IA_SHELL" -c 'string join ":" $PATH')
-		fi
 	fi
 fi
