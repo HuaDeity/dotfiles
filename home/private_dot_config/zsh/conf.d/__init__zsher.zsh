@@ -1,4 +1,8 @@
 # Setup antidote.
+zstyle ':antidote:bundle' use-friendly-names yes
+zstyle ':antidote:plugin:*' defer-options '-p'
+zstyle ':antidote:*' zcompile yes
+
 export ANTIDOTE_HOME=${ANTIDOTE_HOME:-${XDG_CACHE_HOME:-$HOME/.cache}/repos}
 antidote_path=$ANTIDOTE_HOME/mattmc3/antidote
 

@@ -2,8 +2,8 @@
 
 local config_file="$1"
 local pattern="${2:-latte|mocha}"
-[[ -z "$flavor" ]] && local flavor="mocha"  # Ensure flavor is set, default to mocha if not
-local replacement="${3:-$flavor}"
+[[ -z "$LC_FLAVOR" ]] && local LC_FLAVOR="mocha"  # Ensure flavor is set, default to mocha if not
+local replacement="${3:-$LC_FLAVOR}"
 if [ -f "$config_file" ]; then
 	if [[ "$OSTYPE" == darwin* ]]; then
 		sed -i '' -E "s/$pattern/$replacement/g" "$config_file"

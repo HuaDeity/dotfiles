@@ -1,0 +1,41 @@
+# if command -q atuin
+#     update_config_flavor "$XDG_CONFIG_HOME/atuin/config.toml"
+#     atuin init fish | source
+# end
+
+if command -q batman
+    batman --export-env | source
+end
+
+if command -q batpipe
+    batpipe | source
+end
+
+set -gx DIRENV_LOG_FORMAT (set_color --dim)"direnv: %s"(set_color normal)
+
+switch (uname -s)
+    case Darwin
+        test -f ~/.orbstack/shell/init2.fish && source ~/.orbstack/shell/init2.fish
+end
+
+if command -q rbenv
+    status is-interactive; and rbenv init - --no-rehash fish | source
+end
+
+# if command -q starship
+#     update_config_flavor "$XDG_CONFIG_HOME/starship.toml" 'palette = .*$' "palette = \"catppuccin_$flavor\""
+#     function starship_transient_prompt_func
+#         starship module character
+#     end
+#     function starship_transient_rprompt_func
+#         starship module time
+#     end
+#     starship init fish | source
+#     enable_transience
+# end
+
+fish_add_path $VOLTA_HOME/bin
+
+if command -q zoxide
+    zoxide init fish | source
+end

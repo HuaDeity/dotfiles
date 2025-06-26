@@ -51,6 +51,9 @@ set -q SCREENRC; or set -gx SCREENRC $XDG_CONFIG_HOME/screen/screenrc
 # sqlite
 set -q SQLITE_HISTORY; or set -gx SQLITE_HISTORY $XDG_STATE_HOME/sqlite_history
 
+# volta
+set -q VOLTA_HOME; or set -Ux VOLTA_HOME $XDG_DATA_HOME/volta
+
 # wakatime
 set -q WAKATIME_HOME; or set -gx WAKATIME_HOME $XDG_CONFIG_HOME/wakatime
 

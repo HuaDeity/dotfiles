@@ -8,26 +8,28 @@ if [[ $# -gt 0 ]]; then
 
     # Check if requested flavor is valid
     if [[ ${valid_flavors[(Ie)$requested_flavor]} -gt 0 ]]; then
-        flavor=$requested_flavor
+        export LC_FLAVOR=$requested_flavor
     else
         echo "Invalid flavor '$requested_flavor'. Valid options: ${valid_flavors[*]}"
         return 1
     fi
 else
-    # No parameter - use auto-detection (original logic)
-    if [[ "$OSTYPE" == darwin* ]]; then
-        if defaults read -g AppleInterfaceStyle &>/dev/null; then
-            # flavor Dark
-            flavor=mocha
+    if [[ -z "$flavor" ]]; then
+        # No parameter - use auto-detection (original logic)
+        if [[ "$OSTYPE" == darwin* ]]; then
+            if defaults read -g AppleInterfaceStyle &>/dev/null; then
+                # flavor Dark
+                export LC_FLAVOR=mocha
+            else
+                # flavor Light
+                export LC_FLAVOR=latte
+            fi
         else
-            # flavor Light
-            flavor=latte
+            # Non-macOS systems - default to dark theme
+            export LC_FLAVOR=mocha
         fi
-    else
-        # Non-macOS systems - default to dark theme
-        flavor=mocha
     fi
 fi
 
-flavor_capitalized=${(C)flavor}
+export LC_CFLAVOR=${(C)flavor}
 

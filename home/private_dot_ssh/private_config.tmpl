@@ -10,4 +10,5 @@ Host *
    ProxyCommand nc -X connect -x 127.0.0.1:6152 %h %p
    ForwardAgent yes
    ForwardX11 yes
+   SendEnv LC_FLAVOR
 {{- end }}

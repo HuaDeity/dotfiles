@@ -1,3 +1,17 @@
+# Set general Zsh options.
+setopt INTERACTIVE_COMMENTS  # Enable comments in interactive shell.
+setopt BEEP                  # Beep on error
+unsetopt MAIL_WARNING        # Don't print a warning message if a mail file has been accessed.
+
+# Set Zsh options related to job control.
+setopt AUTO_RESUME           # Attempt to resume existing job before creating a new process.
+setopt LONG_LIST_JOBS        # List jobs in the long format by default.
+setopt NOTIFY                # Report status of background jobs immediately.
+
+HISTFILE=$XDG_DATA_HOME/zsh/zsh_history
+HISTSIZE=2000
+SAVEHIST=1000
+
 # Use keycodes (generated via zkbd) if present, otherwise fallback on
 # values from terminfo
 if [[ -r ${ZDOTDIR:-$HOME}/.zkbd/${TERM}-${VENDOR} ]] ; then
@@ -49,3 +63,4 @@ fi
 [[ -n ${key[Right]} ]] && bindkey "^[${key[Right]}" forward-word
 
 bindkey -M vicmd "gcc" vi-pound-insert
+

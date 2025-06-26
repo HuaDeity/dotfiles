@@ -5,9 +5,6 @@ if [[ "$ZSH_THEME" == p10k* ]]; then
   fi
 fi
 
-# Load .zstyles file with customizations.
-[[ -r ${ZDOTDIR:-$HOME}/.zstyles ]] && source ${ZDOTDIR:-$HOME}/.zstyles
-
 function autoload-dir {
   local zdir
   local -a zautoloads
@@ -26,9 +23,22 @@ if [[ -d "$ZFUNCDIR" ]]; then
   autoload-dir $ZFUNCDIR(N/) $ZFUNCDIR/*(N/)
 fi
 
-set_flavor
 confded
 hybrid_key_bindings
+
+fancy-ctrl-z () {
+  if [[ $#BUFFER -eq 0 ]]; then
+    BUFFER="fg"
+    zle accept-line -w
+  else
+    zle push-input -w
+    zle clear-screen -w
+  fi
+}
+zle -N fancy-ctrl-z
+bindkey '^Z' fancy-ctrl-z
+
+get_secret
 
 if [[ $ZSH_THEME == p10k ]]; then
   [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
