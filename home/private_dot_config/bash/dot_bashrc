@@ -9,6 +9,10 @@ mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
 
 export HISTFILE=$XDG_STATE_HOME/bash/history
 
+export http_proxy="http://192.168.103.42:7878"
+export https_proxy="http://192.168.103.42:7878"
+export all_proxy="socks5://192.168.103.42:7878"
+
 IA_SHELL=fish
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
@@ -28,7 +32,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	else
 		# Non-interactive shell: source PATH from fish if available
 		if [ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ]; then
-			export PATH="$("$NIX_PROFILE_BIN_DIR/$IA_SHELL" -c 'echo $PATH' 2>/dev/null)"
+			export PATH=$("$NIX_PROFILE_BIN_DIR/$IA_SHELL" -c 'string join ":" $PATH')
 		fi
 	fi
 fi
