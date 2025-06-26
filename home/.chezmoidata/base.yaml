@@ -1,6 +1,7 @@
 packages:
   base:
     shared:
+      # - "atuin"
       - "bash"
       - "bash-language-server"
       - "bat"
@@ -33,6 +34,7 @@ packages:
       - "marksman"
       - "ollama"
       - "prettierd"
+      # - "rbenv"
       - "ripgrep"
       - "ruby-lsp"
       - "ruff"
@@ -41,6 +43,7 @@ packages:
       - "shellcheck"
       - "shfmt"
       - "sqlite"
+      # - "starship"
       - "stylua"
       - "taplo"
       # - "television"

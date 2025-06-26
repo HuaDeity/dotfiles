@@ -23,6 +23,7 @@ packages:
       - "kekaexternalhelper"
       - "macupdater"
       - "marked-app"
+      - "onlyoffice"
       - "orbstack"
       - "orion"
       - "pearcleaner"
@@ -48,3 +49,4 @@ packages:
       - "tower"
       - "xscope"
       - "zed@preview"
+      - "zoom"
