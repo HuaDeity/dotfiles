@@ -1,20 +1,7 @@
 packages:
   node:
     shared:
-      # bash
-      - "bash-language-server"
       # claude-code
       - "@anthropic-ai/claude-code"
       # codex
       - "@openai/codex@native"
-      # docker
-      - "dockerfile-language-server-nodejs"
-      - "@microsoft/compose-language-service"
-      # html/json
-      - "vscode-langservers-extracted"
-      # mcp
-      - "mcp-hub"
-      # prettier
-      - "@fsouza/prettierd"
-      # yaml
-      - "yaml-language-server"

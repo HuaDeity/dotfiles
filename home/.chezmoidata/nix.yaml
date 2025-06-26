@@ -5,3 +5,4 @@ packages:
       - "nil"
       - "nixd"
       - "nixfmt-rfc-style"
+      - "rubocop"

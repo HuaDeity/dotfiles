@@ -2,6 +2,7 @@ packages:
   base:
     shared:
       - "bash"
+      - "bash-language-server"
       - "bat"
       - "bat-extras"
       - "biome"
@@ -31,8 +32,9 @@ packages:
       - "lua-language-server"
       - "marksman"
       - "ollama"
-      - "rbenv"
+      - "prettierd"
       - "ripgrep"
+      - "ruby-lsp"
       - "ruff"
       - "rustup"
       - "selene"
@@ -49,8 +51,10 @@ packages:
       # - "viu"
       - "vivid"
       - "volta"
+      - "vscode-langservers-extracted"
       - "wakatime-cli"
       - "wget"
+      - "yaml-language-server"
       - "yazi"
       # - "zellij"
       - "zig"
@@ -66,6 +70,7 @@ packages:
       - "tag"
     linux:
       - "clang"
+      - "docker-language-server"
       - "home-manager"
       - "llvmPackages.openmp"
       - "mihomo"
