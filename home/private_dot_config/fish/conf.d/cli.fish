@@ -13,6 +13,10 @@ end
 
 set -gx DIRENV_LOG_FORMAT (set_color --dim)"direnv: %s"(set_color normal)
 
+if command -q docker-language-server
+    docker-language-server completion fish | source
+end
+
 switch (uname -s)
     case Darwin
         test -f ~/.orbstack/shell/init2.fish && source ~/.orbstack/shell/init2.fish

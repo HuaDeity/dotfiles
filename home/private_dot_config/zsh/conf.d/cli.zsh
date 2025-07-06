@@ -15,6 +15,10 @@ if (( $+commands[bat] )) || (( $+commands[batcat] )); then
 	fi
 fi
 
+if (( $+commands[docker-language-server] )); then
+	source <(docker-language-server completion zsh)
+fi
+
 if (( $+commands[jj] )); then
 	source <(COMPLETE=zsh jj)
 fi
