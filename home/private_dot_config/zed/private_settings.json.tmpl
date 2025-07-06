@@ -1,3 +1,4 @@
+// vim: set ft=jsonc:
 // Zed settings
 //
 // For information on how to configure Zed, see the Zed
@@ -52,7 +53,6 @@
     "enabled": true
   },
   "agent": {
-    "version": "2",
     "default_model": {
       "provider": "copilot_chat",
       "model": "claude-sonnet-4"
@@ -70,6 +70,9 @@
     "show_diagnostics": "all"
   },
   "diagnostics": {
+    "cargo": {
+      "fetch_cargo_diagnostics": true
+    },
     "inline": {
       "enabled": true
     }
@@ -118,6 +121,8 @@
     "log": true,
     "ltex": true,
     "lua": true,
+    "markdown-oxide": true,
+    "marksman": true,
     "pyrefly": true,
     "python-requirements": true,
     "nix": true,
@@ -126,6 +131,7 @@
     "ruby": true,
     "ruff": true,
     "snippets": true,
+    "superhtml": true,
     "swift": true,
     "toml": true,
     "ty": true,
@@ -141,6 +147,10 @@
           "command": "fish_indent"
         }
       }
+    },
+    "HTML": {
+      "language_servers": ["vscode-html-language-server", "superhtml"],
+      "formatter": { "language_server": { "name": "superhtml" } }
     },
     "JSON": {
       "prettier": {
@@ -192,13 +202,13 @@
       }
     },
     "Markdown": {
-      "language_servers": ["marksman"]
+      "language_servers": ["marksman", "markdown-oxide"]
     },
     "Nix": {
-      "language_servers": ["nixd", "!nil"],
+      "language_servers": ["nixd", "nil"],
       "formatter": {
         "external": {
-          "command": "nixfmt",
+          "command": "alejandra",
           "arguments": ["--quiet", "--"]
         }
       }
@@ -217,7 +227,7 @@
             "name": "ruff"
           }
         }
-      ],
+      ]
     },
     "Ruby": {
       "language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
@@ -235,7 +245,6 @@
   },
   "language_models": {
     "openai": {
-      "version": "1",
       "api_url": "https://openrouter.ai/api/v1"
     }
   },
@@ -243,10 +252,10 @@
     "basedpyright": {
       "settings": {
         "basedpyright.analysis": {
-          "typeCheckingMode": "off",
+          "typeCheckingMode": "off"
         },
-        "basedpyright.disableOrganizeImports": true,
-      },
+        "basedpyright.disableOrganizeImports": true
+      }
     },
     // "biome": {
     //   "settings": {
@@ -257,8 +266,8 @@
       "settings": {
         "python": {
           "pyrefly": {
-            "disableTypeErrors": true,
-          },
+            "disableTypeErrors": true
+          }
         }
       }
     },
@@ -286,6 +295,9 @@
         "command": "clippy"
       },
       "initialization_options": {
+        "cargo": {
+          "targetDir": true
+        },
         "inlayHints": {
           "maxLength": null,
           "lifetimeElisionHints": {
@@ -295,9 +307,6 @@
           "closureReturnTypeHints": {
             "enable": "always"
           }
-        },
-        "rust": {
-          "analyzerTargetDir": true
         }
       }
     },
@@ -310,11 +319,11 @@
         "settings": {
           "python": {
             "ty": {
-              "disableLanguageServices": true,
-            },
-          },
-        },
-      },
+              "disableLanguageServices": true
+            }
+          }
+        }
+      }
     },
     "yaml-language-server": {
       "settings": {
@@ -340,18 +349,47 @@
       ]
     },
     {
-      "host": "10357_internal",
+      "host": "10351",
       "projects": [
         {
           "paths": [
             "~/Projects/ViS2O"
           ]
         }
-      ],
-      "upload_binary_over_ssh": true
+      ]
     },
     {
-      "host": "10358_internal",
+      "host": "10354",
+      "projects": [
+        {
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "10356",
+      "projects": [
+        {
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "10357",
+      "projects": [
+        {
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "10358",
       "projects": [
         {
           "paths": [
@@ -365,6 +403,7 @@
     "mcp-server-github": {
       "source": "extension",
       "settings": {
+        // biome-ignore format
         "github_personal_access_token": "{{ doppler "GITHUB_ACCESS_TOKEN" }}"
       }
     }
