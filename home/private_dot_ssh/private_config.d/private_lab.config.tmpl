@@ -42,15 +42,6 @@ Host {{ $hostAlias }}
   {{- if $parsedPort }}
   Port {{ $parsedPort }}
   {{- end }}
-{{- if $parsedPort }}
-  {{- $portSuffix := trimPrefix "103" $parsedPort }}
-  {{- $internalIp := printf "192.168.103.%s" $portSuffix }}
-Host {{ $hostAlias }}_internal
-  HostName {{ $internalIp }}
-    {{- if $parsedUser }}
-  User {{ $parsedUser }}
-    {{- end }}
-{{- end }}
     {{- end -}} {{/* End of "if $uri" (ensures we only process if URI was found) */}}
   {{- end -}} {{/* End of "range $dopplerSecretNames" */}}
 {{- end -}} {{/* End of "range $dopplerConfigEnvironments" */}}
