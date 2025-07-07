@@ -19,7 +19,7 @@
     "dark": "Catppuccin Mocha"
   },
   "buffer_font_family": "Monaspace Neon Var",
-  "buffer_font_fallbacks": ["Monaspace Neon"],
+  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
   "buffer_font_features": {
     "calt": true,
     "liga": true,
