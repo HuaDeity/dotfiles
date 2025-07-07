@@ -10,3 +10,5 @@ if vim.env.PROF then
     },
   }
 end
+
+vim.pack.add { "https://github.com/alker0/chezmoi.vim" }
