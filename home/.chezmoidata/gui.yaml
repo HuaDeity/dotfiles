@@ -13,6 +13,7 @@ packages:
       - "downie"
       - "festivitas"
       - "font-monaspace"
+      - "font-symbols-only-nerd-font"
       - "ghostty"
       - "gpg-suite@nightly"
       - "ia-markdown-dictionary"

@@ -1,7 +1,11 @@
 {
-	"json": {
-		"parser": {
-			"allowComments": true
-		}
-	}
+  "json": {
+    "parser": {
+      "allowComments": true
+    },
+    "formatter": {
+      "indentStyle": "space",
+      "indentWidth": 2
+    }
+  }
 }
