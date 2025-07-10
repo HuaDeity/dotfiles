@@ -13,7 +13,7 @@ set -gx EDITOR nvim
 if set -q SSH_CONNECTION
     set -gx VISUAL nvim
 else
-    set -gx VISUAL zed
+    set -gx VISUAL zed -w
 end
 set -gx PAGER less
 

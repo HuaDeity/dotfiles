@@ -7,7 +7,6 @@ else
   -- hide the statusline on the starter page
   vim.o.laststatus = 0
 end
-local minimap_extension = require("neominimap.statusline").lualine_default
 
 require("lualine").setup {
   options = {
@@ -89,7 +88,7 @@ require("lualine").setup {
       "fileformat",
       "filetype",
       "copilot",
-      require "mcphub.extensions.lualine",
+      -- require "mcphub.extensions.lualine",
       -- require "minuet.lualine"
     },
     lualine_y = {
@@ -109,5 +108,5 @@ require("lualine").setup {
       "location",
     },
   },
-  extensions = { "trouble", "overseer", minimap_extension },
+  extensions = { "trouble", "overseer", require("neominimap.statusline").lualine_default },
 }
