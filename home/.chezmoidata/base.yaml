@@ -77,7 +77,6 @@ packages:
       - "tag"
     linux:
       - "clang"
-      - "gdal"
       - "home-manager"
       - "llvmPackages.openmp"
       - "mihomo"

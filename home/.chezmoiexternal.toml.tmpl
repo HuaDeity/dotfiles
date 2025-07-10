@@ -35,13 +35,6 @@
     refreshPeriod = "168h"
     include = ["*/*/*.sh", "*/*/*.fish"]
 {{- end }}
-[".config/ghostty/shell-integration"]
-    type = "archive"
-    url = "https://github.com/ghostty-org/ghostty/archive/main.tar.gz"
-    exact = true
-    stripComponents = 3
-    refreshPeriod = "168h"
-    include = ["*/*/shell-integration/**"]
 {{- if lookPath "gitui" }}
 [".config/gitui"]
     type = "archive"
@@ -58,15 +51,6 @@
     stripComponents = 2
     refreshPeriod = "168h"
     include = ["*/themes-mergable/**"]
-{{- end }}
-{{- if not .headless }}
-[".config/ghostty/themes"]
-    type = "archive"
-    url = "https://github.com/catppuccin/ghostty/archive/main.tar.gz"
-    exact = true
-    stripComponents = 2
-    refreshPeriod = "168h"
-    include = ["*/*/*.conf"]
 {{- end }}
 {{- if eq .chezmoi.os "darwin" }}
 ["Library/Developer/Xcode/UserData/FontAndColorThemes"]

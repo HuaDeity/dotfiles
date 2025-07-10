@@ -6,6 +6,9 @@ return {
           disableLanguageServices = true,
         },
       },
+      ty = {
+        diagnosticMode = "workspace",
+      },
     },
   },
 }
