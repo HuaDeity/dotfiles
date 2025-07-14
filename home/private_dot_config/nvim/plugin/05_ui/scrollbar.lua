@@ -16,13 +16,13 @@ map.setup {
   },
 }
 
-vim.api.nvim_create_autocmd({ "BufEnter", "Filetype" }, {
+vim.api.nvim_create_autocmd("BufEnter", {
   group = vim.api.nvim_create_augroup("MapAutoOpen", { clear = true }),
   callback = function()
     if vim.tbl_contains(vim.g.minimap_excluded_filetypes, vim.bo.filetype) then
       vim.g.minimap_disable = true
       map.close()
-    elseif vim.bo.buftype == "" then
+    else
       vim.g.minimap_disable = false
       map.open()
     end
