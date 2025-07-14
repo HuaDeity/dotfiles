@@ -1,0 +1,38 @@
+"$schema" = "https://jj-vcs.github.io/jj/latest/config-schema.json"
+
+[user]
+name = "{{ .name }}"
+email = "{{ .email }}"
+
+[signing]
+behavior = "drop"
+backend = "ssh"
+key = "{{ .signingkey }}"
+backends.ssh.allowed-signers = "{{ .chezmoi.homeDir }}/.ssh/allowed_signers"
+
+[git]
+sign-on-push = true
+
+# disable pagination for `jj status`, use `delta` for `jj diff` and `jj show`
+[[--scope]]
+--when.commands = ["status"]
+[--scope.ui]
+paginate = "never"
+
+{{ if lookPath "delta" -}}
+[[--scope]]
+--when.commands = ["diff", "show"]
+[--scope.ui]
+pager = "delta"
+{{- end }}
+
+{{ if lookPath "ksdiff" -}}
+[ui]
+diff-formatter = "ksdiff"
+merge-editor = "ksdiff"
+
+[merge-tools.ksdiff]
+diff-invocation-mode = "file-by-file"
+diff-args = ["--partial-changeset", "$left", "$right"]
+merge-args = [ "--merge", "--output", "$output", "--base", "$base", "$left", "$right" ]
+{{- end }}
