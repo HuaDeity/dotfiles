@@ -63,13 +63,13 @@ vim.keymap.set("n", "gh", function() require("hover").hover() end, { desc = "Hov
 vim.keymap.set("n", "gk", function() require("hover").hover_select() end, { desc = "Hover selection" })
 vim.keymap.set("n", "]h", function() require("hover").hover_switch "next" end, { desc = "Next hover source" })
 vim.keymap.set("n", "[h", function() require("hover").hover_switch "previous" end, { desc = "Previous hover source" })
-vim.keymap.set("n", "<MouseMove>", function()
-  if timer then timer:close() end
-  timer = vim.defer_fn(function()
-    timer = nil
-    local ok, pos = pcall(vim.fn.getmousepos)
-    if not ok then return end
-    on_hover(pos)
-  end, delay)
-  return "<MouseMove>"
-end, { expr = true, desc = "Hover mouse" })
+-- vim.keymap.set("n", "<MouseMove>", function()
+--   if timer then timer:close() end
+--   timer = vim.defer_fn(function()
+--     timer = nil
+--     local ok, pos = pcall(vim.fn.getmousepos)
+--     if not ok then return end
+--     on_hover(pos)
+--   end, delay)
+--   return "<MouseMove>"
+-- end, { expr = true, desc = "Hover mouse" })

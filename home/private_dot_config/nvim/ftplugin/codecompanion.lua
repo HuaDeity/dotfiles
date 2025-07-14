@@ -1,3 +1,7 @@
+local minimap_excluded_filetypes = vim.g.minimap_excluded_filetypes
+vim.list_extend(minimap_excluded_filetypes, { "codecompanion" })
+vim.g.minimap_excluded_filetypes = minimap_excluded_filetypes
+
 --stylua: ignore
 vim.keymap.set({ "n", "i", "x" }, "<D-A-n>", "<cmd>CodeCompanionChat<CR>", { noremap = true, silent = true, buffer = true, desc = "New Chat" })
 

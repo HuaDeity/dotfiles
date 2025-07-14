@@ -103,7 +103,6 @@
     "TOML": ["tmpl"]
   },
   "auto_install_extensions": {
-    "basedpyright": true,
     "basher": true,
     "biome": true,
     "catppuccin": true,
@@ -212,7 +211,7 @@
       }
     },
     "Python": {
-      "language_servers": ["basedpyright", "!pyrefly", "ty", "ruff"],
+      "language_servers": ["pyrefly", "ty", "ruff"],
       "formatter": [
         {
           "code_actions": {
@@ -246,7 +245,7 @@
       "api_url": "https://openrouter.ai/api/v1"
     },
     "anthropic": {
-      "api_url": "https://aihubmix.com/v1"
+      "api_url": "https://aihubmix.com"
     }
   },
   "lsp": {

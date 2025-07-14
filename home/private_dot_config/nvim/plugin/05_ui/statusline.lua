@@ -26,24 +26,14 @@ require("lualine").setup {
         "diff",
         symbols = { added = " ", modified = " ", removed = " " },
         source = function()
-          local gitsigns = vim.b.gitsigns_status_dict
-          if gitsigns then
-            return {
-              added = gitsigns.added,
-              modified = gitsigns.changed,
-              removed = gitsigns.removed,
+          local summary = vim.b.minidiff_summary
+          return summary
+            and {
+              added = summary.add,
+              modified = summary.change,
+              removed = summary.delete,
             }
-          end
         end,
-        -- source = function()
-        --   local summary = vim.b.minidiff_summary
-        --   return summary
-        --     and {
-        --       added = summary.add,
-        --       modified = summary.change,
-        --       removed = summary.delete,
-        --     }
-        -- end,
       },
       -- { require("gitblame").get_current_blame_text, cond = require("gitblame").is_blame_text_available },
       -- stylua: ignore
@@ -108,5 +98,5 @@ require("lualine").setup {
       "location",
     },
   },
-  extensions = { "trouble", "overseer", require("neominimap.statusline").lualine_default },
+  extensions = { "trouble", "overseer" },
 }

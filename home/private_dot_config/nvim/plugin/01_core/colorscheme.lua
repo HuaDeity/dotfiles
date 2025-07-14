@@ -6,15 +6,12 @@ require("catppuccin").setup {
     blink_cmp = true,
     copilot_vim = true,
     dap = true,
-    dap_ui = true,
     diffview = true,
     dropbar = {
       enabled = true,
       color_mode = true,
     },
     flash = true,
-    fzf = true,
-    gitsigns = true,
     grug_far = true,
     illuminate = {
       enabled = true,
@@ -22,7 +19,6 @@ require("catppuccin").setup {
     },
     lsp_trouble = true,
     markdown = true,
-    mason = true,
     mini = true,
     native_lsp = {
       enabled = true,

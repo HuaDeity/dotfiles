@@ -1,7 +1,6 @@
 packages:
   python:
     shared:
-      - "basedpyright"
       - "debugpy"
       - "jupyterlab"
       - "pyrefly"

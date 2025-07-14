@@ -8,6 +8,8 @@ vim.g.linter = {}
 vim.g.format_ignore_filetypes = {}
 vim.g.format_ignore_paths = {}
 
+vim.g.minimap_excluded_filetypes = {}
+
 vim.g.spinner_symbols = {
   "⠋",
   "⠙",

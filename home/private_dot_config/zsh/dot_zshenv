@@ -16,7 +16,7 @@ export EDITOR=nvim
 if [[ -n $SSH_CONNECTION ]]; then
   export VISUAL=nvim
 else
-  export VISUAL=zed -w
+  export VISUAL="zed -w"
 fi
 export PAGER=less
 
