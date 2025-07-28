@@ -51,9 +51,6 @@ export SCREENRC="${SCREENRC:-$XDG_CONFIG_HOME/screen/screenrc}"
 # sqlite
 export SQLITE_HISTORY="${SQLITE_HISTORY:-$XDG_STATE_HOME/sqlite_history}"
 
-# volta
-export VOLTA_HOME="$XDG_DATA_HOME/volta"
-
 # wakatime
 export WAKATIME_HOME="${WAKATIME_HOME:-$XDG_CONFIG_HOME/wakatime}"
 

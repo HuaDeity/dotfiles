@@ -1,7 +1,0 @@
-packages:
-  node:
-    shared:
-      # claude-code
-      - "@anthropic-ai/claude-code"
-      # codex
-      - "@openai/codex@native"

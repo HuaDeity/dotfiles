@@ -1,3 +1,5 @@
+# vim: set ft=nix:
+
 {
   pkgs,
   isGraphical ? false,
@@ -24,6 +26,9 @@ let
 
   cliPackages = [
   {{- range .packages.base.linux }}
+    {{ . }}
+  {{- end }}
+  {{- range .packages.base.unfree }}
     {{ . }}
   {{- end }}
   {{- range .services.base.shared }}

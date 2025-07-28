@@ -1,7 +1,12 @@
+# vim: set ft=nix:
+
 _:
 
 [
 {{- range .packages.gui.darwin }}
+  {{ . | quote }}
+{{- end }}
+{{- range .packages.base.unfree }}
   {{ . | quote }}
 {{- end }}
 ]

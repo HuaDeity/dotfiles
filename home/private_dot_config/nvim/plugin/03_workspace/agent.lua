@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("PackChanged", {
   callback = function(args)
     if args.data.kind == "update" and args.data.spec.name == "VectorCode" then
       vim.notify("Installing VectorCode CLI...", vim.log.levels.INFO)
-      vim.system({ "uv", "tool", "install", "vectorcode" }, {
+      vim.system({ "uv", "tool", "install", "vectorcode", "-U" }, {
         text = true,
       }, function(result)
         if result.code == 0 then

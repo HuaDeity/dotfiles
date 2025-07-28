@@ -35,8 +35,6 @@ if (( $+commands[starship] )); then
 	update_config_flavor "$XDG_CONFIG_HOME/starship.toml" 'palette = .*$' "palette = \"catppuccin_$flavor\""
 fi
 
-path=($VOLTA_HOME/bin(N) $path)
-
 if (( $+commands[zoxide] )); then
   eval "$(zoxide init zsh)"
 fi

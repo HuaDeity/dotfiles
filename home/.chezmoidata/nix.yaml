@@ -4,6 +4,5 @@ packages:
       - "docker-language-server"
       - "nil"
       - "nixd"
-      - "nixfmt-rfc-style"
       - "rubocop"
       - "vscode-extensions.vadimcn.vscode-lldb.adapter"
