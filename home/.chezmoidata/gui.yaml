@@ -40,7 +40,6 @@ packages:
       - "shortcutie"
       - "skim"
       - "smash-smash"
-      - "steam"
       - "steermouse"
       - "surge"
       - "suspicious-package"
@@ -50,4 +49,3 @@ packages:
       - "tower"
       - "xscope"
       - "zed@preview"
-      - "zoom"

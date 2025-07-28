@@ -1,2 +1,5 @@
+# vim: set ft=bash:
+
 export BASH_HOME="${BASH_HOME:-${XDG_CONFIG_HOME:-$HOME/.config}/bash}"
+# shellcheck disable=1091
 [ -r "${BASH_HOME:-?}"/.bashrc ] && . "$BASH_HOME"/.bashrc

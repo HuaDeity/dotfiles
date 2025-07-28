@@ -22,11 +22,11 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 	if [[ $(ps --no-header --pid=$PPID --format=comm) != "fish" && -z ${BASH_EXECUTION_STRING} && $- == *i* ]]; then
 		shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=''
 		if [ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ]; then
-			exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" $LOGIN_OPTION
+			exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" "$LOGIN_OPTION"
 		else
 			if command -v nix >/dev/null 2>&1 && [ -d "$NIX_CONFIG_DIR" ]; then
 				(cd "$NIX_CONFIG_DIR" && nix run home-manager/master -- switch --flake .#x86_64-linux)
-				[ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ] && exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" $LOGIN_OPTION
+				[ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ] && exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" "$LOGIN_OPTION"
 			fi
 		fi
 	fi

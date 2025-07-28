@@ -5,6 +5,5 @@ packages:
       - "jupyterlab"
       - "pyrefly"
       - "ty"
-      - "vectorcode"
     linux:
       - "nvitop"

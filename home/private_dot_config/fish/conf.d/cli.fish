@@ -38,8 +38,6 @@ if command -q starship
     enable_transience
 end
 
-fish_add_path --global --move --path $VOLTA_HOME/bin
-
 if command -q zoxide
     zoxide init fish | source
 end

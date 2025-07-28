@@ -10,6 +10,7 @@ packages:
       - "biome"
       - "chafa"
       - "chezmoi"
+      - "codex"
       - "curl"
       - "direnv"
       - "doppler"
@@ -57,7 +58,6 @@ packages:
       - "uv"
       # - "viu"
       - "vivid"
-      - "volta"
       - "vscode-langservers-extracted"
       - "wakatime-cli"
       - "wget"
@@ -81,3 +81,5 @@ packages:
       - "llvmPackages.openmp"
       - "mihomo"
       - "nix-zsh-completions"
+    unfree:
+      - "claude-code"

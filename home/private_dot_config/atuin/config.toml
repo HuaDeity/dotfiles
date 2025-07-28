@@ -8,10 +8,8 @@ keymap_mode = "auto"
 [sync]
 records = true
 
-{{- if eq .chezmoi.os "darwin" }}
 [daemon]
 enabled = true
-{{- end }}
 
 [theme]
 name = "mocha/catppuccin-mocha-mauve"

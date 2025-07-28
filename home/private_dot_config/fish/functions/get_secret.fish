@@ -7,7 +7,9 @@ function get_secret
             if string match -q '"*"' $value
                 set value (string sub -s 2 -e -1 $value)
             end
-            set -Ux $parts[1] $value
+            if test -n "$parts[1]"
+                set -gx $parts[1] $value
+            end
         end
     end
     switch (uname -s)
