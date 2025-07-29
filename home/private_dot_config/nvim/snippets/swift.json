@@ -1,0 +1,26 @@
+{
+  "public": {
+    "prefix": "pub",
+    "body": "public $0",
+    "description": "public access control"
+  },
+  "private": {
+    "prefix": "priv",
+    "body": "private $0",
+    "description": "private access control"
+  },
+  "if cast let": {
+    "prefix": "ifcl",
+    "body": ["if case let ${1:value} = ${2:optional} {", "\t$0", "}"],
+    "description": "if case statement with optional binding"
+  },
+  "func async": {
+    "prefix": "funca",
+    "body": [
+      "func ${1:name}(${2:parameters}) async -> ${3:Type} {",
+      "\t$0",
+      "}"
+    ],
+    "description": "async function declaration"
+  }
+}
