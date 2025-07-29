@@ -6,7 +6,7 @@
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
     nixgl = {
-      utl = "github:nix-community/nixGL";
+      url = "github:nix-community/nixGL";
     };
     darwin = {
       url = "github:nix-darwin/nix-darwin";
@@ -71,7 +71,7 @@
           inherit pkgs;
           extraSpecialArgs = inputs;
           modules = [
-            inputs.index-database.hmModules.nix-index
+            inputs.index-database.homeModules.nix-index
             ./hosts/linux
           ];
         }
