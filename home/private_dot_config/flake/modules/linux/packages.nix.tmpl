@@ -1,6 +1,7 @@
 # vim: set ft=nix:
 
 {
+  config,
   pkgs,
   isGraphical ? false,
   ...
@@ -22,12 +23,11 @@ let
 
   system-packages = (import ../shared/system-packages.nix) { inherit pkgs; };
 
-  guiPackages = [ ];
+  guiPackages = [
+    (config.lib.nixGL.wrap nvitop)
+  ];
 
   cliPackages = [
-  {{- range .packages.base.linux }}
-    {{ . }}
-  {{- end }}
   {{- range .packages.base.unfree }}
     {{ . }}
   {{- end }}

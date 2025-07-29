@@ -5,6 +5,9 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
+    nixgl = {
+      utl = "github:nix-community/nixGL";
+    };
     darwin = {
       url = "github:nix-darwin/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -22,44 +25,34 @@
     };
   };
 
-  outputs =
-    {
-      self,
-      ...
-    }@inputs:
-    let
-      linuxSystems = [
-        "x86_64-linux"
-        "aarch64-linux"
-      ];
-      darwinSystems = [
-        "aarch64-darwin"
-      ];
-      forAllSystems = f: inputs.nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
-      devShell =
-        system:
-        let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        in
-        {
-          default =
-            with pkgs;
-            mkShell {
-              nativeBuildInputs = with pkgs; [
-                bashInteractive
-                git
-              ];
-              shellHook = ''
-                export EDITOR=vim
-              '';
-            };
+  outputs = {...} @ inputs: let
+    linuxSystems = [
+      "x86_64-linux"
+      "aarch64-linux"
+    ];
+    darwinSystems = [
+      "aarch64-darwin"
+    ];
+    forAllSystems = f: inputs.nixpkgs.lib.genAttrs (linuxSystems ++ darwinSystems) f;
+    devShell = system: let
+      pkgs = inputs.nixpkgs.legacyPackages.${system};
+    in {
+      default = with pkgs;
+        mkShell {
+          nativeBuildInputs = with pkgs; [
+            bashInteractive
+            git
+          ];
+          shellHook = ''
+            export EDITOR=vim
+          '';
         };
-    in
-    {
-      devShells = forAllSystems devShell;
+    };
+  in {
+    devShells = forAllSystems devShell;
 
-      darwinConfigurations = inputs.nixpkgs.lib.genAttrs darwinSystems (
-        system:
+    darwinConfigurations = inputs.nixpkgs.lib.genAttrs darwinSystems (
+      system:
         inputs.darwin.lib.darwinSystem {
           inherit system;
           specialArgs = inputs;
@@ -68,13 +61,12 @@
             ./hosts/darwin
           ];
         }
-      );
+    );
 
-      homeConfigurations = inputs.nixpkgs.lib.genAttrs linuxSystems (
-        system:
-        let
-          pkgs = inputs.nixpkgs.legacyPackages.${system};
-        in
+    homeConfigurations = inputs.nixpkgs.lib.genAttrs linuxSystems (
+      system: let
+        pkgs = inputs.nixpkgs.legacyPackages.${system};
+      in
         inputs.home-manager.lib.homeManagerConfiguration {
           inherit pkgs;
           extraSpecialArgs = inputs;
@@ -83,7 +75,6 @@
             ./hosts/linux
           ];
         }
-      );
-
-    };
+    );
+  };
 }
