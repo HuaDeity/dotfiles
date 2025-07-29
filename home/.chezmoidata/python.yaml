@@ -1,9 +1,0 @@
-packages:
-  python:
-    shared:
-      - "debugpy"
-      - "jupyterlab"
-      - "pyrefly"
-      - "ty"
-    linux:
-      - "nvitop"
