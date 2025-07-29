@@ -1,8 +1,12 @@
 packages:
   nix:
     shared:
+      - "cachix"
       - "docker-language-server"
       - "nil"
       - "nixd"
+      - "pyrefly"
+      - "python3Packages.debugpy"
       - "rubocop"
+      - "ty"
       - "vscode-extensions.vadimcn.vscode-lldb.adapter"

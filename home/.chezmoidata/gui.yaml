@@ -41,6 +41,7 @@ packages:
       - "skim"
       - "smash-smash"
       - "steermouse"
+      - "supercharge"
       - "surge"
       - "suspicious-package"
       - "syntax-highlight"
