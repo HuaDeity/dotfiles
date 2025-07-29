@@ -8,7 +8,7 @@ rebuild *args:
 
 [linux]
 rebuild *args:
-  home-manager --flake .#{{arch()}}-linux {{args}}
+  home-manager --flake .#{{arch()}}-linux --impure {{args}}
 
 build *args:
   just rebuild build {{args}}

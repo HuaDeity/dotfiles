@@ -24,7 +24,7 @@ switch (uname -s)
     case Darwin
         set -q BROWSER; or set -gx BROWSER open
     case Linux
-        set -g FISH_PROXY_MIXED "192.168.103.42:7878"
+        set -g FISH_PROXY_MIXED "192.168.103.57:7878"
 end
 
 set -g hydro_multiline true

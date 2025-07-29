@@ -1,4 +1,5 @@
 {
+  config,
   pkgs,
   nixgl,
   ...
@@ -6,10 +7,11 @@
   user = "wangyizun";
 in {
   nixGL.packages = nixgl.packages;
+
   home = {
     username = "${user}";
     homeDirectory = "/nas/${user}";
-    packages = pkgs.callPackage ./packages.nix {};
+    packages = pkgs.callPackage ./packages.nix {inherit config;};
     stateVersion = "25.05";
   };
 }

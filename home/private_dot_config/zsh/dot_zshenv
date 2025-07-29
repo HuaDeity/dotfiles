@@ -25,7 +25,7 @@ zstyle ':plugin:proxy' auto yes
 if [[ "$OSTYPE" == darwin* ]]; then
   export BROWSER=${BROWSER:-open}
 elif [[ "$OSTYPE" == linux* ]]; then
-  zstyle ':plugin:proxy' mixed "192.168.103.42:7878"
+  zstyle ':plugin:proxy' mixed "192.168.103.57:7878"
 fi
 
 export ZSH_THEME=p10k

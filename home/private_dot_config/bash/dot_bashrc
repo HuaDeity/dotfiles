@@ -9,9 +9,9 @@ mkdir -p "$XDG_CONFIG_HOME" "$XDG_CACHE_HOME" "$XDG_DATA_HOME" "$XDG_STATE_HOME"
 
 export HISTFILE=$XDG_STATE_HOME/bash/history
 
-export http_proxy="http://192.168.103.42:7878"
-export https_proxy="http://192.168.103.42:7878"
-export all_proxy="socks5://192.168.103.42:7878"
+export http_proxy="http://192.168.103.57:7878"
+export https_proxy="http://192.168.103.57:7878"
+export all_proxy="socks5://192.168.103.57:7878"
 
 IA_SHELL=fish
 
@@ -25,7 +25,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 			exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" "$LOGIN_OPTION"
 		else
 			if command -v nix >/dev/null 2>&1 && [ -d "$NIX_CONFIG_DIR" ]; then
-				(cd "$NIX_CONFIG_DIR" && nix run home-manager/master -- switch --flake .#x86_64-linux)
+				(cd "$NIX_CONFIG_DIR" && nix run home-manager/master -- switch --flake .#x86_64-linux --impure)
 				[ -f "$NIX_PROFILE_BIN_DIR/$IA_SHELL" ] && exec "$NIX_PROFILE_BIN_DIR/$IA_SHELL" "$LOGIN_OPTION"
 			fi
 		fi
