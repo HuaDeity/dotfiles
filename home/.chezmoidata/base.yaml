@@ -39,6 +39,7 @@ packages:
       - "marksman"
       - "ollama"
       - "prettierd"
+      - "pyrefly"
       # - "rbenv"
       - "ripgrep"
       - "ruby-lsp"
