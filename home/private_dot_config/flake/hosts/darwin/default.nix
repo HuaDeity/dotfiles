@@ -100,7 +100,9 @@ with lib; {
         persistent-apps = [
           "/System/Applications/Phone.app"
           "/System/Volumes/Preboot/Cryptexes/App/System/Applications/Safari.app"
+          "/Applications/Dia.app"
           "/System/Applications/Messages.app"
+          "/Applications/ChatGPT.app"
           "/System/Applications/Music.app"
           "/System/Applications/Mail.app"
           "/Applications/Bookends.app"

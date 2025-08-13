@@ -15,6 +15,10 @@ if (( $+commands[bat] )) || (( $+commands[batcat] )); then
 	fi
 fi
 
+if (( $+commands[cargo] )); then
+	path=($XDG_DATA_HOME/cargo/bin(N) $path)
+fi
+
 if (( $+commands[docker-language-server] )); then
 	source <(docker-language-server completion zsh)
 fi
