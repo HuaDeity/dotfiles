@@ -11,6 +11,10 @@ if command -q batpipe
     batpipe | source
 end
 
+if command -q cargo
+    fish_add_path --global $XDG_DATA_HOME/cargo/bin
+end
+
 set -gx DIRENV_LOG_FORMAT (set_color --dim)"direnv: %s"(set_color normal)
 
 if command -q docker-language-server
