@@ -23,7 +23,7 @@ end
 
 switch (uname -s)
     case Darwin
-        test -f ~/.orbstack/shell/init2.fish && source ~/.orbstack/shell/init2.fish
+        fish_add_path --global --append $HOME/.orbstack/bin
 end
 
 if command -q rbenv

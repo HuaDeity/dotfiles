@@ -8,11 +8,7 @@ function _setup_nix_profile
     # Split NIX_PROFILES and build directories dynamically
     set -l nix_profile_path (string split ' ' $NIX_PROFILES)
     for profile in $nix_profile_path
-        if test "$profile" = "$XDG_STATE_HOME/nix/profile"
-            fish_add_path --global $profile/bin
-        else
-            fish_add_path --path $profile/bin
-        end
+        fish_add_path --global $profile/bin
         set TERMINFO_DIRS $profile/share/terminfo:$TERMINFO_DIRS
         set XDG_CONFIG_DIRS $profile/etc/xdg:$XDG_CONFIG_DIRS
         set XDG_DATA_DIRS $profile/share:$XDG_DATA_DIRS
