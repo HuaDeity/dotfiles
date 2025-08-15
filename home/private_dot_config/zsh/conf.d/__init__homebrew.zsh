@@ -13,7 +13,7 @@ if [[ -d "$HOMEBREW_PREFIX/share/zsh/site-functions" ]]; then
   fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 fi
 
-HOMEBREW_KEG_ONLY_APPS=(curl rustup sqlite)
+HOMEBREW_KEG_ONLY_APPS=(curl llvm rustup sqlite)
 for app in $HOMEBREW_KEG_ONLY_APPS; do
 	path=($HOMEBREW_PREFIX/opt/$app/bin(N) $path)
   fpath=($HOMEBREW_PREFIX/opt/$app/share/zsh/site-functions(/N) $fpath)
@@ -33,4 +33,3 @@ if [[ "$HOMEBREW_PREFIX" == /opt/homebrew ]]; then
 	fi
 	unset _brew_owner
 fi
-

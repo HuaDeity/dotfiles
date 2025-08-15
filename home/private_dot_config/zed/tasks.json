@@ -1,0 +1,25 @@
+[
+  {
+    "label": "CMake configure Debug",
+    "command": "cmake",
+    "args": ["-DCMAKE_BUILD_TYPE=Debug", "-B", "build"]
+  },
+  {
+    "label": "CMake configure Relase",
+    "command": "cmake",
+    "args": ["-DCMAKE_BUILD_TYPE=Release", "-B", "build"]
+  },
+  {
+    "label": "CMake build",
+    "command": "cmake",
+    "args": ["--build", "build"]
+  },
+  {
+    "label": "CMake configure Debug and build",
+    "command": "cmake -DCMAKE_BUILD_TYPE=Debug -B build && cmake --build build"
+  },
+  {
+    "label": "CMake configure Release and build",
+    "command": "cmake -DCMAKE_BUILD_TYPE=Release -B build && cmake --build build"
+  }
+]
