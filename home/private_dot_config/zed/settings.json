@@ -120,6 +120,7 @@
     "lua": true,
     "markdown-oxide": true,
     "marksman": true,
+    "neocmake": true,
     "pyrefly": true,
     "python-requirements": true,
     "nix": true,
@@ -138,7 +139,10 @@
     "zig": true
   },
   "languages": {
-    "fish": {
+    "C++": {
+      "show_edit_predictions": false
+    },
+    "Fish": {
       "formatter": {
         "external": {
           "command": "fish_indent"
