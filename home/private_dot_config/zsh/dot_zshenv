@@ -20,6 +20,9 @@ else
 fi
 export PAGER=less
 
+export CC=clang
+export CXX=clang++
+
 zstyle ':plugin:proxy' auto yes
 
 if [[ "$OSTYPE" == darwin* ]]; then
@@ -34,4 +37,3 @@ export ZSH_THEME=p10k
 path=($HOME/.local/bin(N) $path)
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
-

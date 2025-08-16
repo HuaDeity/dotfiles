@@ -17,6 +17,9 @@ else
 end
 set -gx PAGER less
 
+set -gx CC clang
+set -gx CXX clang++
+
 set -g FISH_PROXY_AUTO yes
 set -g FISH_PROXY_PLUGINS shell nix
 
