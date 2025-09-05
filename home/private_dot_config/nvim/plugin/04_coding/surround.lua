@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/echasnovski/mini.surround" }
-
 require("mini.surround").setup {
   custom_surroundings = {
     -- Use tree-sitter to search for function call

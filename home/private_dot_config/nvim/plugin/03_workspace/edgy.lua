@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/folke/edgy.nvim" }
-
 ---@diagnostic disable-next-line: missing-fields
 require("edgy").setup {
   left = {
@@ -9,7 +7,7 @@ require("edgy").setup {
     --   title = "Explorer",
     --   size = { width = 30 },
     --   pinned = true,
-    --   open = function() Snacks.explorer() end,
+    --   open = function() require("snacks").explorer() end,
     --   filter = function(buf, win) return vim.api.nvim_win_get_config(win).relative == "" end,
     -- },
     { title = "Aerial", ft = "aerial", pinned = true, open = "AerialOpen" },

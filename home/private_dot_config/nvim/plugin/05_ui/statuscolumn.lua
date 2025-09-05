@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/luukvbaal/statuscol.nvim" }
-
 require("statuscol").setup {
   relculright = true,
   clickhandlers = {
@@ -17,5 +15,5 @@ require("statuscol").setup {
   },
 }
 
-Snacks.toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
-Snacks.toggle.line_number():map "<leader>ul"
+require("snacks").toggle.option("relativenumber", { name = "Relative Number" }):map "<leader>uL"
+require("snacks").toggle.line_number():map "<leader>ul"

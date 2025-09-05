@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/mfussenegger/nvim-lint" }
-
 local function lint_current_buffer()
   local lint = require "lint"
   -- Use nvim-lint's logic first:

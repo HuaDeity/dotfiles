@@ -1,9 +1,3 @@
-vim.pack.add {
-  "https://github.com/echasnovski/mini.diff",
-  "https://github.com/sindrets/diffview.nvim",
-  "https://github.com/f-person/git-blame.nvim",
-}
-
 require("diffview").setup {
   enhanced_diff_hl = true,
   view = {
@@ -39,20 +33,22 @@ require("mini.diff").setup {
     },
   },
 }
-Snacks.toggle({
-  name = "Git Signs",
-  get = function() return vim.g.minidiff_disable ~= true end,
-  set = function(state)
-    vim.g.minidiff_disable = not state
-    if state then
-      require("mini.diff").enable(0)
-    else
-      require("mini.diff").disable(0)
-    end
-    -- HACK: redraw to update the signs
-    vim.defer_fn(function() vim.cmd [[redraw!]] end, 200)
-  end,
-}):map "<leader>uG"
+require("snacks")
+  .toggle({
+    name = "Git Signs",
+    get = function() return vim.g.minidiff_disable ~= true end,
+    set = function(state)
+      vim.g.minidiff_disable = not state
+      if state then
+        require("mini.diff").enable(0)
+      else
+        require("mini.diff").disable(0)
+      end
+      -- HACK: redraw to update the signs
+      vim.defer_fn(function() vim.cmd [[redraw!]] end, 200)
+    end,
+  })
+  :map "<leader>uG"
 -- stylua: ignore start
 vim.keymap.set({ "n", "x" }, "<D-F8>", "<Cmd>lua MiniDiff.goto_hunk('next')<CR>", { desc = "Next hunk" })
 vim.keymap.set("o", "<D-F8>", "V<Cmd>lua MiniDiff.goto_hunk('next')<CR>", { desc = "Next hunk" })

@@ -1,9 +1,3 @@
-vim.pack.add {
-  "https://github.com/echasnovski/mini.pairs",
-  "https://github.com/HiPhish/rainbow-delimiters.nvim",
-  "https://github.com/windwp/nvim-ts-autotag",
-}
-
 require("mini.pairs").setup {
   modes = { insert = true, command = true, terminal = false },
 }
@@ -34,10 +28,12 @@ pairs.open = function(pair, neigh_pattern)
   return open(pair, neigh_pattern)
 end
 
-Snacks.toggle({
-  name = "Mini Pairs",
-  get = function() return not vim.g.minipairs_disable end,
-  set = function(state) vim.g.minipairs_disable = not state end,
-}):map "<leader>up"
+require("snacks")
+  .toggle({
+    name = "Mini Pairs",
+    get = function() return not vim.g.minipairs_disable end,
+    set = function(state) vim.g.minipairs_disable = not state end,
+  })
+  :map "<leader>up"
 
 require("nvim-ts-autotag").setup()

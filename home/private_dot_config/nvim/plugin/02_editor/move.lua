@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/echasnovski/mini.move" }
-
 require("mini.move").setup {
   mappings = {
     -- Move visual selection in Visual mode. Defaults are Alt (Meta) + hjkl.

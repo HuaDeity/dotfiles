@@ -1,8 +1,3 @@
-vim.pack.add {
-  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
-  "https://github.com/smjonas/inc-rename.nvim",
-}
-
 -- new file
 vim.keymap.set("n", "<D-n>", "<cmd>enew<cr>", { desc = "New File" })
 -- save file
@@ -32,15 +27,17 @@ require("render-markdown").setup {
   preset = "lazy",
 }
 
-Snacks.toggle({
-  name = "Render Markdown",
-  get = function() return require("render-markdown.state").enabled end,
-  set = function(enabled)
-    local m = require "render-markdown"
-    if enabled then
-      m.enable()
-    else
-      m.disable()
-    end
-  end,
-}):map "<leader>um"
+require("snacks")
+  .toggle({
+    name = "Render Markdown",
+    get = function() return require("render-markdown.state").enabled end,
+    set = function(enabled)
+      local m = require "render-markdown"
+      if enabled then
+        m.enable()
+      else
+        m.disable()
+      end
+    end,
+  })
+  :map "<leader>um"

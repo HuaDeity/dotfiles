@@ -1,9 +1,3 @@
-vim.pack.add {
-  "https://github.com/mfussenegger/nvim-dap",
-  "https://github.com/igorlfs/nvim-dap-view",
-  "https://github.com/theHamsta/nvim-dap-virtual-text",
-}
-
 local dap = require "dap"
 ---@param session dap.Session
 dap.listeners.after.event_initialized["store_config"] = function(session) vim.g.dap_last_config = session.config end

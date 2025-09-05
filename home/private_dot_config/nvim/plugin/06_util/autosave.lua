@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/okuuva/auto-save.nvim" }
-
 ---@param buf string|integer
 ---@return boolean
 local function save_condition(buf)

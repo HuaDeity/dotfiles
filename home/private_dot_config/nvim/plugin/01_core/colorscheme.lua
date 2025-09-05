@@ -1,5 +1,3 @@
-vim.pack.add { { src = "https://github.com/catppuccin/nvim", name = "catppuccin" } }
-
 require("catppuccin").setup {
   integrations = {
     aerial = true,
@@ -57,6 +55,6 @@ require("catppuccin").setup {
 vim.cmd.colorscheme "catppuccin"
 
 if vim.g.vim_picker == "snacks" then
-  vim.keymap.set("n", "<leader>uC", function() Snacks.picker.colorschemes() end, { desc = "Colorschemes" })
+  vim.keymap.set("n", "<leader>uC", function() require("snacks").picker.colorschemes() end, { desc = "Colorschemes" })
 end
-Snacks.toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>ub"
+require("snacks").toggle.option("background", { off = "light", on = "dark", name = "Dark Background" }):map "<leader>ub"

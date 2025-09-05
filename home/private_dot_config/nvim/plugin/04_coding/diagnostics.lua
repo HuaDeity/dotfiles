@@ -29,4 +29,4 @@ vim.diagnostic.config {
   float = { source = "if_many" },
 }
 
-Snacks.toggle.diagnostics():map "<leader>ud"
+require("snacks").toggle.diagnostics():map "<leader>ud"

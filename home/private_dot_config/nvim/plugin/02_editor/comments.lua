@@ -1,8 +1,3 @@
-vim.pack.add {
-  "https://github.com/folke/ts-comments.nvim",
-  "https://github.com/folke/todo-comments.nvim",
-}
-
 require("ts-comments").setup()
 require("todo-comments").setup()
 
@@ -14,7 +9,7 @@ vim.keymap.set("n", "<leader>xT", "<cmd>Trouble todo toggle filter = {tag = {TOD
 
 ---@diagnostic disable: undefined-field
 if vim.g.vim_picker == "snacks" then
-  vim.keymap.set("n", "<leader>st", function() Snacks.picker.todo_comments() end, { desc = "Todo" })
+  vim.keymap.set("n", "<leader>st", function() require("snacks").picker.todo_comments() end, { desc = "Todo" })
   -- stylua: ignore
-  vim.keymap.set("n", "<leader>sT", function() Snacks.picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, { desc = "Todo/Fix/Fixme" })
+  vim.keymap.set("n", "<leader>sT", function() require("snacks").picker.todo_comments({ keywords = { "TODO", "FIX", "FIXME" } }) end, { desc = "Todo/Fix/Fixme" })
 end

@@ -17,7 +17,6 @@ require("conform").formatters_by_ft.lua = { "stylua" }
 require("lazydev").setup {
   library = {
     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
-    { path = "snacks.nvim", words = { "Snacks" } },
   },
 }
 

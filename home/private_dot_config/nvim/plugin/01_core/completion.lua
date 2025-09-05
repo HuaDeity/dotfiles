@@ -1,13 +1,3 @@
-vim.pack.add {
-  { src = "https://github.com/saghen/blink.cmp", version = vim.version.range "1.*" },
-  "https://github.com/rafamadriz/friendly-snippets",
-  "https://github.com/xzbdmw/colorful-menu.nvim",
-  "https://github.com/moyiz/blink-emoji.nvim",
-  "https://github.com/Kaiser-Yang/blink-cmp-git",
-  "https://github.com/fang2hou/blink-copilot",
-  "https://github.com/folke/lazydev.nvim",
-}
-
 local extra_kind_icons = {
   Copilot = { glyph = "", hl = "MiniIconsGrey" },
   claude = { glyph = "󰋦", hl = "MiniIconsBlue" },

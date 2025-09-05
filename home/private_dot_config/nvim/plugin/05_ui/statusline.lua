@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/nvim-lualine/lualine.nvim" }
-
 if vim.fn.argc(-1) > 0 then
   -- set an empty statusline till lualine loads
   vim.o.statusline = " "
@@ -42,7 +40,7 @@ require("lualine").setup {
         function() return require("noice").api.status.command.get() end,
         ---@diagnostic disable-next-line: undefined-field
         cond = function() return package.loaded["noice"] and require("noice").api.status.command.has() end,
-        color = function() return { fg = Snacks.util.color "Statement" } end,
+        color = function() return { fg = require("snacks").util.color "Statement" } end,
       },
       -- stylua: ignore
       {
@@ -50,7 +48,7 @@ require("lualine").setup {
         function() return require("noice").api.status.mode.get() end,
         ---@diagnostic disable-next-line: undefined-field
         cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
-        color = function() return { fg = Snacks.util.color "Constant" } end,
+        color = function() return { fg = require("snacks").util.color "Constant" } end,
       }
 ,
     },
@@ -59,9 +57,9 @@ require("lualine").setup {
       {
         function() return "  " .. require("dap").status() end,
         cond = function() return package.loaded["dap"] and require("dap").status() ~= "" end,
-        color = function() return { fg = Snacks.util.color "Debug" } end,
+        color = function() return { fg = require("snacks").util.color "Debug" } end,
       },
-      Snacks.profiler.status(),
+      require("snacks").profiler.status(),
       {
         "diagnostics",
         sources = { "nvim_diagnostic" },
