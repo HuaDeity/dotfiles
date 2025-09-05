@@ -17,7 +17,7 @@ if test -e "$HOMEBREW_PREFIX/share/fish/completions"
 end
 
 # Add keg-only apps
-set -q HOMEBREW_KEG_ONLY_APPS; or set -g HOMEBREW_KEG_ONLY_APPS curl llvm rustup sqlite
+set -q HOMEBREW_KEG_ONLY_APPS; or set -g HOMEBREW_KEG_ONLY_APPS curl rustup sqlite
 for app in $HOMEBREW_KEG_ONLY_APPS
     if test -d "$HOMEBREW_PREFIX/opt/$app"
         fish_add_path --global "$HOMEBREW_PREFIX/opt/$app/bin"

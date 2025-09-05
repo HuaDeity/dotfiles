@@ -34,7 +34,6 @@ packages:
       - "just"
       - "lazygit"
       - "less"
-      - "llvm"
       - "ltex-ls-plus"
       - "lua-language-server"
       - "markdown-oxide"
