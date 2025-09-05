@@ -5,6 +5,7 @@ packages:
       - "docker-language-server"
       - "nil"
       - "nixd"
+      - "protols"
       - "python3Packages.debugpy"
       - "rubocop"
       - "ty"
