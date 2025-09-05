@@ -21,6 +21,12 @@ if command -q docker-language-server
     docker-language-server completion fish | source
 end
 
+if command -q nvitop && command -q nixglhost
+    function nvitop
+        nixglhost nvitop $argv
+    end
+end
+
 switch (uname -s)
     case Darwin
         fish_add_path --global --append $HOME/.orbstack/bin

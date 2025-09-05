@@ -26,7 +26,8 @@ let
   guiPackages = [];
 
   cliPackages = [
-    (config.lib.nixGL.wrappers.nvidia nvitop)
+    nix-gl-host
+    nvitop
   {{- range .packages.base.linux }}
     {{ . }}
   {{- end }}

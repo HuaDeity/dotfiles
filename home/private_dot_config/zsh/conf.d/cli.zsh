@@ -27,6 +27,10 @@ if (( $+commands[jj] )); then
 	source <(COMPLETE=zsh jj)
 fi
 
+if (( $+commands[nvitop] && $+commands[nixglhost] )); then
+	alias nvitop='nixglhost nvitop'
+fi
+
 if [[ OS == "Darwin" ]]; then
 	[ -d "$HOME/.orbstack" ] && source $HOME/.orbstack/shell/init.zsh 2>/dev/null || :
 fi

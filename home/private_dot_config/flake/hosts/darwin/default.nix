@@ -6,7 +6,7 @@
 }:
 with lib; {
   imports = [
-    ../../modules/darwin/home-manager.nix
+    ../../modules/darwin/home.nix
     ../../modules/shared
   ];
 
@@ -69,12 +69,6 @@ with lib; {
       ];
       trusted-users = [
         "@admin"
-      ];
-      trusted-public-keys = [
-        "nix-community.cachix.org-1:mB9FSh9qf2dCimDSUo8Zy7bkq5CX+/rkCWyvRCYg3Fs="
-      ];
-      trusted-substituters = [
-        "https://nix-community.cachix.org"
       ];
     };
   };

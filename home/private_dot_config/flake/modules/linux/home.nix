@@ -1,12 +1,15 @@
 {
   config,
   pkgs,
-  nixgl,
+  neovim-nightly-overlay,
+  nix-gl-host,
   ...
 }: let
   user = "wangyizun";
 in {
-  nixGL.packages = nixgl.packages;
+  imports = [
+    ../shared
+  ];
 
   home = {
     username = "${user}";
@@ -14,4 +17,9 @@ in {
     packages = pkgs.callPackage ./packages.nix {inherit config;};
     stateVersion = "25.05";
   };
+
+  nixpkgs.overlays = [
+    neovim-nightly-overlay.overlays.default
+    nix-gl-host.overlays.default
+  ];
 }

@@ -5,8 +5,8 @@
     nixpkgs = {
       url = "github:nixos/nixpkgs/nixpkgs-unstable";
     };
-    nixgl = {
-      url = "github:nix-community/nixGL";
+    nix-gl-host = {
+      url = "github:arilotter/nix-gl-host-rs";
     };
     darwin = {
       url = "github:nix-darwin/nix-darwin";
@@ -14,6 +14,10 @@
     };
     home-manager = {
       url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+    system-manager = {
+      url = "github:numtide/system-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     index-database = {
@@ -72,6 +76,19 @@
           extraSpecialArgs = inputs;
           modules = [
             inputs.index-database.homeModules.nix-index
+            ./modules/linux/home.nix
+          ];
+        }
+    );
+
+    systemConfigs = inputs.nixpkgs.lib.genAttrs linuxSystems (
+      system:
+        inputs.system-manager.lib.makeSystemConfig {
+          extraSpecialArgs = inputs;
+          modules = [
+            {
+              config.nixpkgs.hostPlatform = system;
+            }
             ./hosts/linux
           ];
         }
