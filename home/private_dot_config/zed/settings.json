@@ -69,6 +69,7 @@
     "file_icons": true,
     "show_diagnostics": "all"
   },
+  "format_on_save": "on",
   "diagnostics": {
     "cargo": {
       "fetch_cargo_diagnostics": true
@@ -118,6 +119,7 @@
     "log": true,
     "ltex": true,
     "lua": true,
+    "make": true,
     "markdown-oxide": true,
     "marksman": true,
     "neocmake": true,
@@ -141,7 +143,8 @@
   },
   "languages": {
     "C++": {
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
+      "tab_size": 2
     },
     "Fish": {
       "formatter": {
@@ -238,6 +241,9 @@
       },
       "tab_size": 2
     },
+    "Swift": {
+      "show_edit_predictions": false
+    },
     "TypeScript": {
       "prettier": {
         "allowed": false
@@ -271,6 +277,11 @@
     //     "require_config_file": true
     //   }
     // },
+    "protobuf-language-server": {
+      "binary": {
+        "path": "protols"
+      }
+    },
     "pyrefly": {
       "settings": {
         "python": {
@@ -398,5 +409,10 @@
         }
       ]
     }
-  ]
+  ],
+  "agent_servers": {
+    "gemini": {
+      "ignore_system_version": false
+    }
+  }
 }

@@ -22,6 +22,7 @@ packages:
       - "fish"
       - "fish-lsp"
       - "fzf"
+      - "gemini-cli"
       - "gh"
       - "git"
       - "git-delta"
