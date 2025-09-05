@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/echasnovski/mini.map" }
-
 local map = require "mini.map"
 map.setup {
   integrations = {

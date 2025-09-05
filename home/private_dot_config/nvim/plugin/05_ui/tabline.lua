@@ -1,9 +1,7 @@
-vim.pack.add { "https://github.com/akinsho/bufferline.nvim" }
-
 require("bufferline").setup {
   highlights = require("catppuccin.groups.integrations.bufferline").get(),
   options = {
-    close_command = function(n) Snacks.bufdelete(n) end,
+    close_command = function(n) require("snacks").bufdelete(n) end,
     diagnostics = "nvim_lsp",
     diagnostics_indicator = function(_, _, diagnostics_dict, context)
       if context.buffer:current() then return "" end

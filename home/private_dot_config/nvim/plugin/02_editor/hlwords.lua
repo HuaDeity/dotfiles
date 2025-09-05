@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/RRethy/vim-illuminate" }
-
 require("illuminate").configure {
   providers = {
     "lsp",
@@ -11,15 +9,17 @@ require("illuminate").configure {
   --   providers = { "lsp" },
   -- },
 }
-Snacks.toggle({
-  name = "Illuminate",
-  get = function() return not require("illuminate.engine").is_paused() end,
-  set = function(enabled)
-    local m = require "illuminate"
-    if enabled then
-      m.resume()
-    else
-      m.pause()
-    end
-  end,
-}):map "<leader>ux"
+require("snacks")
+  .toggle({
+    name = "Illuminate",
+    get = function() return not require("illuminate.engine").is_paused() end,
+    set = function(enabled)
+      local m = require "illuminate"
+      if enabled then
+        m.resume()
+      else
+        m.pause()
+      end
+    end,
+  })
+  :map "<leader>ux"

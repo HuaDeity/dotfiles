@@ -1,5 +1,3 @@
-vim.pack.add { "https://github.com/xvzc/chezmoi.nvim" }
-
 require("chezmoi").setup {
   extra_args = {
     "--no-tty",

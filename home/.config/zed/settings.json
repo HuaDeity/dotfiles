@@ -54,7 +54,7 @@
   },
   "agent": {
     "default_model": {
-      "provider": "copilot_chat",
+      "provider": "zed.dev",
       "model": "claude-sonnet-4"
     },
     "always_allow_tool_actions": true
@@ -144,7 +144,7 @@
   "languages": {
     "C++": {
       "show_edit_predictions": false,
-      "tab_size": 2
+      "tab_size": 4
     },
     "Fish": {
       "formatter": {
@@ -198,7 +198,8 @@
             "-"
           ]
         }
-      }
+      },
+      "tab_size": 2
     },
     "Markdown": {
       "language_servers": ["marksman", "markdown-oxide"]
@@ -396,6 +397,12 @@
     {
       "host": "10357",
       "projects": [
+        {
+          "paths": ["/nas/wangyizun/.local/share/chezmoi"]
+        },
+        {
+          "paths": ["/nas/wangyizun/Projects/nviwatch"]
+        },
         {
           "paths": ["~/Projects/ViS2O"]
         }

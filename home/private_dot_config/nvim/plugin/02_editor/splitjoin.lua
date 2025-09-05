@@ -1,8 +1,3 @@
-vim.pack.add {
-  "https://github.com/echasnovski/mini.splitjoin",
-  "https://github.com/Wansmer/treesj",
-}
-
 require("mini.splitjoin").setup {
   mappings = {
     toggle = "",

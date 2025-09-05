@@ -1,14 +1,3 @@
-vim.pack.add {
-  "https://github.com/nvim-lua/plenary.nvim",
-  "https://github.com/MunifTanjim/nui.nvim",
-  "https://github.com/folke/snacks.nvim",
-  "https://github.com/folke/noice.nvim",
-  "https://github.com/folke/trouble.nvim",
-  "https://github.com/echasnovski/mini.deps",
-  "https://github.com/echasnovski/mini.icons",
-  "https://github.com/kkharji/sqlite.lua",
-}
-
 _G.dd = function(...) require("snacks.debug").inspect(...) end
 _G.bt = function() require("snacks.debug").backtrace() end
 _G.p = function(...) require("snacks.debug").profile(...) end
@@ -72,22 +61,22 @@ local pick_chezmoi = function()
       }
     end,
   }
-  Snacks.picker.pick(opts)
+  require("snacks").picker.pick(opts)
 end
 vim.keymap.set("n", "<leader>sz", function() pick_chezmoi() end, { desc = "Chezmoi" })
-vim.keymap.set("n", "<leader>un", function() Snacks.notifier.hide() end, { desc = "Dismiss All Notifications" })
-Snacks.toggle.dim():map "<leader>uD"
-Snacks.toggle.animate():map "<leader>ua"
-Snacks.toggle.indent():map "<leader>ug"
-Snacks.toggle.scroll():map "<leader>uS"
-Snacks.toggle.zoom():map("<leader>wm"):map "<leader>uZ"
-Snacks.toggle.zen():map "<leader>uz"
-Snacks.toggle.option("spell", { name = "Spelling" }):map "<leader>us"
-Snacks.toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
+vim.keymap.set("n", "<leader>un", function() require("snacks").notifier.hide() end, { desc = "Dismiss All Notifications" })
+require("snacks").toggle.dim():map "<leader>uD"
+require("snacks").toggle.animate():map "<leader>ua"
+require("snacks").toggle.indent():map "<leader>ug"
+require("snacks").toggle.scroll():map "<leader>uS"
+require("snacks").toggle.zoom():map("<leader>wm"):map "<leader>uZ"
+require("snacks").toggle.zen():map "<leader>uz"
+require("snacks").toggle.option("spell", { name = "Spelling" }):map "<leader>us"
+require("snacks").toggle.option("wrap", { name = "Wrap" }):map "<leader>uw"
 -- stylua: ignore
-Snacks.toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" }):map "<leader>uc"
+require("snacks").toggle.option("conceallevel", { off = 0, on = vim.o.conceallevel > 0 and vim.o.conceallevel or 2, name = "Conceal Level" }):map "<leader>uc"
 -- stylua: ignore
-Snacks.toggle.option("showtabline", { off = 0, on = vim.o.showtabline > 0 and vim.o.showtabline or 2, name = "Tabline" }):map "<leader>uA"
+require("snacks").toggle.option("showtabline", { off = 0, on = vim.o.showtabline > 0 and vim.o.showtabline or 2, name = "Tabline" }):map "<leader>uA"
 
 local function term_nav(dir)
   ---@param self snacks.terminal
