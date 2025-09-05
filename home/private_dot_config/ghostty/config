@@ -28,3 +28,4 @@ keybind = super+bracket_left=unbind
 keybind = super+bracket_right=unbind
 keybind = ctrl+grave_accent=goto_split:next
 
+keybind = shift+enter=text:\n

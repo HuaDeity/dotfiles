@@ -69,6 +69,7 @@
     "file_icons": true,
     "show_diagnostics": "all"
   },
+  "format_on_save": "on",
   "diagnostics": {
     "cargo": {
       "fetch_cargo_diagnostics": true
@@ -118,6 +119,7 @@
     "log": true,
     "ltex": true,
     "lua": true,
+    "make": true,
     "markdown-oxide": true,
     "marksman": true,
     "neocmake": true,
@@ -134,13 +136,15 @@
     "toml": true,
     "ty": true,
     "tree-sitter-query": true,
+    "vue": true,
     "wakatime": true,
     "xml": true,
     "zig": true
   },
   "languages": {
     "C++": {
-      "show_edit_predictions": false
+      "show_edit_predictions": false,
+      "tab_size": 2
     },
     "Fish": {
       "formatter": {
@@ -153,41 +157,35 @@
       "language_servers": ["vscode-html-language-server", "superhtml"],
       "formatter": { "language_server": { "name": "superhtml" } }
     },
+    "JavaScript": {
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
+    },
     "JSON": {
       "prettier": {
         "allowed": false
       },
-      "formatter": [
-        {
-          "code_actions": {
-            "source.fixAll.biome": true,
-            "source.organizeImports.biome": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "biome"
-          }
-        }
-      ]
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
     },
     "JSONC": {
       "prettier": {
         "allowed": false
       },
-      "formatter": [
-        {
-          "code_actions": {
-            "source.fixAll.biome": true,
-            "source.organizeImports.biome": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "biome"
-          }
-        }
-      ]
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
     },
     "Lua": {
       "formatter": {
@@ -242,6 +240,19 @@
         }
       },
       "tab_size": 2
+    },
+    "Swift": {
+      "show_edit_predictions": false
+    },
+    "TypeScript": {
+      "prettier": {
+        "allowed": false
+      },
+      "formatter": { "language_server": { "name": "biome" } },
+      "code_actions_on_format": {
+        "source.fixAll.biome": true,
+        "source.organizeImports.biome": true
+      }
     }
   },
   "language_models": {
@@ -266,6 +277,11 @@
     //     "require_config_file": true
     //   }
     // },
+    "protobuf-language-server": {
+      "binary": {
+        "path": "protols"
+      }
+    },
     "pyrefly": {
       "settings": {
         "python": {
@@ -393,5 +409,10 @@
         }
       ]
     }
-  ]
+  ],
+  "agent_servers": {
+    "gemini": {
+      "ignore_system_version": false
+    }
+  }
 }

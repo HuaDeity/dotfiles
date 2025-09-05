@@ -42,6 +42,11 @@ if command -q starship
     enable_transience
 end
 
+if command -q volta
+    set -gx VOLTA_HOME $XDG_DATA_HOME/volta
+    fish_add_path --global $VOLTA_HOME/bin
+end
+
 if command -q zoxide
     zoxide init fish | source
 end
