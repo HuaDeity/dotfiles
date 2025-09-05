@@ -10,3 +10,5 @@ packages:
       - "rubocop"
       - "ty"
       - "vscode-extensions.vadimcn.vscode-lldb.adapter"
+      - "vscode-js-debug"
+      - "vtsls"
