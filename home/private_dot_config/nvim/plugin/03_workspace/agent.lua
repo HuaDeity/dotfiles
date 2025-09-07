@@ -14,29 +14,31 @@ require("img-clip").setup {
 vim.cmd [[cab cc CodeCompanion]]
 require("codecompanion").setup {
   adapters = {
-    azure_openai = function()
-      return require("codecompanion.adapters").extend("azure_openai", {
-        schema = {
-          model = {
-            default = "gpt-4.1",
+    http = {
+      azure_openai = function()
+        return require("codecompanion.adapters").extend("azure_openai", {
+          schema = {
+            model = {
+              default = "gpt-4.1",
+            },
           },
-        },
-      })
-    end,
-    openrouter = function()
-      return require("codecompanion.adapters").extend("openai_compatible", {
-        env = {
-          url = "https://openrouter.ai/api",
-          api_key = "OPENROUTER_API_KEY",
-          chat_url = "/v1/chat/completions",
-        },
-        schema = {
-          model = {
-            default = "anthropic/claude-opus-4",
+        })
+      end,
+      openrouter = function()
+        return require("codecompanion.adapters").extend("openai_compatible", {
+          env = {
+            url = "https://openrouter.ai/api",
+            api_key = "OPENROUTER_API_KEY",
+            chat_url = "/v1/chat/completions",
           },
-        },
-      })
-    end,
+          schema = {
+            model = {
+              default = "anthropic/claude-opus-4",
+            },
+          },
+        })
+      end,
+    },
   },
   display = {
     chat = {

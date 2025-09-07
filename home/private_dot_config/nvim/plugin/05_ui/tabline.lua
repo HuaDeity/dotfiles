@@ -1,5 +1,5 @@
 require("bufferline").setup {
-  highlights = require("catppuccin.groups.integrations.bufferline").get(),
+  highlights = require("catppuccin.groups.integrations.bufferline").get_theme(),
   options = {
     close_command = function(n) require("snacks").bufdelete(n) end,
     diagnostics = "nvim_lsp",

@@ -64,7 +64,12 @@ local pick_chezmoi = function()
   require("snacks").picker.pick(opts)
 end
 vim.keymap.set("n", "<leader>sz", function() pick_chezmoi() end, { desc = "Chezmoi" })
-vim.keymap.set("n", "<leader>un", function() require("snacks").notifier.hide() end, { desc = "Dismiss All Notifications" })
+vim.keymap.set(
+  "n",
+  "<leader>un",
+  function() require("snacks").notifier.hide() end,
+  { desc = "Dismiss All Notifications" }
+)
 require("snacks").toggle.dim():map "<leader>uD"
 require("snacks").toggle.animate():map "<leader>ua"
 require("snacks").toggle.indent():map "<leader>ug"
