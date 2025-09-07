@@ -19,6 +19,8 @@ let
       jujutsu
     else if pkgName == "clang-format" then
       clang-tools
+    else if pkgName == "tree-sitter-cli" then
+      tree-sitter
     else
       pkgs.${pkgName}
   ) ((import ../shared/packages.nix) { });

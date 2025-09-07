@@ -11,14 +11,13 @@ if vim.env.PROF then
   }
 end
 
-vim.pack.add {
+vim.pack.add({
   "https://github.com/nvim-lua/plenary.nvim",
   "https://github.com/MunifTanjim/nui.nvim",
   "https://github.com/folke/snacks.nvim",
   "https://github.com/folke/noice.nvim",
   "https://github.com/folke/trouble.nvim",
-  "https://github.com/echasnovski/mini.deps",
-  "https://github.com/echasnovski/mini.icons",
+  "https://github.com/nvim-mini/mini.icons",
   "https://github.com/kkharji/sqlite.lua",
 
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
@@ -53,7 +52,7 @@ vim.pack.add {
   "https://github.com/folke/ts-comments.nvim",
   "https://github.com/folke/todo-comments.nvim",
 
-  "https://github.com/echasnovski/mini.diff",
+  "https://github.com/nvim-mini/mini.diff",
   "https://github.com/sindrets/diffview.nvim",
   "https://github.com/f-person/git-blame.nvim",
 
@@ -70,13 +69,13 @@ vim.pack.add {
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/smjonas/inc-rename.nvim",
 
-  "https://github.com/echasnovski/mini.move",
+  "https://github.com/nvim-mini/mini.move",
 
-  "https://github.com/echasnovski/mini.pairs",
+  "https://github.com/nvim-mini/mini.pairs",
   "https://github.com/HiPhish/rainbow-delimiters.nvim",
   "https://github.com/windwp/nvim-ts-autotag",
 
-  "https://github.com/echasnovski/mini.splitjoin",
+  "https://github.com/nvim-mini/mini.splitjoin",
   "https://github.com/Wansmer/treesj",
 
   "https://github.com/gbprod/yanky.nvim",
@@ -89,7 +88,7 @@ vim.pack.add {
 
   "https://github.com/folke/edgy.nvim",
 
-  "https://github.com/echasnovski/mini-git",
+  "https://github.com/nvim-mini/mini-git",
   "https://github.com/NeogitOrg/neogit",
   "https://github.com/pwntester/octo.nvim",
 
@@ -105,15 +104,15 @@ vim.pack.add {
   "https://github.com/AndreM222/copilot-lualine",
   -- "https://github.com/milanglacier/minuet-ai.nvim",
 
-  "https://github.com/echasnovski/mini.surround",
+  "https://github.com/nvim-mini/mini.surround",
 
-  "https://github.com/echasnovski/mini.ai",
-  "https://github.com/echasnovski/mini.extra",
+  "https://github.com/nvim-mini/mini.ai",
+  "https://github.com/nvim-mini/mini.extra",
   { src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
 
   "https://github.com/nvim-treesitter/nvim-treesitter-context",
 
-  "https://github.com/echasnovski/mini.map",
+  "https://github.com/nvim-mini/mini.map",
 
   "https://github.com/luukvbaal/statuscol.nvim",
 
@@ -137,21 +136,19 @@ vim.pack.add {
 
   "https://github.com/dstein64/vim-startuptime",
 
-  "https://github.com/echasnovski/mini.misc",
+  "https://github.com/nvim-mini/mini.misc",
 
   "https://github.com/folke/persistence.nvim",
 
   "https://github.com/wakatime/vim-wakatime",
 
   "https://github.com/stevearc/stickybuf.nvim",
-}
+}, { confirm = false })
 
 vim.api.nvim_create_autocmd("PackChanged", {
   group = vim.api.nvim_create_augroup("TreesitterUpdate", { clear = true }),
   callback = function(args)
-    if args.data.kind == "update" and args.data.spec.name == "nvim-treesitter" then
-      require("mini.deps").later(function() vim.cmd "TSUpdate" end)
-    end
+    if args.data.kind == "update" and args.data.spec.name == "nvim-treesitter" then vim.cmd "TSUpdate" end
   end,
   desc = "Treesitter: update parser automatically",
 })
@@ -166,14 +163,6 @@ vim.api.nvim_create_autocmd("PackChanged", {
       }, function(result)
         if result.code == 0 then
           vim.schedule(function() vim.notify("MCPHub CLI installed successfully!", vim.log.levels.INFO) end)
-          -- Setup MCPHub after successful installation
-          pcall(
-            function()
-              require("mcphub").setup {
-                auto_approve = true,
-              }
-            end
-          )
         else
           vim.schedule(
             function() vim.notify("Failed to install MCPHub CLI: " .. (result.stderr or ""), vim.log.levels.ERROR) end
