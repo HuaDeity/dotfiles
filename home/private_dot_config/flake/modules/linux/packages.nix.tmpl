@@ -12,11 +12,13 @@ let
   shared-packages = map (
     pkgName:
     if pkgName == "git-delta" then
-      pkgs.delta
+      delta
     else if pkgName == "bat-extras" then
-      pkgs.bat-extras.core
+      bat-extras.core
     else if pkgName == "jj" then
-      pkgs.jujutsu
+      jujutsu
+    else if pkgName == "clang-format" then
+      clang-tools
     else
       pkgs.${pkgName}
   ) ((import ../shared/packages.nix) { });
