@@ -1,14 +1,18 @@
-vim.pack.add { "https://github.com/p00f/clangd_extensions.nvim" }
+vim.pack.add {
+  "https://github.com/p00f/clangd_extensions.nvim",
+  "https://github.com/Civitasv/cmake-tools.nvim",
+}
+
+require("cmake-tools").setup {}
+
+-- keymap
+vim.keymap.set("n", "<F5>", "<cmd>CMakeDebug<cr>", { buffer = true })
 
 -- lsp
 vim.lsp.enable { "clangd" }
 
 -- treesitter
 require("nvim-treesitter").install "cpp"
-
--- format
-require("conform").formatters_by_ft.c = { "clang-format" }
-require("conform").formatters_by_ft.cpp = { "clang-format" }
 
 -- dap
 local dap = require "dap"

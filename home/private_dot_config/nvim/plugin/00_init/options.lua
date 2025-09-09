@@ -8,7 +8,7 @@ vim.g.linter = {}
 vim.g.format_ignore_filetypes = {}
 vim.g.format_ignore_paths = {}
 
-vim.g.minimap_excluded_filetypes = { "", "help", "noice", "snacks_dashboard" }
+vim.g.minimap_excluded_filetypes = { "", "help", "noice", "snacks_dashboard", "dap-view", "dap-view-term" }
 
 vim.g.spinner_symbols = {
   "⠋",
