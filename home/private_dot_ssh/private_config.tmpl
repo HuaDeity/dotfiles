@@ -12,3 +12,9 @@ Host *
    ForwardX11 yes
    SendEnv LC_FLAVOR
 {{- end }}
+
+{{- if eq .chezmoi.os "linux" -}}
+Host github.com
+   HostName ssh.github.com
+   Port 443
+{{- end }}
