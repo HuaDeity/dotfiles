@@ -97,10 +97,11 @@ require("codecompanion").setup {
   },
   strategies = {
     chat = {
-      adapter = {
-        name = "copilot",
-        model = "claude-sonnet-4",
-      },
+      adapter = "claude_code",
+      -- adapter = {
+      --   name = "copilot",
+      --   model = "claude-sonnet-4",
+      -- },
       keymaps = {
         send = {
           callback = function(chat)

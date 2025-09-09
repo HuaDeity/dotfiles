@@ -38,7 +38,7 @@ packages:
       - "lazygit"
       - "less"
       - "ltex-ls-plus"
-      - "lua-language-server"
+      # - "lua-language-server"
       - "markdown-oxide"
       - "markdownlint-cli2"
       - "marksman"

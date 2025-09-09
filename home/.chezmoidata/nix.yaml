@@ -3,6 +3,7 @@ packages:
     shared:
       - "cachix"
       - "docker-language-server"
+      - "lua-language-server"
       - "nil"
       - "nixd"
       - "protols"
