@@ -92,5 +92,7 @@ packages:
       - "llvmPackages.openmp"
       - "mihomo"
       - "nix-zsh-completions"
+      - "nodejs"
+      - "traceroute"
     unfree:
       - "claude-code"
