@@ -103,7 +103,7 @@ with lib; {
           "/Applications/Tower.app"
           "/Applications/Ghostty.app"
           "/Applications/Zed Preview.app"
-          "/Applications/Xcode-beta.app"
+          "/Applications/Xcode.app"
         ];
         persistent-others = [
           "${config.users.users.${config.system.primaryUser}.home}/Downloads"
