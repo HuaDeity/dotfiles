@@ -1,0 +1,648 @@
+{
+  "lockfile-version": 1,
+  "manifest": {
+    "version": 1,
+    "install": {
+      "bash-language-server": {
+        "pkg-path": "bash-language-server"
+      },
+      "fish-lsp": {
+        "pkg-path": "fish-lsp"
+      },
+      "shellcheck": {
+        "pkg-path": "shellcheck"
+      },
+      "shfmt": {
+        "pkg-path": "shfmt"
+      },
+      "taplo": {
+        "pkg-path": "taplo"
+      }
+    },
+    "hook": {},
+    "profile": {},
+    "options": {}
+  },
+  "packages": [
+    {
+      "attr_path": "bash-language-server",
+      "broken": false,
+      "derivation": "/nix/store/pd11bx2vaqq6x6nvigib3k4yjhf073zh-bash-language-server-5.6.0.drv",
+      "description": "Language server for Bash",
+      "install_id": "bash-language-server",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "bash-language-server-5.6.0",
+      "pname": "bash-language-server",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:06:11.252358Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.6.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/r56bsbvzc65cf1w5db1swck5kqcavrry-bash-language-server-5.6.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "bash-language-server",
+      "broken": false,
+      "derivation": "/nix/store/vwbmy8f2h0b9nnkwvlyj71xcn4kxfwh6-bash-language-server-5.6.0.drv",
+      "description": "Language server for Bash",
+      "install_id": "bash-language-server",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "bash-language-server-5.6.0",
+      "pname": "bash-language-server",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:40:51.591009Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.6.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/jwppn7xm8c5d9n9s7k4dbbw9wz4zyw69-bash-language-server-5.6.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "bash-language-server",
+      "broken": false,
+      "derivation": "/nix/store/gdnx9p1i9nyv1im5ffxwb86lkp22vndm-bash-language-server-5.6.0.drv",
+      "description": "Language server for Bash",
+      "install_id": "bash-language-server",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "bash-language-server-5.6.0",
+      "pname": "bash-language-server",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:13:15.327082Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.6.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3b3sjw0qaca6138mwmibggwschc9arqd-bash-language-server-5.6.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "bash-language-server",
+      "broken": false,
+      "derivation": "/nix/store/010xw2rk2l6i8arzdy5lajwp35ar6hq2-bash-language-server-5.6.0.drv",
+      "description": "Language server for Bash",
+      "install_id": "bash-language-server",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "bash-language-server-5.6.0",
+      "pname": "bash-language-server",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:49:34.581550Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "5.6.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/4wrzapjlyh0fg529y5rc1spmg1j5xvl0-bash-language-server-5.6.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "fish-lsp",
+      "broken": false,
+      "derivation": "/nix/store/qhjglzymbwgq3zfv06ia13wf8akl1cwm-fish-lsp-1.0.10.drv",
+      "description": "LSP implementation for the fish shell language",
+      "install_id": "fish-lsp",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "fish-lsp-1.0.10",
+      "pname": "fish-lsp",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:06:12.061604Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.0.10",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/sb5vgaphx796r5aay6926z5mh7q1gx8k-fish-lsp-1.0.10"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "fish-lsp",
+      "broken": false,
+      "derivation": "/nix/store/k33miw84gdsnx1yqqh1gdnd4an20dk6x-fish-lsp-1.0.10.drv",
+      "description": "LSP implementation for the fish shell language",
+      "install_id": "fish-lsp",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "fish-lsp-1.0.10",
+      "pname": "fish-lsp",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:40:52.758883Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.0.10",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/z02hjwr6ikdj7aia99dqcmljbkzxw69q-fish-lsp-1.0.10"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "fish-lsp",
+      "broken": false,
+      "derivation": "/nix/store/l20ki0ifxicjh7mm7rrj5b2zqfgi6w95-fish-lsp-1.0.10.drv",
+      "description": "LSP implementation for the fish shell language",
+      "install_id": "fish-lsp",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "fish-lsp-1.0.10",
+      "pname": "fish-lsp",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:13:16.106749Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.0.10",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/3cwy1kfn1k9rcwrdiyswj49r5517k19c-fish-lsp-1.0.10"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "fish-lsp",
+      "broken": false,
+      "derivation": "/nix/store/wi5dlf78xjw78bvg3g49h9zc97c27cn6-fish-lsp-1.0.10.drv",
+      "description": "LSP implementation for the fish shell language",
+      "install_id": "fish-lsp",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "fish-lsp-1.0.10",
+      "pname": "fish-lsp",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:49:35.892088Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "1.0.10",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/06g4g9nblhyllkih9nn0qi5g0bywj5j7-fish-lsp-1.0.10"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shellcheck",
+      "broken": false,
+      "derivation": "/nix/store/b884admgfm6nxaqk24qssr22pfpa2qgv-shellcheck-0.10.0.drv",
+      "description": "Shell script analysis tool",
+      "install_id": "shellcheck",
+      "license": "GPL-3.0-only",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shellcheck-0.10.0",
+      "pname": "shellcheck",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:08:02.132528Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "bin",
+        "doc",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/dxppq6y4mb663r0li716pavrahwh9sws-shellcheck-0.10.0-bin",
+        "doc": "/nix/store/0wbb09lk7bx9ywc453a8nnw41hc8qp1i-shellcheck-0.10.0-doc",
+        "man": "/nix/store/7lpymai82rrcps6z7zl4q5j69w3pp5ng-shellcheck-0.10.0-man",
+        "out": "/nix/store/ffxba7sh87j0vg759cjm7qmcadsmbfw7-shellcheck-0.10.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shellcheck",
+      "broken": false,
+      "derivation": "/nix/store/4hzbkdy383naf03yk1ccrsbcaff5djfz-shellcheck-0.10.0.drv",
+      "description": "Shell script analysis tool",
+      "install_id": "shellcheck",
+      "license": "GPL-3.0-only",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shellcheck-0.10.0",
+      "pname": "shellcheck",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:43:23.821966Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "bin",
+        "doc",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/kvhcnjzmjyqc641yd57f7g26nraw64sm-shellcheck-0.10.0-bin",
+        "doc": "/nix/store/vn7d2fwlkjgq6hy3c7gjcypg3slkf592-shellcheck-0.10.0-doc",
+        "man": "/nix/store/2ps0gaalsjfvd6vh0zhq2l4d6xgrma8l-shellcheck-0.10.0-man",
+        "out": "/nix/store/dxqnpdj372kh001d84dg29l6l3aflrc0-shellcheck-0.10.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shellcheck",
+      "broken": false,
+      "derivation": "/nix/store/7zx3lirmdhnk1yily6ayy516b4a1ixzv-shellcheck-0.10.0.drv",
+      "description": "Shell script analysis tool",
+      "install_id": "shellcheck",
+      "license": "GPL-3.0-only",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shellcheck-0.10.0",
+      "pname": "shellcheck",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:14:57.424986Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "bin",
+        "doc",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/ri8byd60sb58xqf3m0bli53xflx9n4l4-shellcheck-0.10.0-bin",
+        "doc": "/nix/store/b1hcrb9c98w7cwqjc5wy5rrfx1gnw7lz-shellcheck-0.10.0-doc",
+        "man": "/nix/store/0an459l9ajzapm9kinqh344xnlzp70fy-shellcheck-0.10.0-man",
+        "out": "/nix/store/5rfsd78v2il52xqvxmx15pp52zlds4al-shellcheck-0.10.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shellcheck",
+      "broken": false,
+      "derivation": "/nix/store/w8ak9a7r519g5zb7mvcr4cfw0f1w2rrs-shellcheck-0.10.0.drv",
+      "description": "Shell script analysis tool",
+      "install_id": "shellcheck",
+      "license": "GPL-3.0-only",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shellcheck-0.10.0",
+      "pname": "shellcheck",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:52:10.924264Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "bin",
+        "doc",
+        "man"
+      ],
+      "outputs": {
+        "bin": "/nix/store/ayfrkdpk1sygzwwjqh19gcp5sfh557zd-shellcheck-0.10.0-bin",
+        "doc": "/nix/store/wgb75fahwjf0h5gc7ww5zcvkhbm88sps-shellcheck-0.10.0-doc",
+        "man": "/nix/store/n8asflghb73ph65f2ixvr8hv6h7v9w0g-shellcheck-0.10.0-man",
+        "out": "/nix/store/vh0ng4iyxch4lqmjmkbbjx8dw8xp569y-shellcheck-0.10.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shfmt",
+      "broken": false,
+      "derivation": "/nix/store/55qm4941ym3fc9a7ab94xrly8qjah6qh-shfmt-3.12.0.drv",
+      "description": "Shell parser and formatter",
+      "install_id": "shfmt",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shfmt-3.12.0",
+      "pname": "shfmt",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:08:02.180732Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/gwc439rwcxqj8mrg0yxsv3935cfwk3sl-shfmt-3.12.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shfmt",
+      "broken": false,
+      "derivation": "/nix/store/96q4rpxrivdifq1fmqhbyhb75w9cip9r-shfmt-3.12.0.drv",
+      "description": "Shell parser and formatter",
+      "install_id": "shfmt",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shfmt-3.12.0",
+      "pname": "shfmt",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:43:23.883028Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/ivjs1yf1vw6k306zzz07m0d480l19dsj-shfmt-3.12.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shfmt",
+      "broken": false,
+      "derivation": "/nix/store/sc1qza757rnv4mhir8a9dgi1k251wzn4-shfmt-3.12.0.drv",
+      "description": "Shell parser and formatter",
+      "install_id": "shfmt",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shfmt-3.12.0",
+      "pname": "shfmt",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:14:57.466842Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/a844kmsjpv467qzp464j71cywj1lg02p-shfmt-3.12.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "shfmt",
+      "broken": false,
+      "derivation": "/nix/store/3kwzlg8mfckqj7nk3jcxblmyzsifkj8f-shfmt-3.12.0.drv",
+      "description": "Shell parser and formatter",
+      "install_id": "shfmt",
+      "license": "BSD-3-Clause",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "shfmt-3.12.0",
+      "pname": "shfmt",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:52:10.987019Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "3.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/zsr06yh5kbsrahwxbi3mx0cjsbwaf7la-shfmt-3.12.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "taplo",
+      "broken": false,
+      "derivation": "/nix/store/xhd99wyp12fs1amxhpzz7qchpqsamllr-taplo-0.10.0.drv",
+      "description": "TOML toolkit written in Rust",
+      "install_id": "taplo",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "taplo-0.10.0",
+      "pname": "taplo",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:08:05.321254Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/bkmhp57rbj6q39ff90vng4wh06wyvp1w-taplo-0.10.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "taplo",
+      "broken": false,
+      "derivation": "/nix/store/abmmzfvps8l5pdzj2ci9jvzb9r90bn7s-taplo-0.10.0.drv",
+      "description": "TOML toolkit written in Rust",
+      "install_id": "taplo",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "taplo-0.10.0",
+      "pname": "taplo",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T02:43:28.982316Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/s3xp4zg1l18a1s6chdyr0apdcdf524mq-taplo-0.10.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "taplo",
+      "broken": false,
+      "derivation": "/nix/store/90nahlqn328z3njzrh7zpvhz5zhgw590-taplo-0.10.0.drv",
+      "description": "TOML toolkit written in Rust",
+      "install_id": "taplo",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "taplo-0.10.0",
+      "pname": "taplo",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:15:00.352467Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/rrly3y4lpvg0h9cjcxlcr8l05w84km8g-taplo-0.10.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "taplo",
+      "broken": false,
+      "derivation": "/nix/store/p9xq1aw35s69a448rz31z69p1pqr4lm0-taplo-0.10.0.drv",
+      "description": "TOML toolkit written in Rust",
+      "install_id": "taplo",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "name": "taplo-0.10.0",
+      "pname": "taplo",
+      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "rev_count": 859555,
+      "rev_date": "2025-09-10T06:58:08Z",
+      "scrape_date": "2025-09-12T03:52:16.555578Z",
+      "stabilities": [
+        "staging",
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.10.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/dvq0z1zxfaw8gw072bacv4d2z7s9km4l-taplo-0.10.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    }
+  ]
+}
