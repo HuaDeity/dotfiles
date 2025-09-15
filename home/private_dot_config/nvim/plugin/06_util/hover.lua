@@ -1,29 +1,29 @@
-require("hover").setup {
-  init = function()
-    -- Require providers
-    require "hover.providers.lsp"
-    -- require('hover.providers.gh')
-    -- require('hover.providers.gh_user')
-    -- require('hover.providers.jira')
-    require "hover.providers.dap"
-    -- require('hover.providers.fold_preview')
-    require "hover.providers.diagnostic"
-    require "hover.providers.man"
-    -- require('hover.providers.dictionary')
-    -- require('hover.providers.highlight')
-  end,
-  preview_opts = {
-    border = vim.o.winborder,
-  },
-  -- mouse_providers = {
-  --   "LSP",
-  --   "Diagnostics",
-  -- },
-  -- mouse_delay = 300,
-}
+-- require("hover").config {
+--   providers = {
+--     "hover.providers.diagnostic",
+--     "hover.providers.lsp",
+--     "hover.providers.dap",
+--     "hover.providers.man",
+--     "hover.providers.dictionary",
+--     -- Optional, disabled by default:
+--     -- 'hover.providers.gh',
+--     -- 'hover.providers.gh_user',
+--     -- 'hover.providers.jira',
+--     -- 'hover.providers.fold_preview',
+--     -- 'hover.providers.highlight',
+--   },
+--   preview_opts = {
+--     border = vim.o.winborder,
+--   },
+--   mouse_providers = {
+--     -- "hover.providers.diagnostic",
+--     "hover.providers.lsp",
+--   },
+--   -- mouse_delay = 300,
+-- }
 
 -- local timer = nil
--- local delay = 300
+-- local delay = 1000
 -- local previous_pos = nil
 --
 -- local function on_hover(current)
@@ -44,7 +44,7 @@ require("hover").setup {
 --   end
 --   previous_pos = current
 -- end
-
+--
 -- vim.api.nvim_create_autocmd("VimLeavePre", {
 --   group = vim.api.nvim_create_augroup("BufferLineHover", { clear = true }),
 --   callback = function()
@@ -71,3 +71,4 @@ vim.keymap.set("n", "[h", function() require("hover").switch "previous" end, { d
 --   end, delay)
 --   return "<MouseMove>"
 -- end, { expr = true, desc = "hover mouse" })
+vim.keymap.set("n", "<MouseMove>", function() require("hover").mouse() end, { desc = "hover.nvim (mouse)" })

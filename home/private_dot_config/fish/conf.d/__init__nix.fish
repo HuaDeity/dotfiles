@@ -1,5 +1,5 @@
 set -gx NIX_PATH "nixpkgs=flake:nixpkgs"
-set -gx NIX_PROFILES "/nix/var/nix/profiles/default /run/current-system/sw $XDG_STATE_HOME/nix/profile"
+set -gx NIX_PROFILES "/nix/var/nix/profiles/default /run/current-system/sw /etc/profiles/per-user/$USER $XDG_STATE_HOME/nix/profile"
 set -gx NIX_SSL_CERT_FILE "/etc/ssl/certs/ca-certificates.crt"
 set -gx NIX_USER_PROFILE_DIR "/nix/var/nix/profiles/per-user/$USER"
 set -a fish_complete_path "/nix/var/nix/profiles/default/share/fish/vendor_completions.d"

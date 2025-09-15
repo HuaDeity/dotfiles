@@ -28,7 +28,13 @@ set -e HOMEBREW_KEG_ONLY_APPS
 
 # If the brew path is owned by another user, wrap it so brew commands
 # are executed as the brew owner.
-set -gx HOMEBREW_OWNER (stat -f "%Su" $HOMEBREW_PREFIX)
+if stat --version &>/dev/null
+    # We have GNU stat (Linux)
+    set -gx HOMEBREW_OWNER (stat -c "%U" "$HOMEBREW_PREFIX" 2> /dev/null)
+else
+    # We have BSD stat (macOS)
+    set -gx HOMEBREW_OWNER (stat -f "%Su" "$HOMEBREW_PREFIX" 2> /dev/null)
+end
 if test $HOMEBREW_OWNER != (whoami)
     function brew --description 'Wrap brew with sudo for multi-user systems'
         sudo -Hu $HOMEBREW_OWNER brew $argv

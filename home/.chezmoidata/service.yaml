@@ -1,8 +1,0 @@
-services:
-  base:
-    shared:
-      # - name: atuin
-      #   restart_service: changed
-      - name: neovim
-        args:
-          - HEAD
