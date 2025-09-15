@@ -1,8 +1,0 @@
-{ pkgs }:
-
-with pkgs;
-[
-{{- range .packages.nix.shared }}
-  {{ . }}
-{{- end }}
-]

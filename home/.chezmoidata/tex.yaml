@@ -1,6 +1,0 @@
-packages:
-  tex:
-    shared:
-      - "chktex"
-      - "latexindent"
-      - "latexmk"
