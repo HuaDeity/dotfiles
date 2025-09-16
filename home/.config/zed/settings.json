@@ -144,7 +144,7 @@
   "languages": {
     "C++": {
       "show_edit_predictions": false,
-      "tab_size": 4
+      "tab_size": 2
     },
     "Fish": {
       "formatter": {
@@ -205,10 +205,10 @@
       "language_servers": ["marksman", "markdown-oxide"]
     },
     "Nix": {
-      "language_servers": ["nixd", "nil"],
+      "language_servers": ["nixd", "!nil"],
       "formatter": {
         "external": {
-          "command": "alejandra",
+          "command": "nixfmt",
           "arguments": ["--quiet", "--"]
         }
       }
