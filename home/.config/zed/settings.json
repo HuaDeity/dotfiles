@@ -366,7 +366,9 @@
       "host": "10342",
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -374,7 +376,9 @@
       "host": "10351",
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -382,7 +386,9 @@
       "host": "10354",
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -390,7 +396,9 @@
       "host": "10356",
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -398,13 +406,29 @@
       "host": "10357",
       "projects": [
         {
-          "paths": ["/nas/wangyizun/.local/share/chezmoi"]
+          "paths": [
+            "/nas/wangyizun/.local/share/chezmoi"
+          ]
         },
         {
-          "paths": ["/nas/wangyizun/Projects/nviwatch"]
+          "paths": [
+            "/nas/wangyizun/Projects/nviwatch"
+          ]
         },
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "/nas/wangyizun/Projects/nviwatch-nix"
+          ]
+        },
+        {
+          "paths": [
+            "/nas/wangyizun/Projects/test"
+          ]
+        },
+        {
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -412,7 +436,9 @@
       "host": "10358",
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     }
