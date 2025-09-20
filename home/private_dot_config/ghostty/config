@@ -13,7 +13,7 @@ mouse-hide-while-typing = true
 window-height = 42
 window-width = 140
 
-clipboard-read = allow
+# clipboard-read = allow
 
 shell-integration-features = sudo, ssh-env, ssh-terminfo
 

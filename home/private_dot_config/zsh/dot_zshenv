@@ -20,9 +20,6 @@ else
 fi
 export PAGER=less
 
-export CC=clang
-export CXX=clang++
-
 zstyle ':plugin:proxy' auto yes
 
 if [[ "$OSTYPE" == darwin* ]]; then
