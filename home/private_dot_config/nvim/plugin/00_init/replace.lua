@@ -3,6 +3,10 @@ _G.bt = function() require("snacks.debug").backtrace() end
 _G.p = function(...) require("snacks.debug").profile(...) end
 vim.print = _G.dd
 
+require("direnv").setup{
+  autoload_direnv = true,
+}
+
 package.preload["nvim-web-devicons"] = function()
   require("mini.icons").mock_nvim_web_devicons()
   return package.loaded["nvim-web-devicons"]

@@ -18,6 +18,7 @@ vim.pack.add({
   "https://github.com/folke/trouble.nvim",
   "https://github.com/nvim-mini/mini.icons",
   "https://github.com/kkharji/sqlite.lua",
+  "https://github.com/NotAShelf/direnv.nvim",
 
   { src = "https://github.com/catppuccin/nvim", name = "catppuccin" },
 
@@ -89,7 +90,6 @@ vim.pack.add({
 
   "https://github.com/nvim-mini/mini-git",
   "https://github.com/NeogitOrg/neogit",
-  "https://github.com/pwntester/octo.nvim",
 
   "https://github.com/stevearc/aerial.nvim",
 
@@ -141,6 +141,8 @@ vim.pack.add({
   "https://github.com/wakatime/vim-wakatime",
 
   "https://github.com/stevearc/stickybuf.nvim",
+
+  "https://github.com/mfussenegger/nvim-ansible",
 }, { confirm = false })
 
 vim.api.nvim_create_autocmd("PackChanged", {

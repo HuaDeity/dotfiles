@@ -1,7 +1,7 @@
 vim.pack.add { "https://github.com/itspriddle/vim-marked" }
 
 -- lsp
-vim.lsp.enable { "ltex_plus", "marksman", "markdown_oxide" }
+vim.lsp.enable { "ltex_plus", "marksman" }
 
 -- lint
 require("lint").linters_by_ft.markdown = { "markdownlint-cli2" }

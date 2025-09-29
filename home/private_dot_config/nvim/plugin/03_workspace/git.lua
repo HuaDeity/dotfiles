@@ -25,17 +25,3 @@ require("neogit").setup {
 }
 
 vim.keymap.set("n", "<leader>gg", function() require("neogit").open() end, { desc = "Git Panel" })
-
-require("octo").setup {
-  enable_builtin = true,
-  default_to_projects_v2 = true,
-  default_merge_method = "squash",
-  picker = "snacks",
-}
-
-vim.keymap.set("n", "<leader>gi", "<cmd>Octo issue list<CR>", { desc = "List Issues (Octo)" })
-vim.keymap.set("n", "<leader>gI", "<cmd>Octo issue search<CR>", { desc = "Search Issues (Octo)" })
-vim.keymap.set("n", "<leader>gp", "<cmd>Octo pr list<CR>", { desc = "List PRs (Octo)" })
-vim.keymap.set("n", "<leader>gP", "<cmd>Octo pr search<CR>", { desc = "Search PRs (Octo)" })
-vim.keymap.set("n", "<leader>gr", "<cmd>Octo repo list<CR>", { desc = "List Repos (Octo)" })
-vim.keymap.set("n", "<leader>gS", "<cmd>Octo search<CR>", { desc = "Search (Octo)" })

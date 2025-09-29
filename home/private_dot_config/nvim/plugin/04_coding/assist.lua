@@ -22,7 +22,7 @@ end, { desc = "Goto/Apply Next Edit Suggestion", expr = true })
 --   { "i", "n" },
 --   "<M-[>",
 --   function() vim.lsp.inline_completion.select { count = -1 } end,
---   { desc = "Previous Copilot Suggestion" }
+--   { desc = "Prev Copilot Suggestion" }
 -- )
 
 -- require("minuet").setup {
