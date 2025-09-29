@@ -4,9 +4,10 @@ return {
       completion = {
         callSnippet = "Replace",
       },
-      -- workspace = {
-      --   checkThirdParty = false,
-      -- },
+      workspace = {
+        -- checkThirdParty = false,
+        ignoreDir = { ".flox" },
+      },
       codeLens = {
         enable = true,
       },

@@ -6,14 +6,23 @@
       "bash-language-server": {
         "pkg-path": "bash-language-server"
       },
+      "emmylua-ls": {
+        "pkg-path": "emmylua-ls"
+      },
       "fish-lsp": {
         "pkg-path": "fish-lsp"
+      },
+      "selene": {
+        "pkg-path": "selene"
       },
       "shellcheck": {
         "pkg-path": "shellcheck"
       },
       "shfmt": {
         "pkg-path": "shfmt"
+      },
+      "stylua": {
+        "pkg-path": "stylua"
       },
       "taplo": {
         "pkg-path": "taplo"
@@ -27,19 +36,18 @@
     {
       "attr_path": "bash-language-server",
       "broken": false,
-      "derivation": "/nix/store/pd11bx2vaqq6x6nvigib3k4yjhf073zh-bash-language-server-5.6.0.drv",
+      "derivation": "/nix/store/ylhh7dbx07yd7xlmlanqmsl1a2y1z9jc-bash-language-server-5.6.0.drv",
       "description": "Language server for Bash",
       "install_id": "bash-language-server",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "bash-language-server-5.6.0",
       "pname": "bash-language-server",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:06:11.252358Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:00:42.209351Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -48,7 +56,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/r56bsbvzc65cf1w5db1swck5kqcavrry-bash-language-server-5.6.0"
+        "out": "/nix/store/hqanvgcgga8ldvwy47ssbip1hbjgkx0r-bash-language-server-5.6.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -57,19 +65,18 @@
     {
       "attr_path": "bash-language-server",
       "broken": false,
-      "derivation": "/nix/store/vwbmy8f2h0b9nnkwvlyj71xcn4kxfwh6-bash-language-server-5.6.0.drv",
+      "derivation": "/nix/store/8k1khb24ys44n5b2xmpgzq2va9gafci1-bash-language-server-5.6.0.drv",
       "description": "Language server for Bash",
       "install_id": "bash-language-server",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "bash-language-server-5.6.0",
       "pname": "bash-language-server",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:40:51.591009Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:29:40.047414Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -78,7 +85,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/jwppn7xm8c5d9n9s7k4dbbw9wz4zyw69-bash-language-server-5.6.0"
+        "out": "/nix/store/yda02l0ickj2qfgdjv88xcfh9r7fh02a-bash-language-server-5.6.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -87,19 +94,18 @@
     {
       "attr_path": "bash-language-server",
       "broken": false,
-      "derivation": "/nix/store/gdnx9p1i9nyv1im5ffxwb86lkp22vndm-bash-language-server-5.6.0.drv",
+      "derivation": "/nix/store/by8fkmgh0fhh53bpp88qf9nby1sgh4bg-bash-language-server-5.6.0.drv",
       "description": "Language server for Bash",
       "install_id": "bash-language-server",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "bash-language-server-5.6.0",
       "pname": "bash-language-server",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:13:15.327082Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:56:35.604866Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -108,7 +114,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/3b3sjw0qaca6138mwmibggwschc9arqd-bash-language-server-5.6.0"
+        "out": "/nix/store/i6pj1yc4rqgx0a3snp9k29348h4p1vq5-bash-language-server-5.6.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -117,19 +123,18 @@
     {
       "attr_path": "bash-language-server",
       "broken": false,
-      "derivation": "/nix/store/010xw2rk2l6i8arzdy5lajwp35ar6hq2-bash-language-server-5.6.0.drv",
+      "derivation": "/nix/store/c1j7plcl2cshdhkwbflbb4x9xyv2a4q8-bash-language-server-5.6.0.drv",
       "description": "Language server for Bash",
       "install_id": "bash-language-server",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "bash-language-server-5.6.0",
       "pname": "bash-language-server",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:49:34.581550Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:26:56.141812Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -138,7 +143,123 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/4wrzapjlyh0fg529y5rc1spmg1j5xvl0-bash-language-server-5.6.0"
+        "out": "/nix/store/sx7hz3rmjpm304yqli3aksadkrkxjgcw-bash-language-server-5.6.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "emmylua-ls",
+      "broken": false,
+      "derivation": "/nix/store/arwbrj2ikk8gf3n86damf7pfc58zfb41-emmylua_ls-0.12.0.drv",
+      "description": "EmmyLua Language Server",
+      "install_id": "emmylua-ls",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "emmylua_ls-0.12.0",
+      "pname": "emmylua-ls",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:00:42.896227Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/p4jlf1y0i2r8y2cvafg7872flvf01qpd-emmylua_ls-0.12.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "emmylua-ls",
+      "broken": false,
+      "derivation": "/nix/store/vb3b08j0l6a9gd7q8ppgli9azqm5d2cb-emmylua_ls-0.12.0.drv",
+      "description": "EmmyLua Language Server",
+      "install_id": "emmylua-ls",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "emmylua_ls-0.12.0",
+      "pname": "emmylua-ls",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:29:41.019512Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/51brywp313vp6m5jf8syraqn5nxifnm3-emmylua_ls-0.12.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "emmylua-ls",
+      "broken": false,
+      "derivation": "/nix/store/pqjc0r5vvhb7mh2cpz5x4qyx2hna20gh-emmylua_ls-0.12.0.drv",
+      "description": "EmmyLua Language Server",
+      "install_id": "emmylua-ls",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "emmylua_ls-0.12.0",
+      "pname": "emmylua-ls",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:56:36.296768Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/dvr56sn636kac44b236jh8b7jamcwm0n-emmylua_ls-0.12.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "emmylua-ls",
+      "broken": false,
+      "derivation": "/nix/store/jlbb7lchribsg04514gq4nmmsi4v1rrx-emmylua_ls-0.12.0.drv",
+      "description": "EmmyLua Language Server",
+      "install_id": "emmylua-ls",
+      "license": "MIT",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "emmylua_ls-0.12.0",
+      "pname": "emmylua-ls",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:26:57.171111Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.12.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/5qlnczmk6i4d8q4fr622hqq2sdrarsdn-emmylua_ls-0.12.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",
@@ -151,15 +272,14 @@
       "description": "LSP implementation for the fish shell language",
       "install_id": "fish-lsp",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "fish-lsp-1.0.10",
       "pname": "fish-lsp",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:06:12.061604Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:00:43.014719Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -181,15 +301,14 @@
       "description": "LSP implementation for the fish shell language",
       "install_id": "fish-lsp",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "fish-lsp-1.0.10",
       "pname": "fish-lsp",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:40:52.758883Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:29:41.236413Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -211,15 +330,14 @@
       "description": "LSP implementation for the fish shell language",
       "install_id": "fish-lsp",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "fish-lsp-1.0.10",
       "pname": "fish-lsp",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:13:16.106749Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:56:36.432237Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -241,15 +359,14 @@
       "description": "LSP implementation for the fish shell language",
       "install_id": "fish-lsp",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "fish-lsp-1.0.10",
       "pname": "fish-lsp",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:49:35.892088Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:26:57.416560Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -265,21 +382,136 @@
       "priority": 5
     },
     {
+      "attr_path": "selene",
+      "broken": false,
+      "derivation": "/nix/store/kzg7r7lj2k0qqm9aj8y6rkiaay7kn8si-selene-0.29.0.drv",
+      "description": "Blazing-fast modern Lua linter written in Rust",
+      "install_id": "selene",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "selene-0.29.0",
+      "pname": "selene",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:02:26.861265Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.29.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/pqyc4s2rrr7gz59n6a9gcbcz7y1g3d5f-selene-0.29.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "selene",
+      "broken": false,
+      "derivation": "/nix/store/yj1v3cm4dkklsqkvwk71gwh8l1g95grf-selene-0.29.0.drv",
+      "description": "Blazing-fast modern Lua linter written in Rust",
+      "install_id": "selene",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "selene-0.29.0",
+      "pname": "selene",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:32:00.485468Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.29.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/bmg0x8cqkdq149g2b3y16njpbs3f950p-selene-0.29.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "selene",
+      "broken": false,
+      "derivation": "/nix/store/xjqc5gdvmpbq6bmrxca59lbickslkyqn-selene-0.29.0.drv",
+      "description": "Blazing-fast modern Lua linter written in Rust",
+      "install_id": "selene",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "selene-0.29.0",
+      "pname": "selene",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:58:18.816320Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.29.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/xli8d961phk59bg9dld7y60ns3h2x4i0-selene-0.29.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "selene",
+      "broken": false,
+      "derivation": "/nix/store/43sc4kzz0wzagalclpii5m1jgfnsr8pz-selene-0.29.0.drv",
+      "description": "Blazing-fast modern Lua linter written in Rust",
+      "install_id": "selene",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "selene-0.29.0",
+      "pname": "selene",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:29:24.320923Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "0.29.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/ysdxx7bkdym9mncd2rdm3c14y290pfpw-selene-0.29.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
       "attr_path": "shellcheck",
       "broken": false,
       "derivation": "/nix/store/b884admgfm6nxaqk24qssr22pfpa2qgv-shellcheck-0.10.0.drv",
       "description": "Shell script analysis tool",
       "install_id": "shellcheck",
       "license": "GPL-3.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shellcheck-0.10.0",
       "pname": "shellcheck",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:08:02.132528Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:02:27.207252Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -306,15 +538,14 @@
       "description": "Shell script analysis tool",
       "install_id": "shellcheck",
       "license": "GPL-3.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shellcheck-0.10.0",
       "pname": "shellcheck",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:43:23.821966Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:32:01.031248Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -341,15 +572,14 @@
       "description": "Shell script analysis tool",
       "install_id": "shellcheck",
       "license": "GPL-3.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shellcheck-0.10.0",
       "pname": "shellcheck",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:14:57.424986Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:58:19.203055Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -376,15 +606,14 @@
       "description": "Shell script analysis tool",
       "install_id": "shellcheck",
       "license": "GPL-3.0-only",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shellcheck-0.10.0",
       "pname": "shellcheck",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:52:10.924264Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:29:24.914744Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -411,15 +640,14 @@
       "description": "Shell parser and formatter",
       "install_id": "shfmt",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shfmt-3.12.0",
       "pname": "shfmt",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:08:02.180732Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:02:27.250768Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -441,15 +669,14 @@
       "description": "Shell parser and formatter",
       "install_id": "shfmt",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shfmt-3.12.0",
       "pname": "shfmt",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:43:23.883028Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:32:01.086618Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -471,15 +698,14 @@
       "description": "Shell parser and formatter",
       "install_id": "shfmt",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shfmt-3.12.0",
       "pname": "shfmt",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:14:57.466842Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:58:19.247514Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -501,15 +727,14 @@
       "description": "Shell parser and formatter",
       "install_id": "shfmt",
       "license": "BSD-3-Clause",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "shfmt-3.12.0",
       "pname": "shfmt",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:52:10.987019Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:29:24.971844Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -525,21 +750,136 @@
       "priority": 5
     },
     {
+      "attr_path": "stylua",
+      "broken": false,
+      "derivation": "/nix/store/9kwscjrgb2lf3sj6i2zl4q2k8bc5pc75-stylua-2.1.0.drv",
+      "description": "Opinionated Lua code formatter",
+      "install_id": "stylua",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "stylua-2.1.0",
+      "pname": "stylua",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:02:29.363890Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.1.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/s8fnfiif9vhlfdn04fskanq34mp2bjcz-stylua-2.1.0"
+      },
+      "system": "aarch64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stylua",
+      "broken": false,
+      "derivation": "/nix/store/wvd7x078yja39hschlnp8x1n9hni91qy-stylua-2.1.0.drv",
+      "description": "Opinionated Lua code formatter",
+      "install_id": "stylua",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "stylua-2.1.0",
+      "pname": "stylua",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:32:04.438230Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.1.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/pg4bcflybisjshff00a3k3v9i2d4izqh-stylua-2.1.0"
+      },
+      "system": "aarch64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stylua",
+      "broken": false,
+      "derivation": "/nix/store/lybjzdrzb6pxr1s5rm4yj5x6qwk8yq98-stylua-2.1.0.drv",
+      "description": "Opinionated Lua code formatter",
+      "install_id": "stylua",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "stylua-2.1.0",
+      "pname": "stylua",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:58:21.508341Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.1.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/fzczqi44f3wjysxarxr3l0iyzpjawf6r-stylua-2.1.0"
+      },
+      "system": "x86_64-darwin",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
+      "attr_path": "stylua",
+      "broken": false,
+      "derivation": "/nix/store/bfp8vpdi654fwkd6lhiijbxpl7w7vm99-stylua-2.1.0.drv",
+      "description": "Opinionated Lua code formatter",
+      "install_id": "stylua",
+      "license": "MPL-2.0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "name": "stylua-2.1.0",
+      "pname": "stylua",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:29:28.592892Z",
+      "stabilities": [
+        "unstable"
+      ],
+      "unfree": false,
+      "version": "2.1.0",
+      "outputs_to_install": [
+        "out"
+      ],
+      "outputs": {
+        "out": "/nix/store/hijc7nwwx9qakvdvb1g4z88gvwmyfw18-stylua-2.1.0"
+      },
+      "system": "x86_64-linux",
+      "group": "toplevel",
+      "priority": 5
+    },
+    {
       "attr_path": "taplo",
       "broken": false,
-      "derivation": "/nix/store/xhd99wyp12fs1amxhpzz7qchpqsamllr-taplo-0.10.0.drv",
+      "derivation": "/nix/store/2yzg5s5n7cf3inj5pygn1v2pxyy69l0v-taplo-0.10.0.drv",
       "description": "TOML toolkit written in Rust",
       "install_id": "taplo",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "taplo-0.10.0",
       "pname": "taplo",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:08:05.321254Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:02:30.123244Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -548,7 +888,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/bkmhp57rbj6q39ff90vng4wh06wyvp1w-taplo-0.10.0"
+        "out": "/nix/store/iv296lx84zjqcn80yx3b6g3dz3lpdxly-taplo-0.10.0"
       },
       "system": "aarch64-darwin",
       "group": "toplevel",
@@ -557,19 +897,18 @@
     {
       "attr_path": "taplo",
       "broken": false,
-      "derivation": "/nix/store/abmmzfvps8l5pdzj2ci9jvzb9r90bn7s-taplo-0.10.0.drv",
+      "derivation": "/nix/store/5q52rbwjnx0gq9hrdmn002paqag3icgk-taplo-0.10.0.drv",
       "description": "TOML toolkit written in Rust",
       "install_id": "taplo",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "taplo-0.10.0",
       "pname": "taplo",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T02:43:28.982316Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:32:05.877794Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -578,7 +917,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/s3xp4zg1l18a1s6chdyr0apdcdf524mq-taplo-0.10.0"
+        "out": "/nix/store/ka4fa2swzfwnfnrb8zs0jjqj771imps7-taplo-0.10.0"
       },
       "system": "aarch64-linux",
       "group": "toplevel",
@@ -587,19 +926,18 @@
     {
       "attr_path": "taplo",
       "broken": false,
-      "derivation": "/nix/store/90nahlqn328z3njzrh7zpvhz5zhgw590-taplo-0.10.0.drv",
+      "derivation": "/nix/store/9vhrgnyd15j0qa9j08ikc16x2xdqkwwr-taplo-0.10.0.drv",
       "description": "TOML toolkit written in Rust",
       "install_id": "taplo",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "taplo-0.10.0",
       "pname": "taplo",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:15:00.352467Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T02:58:22.264772Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -608,7 +946,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/rrly3y4lpvg0h9cjcxlcr8l05w84km8g-taplo-0.10.0"
+        "out": "/nix/store/njv5kychd9a6qwvzmwxxbyq2paxnkdj6-taplo-0.10.0"
       },
       "system": "x86_64-darwin",
       "group": "toplevel",
@@ -617,19 +955,18 @@
     {
       "attr_path": "taplo",
       "broken": false,
-      "derivation": "/nix/store/p9xq1aw35s69a448rz31z69p1pqr4lm0-taplo-0.10.0.drv",
+      "derivation": "/nix/store/v3yxa1bda02r1dpfr3saz2jw847fn43y-taplo-0.10.0.drv",
       "description": "TOML toolkit written in Rust",
       "install_id": "taplo",
       "license": "MIT",
-      "locked_url": "https://github.com/flox/nixpkgs?rev=ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
+      "locked_url": "https://github.com/flox/nixpkgs?rev=c23193b943c6c689d70ee98ce3128239ed9e32d1",
       "name": "taplo-0.10.0",
       "pname": "taplo",
-      "rev": "ab0f3607a6c7486ea22229b92ed2d355f1482ee0",
-      "rev_count": 859555,
-      "rev_date": "2025-09-10T06:58:08Z",
-      "scrape_date": "2025-09-12T03:52:16.555578Z",
+      "rev": "c23193b943c6c689d70ee98ce3128239ed9e32d1",
+      "rev_count": 861038,
+      "rev_date": "2025-09-13T06:43:22Z",
+      "scrape_date": "2025-09-15T03:29:30.144764Z",
       "stabilities": [
-        "staging",
         "unstable"
       ],
       "unfree": false,
@@ -638,7 +975,7 @@
         "out"
       ],
       "outputs": {
-        "out": "/nix/store/dvq0z1zxfaw8gw072bacv4d2z7s9km4l-taplo-0.10.0"
+        "out": "/nix/store/0ylhpa0vki4d9c7n68nn1nwgfvq1hb6l-taplo-0.10.0"
       },
       "system": "x86_64-linux",
       "group": "toplevel",

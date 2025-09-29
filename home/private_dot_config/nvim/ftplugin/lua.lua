@@ -3,7 +3,8 @@ vim.pack.add {
 }
 
 -- lsp
-vim.lsp.enable "lua_ls"
+-- vim.lsp.enable "lua_ls"
+vim.lsp.enable "emmylua_ls"
 
 -- lint
 require("lint").linters_by_ft.lua = { "selene" }
@@ -18,6 +19,7 @@ require("lazydev").setup {
   library = {
     { path = "${3rd}/luv/library", words = { "vim%.uv" } },
   },
+  -- enabled = false,
 }
 
 -- debug
