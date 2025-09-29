@@ -125,10 +125,24 @@ require("blink.cmp").setup {
   },
   keymap = {
     preset = "super-tab",
+    ["<Tab>"] = {
+      function(cmp)
+        if cmp.snippet_active() then
+          return cmp.accept()
+        else
+          return cmp.select_and_accept()
+        end
+      end,
+      "snippet_forward",
+      function() -- sidekick next edit suggestion
+        return require("sidekick").nes_jump_or_apply()
+      end,
+      function() -- if you are using Neovim's native inline completions
+        return vim.lsp.inline_completion.get()
+      end,
+      "fallback",
+    },
     ["<CR>"] = { "accept", "fallback" },
-    -- ["<A-y>"] = {
-    --   function(cmp) cmp.show { providers = { "minuet" } } end,
-    -- },
   },
 
   -- Shows a signature help window while you type arguments for a function
@@ -137,7 +151,6 @@ require("blink.cmp").setup {
   sources = {
     default = {
       "lsp",
-      "lazydev",
       "copilot",
       -- "minuet",
       "omni",
@@ -147,12 +160,18 @@ require("blink.cmp").setup {
       "emoji",
       "git",
     },
+    per_filetype = {
+      lua = { inherit_defaults = true, "lazydev" },
+    },
     providers = {
       copilot = {
         name = "copilot",
         module = "blink-copilot",
         score_offset = 100,
         async = true,
+        opts = {
+          kind_icon = "󰙲",
+        },
       },
       -- minuet = {
       --   name = "minuet",
