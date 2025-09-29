@@ -1,12 +1,3 @@
-// vim: set ft=jsonc:
-// Zed settings
-//
-// For information on how to configure Zed, see the Zed
-// documentation: https://zed.dev/docs/configuring-zed
-//
-// To see all of Zed's default settings without changing your
-// custom settings, run `zed: open default settings` from the
-// command palette (cmd-shift-p / ctrl-shift-p)
 {
   "theme": {
     "mode": "system",
@@ -43,7 +34,6 @@
   },
   "indent_guides": {
     "coloring": "indent_aware"
-    // "background_coloring": "indent_aware"
   },
   "vertical_scroll_margin": 1,
   "autoscroll_on_clicks": true,
@@ -55,7 +45,7 @@
   "agent": {
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4"
+      "model": "claude-sonnet-4.5"
     },
     "always_allow_tool_actions": true
   },
@@ -71,9 +61,6 @@
   },
   "format_on_save": "on",
   "diagnostics": {
-    "cargo": {
-      "fetch_cargo_diagnostics": true
-    },
     "inline": {
       "enabled": true
     }
@@ -96,14 +83,32 @@
     }
   },
   "file_types": {
+    "Ansible": [
+      "**.ansible.yml",
+      "**.ansible.yaml",
+      "**/defaults/*.yml",
+      "**/defaults/*.yaml",
+      "**/meta/*.yml",
+      "**/meta/*.yaml",
+      "**/tasks/*.yml",
+      "**/tasks/*.yaml",
+      "**/handlers/*.yml",
+      "**/handlers/*.yaml",
+      "**/group_vars/*.yml",
+      "**/group_vars/*.yaml",
+      "**/playbooks/*.yaml",
+      "**/playbooks/*.yml",
+      "**playbook*.yaml",
+      "**playbook*.yml"
+    ],
     "Python constraints": ["*constraints*.txt"],
     "Python requirements": [
       "**/requirements/*.{in,txt}",
       "*requirements*.{in,txt}"
-    ],
-    "TOML": ["tmpl"]
+    ]
   },
   "auto_install_extensions": {
+    "ansible": true,
     "basher": true,
     "biome": true,
     "catppuccin": true,
@@ -118,23 +123,18 @@
     "latex": true,
     "log": true,
     "ltex": true,
-    "lua": true,
     "make": true,
     "markdown-oxide": true,
     "marksman": true,
     "neocmake": true,
-    "pyrefly": true,
     "python-requirements": true,
     "nix": true,
     "perplexity": true,
     "rainbow-csv": true,
     "ruby": true,
-    "ruff": true,
-    "snippets": true,
     "superhtml": true,
     "swift": true,
     "toml": true,
-    "ty": true,
     "tree-sitter-query": true,
     "vue": true,
     "wakatime": true,
@@ -155,13 +155,21 @@
     },
     "HTML": {
       "language_servers": ["vscode-html-language-server", "superhtml"],
-      "formatter": { "language_server": { "name": "superhtml" } }
+      "formatter": {
+        "language_server": {
+          "name": "superhtml"
+        }
+      }
     },
     "JavaScript": {
       "prettier": {
         "allowed": false
       },
-      "formatter": { "language_server": { "name": "biome" } },
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
@@ -171,7 +179,11 @@
       "prettier": {
         "allowed": false
       },
-      "formatter": { "language_server": { "name": "biome" } },
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
@@ -181,25 +193,15 @@
       "prettier": {
         "allowed": false
       },
-      "formatter": { "language_server": { "name": "biome" } },
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
       }
-    },
-    "Lua": {
-      "formatter": {
-        "external": {
-          "command": "stylua",
-          "arguments": [
-            "--respect-ignores",
-            "--stdin-filepath",
-            "{buffer_path}",
-            "-"
-          ]
-        }
-      },
-      "tab_size": 2
     },
     "Markdown": {
       "language_servers": ["marksman", "markdown-oxide"]
@@ -214,20 +216,7 @@
       }
     },
     "Python": {
-      "language_servers": ["pyrefly", "ty", "ruff"],
-      "formatter": [
-        {
-          "code_actions": {
-            "source.fixAll.ruff": true,
-            "source.organizeImports.ruff": true
-          }
-        },
-        {
-          "language_server": {
-            "name": "ruff"
-          }
-        }
-      ]
+      "language_servers": ["ty", "!basedpyright", "..."]
     },
     "Ruby": {
       "language_servers": ["ruby-lsp", "rubocop", "!solargraph"]
@@ -236,7 +225,6 @@
       "formatter": {
         "external": {
           "command": "shfmt",
-          // Change `--indent 2` to match your preferred tab_size
           "arguments": ["--filename", "{buffer_path}", "--indent", "2"]
         }
       },
@@ -249,7 +237,11 @@
       "prettier": {
         "allowed": false
       },
-      "formatter": { "language_server": { "name": "biome" } },
+      "formatter": {
+        "language_server": {
+          "name": "biome"
+        }
+      },
       "code_actions_on_format": {
         "source.fixAll.biome": true,
         "source.organizeImports.biome": true
@@ -273,11 +265,6 @@
         "basedpyright.disableOrganizeImports": true
       }
     },
-    // "biome": {
-    //   "settings": {
-    //     "require_config_file": true
-    //   }
-    // },
     "protobuf-language-server": {
       "binary": {
         "path": "protols"
@@ -303,7 +290,6 @@
     "ruby-lsp": {
       "initialization_options": {
         "enabledFeatures": {
-          // This disables diagnostics
           "diagnostics": false
         }
       },
@@ -312,10 +298,10 @@
       }
     },
     "rust-analyzer": {
-      "check": {
-        "command": "clippy"
-      },
       "initialization_options": {
+        "check": {
+          "command": "clippy"
+        },
         "cargo": {
           "targetDir": true
         },
