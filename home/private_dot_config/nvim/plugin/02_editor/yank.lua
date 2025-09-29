@@ -3,7 +3,16 @@ require("yanky").setup {
   ring = { storage = "sqlite" },
 }
 
-vim.keymap.set({ "n", "x" }, "<leader>p", "<cmd>YankyRingHistory<cr>", { desc = "Open Yank History" })
+if vim.g.vim_picker == "snacks" then
+  vim.keymap.set(
+    { "n", "x" },
+    "<leader>p",
+    function() require("snacks").picker.yanky() end,
+    { desc = "Open Yank History" }
+  )
+else
+  vim.keymap.set({ "n", "x" }, "<leader>p", "<cmd>YankyRingHistory<cr>", { desc = "Open Yank History" })
+end
 vim.keymap.set({ "n", "x" }, "y", "<Plug>(YankyYank)", { desc = "Yank Text" })
 vim.keymap.set({ "n", "x" }, "p", "<Plug>(YankyPutAfter)", { desc = "Put Text After Cursor" })
 vim.keymap.set({ "n", "x" }, "P", "<Plug>(YankyPutBefore)", { desc = "Put Text Before Cursor" })
