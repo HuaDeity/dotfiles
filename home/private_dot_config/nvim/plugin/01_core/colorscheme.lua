@@ -2,7 +2,6 @@ require("catppuccin").setup {
   integrations = {
     aerial = true,
     blink_cmp = true,
-    copilot_vim = true,
     dap = true,
     diffview = true,
     dropbar = {
@@ -15,11 +14,7 @@ require("catppuccin").setup {
       enabled = true,
       lsp = true,
     },
-    lsp_trouble = true,
-    markdown = true,
-    mini = true,
-    native_lsp = {
-      enabled = true,
+    lsp_style = {
       virtual_text = {
         errors = { "italic" },
         hints = { "italic" },
@@ -38,6 +33,8 @@ require("catppuccin").setup {
         background = true,
       },
     },
+    lsp_trouble = true,
+    mini = true,
     neogit = true,
     neotest = true,
     noice = true,
@@ -45,8 +42,6 @@ require("catppuccin").setup {
     overseer = true,
     rainbow_delimiters = true,
     render_markdown = true,
-    semantic_tokens = true,
-    treesitter = true,
     treesitter_context = true,
     which_key = true,
   },
