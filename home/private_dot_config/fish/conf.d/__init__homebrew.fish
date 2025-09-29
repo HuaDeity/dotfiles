@@ -11,17 +11,14 @@ set -e brewcmds
 
 set -q HOMEBREW_NO_ANALYTICS || set -gx HOMEBREW_NO_ANALYTICS 1
 
-# Add fish completions
-if test -e "$HOMEBREW_PREFIX/share/fish/completions"
-    set -a fish_complete_path "$HOMEBREW_PREFIX/share/fish/completions"
-end
+add_completion_after_vendor "$HOMEBREW_PREFIX/share/fish/vendor_completions.d"
 
 # Add keg-only apps
 set -q HOMEBREW_KEG_ONLY_APPS; or set -g HOMEBREW_KEG_ONLY_APPS curl rustup sqlite
 for app in $HOMEBREW_KEG_ONLY_APPS
     if test -d "$HOMEBREW_PREFIX/opt/$app"
         fish_add_path --global "$HOMEBREW_PREFIX/opt/$app/bin"
-        set -a fish_complete_path "$HOMEBREW_PREFIX/opt/$app/share/fish/vendor_completions.d"
+        add_completion_after_vendor "$HOMEBREW_PREFIX/opt/$app/share/fish/vendor_completions.d"
     end
 end
 set -e HOMEBREW_KEG_ONLY_APPS
