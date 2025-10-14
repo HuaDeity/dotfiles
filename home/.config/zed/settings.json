@@ -165,43 +165,55 @@
       "prettier": {
         "allowed": false
       },
-      "formatter": {
-        "language_server": {
-          "name": "biome"
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true
-      }
+      ]
     },
     "JSON": {
       "prettier": {
         "allowed": false
       },
-      "formatter": {
-        "language_server": {
-          "name": "biome"
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true
-      }
+      ]
     },
     "JSONC": {
       "prettier": {
         "allowed": false
       },
-      "formatter": {
-        "language_server": {
-          "name": "biome"
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true
-      }
+      ]
     },
     "Markdown": {
       "language_servers": ["marksman", "markdown-oxide"]
@@ -237,15 +249,19 @@
       "prettier": {
         "allowed": false
       },
-      "formatter": {
-        "language_server": {
-          "name": "biome"
+      "formatter": [
+        {
+          "code_action": "source.fixAll.biome"
+        },
+        {
+          "code_action": "source.organizeImports.biome"
+        },
+        {
+          "language_server": {
+            "name": "biome"
+          }
         }
-      },
-      "code_actions_on_format": {
-        "source.fixAll.biome": true,
-        "source.organizeImports.biome": true
-      }
+      ]
     }
   },
   "language_models": {
@@ -317,24 +333,6 @@
         }
       }
     },
-    "ty": {
-      "binary": {
-        "path": "ty",
-        "arguments": ["server"]
-      },
-      "initialization_options": {
-        "settings": {
-          "python": {
-            "ty": {
-              "disableLanguageServices": true
-            }
-          },
-          "ty": {
-            "diagnosticMode": "workspace"
-          }
-        }
-      }
-    },
     "yaml-language-server": {
       "settings": {
         "yaml": {
@@ -350,6 +348,7 @@
   "ssh_connections": [
     {
       "host": "10342",
+      "args": [],
       "projects": [
         {
           "paths": ["~/Projects/ViS2O"]
@@ -358,6 +357,7 @@
     },
     {
       "host": "10351",
+      "args": [],
       "projects": [
         {
           "paths": ["~/Projects/ViS2O"]
@@ -366,6 +366,7 @@
     },
     {
       "host": "10354",
+      "args": [],
       "projects": [
         {
           "paths": ["~/Projects/ViS2O"]
@@ -374,6 +375,7 @@
     },
     {
       "host": "10356",
+      "args": [],
       "projects": [
         {
           "paths": ["~/Projects/ViS2O"]
@@ -382,9 +384,13 @@
     },
     {
       "host": "10357",
+      "args": [],
       "projects": [
         {
           "paths": ["/nas/wangyizun/.local/share/chezmoi"]
+        },
+        {
+          "paths": ["/nas/wangyizun/Projects/SAR2Optical/./"]
         },
         {
           "paths": ["/nas/wangyizun/Projects/nviwatch"]
@@ -402,6 +408,7 @@
     },
     {
       "host": "10358",
+      "args": [],
       "projects": [
         {
           "paths": ["~/Projects/ViS2O"]
