@@ -24,3 +24,10 @@ end
 
 _setup_nix_profile
 functions -e _setup_nix_profile
+
+switch (uname -s)
+    case Linux
+        set -a FISH_PROXY_PLUGINS nix
+        fish_add_path --global /run/system-manager/sw/bin
+        flox activate -d ~ -m run | source
+end
