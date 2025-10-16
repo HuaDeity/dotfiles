@@ -351,7 +351,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -360,7 +362,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -369,7 +373,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -378,7 +384,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -387,22 +395,39 @@
       "args": [],
       "projects": [
         {
-          "paths": ["/nas/wangyizun/.local/share/chezmoi"]
+          "paths": [
+            "/nas/wangyizun/.config/flake"
+          ]
         },
         {
-          "paths": ["/nas/wangyizun/Projects/SAR2Optical/./"]
+          "paths": [
+            "/nas/wangyizun/.local/share/chezmoi"
+          ]
         },
         {
-          "paths": ["/nas/wangyizun/Projects/nviwatch"]
+          "paths": [
+            "/nas/wangyizun/Projects/SAR2Optical/./"
+          ]
         },
         {
-          "paths": ["/nas/wangyizun/Projects/nviwatch-nix"]
+          "paths": [
+            "/nas/wangyizun/Projects/nviwatch"
+          ]
         },
         {
-          "paths": ["/nas/wangyizun/Projects/test"]
+          "paths": [
+            "/nas/wangyizun/Projects/nviwatch-nix"
+          ]
         },
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "/nas/wangyizun/Projects/test"
+          ]
+        },
+        {
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     },
@@ -411,7 +436,9 @@
       "args": [],
       "projects": [
         {
-          "paths": ["~/Projects/ViS2O"]
+          "paths": [
+            "~/Projects/ViS2O"
+          ]
         }
       ]
     }
