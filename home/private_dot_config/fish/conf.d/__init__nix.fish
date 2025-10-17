@@ -1,5 +1,5 @@
 set -gx NIX_PATH "nixpkgs=flake:nixpkgs"
-set -gx NIX_PROFILES "/nix/var/nix/profiles/default /run/current-system/sw /etc/profiles/per-user/$USER $XDG_STATE_HOME/nix/profile"
+set -gx NIX_PROFILES "/nix/var/nix/profiles/default /run/system-manager/sw /run/current-system/sw /etc/profiles/per-user/$USER $XDG_STATE_HOME/nix/profile"
 set -gx NIX_SSL_CERT_FILE "/etc/ssl/certs/ca-certificates.crt"
 set -gx NIX_USER_PROFILE_DIR "/nix/var/nix/profiles/per-user/$USER"
 
@@ -28,6 +28,5 @@ functions -e _setup_nix_profile
 switch (uname -s)
     case Linux
         set -a FISH_PROXY_PLUGINS nix
-        fish_add_path --global /run/system-manager/sw/bin
         flox activate -d ~ -m run | source
 end
