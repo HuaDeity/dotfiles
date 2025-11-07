@@ -28,7 +28,6 @@ functions -e _setup_nix_profile
 switch (uname -s)
     case Linux
         set -a FISH_PROXY_PLUGINS nix
-        fish_add_path --global /run/system-manager/sw/bin
 end
 
 if command -q flox
