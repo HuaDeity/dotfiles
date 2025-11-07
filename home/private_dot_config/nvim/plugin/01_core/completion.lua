@@ -232,7 +232,7 @@ require("blink.cmp").setup {
         module = "blink-cmp-git",
         name = "Git",
         -- only enable this source when filetype is gitcommit, markdown, or 'octo'
-        enabled = function() return vim.tbl_contains({ "octo", "gitcommit", "markdown" }, vim.bo.filetype) end,
+        enabled = function() return vim.tbl_contains({ "gitcommit", "markdown" }, vim.bo.filetype) end,
         opts = {
           -- options for the blink-cmp-git
         },

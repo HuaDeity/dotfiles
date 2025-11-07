@@ -4,7 +4,6 @@ vim.pack.add({
 
 require("yanky").setup {
   highlight = { timer = 150 },
-  ring = { storage = "sqlite" },
 }
 
 if vim.g.vim_picker == "snacks" then

@@ -24,6 +24,7 @@ prepend_fetchers = [
 ]
 
 prepend_previewers = [
+	{ mime = "image/tiff", run = "magick" },
 	{ name = "*.tar*", run = 'piper --format=url -- tar tf "$1"' },
 	{ name = "*.csv", run = 'piper -- bat -p --color=always "$1"' },
 	{ name = "*.md", run = 'piper -- CLICOLOR_FORCE=1 glow -w=$w -s=dark "$1"' },
