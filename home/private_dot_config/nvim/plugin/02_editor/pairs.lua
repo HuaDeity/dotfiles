@@ -1,3 +1,9 @@
+vim.pack.add({
+  "https://github.com/nvim-mini/mini.pairs",
+  "https://github.com/HiPhish/rainbow-delimiters.nvim",
+  "https://github.com/windwp/nvim-ts-autotag",
+})
+
 require("mini.pairs").setup {
   modes = { insert = true, command = true, terminal = false },
 }

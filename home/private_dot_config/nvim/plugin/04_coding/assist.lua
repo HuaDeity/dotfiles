@@ -1,3 +1,8 @@
+vim.pack.add({
+  -- "https://github.com/milanglacier/minuet-ai.nvim",
+  "https://github.com/folke/sidekick.nvim",
+})
+
 vim.lsp.enable "copilot"
 vim.lsp.inline_completion.enable()
 vim.keymap.set("n", "<tab>", function()

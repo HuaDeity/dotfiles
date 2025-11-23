@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/nvim-mini/mini.surround",
+})
+
 require("mini.surround").setup {
   custom_surroundings = {
     -- Use tree-sitter to search for function call

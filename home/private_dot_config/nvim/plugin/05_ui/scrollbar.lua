@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/nvim-mini/mini.map",
+})
+
 local map = require "mini.map"
 map.setup {
   integrations = {

@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/nvim-treesitter/nvim-treesitter-context",
+})
+
 local tsc = require "treesitter-context"
 require("snacks")
   .toggle({

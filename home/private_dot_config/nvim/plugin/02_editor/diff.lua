@@ -1,3 +1,9 @@
+vim.pack.add({
+  "https://github.com/nvim-mini/mini.diff",
+  "https://github.com/sindrets/diffview.nvim",
+  "https://github.com/f-person/git-blame.nvim",
+})
+
 require("diffview").setup {
   enhanced_diff_hl = true,
   view = {

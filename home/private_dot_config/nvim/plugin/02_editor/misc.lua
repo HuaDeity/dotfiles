@@ -1,3 +1,8 @@
+vim.pack.add({
+  "https://github.com/MeanderingProgrammer/render-markdown.nvim",
+  "https://github.com/smjonas/inc-rename.nvim",
+})
+
 -- new file
 vim.keymap.set("n", "<D-n>", "<cmd>enew<cr>", { desc = "New File" })
 -- save file

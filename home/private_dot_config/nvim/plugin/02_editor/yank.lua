@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/gbprod/yanky.nvim",
+})
+
 require("yanky").setup {
   highlight = { timer = 150 },
   ring = { storage = "sqlite" },

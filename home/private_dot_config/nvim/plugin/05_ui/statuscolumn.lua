@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/luukvbaal/statuscol.nvim",
+})
+
 require("statuscol").setup {
   relculright = true,
   clickhandlers = {

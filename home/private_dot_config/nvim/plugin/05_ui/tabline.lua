@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/akinsho/bufferline.nvim",
+})
+
 require("bufferline").setup {
   highlights = require("catppuccin.special.bufferline").get_theme(),
   options = {

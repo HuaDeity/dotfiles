@@ -1,4 +1,6 @@
 font-family = "Monaspace Neon Var"
+font-family = "Sarasa Term SC"
+
 font-feature = calt, liga, ss01, ss02, ss03, cv01=2
 
 adjust-cell-height = 28%

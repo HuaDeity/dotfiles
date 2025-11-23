@@ -43,9 +43,10 @@
     "enabled": true
   },
   "agent": {
+    "default_profile": "ask",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "claude-sonnet-4.5"
+      "model": "gemini-2.5-pro"
     },
     "always_allow_tool_actions": true
   },
@@ -438,6 +439,22 @@
         {
           "paths": [
             "~/Projects/ViS2O"
+          ]
+        }
+      ]
+    },
+    {
+      "host": "10357",
+      "args": [],
+      "projects": [
+        {
+          "paths": [
+            "/nas/wangyizun/Projects"
+          ]
+        },
+        {
+          "paths": [
+            "/nas/wangyizun/Projects/ViS2O/./"
           ]
         }
       ]

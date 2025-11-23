@@ -1,3 +1,8 @@
+vim.pack.add({
+  "https://github.com/nvim-neotest/neotest",
+  "https://github.com/nvim-neotest/nvim-nio",
+})
+
 ---@diagnostic disable: missing-fields
 require("neotest").setup {
   status = { virtual_text = true },

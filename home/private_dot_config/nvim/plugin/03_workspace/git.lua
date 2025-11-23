@@ -1,3 +1,8 @@
+vim.pack.add({
+  "https://github.com/nvim-mini/mini-git",
+  "https://github.com/NeogitOrg/neogit",
+})
+
 vim.keymap.set({ "n", "x" }, "<leader>gy", function() require("snacks").gitbrowse() end, { desc = "Git Browser(Open)" })
 -- stylua: ignore
 ---@diagnostic disable-next-line: missing-fields

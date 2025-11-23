@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/neovim/nvim-lspconfig",
+})
+
 local function lsp_attach(client, bufnr)
   -- stylua: ignore start
   -- File rename capability

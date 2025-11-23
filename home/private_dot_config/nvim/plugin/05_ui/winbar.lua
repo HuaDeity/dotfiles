@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/Bekaboo/dropbar.nvim",
+})
+
 require("dropbar").setup()
 
 vim.keymap.set("n", "<Leader>;", function() require("dropbar.api").pick() end, { desc = "Pick symbols in winbar" })

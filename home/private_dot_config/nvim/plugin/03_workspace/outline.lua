@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/stevearc/aerial.nvim",
+})
+
 require("aerial").setup {
   attach_mode = "global",
   backend = { "lsp", "treesitter", "markdown", "asciidoc", "man" },

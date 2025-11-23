@@ -3,7 +3,18 @@ _G.bt = function() require("snacks.debug").backtrace() end
 _G.p = function(...) require("snacks.debug").profile(...) end
 vim.print = _G.dd
 
-require("direnv").setup{
+vim.pack.add {
+  "https://github.com/nvim-lua/plenary.nvim",
+  "https://github.com/MunifTanjim/nui.nvim",
+  "https://github.com/folke/snacks.nvim",
+  "https://github.com/folke/noice.nvim",
+  "https://github.com/folke/trouble.nvim",
+  "https://github.com/nvim-mini/mini.icons",
+  "https://github.com/kkharji/sqlite.lua",
+  "https://github.com/NotAShelf/direnv.nvim",
+}
+
+require("direnv").setup {
   autoload_direnv = true,
 }
 
@@ -18,6 +29,7 @@ require("mini.icons").setup {
   },
   filetype = {
     octo = "",
+    gotmpl = { glyph = "󰟓", hl = "MiniIconsGrey" },
   },
   file = {
     [".chezmoiignore"] = { glyph = "", hl = "MiniIconsGrey" },
@@ -31,6 +43,7 @@ require("mini.icons").setup {
     ["toml.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
     ["yaml.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
     ["zsh.tmpl"] = { glyph = "", hl = "MiniIconsGrey" },
+    [".go-version"] = { glyph = "", hl = "MiniIconsBlue" },
   },
 }
 

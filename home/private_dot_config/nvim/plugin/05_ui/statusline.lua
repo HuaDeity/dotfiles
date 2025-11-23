@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/nvim-lualine/lualine.nvim",
+})
+
 if vim.fn.argc(-1) > 0 then
   -- set an empty statusline till lualine loads
   vim.o.statusline = " "

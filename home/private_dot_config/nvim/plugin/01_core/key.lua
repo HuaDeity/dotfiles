@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/folke/which-key.nvim",
+})
+
 ---@diagnostic disable-next-line: missing-fields
 require("which-key").setup {
   ---@type false | "classic" | "modern" | "helix"

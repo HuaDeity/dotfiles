@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/stevearc/conform.nvim",
+})
+
 --@param buf? integer
 local function format_enabled(buf)
   buf = (buf == nil or buf == 0) and vim.api.nvim_get_current_buf() or buf

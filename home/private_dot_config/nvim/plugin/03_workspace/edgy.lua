@@ -1,3 +1,7 @@
+vim.pack.add({
+  "https://github.com/folke/edgy.nvim",
+})
+
 ---@diagnostic disable-next-line: missing-fields
 require("edgy").setup {
   left = {
