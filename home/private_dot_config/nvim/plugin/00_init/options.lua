@@ -23,6 +23,8 @@ vim.g.spinner_symbols = {
   "⠏",
 }
 
+vim.g.treesitter_disable_filetypes = {}
+
 -- Set <space> as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are loaded (otherwise wrong leader will be used)
@@ -164,7 +166,7 @@ vim.o.shiftwidth = 2
 -- Round indent
 vim.o.shiftround = true
 
-vim.opt.spelllang = { "en" }
+vim.opt.spelllang = { "en", "cjk" }
 
 vim.o.splitkeep = "screen"
 

@@ -1,6 +1,5 @@
-# vim: set ft=bash:
+#!/usr/bin/env bash
 
-export PATH="$HOME/.local/bin:$PATH"
 # include .bashrc if it exists
 if [ -f "$HOME/.bashrc" ]; then
   # shellcheck disable=1091

@@ -1,16 +1,12 @@
-font-family = "Monaspace Neon Var"
-font-family = "Sarasa Term SC"
+font-family = "CommitMono Nerd Font Mono"
+font-feature = ss01, ss02, ss03, ss04, ss05, cv02, cv06, cv10 
 
-font-feature = calt, liga, ss01, ss02, ss03, cv01=2
-
-adjust-cell-height = 28%
-adjust-cursor-height = 28%
+adjust-cell-height = 20%
+adjust-cursor-height = 20%
 
 theme = dark:Catppuccin Mocha,light:Catppuccin Latte
 
 mouse-hide-while-typing = true
-
-# command = /bin/zsh
 
 window-height = 42
 window-width = 140

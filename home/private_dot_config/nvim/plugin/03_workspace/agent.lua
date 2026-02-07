@@ -1,10 +1,10 @@
-vim.pack.add({
+vim.pack.add {
   "https://github.com/olimorris/codecompanion.nvim",
   "https://github.com/ravitemer/codecompanion-history.nvim",
   "https://github.com/ravitemer/mcphub.nvim",
   "https://github.com/Davidyz/VectorCode",
   { src = "https://github.com/HakonHarnes/img-clip.nvim", version = "feat/pbctl" },
-})
+}
 
 require("img-clip").setup {
   default = {
@@ -105,7 +105,7 @@ require("codecompanion").setup {
   },
   strategies = {
     chat = {
-      adapter = "claude_code",
+      adapter = "gemini_cli",
       -- adapter = {
       --   name = "copilot",
       --   model = "claude-sonnet-4",

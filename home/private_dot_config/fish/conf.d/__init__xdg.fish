@@ -2,6 +2,9 @@
 # xdg - don't pollute home
 #
 
+# claude
+set -q CLAUDE_CONFIG_DIR; or set -gx CLAUDE_CONFIG_DIR $XDG_CONFIG_HOME/claude
+
 # docker
 set -q DOCKER_CONFIG; or set -gx DOCKER_CONFIG $XDG_CONFIG_HOME/docker
 
@@ -15,6 +18,13 @@ alias gpg "gpg --homedir '$GNUPGHOME'"
 # gradle
 set -q GRADLE_USER_HOME; or set -gx GRADLE_USER_HOME $XDG_DATA_HOME/gradle
 
+# go
+set -q GOMODCACHE; or set -gx GOMODCACHE $XDG_CACHE_HOME/go/mod
+set -q GOPATH; or set -gx GOPATH $XDG_DATA_HOME/go
+
+# matplotlib
+set -q MPLCONFIGDIR; or set -gx MPLCONFIGDIR $XDG_CONFIG_HOME/matplotlib
+
 # ncurses
 set -q TERMINFO; or set -gx TERMINFO $XDG_DATA_HOME/terminfo
 set TERMINFO_DIRS $TERMINFO:$TERMINFO_DIRS
@@ -27,7 +37,7 @@ set -q NODE_REPL_HISTORY; or set -gx NODE_REPL_HISTORY $XDG_DATA_HOME/node_repl_
 set -q OLLAMA_MODELS; or set -gx OLLAMA_MODELS $XDG_DATA_HOME/ollama/models
 
 # python
-set -q PYTHON_HISTORY; or set -gx PYTHON_HISTORY $XDG_CACHE_HOME/python/python_history
+set -q PYTHON_HISTORY; or set -gx PYTHON_HISTORY $XDG_STATE_HOME/python/python_history
 set -q IPYTHONDIR; or set -gx IPYTHONDIR $XDG_CONFIG_HOME/ipython
 
 # rbenv

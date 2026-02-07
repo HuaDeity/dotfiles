@@ -25,11 +25,6 @@ end
 _setup_nix_profile
 functions -e _setup_nix_profile
 
-switch (uname -s)
-    case Linux
-        set -a FISH_PROXY_PLUGINS nix
-end
-
 if command -q flox
     flox activate -d ~ -m run | source
 end

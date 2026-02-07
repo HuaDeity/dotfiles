@@ -1,5 +1,21 @@
-return {
-  on_attach = function()
-    vim.keymap.set("n", "<leader>K", "<plug>(vimtex-doc-package)", { desc = "Vimtex Docs", silent = true })
-  end,
-}
+-- return {
+--   settings = {
+--     texlab = {
+--       build = {
+--         excutable = "tectonic",
+--         args = {
+--           "-X",
+--           "compile",
+--           "%f",
+--           "-Z",
+--           "shell-escape",
+--           "--synctex",
+--           "--keep-logs",
+--           "--keep-intermediates",
+--         },
+--         onSave = true,
+--         forwardSearchAfter = true,
+--       },
+--     },
+--   },
+-- }

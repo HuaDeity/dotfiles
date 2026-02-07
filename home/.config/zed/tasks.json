@@ -21,5 +21,19 @@
   {
     "label": "CMake configure Release and build",
     "command": "cmake -DCMAKE_BUILD_TYPE=Release -B build && cmake --build build"
+  },
+  {
+    "label": "forward_search",
+    "command": "/Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW $ZED_DIRNAME/$ZED_STEM.pdf",
+    "allow_concurrent_runs": false,
+    "reveal": "never",
+    "hide": "always"
+  },
+  {
+    "label": "latexmk_view",
+    "command": "cd \"$ZED_DIRNAME\" && latexmk \"$ZED_STEM\" && /Applications/Skim.app/Contents/SharedSupport/displayline -r -z -b $ZED_ROW \"$ZED_STEM\".pdf",
+    "allow_concurrent_runs": false,
+    "reveal": "no_focus",
+    "hide": "on_success"
   }
 ]

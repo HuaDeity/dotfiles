@@ -9,7 +9,7 @@ end
 $brewcmds[1] shellenv | source
 set -e brewcmds
 
-set -q HOMEBREW_NO_ANALYTICS || set -gx HOMEBREW_NO_ANALYTICS 1
+set -q HOMEBREW_NO_ANALYTICS; or set -gx HOMEBREW_NO_ANALYTICS 1
 
 add_completion_after_vendor "$HOMEBREW_PREFIX/share/fish/vendor_completions.d"
 

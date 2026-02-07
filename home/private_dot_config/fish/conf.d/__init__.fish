@@ -18,7 +18,7 @@ end
 set -gx PAGER less
 
 set -g FISH_PROXY_AUTO yes
-set -g FISH_PROXY_PLUGINS shell
+set -g FISH_PROXY_PLUGINS shell nix
 
 switch (uname -s)
     case Darwin
@@ -26,9 +26,3 @@ switch (uname -s)
     case Linux
         set -g FISH_PROXY_MIXED "192.168.103.58:7878"
 end
-
-set -g hydro_multiline true
-
-# Allow subdirs for functions and completions.
-set fish_function_path (path resolve $__fish_config_dir/functions/*/) $fish_function_path
-set fish_complete_path (path resolve $__fish_config_dir/completions/*/) $fish_complete_path

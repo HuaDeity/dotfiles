@@ -1,7 +1,9 @@
-vim.pack.add({
+vim.pack.add {
   "https://github.com/MeanderingProgrammer/render-markdown.nvim",
   "https://github.com/smjonas/inc-rename.nvim",
-})
+}
+
+require("nvim-treesitter").install "latex"
 
 -- new file
 vim.keymap.set("n", "<D-n>", "<cmd>enew<cr>", { desc = "New File" })

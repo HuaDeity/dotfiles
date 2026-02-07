@@ -1,10 +1,14 @@
-require("git"):setup()
-
-require("full-border"):setup()
-
 require("session"):setup {
   sync_yanked = true,
 }
+
+require("mime-ext.local"):setup {
+  fallback_file1 = true,
+}
+
+require("git"):setup()
+
+require("full-border"):setup()
 
 require("mactag"):setup {
   keys = {
@@ -23,8 +27,4 @@ require("mactag"):setup {
     Blue = "#5fa3f8",
     Purple = "#cb88f8",
   },
-}
-
-require("mime-ext"):setup {
-  fallback_file1 = true,
 }

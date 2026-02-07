@@ -1,11 +1,15 @@
-vim.pack.add({
+vim.pack.add {
   { src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
-})
+}
 
 -- Highlight
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("TreesitterHighlight", { clear = true }),
-  callback = function() pcall(vim.treesitter.start) end,
+  callback = function(args)
+    local disabled_list = vim.g.treesitter_disable_filetypes or {}
+    if vim.tbl_contains(disabled_list, args.match) then return end
+    pcall(vim.treesitter.start)
+  end,
   desc = "Treesitter: highlight syntax automatically",
 })
 

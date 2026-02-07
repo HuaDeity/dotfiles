@@ -1,8 +1,4 @@
 {{- if eq .chezmoi.os "darwin" -}}
-{{- if lookPath "orb" -}}
-Include ~/.orbstack/ssh/config
-{{- end }}
-
 Include ~/.ssh/config.d/*.config
 
 Host *

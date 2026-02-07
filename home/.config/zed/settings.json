@@ -9,15 +9,16 @@
     "light": "Catppuccin Latte",
     "dark": "Catppuccin Mocha"
   },
-  "buffer_font_family": "Monaspace Neon Var",
-  "buffer_font_fallbacks": ["Symbols Nerd Font Mono"],
+  "buffer_font_family": "CommitMono Nerd Font Mono",
   "buffer_font_features": {
-    "calt": true,
-    "liga": true,
     "ss01": true,
     "ss02": true,
     "ss03": true,
-    "cv01": 2
+    "ss04": true,
+    "ss05": true,
+    "cv02": true,
+    "cv06": true,
+    "cv10": true
   },
   "buffer_font_size": 13,
   "pane_split_direction_horizontal": "down",
@@ -43,10 +44,10 @@
     "enabled": true
   },
   "agent": {
-    "default_profile": "ask",
+    "default_profile": "write",
     "default_model": {
       "provider": "copilot_chat",
-      "model": "gemini-2.5-pro"
+      "model": "gpt-5.2-codex"
     },
     "always_allow_tool_actions": true
   },
@@ -102,6 +103,8 @@
       "**playbook*.yaml",
       "**playbook*.yml"
     ],
+    "LaTeX": ["dtx"],
+    "Perl": ["latexmkrc", ".latexmkrc"],
     "Python constraints": ["*constraints*.txt"],
     "Python requirements": [
       "**/requirements/*.{in,txt}",
@@ -128,6 +131,7 @@
     "markdown-oxide": true,
     "marksman": true,
     "neocmake": true,
+    "perl": true,
     "python-requirements": true,
     "nix": true,
     "perplexity": true,
@@ -334,6 +338,17 @@
         }
       }
     },
+    "texlab": {
+      "settings": {
+        "texlab": {
+          "bibtexFormatter": "tex-fmt",
+          "build": {
+            "onSave": false
+          },
+          "latexFormatter": "tex-fmt"
+        }
+      }
+    },
     "yaml-language-server": {
       "settings": {
         "yaml": {
@@ -352,9 +367,7 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
+          "paths": ["~/Projects/ViS2O"]
         }
       ]
     },
@@ -363,9 +376,7 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
+          "paths": ["~/Projects/ViS2O"]
         }
       ]
     },
@@ -374,9 +385,7 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
+          "paths": ["~/Projects/ViS2O"]
         }
       ]
     },
@@ -385,9 +394,7 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
+          "paths": ["~/Projects/ViS2O"]
         }
       ]
     },
@@ -396,39 +403,25 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/nas/wangyizun/.config/flake"
-          ]
+          "paths": ["/nas/wangyizun/.config/flake"]
         },
         {
-          "paths": [
-            "/nas/wangyizun/.local/share/chezmoi"
-          ]
+          "paths": ["/nas/wangyizun/.local/share/chezmoi"]
         },
         {
-          "paths": [
-            "/nas/wangyizun/Projects/SAR2Optical/./"
-          ]
+          "paths": ["/nas/wangyizun/Projects/SAR2Optical/./"]
         },
         {
-          "paths": [
-            "/nas/wangyizun/Projects/nviwatch"
-          ]
+          "paths": ["/nas/wangyizun/Projects/nviwatch"]
         },
         {
-          "paths": [
-            "/nas/wangyizun/Projects/nviwatch-nix"
-          ]
+          "paths": ["/nas/wangyizun/Projects/nviwatch-nix"]
         },
         {
-          "paths": [
-            "/nas/wangyizun/Projects/test"
-          ]
+          "paths": ["/nas/wangyizun/Projects/test"]
         },
         {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
+          "paths": ["~/Projects/ViS2O"]
         }
       ]
     },
@@ -437,9 +430,7 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "~/Projects/ViS2O"
-          ]
+          "paths": ["~/Projects/ViS2O"]
         }
       ]
     },
@@ -448,21 +439,12 @@
       "args": [],
       "projects": [
         {
-          "paths": [
-            "/nas/wangyizun/Projects"
-          ]
+          "paths": ["/nas/wangyizun/Projects"]
         },
         {
-          "paths": [
-            "/nas/wangyizun/Projects/ViS2O/./"
-          ]
+          "paths": ["/nas/wangyizun/Projects/ViS2O/./"]
         }
       ]
     }
-  ],
-  "agent_servers": {
-    "gemini": {
-      "ignore_system_version": false
-    }
-  }
+  ]
 }

@@ -5,12 +5,10 @@ prepend_keymap = [
 	# Navigation
 	{ on = "<D-[>", run = "back", desc = "Back to previous directory" },
 	{ on = "<D-]>", run = "forward", desc = "Forward to next directory" },
-	{ on = "<D-o>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
 	{ on = "<Enter>", run = "rename --cursor=before_ext", desc = "Rename selected file(s)" },
 
 	# Goto
 	{ on = ["g", "r", "t"], run = 'shell -- ya emit cd "$(git rev-parse --show-toplevel)"', desc = "cd into the top of the current repository or submodule" },
-	{ on = ["g", "c"], run = "plugin vcs-files", desc = "Show Git file changes" },
 
 	{ on = "$", run = 'shell --block $SHELL', desc = "Open $SHELL here" },
 
@@ -19,13 +17,23 @@ prepend_keymap = [
 	# Plugins
 	{ on = "f", run = "plugin jump-to-char", desc = "Jump to char" },
 	{ on = "F", run = "plugin smart-filter", desc = "Smart filter" },
-	{ on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
-	{ on = "M", run = "plugin mount" },
 	{ on = "T", run = "plugin toggle-pane min-preview", desc = "Show or hide the preview pane" },
-	{ on = "<C-d>", run = "plugin diff", desc = "Diff the selected with the hovered file" },
+
 	{ on = ["c", "m"], run = "plugin chmod", desc = "Chmod on selected files" },
+
+	{ on = "<C-d>", run = "plugin diff", desc = "Diff the selected with the hovered file" },
+
 	{ on = ["b", "a"], run = "plugin mactag add", desc = "Tag selected files" },
 	{ on = ["b", "r"], run = "plugin mactag remove", desc = "Untag selected files" },
+
+	{ on = "M", run = "plugin mount" },
+
+	{ on = "<D-o>", run = "plugin smart-enter", desc = "Enter the child directory, or open the file" },
+
+	{ on = "p", run = "plugin smart-paste", desc = "Paste into the hovered directory or CWD" },
+
+	{ on = ["g", "c"], run = "plugin vcs-files", desc = "Show Git file changes" },
+
 	{ on = "<D-+>", run = "plugin zoom 1", desc = "Zoom in hovered file" },
 	{ on = "<D-->", run = "plugin zoom -1", desc = "Zoom out hovered file" },
 ]

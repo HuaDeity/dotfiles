@@ -1,48 +1,10 @@
-#!/bin/zsh
-if [[ "$ZSH_THEME" == p10k* ]]; then
-  if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-  fi
-fi
+#!/usr/bin/env zsh
 
-function autoload-dir {
-  local zdir
-  local -a zautoloads
-  for zdir in $@; do
-    [[ -d "$zdir" ]] || continue
-    fpath=("$zdir" $fpath)
-    zautoloads=($zdir/[^_]*(N:t))
-    (( $#zautoloads > 0 )) && autoload -Uz $zautoloads
-  done
-}
+# Use XDG dirs for completion and history files
+[ -d "$XDG_STATE_HOME"/zsh ] || mkdir -p "$XDG_STATE_HOME"/zsh
+HISTFILE="$XDG_STATE_HOME"/zsh/history
 
-ZFUNCDIR="${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions"
-
-# Autoload ZFUNCDIR.
-if [[ -d "$ZFUNCDIR" ]]; then
-  autoload-dir $ZFUNCDIR(N/) $ZFUNCDIR/*(N/)
-fi
-
-confded
-hybrid_key_bindings
-
-fancy-ctrl-z () {
-  if [[ $#BUFFER -eq 0 ]]; then
-    BUFFER="fg"
-    zle accept-line -w
-  else
-    zle push-input -w
-    zle clear-screen -w
-  fi
-}
-zle -N fancy-ctrl-z
-bindkey '^Z' fancy-ctrl-z
-
-get_secret
-
-if [[ $ZSH_THEME == p10k ]]; then
-  [[ ! -f ${ZDOTDIR:-$HOME}/.p10k.zsh ]] || source ${ZDOTDIR:-$HOME}/.p10k.zsh
-elif [[ $ZSH_THEME == starship ]]; then
-  eval "$(starship init zsh)"
-fi
-
+[ -d "$XDG_CACHE_HOME"/zsh ] || mkdir -p "$XDG_CACHE_HOME"/zsh
+zstyle ':completion:*' cache-path "$XDG_CACHE_HOME"/zsh/zcompcache
+autoload -Uz compinit
+compinit -d "$XDG_CACHE_HOME"/zsh/zcompdump-$ZSH_VERSION

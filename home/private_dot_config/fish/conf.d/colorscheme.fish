@@ -1,6 +1,6 @@
 set_flavor
 
-fish_config theme choose "Catppuccin $LC_CFLAVOR"
+fish_config theme choose catppuccin-mocha
 
 set -gx BAT_THEME "Catppuccin $LC_CFLAVOR"
 
@@ -10,7 +10,8 @@ if test -f "$XDG_CONFIG_HOME/fzf/themes/catppuccin-fzf-$LC_FLAVOR.fish"
     source "$XDG_CONFIG_HOME/fzf/themes/catppuccin-fzf-$LC_FLAVOR.fish"
 end
 
-alias gitui="gitui -t catppuccin-$LC_FLAVOR.ron"
+set -gx GLAMOUR_STYLE "$XDG_CONFIG_HOME/glamour/themes/catppuccin-$LC_FLAVOR.json"
+alias glow="glow -s $XDG_CONFIG_HOME/glamour/themes/catppuccin-$LC_FLAVOR.json"
 
 set -gx LG_CONFIG_FILE "$XDG_CONFIG_HOME/lazygit/config.yml,$XDG_CONFIG_HOME/lazygit/themes/$LC_FLAVOR/mauve.yml"
 
