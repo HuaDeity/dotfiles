@@ -8,7 +8,7 @@ Darwin)
   brew install doppler
   ;;
 Linux)
-  nix profile install "nixpkgs#doppler"
+  flox install -d "$HOME" doppler
   ;;
 *)
   echo "unsupported OS"

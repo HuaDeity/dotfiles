@@ -18,7 +18,7 @@ end
 set -gx PAGER less
 
 set -g FISH_PROXY_AUTO yes
-set -g FISH_PROXY_PLUGINS shell nix
+set -g FISH_PROXY_PLUGINS shell
 
 switch (uname -s)
     case Darwin
