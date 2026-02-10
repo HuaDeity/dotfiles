@@ -13,9 +13,6 @@
   process = git-lfs filter-process
   required = true
 [gpg]
-{{- if eq .chezmoi.os "darwin" }}
-  program = /usr/local/bin/gpg
-{{- end }}
   format = ssh
 [gpg "ssh"]
   allowedsignersfile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
