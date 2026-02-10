@@ -42,15 +42,6 @@ if command -q nvitop && command -q nixglhost
     end
 end
 
-if command -q rbenv
-    status is-interactive; and rbenv init - --no-rehash fish | source
-end
-
-if command -q volta
-    set -gx VOLTA_HOME $XDG_DATA_HOME/volta
-    fish_add_path --global $VOLTA_HOME/bin
-end
-
 if command -q zoxide
     zoxide init fish | source
 end
