@@ -23,10 +23,6 @@ set -g status-interval 5
 set -g status-position top
 set -g status-justify left
 
-# Shell
-# set -g default-shell "/opt/homebrew/bin/zsh"
-
 # Windows
 set -g base-index 1
 set -g renumber-windows on
-
