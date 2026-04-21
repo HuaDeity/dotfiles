@@ -35,14 +35,12 @@
     refreshPeriod = "168h"
     include = ["*/themes-mergable/**"]
 {{- end }}
-{{- if eq .chezmoi.os "darwin" }}
-["Library/Developer/Xcode/UserData/FontAndColorThemes"]
+{{- if lookPath "tmux" }}
+[".local/share/tmux/plugins/tmux-catppuccin"]
     type = "archive"
-    url = "https://github.com/catppuccin/xcode/archive/main.tar.gz"
+    url = "https://github.com/catppuccin/tmux/archive/main.tar.gz"
     exact = true
-    stripComponents = 2
+    stripComponents = 1
     refreshPeriod = "168h"
-    include = ["*/*/*.xccolortheme"]
 {{- end }}
 {{- end }}
-
