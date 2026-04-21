@@ -1,6 +1,6 @@
-if command -q bat; or command -q batcat
-    abbr -a --position anywhere -- --help '--help | cat -plhelp'
-    abbr -a --position anywhere -- -h '-h | cat -plhelp'
+if command -q bat
+    abbr -a --position anywhere -- --help '--help | bat -plhelp'
+    abbr -a --position anywhere -- -h '-h | bat -plhelp'
 end
 
 abbr ll "ls -l --git"

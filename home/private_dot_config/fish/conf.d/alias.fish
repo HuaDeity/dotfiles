@@ -1,7 +1,5 @@
 if command -q bat
     alias cat="bat"
-else if command -q batcat
-    alias cat="batcat"
 end
 
 if command -q eza

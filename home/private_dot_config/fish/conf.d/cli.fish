@@ -1,9 +1,5 @@
-if command -q batman
-    batman --export-env | source
-end
-
-if command -q batpipe
-    batpipe | source
+if command -q bat
+    set -gx MANPAGER "bat -plman"
 end
 
 if command -q cargo
