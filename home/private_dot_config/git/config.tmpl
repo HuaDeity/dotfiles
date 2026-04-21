@@ -2,11 +2,7 @@
 [user]
   name = {{ .name }}
   email = {{ .email }}
-  signingkey = "key::{{ .signingkey }} ecdsa-sha2-nistp256"
-[lfs "customtransfer.xet"]
-    path = git-xet
-    args = transfer
-    concurrent = true
+  signingkey = key::{{ .signingkey }} {{ .email }}
 [filter "lfs"]
   clean = git-lfs clean -- %f
   smudge = git-lfs smudge -- %f
@@ -16,6 +12,7 @@
   format = ssh
 [gpg "ssh"]
   allowedsignersfile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
+  program = {{ .chezmoi.homeDir }}/.local/bin/ssh-keygen-secretive
 [commit]
   gpgsign = true
 [init]
