@@ -2,6 +2,7 @@ set -gx NIX_PATH "nixpkgs=flake:nixpkgs"
 set -gx NIX_PROFILES "/nix/var/nix/profiles/default /run/system-manager/sw /run/current-system/sw /etc/profiles/per-user/$USER $XDG_STATE_HOME/nix/profile"
 set -gx NIX_SSL_CERT_FILE "/etc/ssl/certs/ca-certificates.crt"
 set -gx NIX_USER_PROFILE_DIR "/nix/var/nix/profiles/per-user/$USER"
+set -gx NH_FLAKE $XDG_CONFIG_HOME/flake
 
 function _setup_nix_profile
     # Split NIX_PROFILES and build directories dynamically
@@ -30,6 +31,6 @@ switch (uname -s)
         set -a FISH_PROXY_PLUGINS nix
 end
 
-if command -q flox
+if command -q flox && test -d $HOME/.flox
     flox activate -d ~ -m run | source
 end
